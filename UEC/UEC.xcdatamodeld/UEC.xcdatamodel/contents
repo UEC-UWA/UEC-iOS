@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Event" syncable="YES">
+        <attribute name="end_date" optional="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="location" optional="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" syncable="YES"/>
+        <attribute name="start_date" optional="YES" syncable="YES"/>
+        <attribute name="type" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="NewsArticle" syncable="YES">
+        <attribute name="content" optional="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="link" optional="YES" syncable="YES"/>
+        <attribute name="summary" optional="YES" syncable="YES"/>
+        <attribute name="title" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="Person" syncable="YES">
+        <attribute name="email" optional="YES" syncable="YES"/>
+        <attribute name="first_name" optional="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="last_name" optional="YES" syncable="YES"/>
+        <attribute name="photo_path" optional="YES" syncable="YES"/>
+        <attribute name="position" optional="YES" syncable="YES"/>
+        <attribute name="summary" optional="YES" syncable="YES"/>
+    </entity>
+    <entity name="PhotoAlbums" syncable="YES">
+        <attribute name="date" optional="YES" syncable="YES"/>
+        <attribute name="identifier" optional="YES" syncable="YES"/>
+        <attribute name="key_photo_path" optional="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="-2106" positionY="-907" width="128" height="148"/>
+        <element name="Event" positionX="-1656" positionY="-909" width="128" height="133"/>
+        <element name="NewsArticle" positionX="-1647" positionY="-709" width="128" height="133"/>
+        <element name="PhotoAlbums" positionX="-1989" positionY="-682" width="128" height="103"/>
+    </elements>
+</model>

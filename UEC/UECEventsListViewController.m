@@ -1,18 +1,18 @@
 //
-//  UECNewsViewController.m
+//  UECEventListViewController.m
 //  UEC
 //
 //  Created by Jad Osseiran on 7/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UECNewsViewController.h"
+#import "UECEventsListViewController.h"
 
-@interface UECNewsViewController ()
+@interface UECEventsListViewController ()
 
 @end
 
-@implementation UECNewsViewController
+@implementation UECEventsListViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,15 +27,8 @@
 {
     [super viewDidLoad];
 
-    // Add refresh control programmatically (not in NIB)
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,13 +37,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Refreshing
+#pragma mark - Refresh
 
-- (void)refreshInvoked:(id)sender forState:(UIControlState)state
+- (void)handleRefresh:(id)sender
 {
-    // Refresh table here...
-    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows] withRowAnimation:UITableViewRowAnimationAutomatic];
-
     [self.refreshControl endRefreshing];
 }
 

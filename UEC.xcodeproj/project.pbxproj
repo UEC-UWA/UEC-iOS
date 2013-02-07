@@ -23,6 +23,24 @@
 		0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
 		0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAD816C2A85A00B327B7 /* InfoPlist.strings */; };
 		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
+		055910D416C3AD5400BF14D2 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910CF16C3AD3A00BF14D2 /* libSDWebImage.a */; };
+		055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910D516C3AD7D00BF14D2 /* ImageIO.framework */; };
+		055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910DD16C3ADED00BF14D2 /* libTimesSquare.a */; };
+		055910EE16C3AE9600BF14D2 /* CalendarPreviousMonth.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E416C3AE9600BF14D2 /* CalendarPreviousMonth.png */; };
+		055910EF16C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E516C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png */; };
+		055910F016C3AE9600BF14D2 /* CalendarRow.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E616C3AE9600BF14D2 /* CalendarRow.png */; };
+		055910F116C3AE9600BF14D2 /* CalendarRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */; };
+		055910F216C3AE9600BF14D2 /* CalendarRowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */; };
+		055910F316C3AE9600BF14D2 /* CalendarRowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */; };
+		055910F416C3AE9600BF14D2 /* CalendarSelectedDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */; };
+		055910F516C3AE9600BF14D2 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */; };
+		055910F616C3AE9600BF14D2 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */; };
+		055910F716C3AE9600BF14D2 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */; };
+		055910FA16C3AFB400BF14D2 /* UECCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */; };
+		0559110116C3B24600BF14D2 /* UECMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110016C3B24600BF14D2 /* UECMonthViewController.m */; };
+		0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110616C3B44000BF14D2 /* NSDate+Helper.m */; };
+		0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */; };
+		0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */; };
 		05DD22BD16C2AF4800CF18F0 /* UECUniversalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */; };
 		05DD22C216C2B16C00CF18F0 /* TabBarItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */; };
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
@@ -44,6 +62,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0542FA9916C2A85A00B327B7;
 			remoteInfo = UEC;
+		};
+		055910CE16C3AD3A00BF14D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 53761325155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
+		055910D016C3AD3A00BF14D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
+			remoteInfo = "SDWebImage+MKAnnotation";
+		};
+		055910D216C3AD4D00BF14D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 53761307155AD0D5005750A4;
+			remoteInfo = SDWebImage;
+		};
+		055910DC16C3ADED00BF14D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A806805B16700FD70071C71E;
+			remoteInfo = TimesSquare;
+		};
+		055910DE16C3ADFA00BF14D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = A806805A16700FD70071C71E;
+			remoteInfo = TimesSquare;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -69,6 +122,28 @@
 		0542FAD916C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0542FADB16C2A85A00B327B7 /* UECTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UECTests.h; sourceTree = "<group>"; };
 		0542FADC16C2A85A00B327B7 /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
+		055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
+		055910D516C3AD7D00BF14D2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TimesSquare.xcodeproj; path = "objc-TimesSquare/TimesSquare.xcodeproj"; sourceTree = "<group>"; };
+		055910E416C3AE9600BF14D2 /* CalendarPreviousMonth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarPreviousMonth.png; sourceTree = "<group>"; };
+		055910E516C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarPreviousMonth@2x.png"; sourceTree = "<group>"; };
+		055910E616C3AE9600BF14D2 /* CalendarRow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRow.png; sourceTree = "<group>"; };
+		055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRow@2x.png"; sourceTree = "<group>"; };
+		055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRowBottom.png; sourceTree = "<group>"; };
+		055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRowBottom@2x.png"; sourceTree = "<group>"; };
+		055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarSelectedDate.png; sourceTree = "<group>"; };
+		055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
+		055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTodaysDate.png; sourceTree = "<group>"; };
+		055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
+		055910F816C3AFB400BF14D2 /* UECCalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarRowCell.h; sourceTree = "<group>"; };
+		055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarRowCell.m; sourceTree = "<group>"; };
+		055910FF16C3B24600BF14D2 /* UECMonthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMonthViewController.h; sourceTree = "<group>"; };
+		0559110016C3B24600BF14D2 /* UECMonthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECMonthViewController.m; sourceTree = "<group>"; };
+		0559110516C3B44000BF14D2 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		0559110616C3B44000BF14D2 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventsListViewController.h; sourceTree = "<group>"; };
+		0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventsListViewController.m; sourceTree = "<group>"; };
+		0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UEC.xcdatamodel; sourceTree = "<group>"; };
 		05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECUniversalAppManager.h; sourceTree = "<group>"; };
 		05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECUniversalAppManager.m; sourceTree = "<group>"; };
 		05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarItems.plist; sourceTree = "<group>"; };
@@ -94,6 +169,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */,
+				055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */,
+				055910D416C3AD5400BF14D2 /* libSDWebImage.a in Frameworks */,
 				0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */,
 				0542FAA016C2A85A00B327B7 /* Foundation.framework in Frameworks */,
 				0542FAA216C2A85A00B327B7 /* CoreGraphics.framework in Frameworks */,
@@ -116,6 +194,8 @@
 		0542FA9116C2A85A00B327B7 = {
 			isa = PBXGroup;
 			children = (
+				055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */,
+				055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */,
 				0542FAA316C2A85A00B327B7 /* UEC */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
@@ -135,6 +215,7 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				055910D516C3AD7D00BF14D2 /* ImageIO.framework */,
 				0542FA9D16C2A85A00B327B7 /* UIKit.framework */,
 				0542FA9F16C2A85A00B327B7 /* Foundation.framework */,
 				0542FAA116C2A85A00B327B7 /* CoreGraphics.framework */,
@@ -148,16 +229,10 @@
 			children = (
 				0542FAAC16C2A85A00B327B7 /* UECAppDelegate.h */,
 				0542FAAD16C2A85A00B327B7 /* UECAppDelegate.m */,
-				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
-				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
-				05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */,
-				05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */,
-				05DD22AC16C2AC0C00CF18F0 /* iPad Storyboard */,
-				05DD22CA16C2B6F400CF18F0 /* News */,
-				05DD22CE16C2B71A00CF18F0 /* Calendar */,
-				05DD22D216C2B73500CF18F0 /* Committee */,
-				05DD22D616C2B75A00CF18F0 /* Photos */,
-				05DD22DA16C2B77D00CF18F0 /* Settings */,
+				0559110416C3B42700BF14D2 /* Helpers */,
+				0559110E16C3CAD100BF14D2 /* Core Data */,
+				0559110316C3B41100BF14D2 /* Stroyboards */,
+				0559110216C3B40A00BF14D2 /* Modules */,
 				0542FAA416C2A85A00B327B7 /* Supporting Files */,
 			);
 			path = UEC;
@@ -196,13 +271,88 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		055910C916C3AD3900BF14D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055910CF16C3AD3A00BF14D2 /* libSDWebImage.a */,
+				055910D116C3AD3A00BF14D2 /* libSDWebImage+MKAnnotation.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		055910D816C3ADEC00BF14D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055910DD16C3ADED00BF14D2 /* libTimesSquare.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		055910E316C3AE8600BF14D2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				055910E416C3AE9600BF14D2 /* CalendarPreviousMonth.png */,
+				055910E516C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png */,
+				055910E616C3AE9600BF14D2 /* CalendarRow.png */,
+				055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */,
+				055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */,
+				055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */,
+				055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */,
+				055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */,
+				055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */,
+				055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		0559110216C3B40A00BF14D2 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				05DD22CA16C2B6F400CF18F0 /* News */,
+				05DD22CE16C2B71A00CF18F0 /* Calendar */,
+				05DD22D216C2B73500CF18F0 /* Committee */,
+				05DD22D616C2B75A00CF18F0 /* Photos */,
+				05DD22DA16C2B77D00CF18F0 /* Settings */,
+			);
+			name = Modules;
+			sourceTree = "<group>";
+		};
+		0559110316C3B41100BF14D2 /* Stroyboards */ = {
+			isa = PBXGroup;
+			children = (
+				05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */,
+				05DD22AC16C2AC0C00CF18F0 /* iPad Storyboard */,
+			);
+			name = Stroyboards;
+			sourceTree = "<group>";
+		};
+		0559110416C3B42700BF14D2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
+				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
+				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
+				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
+				05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		0559110E16C3CAD100BF14D2 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
 		05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				0542FAB516C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard */,
+				05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */,
 				05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */,
 				05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */,
-				05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */,
 				05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */,
 				05DD22F216C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard */,
 			);
@@ -229,8 +379,15 @@
 		05DD22CE16C2B71A00CF18F0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				055910E316C3AE8600BF14D2 /* Images */,
 				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
+				0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */,
+				0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */,
+				055910FF16C3B24600BF14D2 /* UECMonthViewController.h */,
+				0559110016C3B24600BF14D2 /* UECMonthViewController.m */,
+				055910F816C3AFB400BF14D2 /* UECCalendarRowCell.h */,
+				055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -276,6 +433,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				055910DF16C3ADFA00BF14D2 /* PBXTargetDependency */,
+				055910D316C3AD4D00BF14D2 /* PBXTargetDependency */,
 			);
 			name = UEC;
 			productName = UEC;
@@ -321,6 +480,16 @@
 			mainGroup = 0542FA9116C2A85A00B327B7;
 			productRefGroup = 0542FA9B16C2A85A00B327B7 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 055910C916C3AD3900BF14D2 /* Products */;
+					ProjectRef = 055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */;
+				},
+				{
+					ProductGroup = 055910D816C3ADEC00BF14D2 /* Products */;
+					ProjectRef = 055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0542FA9916C2A85A00B327B7 /* UEC */,
@@ -328,6 +497,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		055910CF16C3AD3A00BF14D2 /* libSDWebImage.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDWebImage.a;
+			remoteRef = 055910CE16C3AD3A00BF14D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		055910D116C3AD3A00BF14D2 /* libSDWebImage+MKAnnotation.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libSDWebImage+MKAnnotation.a";
+			remoteRef = 055910D016C3AD3A00BF14D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		055910DD16C3ADED00BF14D2 /* libTimesSquare.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTimesSquare.a;
+			remoteRef = 055910DC16C3ADED00BF14D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0542FA9816C2A85A00B327B7 /* Resources */ = {
@@ -346,6 +539,16 @@
 				05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */,
 				05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */,
 				05DD22F816C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard in Resources */,
+				055910EE16C3AE9600BF14D2 /* CalendarPreviousMonth.png in Resources */,
+				055910EF16C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png in Resources */,
+				055910F016C3AE9600BF14D2 /* CalendarRow.png in Resources */,
+				055910F116C3AE9600BF14D2 /* CalendarRow@2x.png in Resources */,
+				055910F216C3AE9600BF14D2 /* CalendarRowBottom.png in Resources */,
+				055910F316C3AE9600BF14D2 /* CalendarRowBottom@2x.png in Resources */,
+				055910F416C3AE9600BF14D2 /* CalendarSelectedDate.png in Resources */,
+				055910F516C3AE9600BF14D2 /* CalendarSelectedDate@2x.png in Resources */,
+				055910F616C3AE9600BF14D2 /* CalendarTodaysDate.png in Resources */,
+				055910F716C3AE9600BF14D2 /* CalendarTodaysDate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +591,11 @@
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
 				05DD22D516C2B75700CF18F0 /* UECPhotosViewController.m in Sources */,
 				05DD22D916C2B77900CF18F0 /* UECSettingsViewController.m in Sources */,
+				055910FA16C3AFB400BF14D2 /* UECCalendarRowCell.m in Sources */,
+				0559110116C3B24600BF14D2 /* UECMonthViewController.m in Sources */,
+				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
+				0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */,
+				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +614,16 @@
 			isa = PBXTargetDependency;
 			target = 0542FA9916C2A85A00B327B7 /* UEC */;
 			targetProxy = 0542FAD316C2A85A00B327B7 /* PBXContainerItemProxy */;
+		};
+		055910D316C3AD4D00BF14D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SDWebImage;
+			targetProxy = 055910D216C3AD4D00BF14D2 /* PBXContainerItemProxy */;
+		};
+		055910DF16C3ADFA00BF14D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TimesSquare;
+			targetProxy = 055910DE16C3ADFA00BF14D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -549,6 +767,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -560,6 +779,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -630,6 +850,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */,
+			);
+			currentVersion = 0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */;
+			path = UEC.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0542FA9216C2A85A00B327B7 /* Project object */;
 }

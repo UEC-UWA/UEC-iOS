@@ -1,0 +1,6 @@
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = git://github.com/rs/SDWebImage.git
+[submodule "objc-TimesSquare"]
+	path = objc-TimesSquare
+	url = git://github.com/square/objc-TimesSquare.git
