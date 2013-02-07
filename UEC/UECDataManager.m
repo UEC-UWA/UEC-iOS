@@ -40,7 +40,7 @@
 
 - (void)getDataForEntityName:(NSString *)entityName
           coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
-          downloadCompletion:(void (^)(BOOL needsReloading))downloadCompletionBlock
+          downloadCompletion:(void (^)(BOOL needsReloading, NSArray *downloadedObjects))downloadCompletionBlock
 {
     __block NSArray *coreDataObjects = nil;
     
@@ -57,9 +57,14 @@
     NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
     
     [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
-        BOOL newObjects = [coreDataObjects isEqualToArray:cachedObjects];
+        // As the order matters with array in order to compare them correctly we need to order them equally.
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
+        coreDataObjects = [coreDataObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
+        cachedObjects = [cachedObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
+        
+        BOOL needsReloading = ![coreDataObjects isEqualToArray:cachedObjects];
         if (downloadCompletionBlock) {
-            downloadCompletionBlock(newObjects);
+            downloadCompletionBlock(needsReloading, cachedObjects);
         }
     }];
 #else

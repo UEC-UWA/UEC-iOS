@@ -18,6 +18,6 @@
 
 - (void)getDataForEntityName:(NSString *)entityName
           coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
-          downloadCompletion:(void (^)(BOOL needsReloading))downloadCompletionBlock;
+          downloadCompletion:(void (^)(BOOL needsReloading, NSArray *downloadedObjects))downloadCompletionBlock;
 
 @end

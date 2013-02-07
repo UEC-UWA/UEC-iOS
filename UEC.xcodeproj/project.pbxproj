@@ -52,6 +52,7 @@
 		0559114816C3EE3300BF14D2 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114716C3EE3300BF14D2 /* NewsArticle.m */; };
 		0559114E16C3F68100BF14D2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114D16C3F68100BF14D2 /* Person.m */; };
 		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
+		0559115716C41A6100BF14D2 /* gentleman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0559115616C41A6100BF14D2 /* gentleman.png */; };
 		05DD22BD16C2AF4800CF18F0 /* UECUniversalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */; };
 		05DD22C216C2B16C00CF18F0 /* TabBarItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */; };
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
@@ -172,6 +173,7 @@
 		0559114C16C3F68100BF14D2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		0559114D16C3F68100BF14D2 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
+		0559115616C41A6100BF14D2 /* gentleman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gentleman.png; sourceTree = "<group>"; };
 		05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECUniversalAppManager.h; sourceTree = "<group>"; };
 		05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECUniversalAppManager.m; sourceTree = "<group>"; };
 		05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarItems.plist; sourceTree = "<group>"; };
@@ -412,6 +414,7 @@
 			children = (
 				0559112B16C3D4B400BF14D2 /* DummyEvent.plist */,
 				0559113016C3E6D200BF14D2 /* DummyPerson.plist */,
+				0559115616C41A6100BF14D2 /* gentleman.png */,
 			);
 			name = "Temp Dummy";
 			sourceTree = "<group>";
@@ -623,6 +626,7 @@
 				0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */,
 				0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */,
 				0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */,
+				0559115716C41A6100BF14D2 /* gentleman.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,6 +848,8 @@
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -855,6 +861,8 @@
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FD82DC63-A51D-4812-BCDF-1477597884B8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FD82DC63-A51D-4812-BCDF-1477597884B8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -862,12 +870,16 @@
 		0542FAE216C2A85A00B327B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "FD82DC63-A51D-4812-BCDF-1477597884B8";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FD82DC63-A51D-4812-BCDF-1477597884B8";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

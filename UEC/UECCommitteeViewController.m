@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "UECCommitteeViewController.h"
 
 #import "UECDataManager.h"
@@ -14,7 +16,7 @@
 
 @interface UECCommitteeViewController ()
 
-@property (strong, nonatomic) NSArray *committeeMembers;
+@property (strong, nonatomic) NSArray *committeeMembers, *sectionNames;
 
 @end
 
@@ -25,9 +27,11 @@
     [super viewDidLoad];
 
     [[UECDataManager sharedManager] getDataForEntityName:@"Person" coreDataCompletion:^(NSArray *cachedObjects) {
-        
-    } downloadCompletion:^(BOOL needsReloading) {
-        
+        [self reloadDataWithNewObjects:cachedObjects];
+    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
+        if (needsReloading) {
+            [self reloadDataWithNewObjects:downloadedObjects];
+        }
     }];
 }
 
@@ -35,6 +39,59 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Helper Methods
+
+- (Person *)personForIndexPath:(NSIndexPath *)indexPath
+{
+    return self.committeeMembers[indexPath.section][indexPath.row];
+}
+
+#pragma mark - Data Source Organising
+
+- (NSArray *)customSortedArrayWithPositionOfExec:(NSInteger)execPosition inArray:(NSMutableArray *)array
+{
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position LIKE %@", @"President"];
+    Person *president = [[[array[execPosition] copy] filteredArrayUsingPredicate:predicate] lastObject];
+    NSInteger presidentIndex = [array[execPosition] indexOfObject:president];
+    
+    NSMutableArray *execArray = [array[execPosition] mutableCopy];
+    [execArray exchangeObjectAtIndex:presidentIndex withObjectAtIndex:0];
+    array[execPosition] = execArray;
+    
+    [array exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
+    
+    NSMutableArray *subcommittees = self.sectionNames.mutableCopy;
+    [subcommittees exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
+    self.sectionNames = subcommittees;
+    
+    return array;
+}
+
+- (void)reloadDataWithNewObjects:(NSArray *)newObjects
+{
+    if (newObjects.count == 0) {
+        
+    } else {
+        NSArray *subcommittees = [newObjects valueForKeyPath:@"@distinctUnionOfObjects.subcommittee"];
+        self.sectionNames = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        NSInteger execPosition = [self.sectionNames indexOfObject:@"Executive"];
+        
+        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:self.sectionNames.count];
+        NSPredicate *predicate = nil;
+        
+        // Here we are splitting (and sorting as the section names are already sorted) into the sections.
+        for (NSString *subcommittee in self.sectionNames) {
+            predicate = [NSPredicate predicateWithFormat:@"subcommittee LIKE %@", subcommittee];
+            [data addObject:[newObjects.copy filteredArrayUsingPredicate:predicate]];
+        }
+                
+        // This next bit is to get the Exec and the president to be at the top.
+        self.committeeMembers = [self customSortedArrayWithPositionOfExec:execPosition inArray:data];
+        
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - Table view data source
@@ -51,54 +108,32 @@
     return [self.committeeMembers[section] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.sectionNames[section];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Committee Cell";
+    __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    Person *person = [self personForIndexPath:indexPath];
+    
+    [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
+                   placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                          }];
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    cell.imageView.clipsToBounds = YES;
+
+    // TODO: Make the first name bold.
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", person.firstName, person.lastName];
+    cell.detailTextLabel.text = person.position;
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
