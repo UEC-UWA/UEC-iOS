@@ -41,6 +41,17 @@
 		0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110616C3B44000BF14D2 /* NSDate+Helper.m */; };
 		0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */; };
 		0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */; };
+		0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0559112116C3CF2500BF14D2 /* CoreData.framework */; };
+		0559112916C3D1F700BF14D2 /* NSManagedObject+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */; };
+		0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559112B16C3D4B400BF14D2 /* DummyEvent.plist */; };
+		0559112F16C3D4F000BF14D2 /* UECDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559112E16C3D4EF00BF14D2 /* UECDataManager.m */; };
+		0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113016C3E6D200BF14D2 /* DummyPerson.plist */; };
+		0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */; };
+		0559114216C3EE3300BF14D2 /* PhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114116C3EE3300BF14D2 /* PhotoAlbum.m */; };
+		0559114516C3EE3300BF14D2 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114416C3EE3300BF14D2 /* Event.m */; };
+		0559114816C3EE3300BF14D2 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114716C3EE3300BF14D2 /* NewsArticle.m */; };
+		0559114E16C3F68100BF14D2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114D16C3F68100BF14D2 /* Person.m */; };
+		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
 		05DD22BD16C2AF4800CF18F0 /* UECUniversalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */; };
 		05DD22C216C2B16C00CF18F0 /* TabBarItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */; };
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
@@ -144,6 +155,23 @@
 		0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventsListViewController.h; sourceTree = "<group>"; };
 		0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventsListViewController.m; sourceTree = "<group>"; };
 		0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UEC.xcdatamodel; sourceTree = "<group>"; };
+		0559112116C3CF2500BF14D2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+UEC.h"; sourceTree = "<group>"; };
+		0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+UEC.m"; sourceTree = "<group>"; };
+		0559112B16C3D4B400BF14D2 /* DummyEvent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyEvent.plist; sourceTree = "<group>"; };
+		0559112D16C3D4EF00BF14D2 /* UECDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECDataManager.h; sourceTree = "<group>"; };
+		0559112E16C3D4EF00BF14D2 /* UECDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDataManager.m; sourceTree = "<group>"; };
+		0559113016C3E6D200BF14D2 /* DummyPerson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyPerson.plist; sourceTree = "<group>"; };
+		0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MappingDictionaries.plist; sourceTree = "<group>"; };
+		0559114016C3EE3300BF14D2 /* PhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbum.h; sourceTree = "<group>"; };
+		0559114116C3EE3300BF14D2 /* PhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbum.m; sourceTree = "<group>"; };
+		0559114316C3EE3300BF14D2 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		0559114416C3EE3300BF14D2 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		0559114616C3EE3300BF14D2 /* NewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsArticle.h; sourceTree = "<group>"; };
+		0559114716C3EE3300BF14D2 /* NewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsArticle.m; sourceTree = "<group>"; };
+		0559114C16C3F68100BF14D2 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		0559114D16C3F68100BF14D2 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
 		05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECUniversalAppManager.h; sourceTree = "<group>"; };
 		05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECUniversalAppManager.m; sourceTree = "<group>"; };
 		05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarItems.plist; sourceTree = "<group>"; };
@@ -169,6 +197,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */,
 				055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */,
 				055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */,
 				055910D416C3AD5400BF14D2 /* libSDWebImage.a in Frameworks */,
@@ -215,6 +244,7 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0559112116C3CF2500BF14D2 /* CoreData.framework */,
 				055910D516C3AD7D00BF14D2 /* ImageIO.framework */,
 				0542FA9D16C2A85A00B327B7 /* UIKit.framework */,
 				0542FA9F16C2A85A00B327B7 /* Foundation.framework */,
@@ -229,9 +259,10 @@
 			children = (
 				0542FAAC16C2A85A00B327B7 /* UECAppDelegate.h */,
 				0542FAAD16C2A85A00B327B7 /* UECAppDelegate.m */,
-				0559110416C3B42700BF14D2 /* Helpers */,
-				0559110E16C3CAD100BF14D2 /* Core Data */,
+				0559112A16C3D49200BF14D2 /* Property Lists */,
 				0559110316C3B41100BF14D2 /* Stroyboards */,
+				0559110E16C3CAD100BF14D2 /* Core Data */,
+				0559110416C3B42700BF14D2 /* Helpers */,
 				0559110216C3B40A00BF14D2 /* Modules */,
 				0542FAA416C2A85A00B327B7 /* Supporting Files */,
 			);
@@ -331,9 +362,12 @@
 			children = (
 				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
 				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
+				0559112D16C3D4EF00BF14D2 /* UECDataManager.h */,
+				0559112E16C3D4EF00BF14D2 /* UECDataManager.m */,
+				0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */,
+				0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */,
 				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
 				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
-				05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -341,9 +375,45 @@
 		0559110E16C3CAD100BF14D2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				0559110F16C3CD4200BF14D2 /* NSManagedObjects */,
 				0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */,
 			);
 			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		0559110F16C3CD4200BF14D2 /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				0559114C16C3F68100BF14D2 /* Person.h */,
+				0559114D16C3F68100BF14D2 /* Person.m */,
+				0559114616C3EE3300BF14D2 /* NewsArticle.h */,
+				0559114716C3EE3300BF14D2 /* NewsArticle.m */,
+				0559114316C3EE3300BF14D2 /* Event.h */,
+				0559114416C3EE3300BF14D2 /* Event.m */,
+				0559114016C3EE3300BF14D2 /* PhotoAlbum.h */,
+				0559114116C3EE3300BF14D2 /* PhotoAlbum.m */,
+			);
+			name = NSManagedObjects;
+			sourceTree = "<group>";
+		};
+		0559112A16C3D49200BF14D2 /* Property Lists */ = {
+			isa = PBXGroup;
+			children = (
+				05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */,
+				0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */,
+				0559114F16C3F91400BF14D2 /* ServerConnections.plist */,
+				0559115116C3F91C00BF14D2 /* Temp Dummy */,
+			);
+			name = "Property Lists";
+			sourceTree = "<group>";
+		};
+		0559115116C3F91C00BF14D2 /* Temp Dummy */ = {
+			isa = PBXGroup;
+			children = (
+				0559112B16C3D4B400BF14D2 /* DummyEvent.plist */,
+				0559113016C3E6D200BF14D2 /* DummyPerson.plist */,
+			);
+			name = "Temp Dummy";
 			sourceTree = "<group>";
 		};
 		05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */ = {
@@ -549,6 +619,10 @@
 				055910F516C3AE9600BF14D2 /* CalendarSelectedDate@2x.png in Resources */,
 				055910F616C3AE9600BF14D2 /* CalendarTodaysDate.png in Resources */,
 				055910F716C3AE9600BF14D2 /* CalendarTodaysDate@2x.png in Resources */,
+				0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */,
+				0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */,
+				0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */,
+				0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +670,12 @@
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
 				0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */,
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
+				0559112916C3D1F700BF14D2 /* NSManagedObject+UEC.m in Sources */,
+				0559112F16C3D4F000BF14D2 /* UECDataManager.m in Sources */,
+				0559114216C3EE3300BF14D2 /* PhotoAlbum.m in Sources */,
+				0559114516C3EE3300BF14D2 /* Event.m in Sources */,
+				0559114816C3EE3300BF14D2 /* NewsArticle.m in Sources */,
+				0559114E16C3F68100BF14D2 /* Person.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,6 +846,12 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					LOCAL_DATA,
+				);
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,6 +864,7 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

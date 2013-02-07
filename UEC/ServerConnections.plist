@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BasePath</key>
+	<string>http://theuecservercraphere.com/api</string>
+	<key>Person</key>
+	<dict>
+		<key>GET</key>
+		<string>/committee.json</string>
+	</dict>
+	<key>NewsArticle</key>
+	<dict>
+		<key>GET</key>
+		<string></string>
+	</dict>
+	<key>Event</key>
+	<dict>
+		<key>GET</key>
+		<string></string>
+	</dict>
+	<key>PhotoAlbum</key>
+	<dict>
+		<key>GET</key>
+		<string></string>
+	</dict>
+</dict>
+</plist>

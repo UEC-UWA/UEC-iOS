@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>first_name</key>
+		<string>Tobias</string>
+		<key>last_name</key>
+		<string>Penno</string>
+		<key>photo_path</key>
+		<string>http://www.uec.org.au/image/view/669/thumbnail</string>
+		<key>position</key>
+		<string>President</string>
+		<key>email</key>
+		<string>president@uec.org.au</string>
+		<key>subcommittee</key>
+		<string>Executive</string>
+		<key>summary</key>
+		<string>He is the president.</string>
+		<key>id</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>first_name</key>
+		<string>Lachlan</string>
+		<key>last_name</key>
+		<string>Astfalck</string>
+		<key>photo_path</key>
+		<string>http://www.uec.org.au/image/view/273/thumbnail</string>
+		<key>position</key>
+		<string>VP Scoial</string>
+		<key>email</key>
+		<string>social@uec.org.au</string>
+		<key>subcommittee</key>
+		<string>Executive</string>
+		<key>summary</key>
+		<string>He is not the president... anymore</string>
+		<key>id</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>first_name</key>
+		<string>Tom</string>
+		<key>last_name</key>
+		<string>Henderson</string>
+		<key>photo_path</key>
+		<string>http://www.uec.org.au/image/view/737/thumbnail</string>
+		<key>position</key>
+		<string>Motorsport Save</string>
+		<key>email</key>
+		<string>blah@uec.org.au</string>
+		<key>subcommittee</key>
+		<string>Education</string>
+		<key>summary</key>
+		<string>Motor sport bitch.</string>
+		<key>id</key>
+		<integer>3</integer>
+	</dict>
+	<dict>
+		<key>first_name</key>
+		<string>Matthew</string>
+		<key>last_name</key>
+		<string>Fraser</string>
+		<key>photo_path</key>
+		<string>http://www.uec.org.au/image/view/268/thumbnail</string>
+		<key>position</key>
+		<string>Thebse</string>
+		<key>email</key>
+		<string>thebse@uec.org.au</string>
+		<key>subcommittee</key>
+		<string>Thebse</string>
+		<key>summary</key>
+		<string>phantoms this way.</string>
+		<key>id</key>
+		<integer>4</integer>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Person</key>
+	<dict>
+		<key>firstName</key>
+		<string>first_name</string>
+		<key>lastName</key>
+		<string>last_name</string>
+		<key>photoPath</key>
+		<string>photo_path</string>
+		<key>position</key>
+		<string>position</string>
+		<key>email</key>
+		<string>email</string>
+		<key>subcommittee</key>
+		<string>subcommittee</string>
+		<key>identifier</key>
+		<string>id</string>
+		<key>summary</key>
+		<string>summary</string>
+	</dict>
+	<key>PhotoAlbum</key>
+	<dict>
+		<key>name</key>
+		<string>name</string>
+		<key>date</key>
+		<string>date</string>
+		<key>identifier</key>
+		<string>id</string>
+		<key>keyPhotoPath</key>
+		<string>key_photo_path</string>
+	</dict>
+	<key>Event</key>
+	<dict>
+		<key>location</key>
+		<string>location</string>
+		<key>startDate</key>
+		<string>start_date</string>
+		<key>endDate</key>
+		<string>end_date</string>
+		<key>name</key>
+		<string>name</string>
+		<key>type</key>
+		<string>type</string>
+		<key>identifier</key>
+		<string>id</string>
+	</dict>
+	<key>NewsArticle</key>
+	<dict>
+		<key>link</key>
+		<string>link</string>
+		<key>title</key>
+		<string>title</string>
+		<key>content</key>
+		<string>content</string>
+		<key>summary</key>
+		<string>summary</string>
+		<key>date</key>
+		<string>date</string>
+		<key>identifier</key>
+		<string>id</string>
+	</dict>
+</dict>
+</plist>
