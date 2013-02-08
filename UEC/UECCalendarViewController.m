@@ -10,15 +10,15 @@
 
 #import "UECMonthViewController.h"
 #import "UECEventsListViewController.h"
+#import "UECTicketsViewController.h"
 
 #import "UECUniversalAppManager.h"
 
 @interface UECCalendarViewController ()
-@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 // Segmented control to switch view controllers
-@property (weak, nonatomic) IBOutlet UISegmentedControl *eventsDisplaySegmentControl;
+@property (strong, nonatomic) UISegmentedControl *eventsDisplaySegmentControl;
 // Array of view controllers to switch between
-@property (nonatomic, copy) NSArray *allViewControllers;
+@property (copy, nonatomic) NSArray *allViewControllers;
 // Currently selected view controller
 @property (strong, nonatomic) UIViewController *currentViewController;
 @end
@@ -35,19 +35,54 @@ static NSInteger kMonthsDisplay = 0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+        
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(deviceOrientationDidChangeNotification:)
+                                                 name:UIDeviceOrientationDidChangeNotification
+                                               object:nil];
+    
+    [self setupSegmentControl];
     
     UIStoryboard *calendarStoryboard = [[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:@"Calendar"];
     UECMonthViewController *monthsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECMonthViewController"];
     UECEventsListViewController *eventsListVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECEventsListViewController"];
+    UECTicketsViewController *ticketsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECTicketsViewController"];
     
     // Add the view controllers to the array
-    self.allViewControllers = @[monthsVC, eventsListVC];
+    self.allViewControllers = @[monthsVC, eventsListVC, ticketsVC];
     
     // Ensure a view controller is loaded
     self.eventsDisplaySegmentControl.selectedSegmentIndex = kMonthsDisplay;
     [self cycleFromViewController:self.currentViewController
                  toViewController:self.allViewControllers[self.eventsDisplaySegmentControl.selectedSegmentIndex]];
 }
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Segment Control Setup
+
+- (void)setupSegmentControl
+{
+    self.eventsDisplaySegmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Month", @"List", @"Tickets"]];
+    [self.eventsDisplaySegmentControl addTarget:self
+                                         action:@selector(indexDidChangeForSegmentedControl:)
+                               forControlEvents:UIControlEventValueChanged];
+    self.eventsDisplaySegmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
+    [self.eventsDisplaySegmentControl setTintColor:[UIColor darkGrayColor]];
+    
+    // Setting the width to be a bit bigger.
+    CGRect frame = self.eventsDisplaySegmentControl.frame;
+    frame.size = CGSizeMake(200.0, frame.size.height);
+    self.eventsDisplaySegmentControl.frame = frame;
+    
+    [[self navigationItem] setTitleView:self.eventsDisplaySegmentControl];
+}
+
 
 #pragma mark - View controller switching and saving
 
@@ -60,10 +95,7 @@ static NSInteger kMonthsDisplay = 0;
     // Check the newVC is non-nil otherwise expect a crash: NSInvalidArgumentException
     if (newVC) {
         // Set the new view controller frame
-        CGRect frame = self.view.frame;
-        frame.origin.y += self.toolbar.frame.size.height;
-        frame.size.height -= self.toolbar.frame.size.height;
-        newVC.view.frame = frame;
+        newVC.view.frame = self.view.frame;
         // Check the oldVC is non-nil otherwise expect a crash: NSInvalidArgumentException
         if (oldVC) {
             // Start both the view controller transitions
@@ -97,14 +129,30 @@ static NSInteger kMonthsDisplay = 0;
     }
 }
 
-- (IBAction)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender
+- (void)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender
 {    
     NSUInteger index = sender.selectedSegmentIndex;
     
     if (UISegmentedControlNoSegment != index) {
         UIViewController *incomingViewController = [self.allViewControllers objectAtIndex:index];
-        [self cycleFromViewController:self.currentViewController toViewController:incomingViewController];
+        [self cycleFromViewController:self.currentViewController
+                     toViewController:incomingViewController];
     }
+}
+
+#pragma mark - Rotation
+
+- (void)deviceOrientationDidChangeNotification:(NSNotification *)notification
+{
+    CGSize size = [UIScreen mainScreen].bounds.size;
+    UIApplication *application = [UIApplication sharedApplication];
+    
+    if (!UIInterfaceOrientationIsLandscape(application.statusBarOrientation))
+        size = CGSizeMake(size.height, size.width);
+    
+    CGRect frame = self.currentViewController.view.frame;
+    frame.size = size;
+    self.currentViewController.view.frame = frame;
 }
 
 

@@ -4,3 +4,6 @@
 [submodule "objc-TimesSquare"]
 	path = objc-TimesSquare
 	url = git://github.com/square/objc-TimesSquare.git
+[submodule "MBProgressHUD"]
+	path = MBProgressHUD
+	url = git://github.com/jdg/MBProgressHUD.git

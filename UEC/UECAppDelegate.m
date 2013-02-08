@@ -29,7 +29,7 @@
         [tabBarVCs addObject:tabBarItem];
     }
     
-    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:(249.0/255.0) green:(217.0/255.0) blue:(30.0/255.0) alpha:1.0]];
+    [[UINavigationBar appearance] setTintColor:UEC_YELLOW];
     NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     

@@ -7,6 +7,7 @@
 //
 
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #import "UECCommitteeViewController.h"
 
@@ -19,6 +20,8 @@
 @property (strong, nonatomic) NSArray *committeeMembers, *sectionNames;
 
 @end
+
+static CGFloat kCellHeight = 55.0;
 
 @implementation UECCommitteeViewController
 
@@ -72,7 +75,7 @@
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
 {
     if (newObjects.count == 0) {
-        
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
         NSArray *subcommittees = [newObjects valueForKeyPath:@"@distinctUnionOfObjects.subcommittee"];
         self.sectionNames = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
@@ -89,6 +92,8 @@
                 
         // This next bit is to get the Exec and the president to be at the top.
         self.committeeMembers = [self customSortedArrayWithPositionOfExec:execPosition inArray:data];
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         
         [self.tableView reloadData];
     }
@@ -113,20 +118,25 @@
     return self.sectionNames[section];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kCellHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Committee Cell";
     __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    // Configure the cell...
+    // Configure the cell...    
     Person *person = [self personForIndexPath:indexPath];
     
     [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
                    placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                           }];
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
     cell.imageView.clipsToBounds = YES;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
 
     // TODO: Make the first name bold.
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", person.firstName, person.lastName];

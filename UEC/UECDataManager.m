@@ -57,12 +57,10 @@
     NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
     
     [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
-        // As the order matters with array in order to compare them correctly we need to order them equally.
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"identifier" ascending:YES];
-        coreDataObjects = [coreDataObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
-        cachedObjects = [cachedObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
+        NSSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
+        NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
         
-        BOOL needsReloading = ![coreDataObjects isEqualToArray:cachedObjects];
+        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
         if (downloadCompletionBlock) {
             downloadCompletionBlock(needsReloading, cachedObjects);
         }
@@ -81,7 +79,7 @@
 
 - (void)cacheData:(NSArray *)data forEntityName:(NSString *)entityName completion:(void (^)(NSArray *cachedObjects))completionBlock
 {
-    __block NSMutableArray *cachedEntities = [[NSMutableArray alloc] init];
+    NSMutableArray *cachedEntities = [[NSMutableArray alloc] init];
     
     dispatch_group_t group = dispatch_group_create();
     

@@ -53,6 +53,8 @@
 		0559114E16C3F68100BF14D2 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559114D16C3F68100BF14D2 /* Person.m */; };
 		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
 		0559115716C41A6100BF14D2 /* gentleman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0559115616C41A6100BF14D2 /* gentleman.png */; };
+		05B76D3416C4F62A00CECDF6 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B76D3316C4F62400CECDF6 /* libMBProgressHUD.a */; };
+		05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */; };
 		05DD22BD16C2AF4800CF18F0 /* UECUniversalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */; };
 		05DD22C216C2B16C00CF18F0 /* TabBarItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */; };
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
@@ -65,6 +67,7 @@
 		05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */; };
 		05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */; };
 		05DD22F816C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F216C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard */; };
+		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +112,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = A806805A16700FD70071C71E;
 			remoteInfo = TimesSquare;
+		};
+		05B76D3216C4F62400CECDF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D286A7491518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
+		};
+		05B76D3516C4F62E00CECDF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D286A7481518C70F00E13FB8;
+			remoteInfo = MBProgressHUD;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -174,6 +191,9 @@
 		0559114D16C3F68100BF14D2 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
 		0559115616C41A6100BF14D2 /* gentleman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gentleman.png; sourceTree = "<group>"; };
+		05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
+		05B76D3A16C4FAA400CECDF6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECUniversalAppManager.h; sourceTree = "<group>"; };
 		05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECUniversalAppManager.m; sourceTree = "<group>"; };
 		05DD22C116C2B16C00CF18F0 /* TabBarItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TabBarItems.plist; sourceTree = "<group>"; };
@@ -192,6 +212,8 @@
 		05DD22EF16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/NewsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotosStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22F316C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/SettingsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
+		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05B76D3416C4F62A00CECDF6 /* libMBProgressHUD.a in Frameworks */,
 				0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */,
 				055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */,
 				055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */,
@@ -225,9 +248,8 @@
 		0542FA9116C2A85A00B327B7 = {
 			isa = PBXGroup;
 			children = (
-				055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */,
-				055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */,
 				0542FAA316C2A85A00B327B7 /* UEC */,
+				05B76D2416C4F52600CECDF6 /* Submodules */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
@@ -362,14 +384,8 @@
 		0559110416C3B42700BF14D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
-				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
-				0559112D16C3D4EF00BF14D2 /* UECDataManager.h */,
-				0559112E16C3D4EF00BF14D2 /* UECDataManager.m */,
-				0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */,
-				0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */,
-				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
-				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
+				05B76D0D16C4E6B200CECDF6 /* Managers */,
+				05B76D1116C4E6B800CECDF6 /* Categories */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -419,6 +435,48 @@
 			name = "Temp Dummy";
 			sourceTree = "<group>";
 		};
+		05B76D0D16C4E6B200CECDF6 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
+				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
+				0559112D16C3D4EF00BF14D2 /* UECDataManager.h */,
+				0559112E16C3D4EF00BF14D2 /* UECDataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		05B76D1116C4E6B800CECDF6 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */,
+				0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */,
+				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
+				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
+				05B76D3A16C4FAA400CECDF6 /* UIImage+Resize.h */,
+				05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		05B76D2416C4F52600CECDF6 /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */,
+				055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */,
+				055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */,
+			);
+			name = Submodules;
+			sourceTree = "<group>";
+		};
+		05B76D2F16C4F62400CECDF6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B76D3316C4F62400CECDF6 /* libMBProgressHUD.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +513,8 @@
 				055910E316C3AE8600BF14D2 /* Images */,
 				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
+				05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */,
+				05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */,
 				0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */,
 				0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */,
 				055910FF16C3B24600BF14D2 /* UECMonthViewController.h */,
@@ -506,6 +566,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				05B76D3616C4F62E00CECDF6 /* PBXTargetDependency */,
 				055910DF16C3ADFA00BF14D2 /* PBXTargetDependency */,
 				055910D316C3AD4D00BF14D2 /* PBXTargetDependency */,
 			);
@@ -555,6 +616,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 05B76D2F16C4F62400CECDF6 /* Products */;
+					ProjectRef = 05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */;
+				},
+				{
 					ProductGroup = 055910C916C3AD3900BF14D2 /* Products */;
 					ProjectRef = 055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */;
 				},
@@ -591,6 +656,13 @@
 			fileType = archive.ar;
 			path = libTimesSquare.a;
 			remoteRef = 055910DC16C3ADED00BF14D2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		05B76D3316C4F62400CECDF6 /* libMBProgressHUD.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMBProgressHUD.a;
+			remoteRef = 05B76D3216C4F62400CECDF6 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -680,6 +752,8 @@
 				0559114516C3EE3300BF14D2 /* Event.m in Sources */,
 				0559114816C3EE3300BF14D2 /* NewsArticle.m in Sources */,
 				0559114E16C3F68100BF14D2 /* Person.m in Sources */,
+				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
+				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +782,11 @@
 			isa = PBXTargetDependency;
 			name = TimesSquare;
 			targetProxy = 055910DE16C3ADFA00BF14D2 /* PBXContainerItemProxy */;
+		};
+		05B76D3616C4F62E00CECDF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MBProgressHUD;
+			targetProxy = 05B76D3516C4F62E00CECDF6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
