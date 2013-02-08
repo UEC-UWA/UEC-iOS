@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>UEC iPhone App</string>
+		<key>summary</key>
+		<string>The UEC now has an iPhone app. That is pretty awesome if you ask me. So get downloading you fucks...</string>
+		<key>date</key>
+		<date>2013-02-08T17:14:34Z</date>
+		<key>id</key>
+		<integer>1</integer>
+		<key>link</key>
+		<string>http://www.uec.org.au</string>
+		<key>content</key>
+		<string>blah</string>
+		<key>category</key>
+		<string>Other</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Some Title</string>
+		<key>summary</key>
+		<string>Blah blah blah Blah blah blah Blah blah blah Blah blah blah</string>
+		<key>date</key>
+		<date>2013-02-02T17:14:34Z</date>
+		<key>id</key>
+		<integer>2</integer>
+		<key>link</key>
+		<string>http://www.uec.org.au</string>
+		<key>content</key>
+		<string>blah</string>
+		<key>category</key>
+		<string>Education</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Lorem Ipsum</string>
+		<key>summary</key>
+		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in...</string>
+		<key>date</key>
+		<date>2013-01-19T17:14:34Z</date>
+		<key>id</key>
+		<integer>3</integer>
+		<key>link</key>
+		<string>http://www.uec.org.au</string>
+		<key>content</key>
+		<string>blah</string>
+		<key>category</key>
+		<string>Social</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Shocking! Tobi has a huge dick</string>
+		<key>summary</key>
+		<string>As a white male this is rather rare. Lachlan has all the details as they are very close as one might say...</string>
+		<key>date</key>
+		<date>2013-02-04T17:14:34Z</date>
+		<key>id</key>
+		<integer>4</integer>
+		<key>link</key>
+		<string>http://www.uec.org.au</string>
+		<key>content</key>
+		<string>blah</string>
+		<key>category</key>
+		<string>Education</string>
+	</dict>
+</array>
+</plist>

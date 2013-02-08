@@ -2,7 +2,7 @@
 //  Event.h
 //  UEC
 //
-//  Created by Jad Osseiran on 7/02/13.
+//  Created by Jad Osseiran on 9/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -12,11 +12,16 @@
 
 @interface Event : NSManagedObject
 
-@property (nonatomic, retain) NSString * location;
-@property (nonatomic, retain) NSDate * startDate;
 @property (nonatomic, retain) NSDate * endDate;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * type;
 @property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * location;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSDate * startDate;
+@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSDate * startSale;
+@property (nonatomic, retain) NSDate * endSale;
+@property (nonatomic, retain) NSNumber * extendedSale;
+@property (nonatomic, retain) NSNumber * totalTickets;
+@property (nonatomic, retain) NSNumber * ticketsLeft;
 
 @end

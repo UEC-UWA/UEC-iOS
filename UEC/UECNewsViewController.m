@@ -6,22 +6,32 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <MBProgressHUD/MBProgressHUD.h>
+
 #import "UECNewsViewController.h"
 
-@interface UECNewsViewController ()
+#import "UECNewsArticleCell.h"
+#import "UECDataManager.h"
+
+#import "NewsArticle.h"
+
+#import "NSDate+Formatter.h"
+
+@interface UECNewsViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
+
+@property (strong, nonatomic) NSArray *newsArticles;
+
+// Searching
+@property (strong, nonatomic) NSMutableArray *filteredListContent;
+@property (copy, nonatomic) NSString *savedSearchTerm;
+@property (nonatomic) NSInteger savedScopeButtonIndex;
+@property (nonatomic) BOOL searchWasActive;
 
 @end
 
-@implementation UECNewsViewController
+static CGFloat kCellHeight = 120.0;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@implementation UECNewsViewController
 
 - (void)viewDidLoad
 {
@@ -31,11 +41,30 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // Restore search settings if they were saved in didReceiveMemoryWarning.
+    if (self.savedSearchTerm) {
+        [self.searchDisplayController setActive:self.searchWasActive];
+        [self.searchDisplayController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
+        [self.searchDisplayController.searchBar setText:self.savedSearchTerm];
+        
+        self.savedSearchTerm = nil;
+    }
+
+    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
+
+
+    [self refreshData];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    
+    // save the state of the search UI so that it can be restored if the view is re-created
+    self.searchWasActive = [self.searchDisplayController isActive];
+    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
+    self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,92 +73,140 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Refreshing
+#pragma mark - Data Management
+
+- (void)refreshData
+{
+    [[UECDataManager sharedManager] getDataForEntityName:@"NewsArticle" coreDataCompletion:^(NSArray *cachedObjects) {
+        [self reloadDataWithNewObjects:cachedObjects];
+    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
+        if (needsReloading) {
+            [self reloadDataWithNewObjects:downloadedObjects];
+        }
+    }];
+}
+
+- (void)reloadDataWithNewObjects:(NSArray *)newObjects
+{
+    if (newObjects.count == 0) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        self.searchDisplayController.searchBar.userInteractionEnabled = NO;
+        self.searchDisplayController.searchBar.alpha = 0.75;
+    } else {
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+        self.newsArticles = [newObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
+        
+        // create a filtered list that will contain products for the search results table.
+        self.filteredListContent = [NSMutableArray arrayWithCapacity:[self.newsArticles count]];
+        
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        
+        self.searchDisplayController.searchBar.userInteractionEnabled = YES;
+        self.searchDisplayController.searchBar.alpha = 1.0;
+        
+        [self.tableView reloadData];
+    }
+}
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state
 {
-    // Refresh table here...
-    [self.tableView reloadRowsAtIndexPaths:[self.tableView indexPathsForVisibleRows] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self refreshData];
 
     [self.refreshControl endRefreshing];
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredListContent count];
+    } else {
+        return [self.newsArticles count];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kCellHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"News Cell";
+    
+    UECNewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    NewsArticle *newsArticle = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        newsArticle = self.filteredListContent[indexPath.row];
+    } else {
+        newsArticle = self.newsArticles[indexPath.row];
+    }
     
     // Configure the cell...
+    cell.titleLabel.text = newsArticle.title;
+    cell.categoryLabel.text = newsArticle.category;
+    cell.summaryLabel.text = newsArticle.summary;
+    cell.dateLabel.text = [newsArticle.date stringValue];
     
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NewsArticle *newsArticle = nil;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        newsArticle = self.filteredListContent[indexPath.row];
+    } else {
+        newsArticle = self.newsArticles[indexPath.row];
+    }
+}
+
+#pragma mark - Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    // First clear the filtered array.
+	[self.filteredListContent removeAllObjects];
+	
+	// Search the main list for products whose type matches the scope (if selected)
+    // and whose name matches searchText; add items that match to the filtered array.
+	for (NewsArticle *article in self.newsArticles) {
+		if ([scope isEqualToString:@"All"] || [article.category isEqualToString:scope]) {
+            unsigned options = (NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch);
+            NSRange range = NSMakeRange(0, [searchText length]);
+			NSComparisonResult result = [article.title compare:searchText
+                                                       options:options
+                                                         range:range];
+            if (result == NSOrderedSame)
+				[self.filteredListContent addObject:article];
+		}
+	}
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
+    
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    
+
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
 @end

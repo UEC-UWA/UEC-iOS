@@ -14,13 +14,8 @@
 
 - (NSDateComponents *)dateComponents
 {
-    return [self dateComponentsForDate:self];
-}
-
-- (NSDateComponents *)dateComponentsForDate:(NSDate *)date
-{
     unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
-    return [[NSCalendar currentCalendar] components:unitFlags fromDate:date];
+    return [[NSCalendar currentCalendar] components:unitFlags fromDate:self];
 }
 
 - (NSDate *)dateFromComponents:(NSDateComponents *)comps
@@ -33,19 +28,30 @@
 - (NSDate *)startOfCurrentYear
 {
     NSDateComponents *comps = [self dateComponents];
-    // The months start at 1, so in order to set January as 0 substract 1.
-    return [self dateByRemovingNumberOfMonths:(comps.month - 1)];
+    comps.month = 1;
+    comps.day = 1;
+    
+    return [self dateFromComponents:comps];
 }
 
 - (NSDate *)endOfCurrentYear
 {
+    // Get the number of months till the end of the year.
     NSRange monthsRange = [[NSCalendar currentCalendar] rangeOfUnit:NSMonthCalendarUnit inUnit:NSYearCalendarUnit forDate:self];
     NSInteger numMonthsInYear = monthsRange.length;
     
+    // Save that last month date.
     NSDateComponents *comps = [self dateComponents];
+    NSDate *endMonthDate = [self dateByAddingNumberOfMonths:(numMonthsInYear - comps.month)];
     
-    return [self dateByAddingNumberOfMonths:(numMonthsInYear - comps.month)];
+    // Get the number of days till the end of the last month.
+    NSRange daysRange = [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:endMonthDate];
+    NSInteger numDaysInMonth = daysRange.length;
+        
+    return [endMonthDate dateByAddingNumberOfDays:(numDaysInMonth - comps.day)];
 }
+
+#pragma mark - Adding Methods
 
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months
 {
@@ -56,11 +62,31 @@
     return [self dateFromComponents:comps];
 }
 
+- (NSDate *)dateByAddingNumberOfDays:(NSInteger)days
+{
+    NSDateComponents *comps = [self dateComponents];
+    
+    comps.day += days;
+    
+    return [self dateFromComponents:comps];
+}
+
+#pragma mark - Removing Methods
+
 - (NSDate *)dateByRemovingNumberOfMonths:(NSInteger)months
 {
     NSDateComponents *comps = [self dateComponents];
     
     comps.month -= months;
+    
+    return [self dateFromComponents:comps];
+}
+
+- (NSDate *)dateByRemovingNumberOfDays:(NSInteger)days
+{
+    NSDateComponents *comps = [self dateComponents];
+    
+    comps.day -= days;
     
     return [self dateFromComponents:comps];
 }

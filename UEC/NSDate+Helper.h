@@ -14,6 +14,9 @@
 - (NSDate *)endOfCurrentYear;
 
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months;
+- (NSDate *)dateByAddingNumberOfDays:(NSInteger)days;
+
 - (NSDate *)dateByRemovingNumberOfMonths:(NSInteger)months;
+- (NSDate *)dateByRemovingNumberOfDays:(NSInteger)days;
 
 @end

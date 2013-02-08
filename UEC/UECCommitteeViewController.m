@@ -17,7 +17,7 @@
 
 @interface UECCommitteeViewController ()
 
-@property (strong, nonatomic) NSArray *committeeMembers, *sectionNames;
+@property (strong, nonatomic) NSArray *committeeMembers, *subcommittees;
 
 @end
 
@@ -65,9 +65,9 @@ static CGFloat kCellHeight = 55.0;
     
     [array exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
     
-    NSMutableArray *subcommittees = self.sectionNames.mutableCopy;
+    NSMutableArray *subcommittees = self.subcommittees.mutableCopy;
     [subcommittees exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
-    self.sectionNames = subcommittees;
+    self.subcommittees = subcommittees;
     
     return array;
 }
@@ -78,14 +78,14 @@ static CGFloat kCellHeight = 55.0;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
         NSArray *subcommittees = [newObjects valueForKeyPath:@"@distinctUnionOfObjects.subcommittee"];
-        self.sectionNames = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-        NSInteger execPosition = [self.sectionNames indexOfObject:@"Executive"];
+        self.subcommittees = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+        NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
         
-        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:self.sectionNames.count];
+        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:self.subcommittees.count];
         NSPredicate *predicate = nil;
         
         // Here we are splitting (and sorting as the section names are already sorted) into the sections.
-        for (NSString *subcommittee in self.sectionNames) {
+        for (NSString *subcommittee in self.subcommittees) {
             predicate = [NSPredicate predicateWithFormat:@"subcommittee LIKE %@", subcommittee];
             [data addObject:[newObjects.copy filteredArrayUsingPredicate:predicate]];
         }
@@ -115,7 +115,7 @@ static CGFloat kCellHeight = 55.0;
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return self.sectionNames[section];
+    return self.subcommittees[section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,6 +134,7 @@ static CGFloat kCellHeight = 55.0;
     [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
                    placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                           completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                              
                           }];
     cell.imageView.clipsToBounds = YES;
     cell.imageView.contentMode = UIViewContentModeScaleAspectFill;

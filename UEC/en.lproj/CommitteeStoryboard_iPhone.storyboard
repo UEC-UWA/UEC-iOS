@@ -49,6 +49,11 @@
             <point key="canvasLocation" x="596" y="114"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="UECCommitteeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECCommitteeViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

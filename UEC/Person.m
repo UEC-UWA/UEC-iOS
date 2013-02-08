@@ -2,7 +2,7 @@
 //  Person.m
 //  UEC
 //
-//  Created by Jad Osseiran on 7/02/13.
+//  Created by Jad Osseiran on 9/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -11,13 +11,13 @@
 
 @implementation Person
 
+@dynamic email;
 @dynamic firstName;
+@dynamic identifier;
 @dynamic lastName;
 @dynamic photoPath;
 @dynamic position;
-@dynamic email;
 @dynamic subcommittee;
-@dynamic identifier;
 @dynamic summary;
 
 @end
