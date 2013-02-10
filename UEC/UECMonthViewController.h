@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+@class Event;
+
+@protocol UECMonthViewControllerDelegate <NSObject>
+
+- (void)didSelectEvent:(Event *)event;
+- (void)didRefreshDataWithCompletion:(void (^)(NSArray *objects))completionBlock;
+
+@end
+
 @interface UECMonthViewController : UIViewController
+
+@property (weak, nonatomic) id <UECMonthViewControllerDelegate> delegate;
+
+@property (strong, nonatomic) NSArray *events;
 
 @end

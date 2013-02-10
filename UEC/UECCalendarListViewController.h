@@ -8,6 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class Event;
+
+@protocol UECCalendarListViewController <NSObject>
+
+- (void)didSelectEvent:(Event *)event;
+- (void)didRefreshDataWithCompletion:(void (^)(NSArray *objects))completionBlock;
+
+@end
+
 @interface UECCalendarListViewController : UITableViewController
+
+@property (weak, nonatomic) id <UECCalendarListViewController> delegate;
+@property (strong, nonatomic) NSArray *events, *eventDateTitles;
 
 @end

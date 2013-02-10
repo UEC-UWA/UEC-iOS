@@ -6,15 +6,20 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <MBProgressHUD/MBProgressHUD.h>
+
 #import "UECCalendarViewController.h"
 
 #import "UECMonthViewController.h"
 #import "UECEventsListViewController.h"
 #import "UECTicketsViewController.h"
+#import "UECCalendarListViewController.h"
 
 #import "UECUniversalAppManager.h"
+#import "APSDataManager.h"
+#import "Event.h"
 
-@interface UECCalendarViewController ()
+@interface UECCalendarViewController () <UECMonthViewControllerDelegate, UECCalendarListViewController>
 // Segmented control to switch view controllers
 @property (strong, nonatomic) UISegmentedControl *eventsDisplaySegmentControl;
 // Array of view controllers to switch between
@@ -45,8 +50,11 @@ static NSInteger kMonthsDisplay = 0;
     
     UIStoryboard *calendarStoryboard = [[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:@"Calendar"];
     UECMonthViewController *monthsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECMonthViewController"];
+    monthsVC.delegate = self;
     UECEventsListViewController *eventsListVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECEventsListViewController"];
+    eventsListVC.delegate = self;
     UECTicketsViewController *ticketsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECTicketsViewController"];
+    ticketsVC.delegate = self;
     
     // Add the view controllers to the array
     self.allViewControllers = @[monthsVC, eventsListVC, ticketsVC];
@@ -64,6 +72,33 @@ static NSInteger kMonthsDisplay = 0;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
+#pragma mark - Data Refreshing
+
+- (void)refreshDataCompletion:(void (^)(NSArray *objects))completionBlock
+{
+    [[APSDataManager sharedManager] getDataForEntityName:@"Event" coreDataCompletion:^(NSArray *cachedObjects) {
+        [self reloadDataWithNewObjects:cachedObjects completion:completionBlock];
+    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
+        if (needsReloading) {
+            [self reloadDataWithNewObjects:downloadedObjects completion:completionBlock];
+        }
+    }];
+}
+
+- (void)reloadDataWithNewObjects:(NSArray *)newObjects completion:(void (^)(NSArray *objects))completionBlock
+{
+    if (newObjects.count == 0) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    } else {
+        
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        
+        if (completionBlock) {
+            completionBlock(newObjects);
+        }
+    }
+}
 #pragma mark - Segment Control Setup
 
 - (void)setupSegmentControl
@@ -155,5 +190,16 @@ static NSInteger kMonthsDisplay = 0;
     self.currentViewController.view.frame = frame;
 }
 
+#pragma mark - Touched Evvent Delegate
+
+- (void)didSelectEvent:(Event *)event
+{
+    
+}
+
+- (void)didRefreshDataWithCompletion:(void (^)(NSArray *))completionBlock
+{
+    [self refreshDataCompletion:completionBlock];
+}
 
 @end

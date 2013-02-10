@@ -75,6 +75,7 @@
 		05F9178F16C781F300B1BCE1 /* NSArray+TableViewOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178E16C781F300B1BCE1 /* NSArray+TableViewOrdering.m */; };
 		05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */; };
 		05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */; };
+		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +236,8 @@
 		05F9179316C791FC00B1BCE1 /* UECPhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotoAlbumCell.h; sourceTree = "<group>"; };
 		05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotoAlbumCell.m; sourceTree = "<group>"; };
 		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
+		05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarListViewController.h; sourceTree = "<group>"; };
+		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -573,6 +576,8 @@
 				055910E316C3AE8600BF14D2 /* Images */,
 				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
+				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
+				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
 				051B3D5216C56EEF007BAB12 /* Month */,
 				051B3D5416C56EFD007BAB12 /* Event List */,
 				051B3D5316C56EF7007BAB12 /* Tickets */,
@@ -818,6 +823,7 @@
 				05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */,
 				05F9178F16C781F300B1BCE1 /* NSArray+TableViewOrdering.m in Sources */,
 				05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */,
+				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

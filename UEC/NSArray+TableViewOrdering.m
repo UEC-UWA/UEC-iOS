@@ -18,25 +18,40 @@
     else
         sortedArray = self;
     
-    NSArray *sections = [sortedArray sectionNamesForKey:splittingKey];
+    NSArray *sections = [sortedArray sectionNamesForKey:splittingKey sectionedArray:NO];
     
     NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:sections.count];
     NSPredicate *predicate = nil;
     
     // Here we are splitting (and sorting as the section names are already sorted) into the sections.
     for (NSString *section in sections) {
-        predicate = [NSPredicate predicateWithFormat:@"subcommittee LIKE Education", splittingKey, section];
-        [data addObject:[sortedArray filteredArrayUsingPredicate:predicate]];
+        predicate = [NSPredicate predicateWithFormat:@"%K = %@", splittingKey, section];
+        [data addObject:[[sortedArray copy] filteredArrayUsingPredicate:predicate]];
     }
     
     return data;
 }
 
-- (NSArray *)sectionNamesForKey:(NSString *)key
+- (NSArray *)sectionNamesForKey:(NSString *)key sectionedArray:(BOOL)sectionArray
 {
-    NSMutableString *keyPath = [[NSMutableString alloc] initWithFormat:@"@distinctUnionOfObjects.%@", key];
+    NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[self count]];
+
+    if (sectionArray) {
+        for (NSArray *subArray in self)
+            [sectionNames addObject:[[subArray lastObject] valueForKey:key]];
+    } else {
+        for (id object in self)
+            [sectionNames addObject:[object valueForKey:key]];
+    }
     
-    return [self valueForKeyPath:keyPath];
+    // Remove duplicates.
+    NSMutableArray *uniqueSectionNames = [sectionNames mutableCopy];
+    for (NSInteger i = [uniqueSectionNames count] - 1; i > 0; i--) {
+        if ([uniqueSectionNames indexOfObject:uniqueSectionNames[i]] < i)
+            [uniqueSectionNames removeObjectAtIndex:i];
+    }
+    
+    return uniqueSectionNames;
 }
 
 @end

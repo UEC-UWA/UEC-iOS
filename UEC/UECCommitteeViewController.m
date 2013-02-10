@@ -77,24 +77,12 @@ static CGFloat kCellHeight = 55.0;
 {
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    } else {        
-        NSArray *subcommittees = [newObjects valueForKeyPath:@"@distinctUnionOfObjects.subcommittee"];
-        self.subcommittees = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-        
-        NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:self.subcommittees.count];
-        NSPredicate *predicate = nil;
-        
-        // Here we are splitting (and sorting as the section names are already sorted) into the sections.
-        for (NSString *subcommittee in self.subcommittees) {
-            predicate = [NSPredicate predicateWithFormat:@"subcommittee LIKE %@", subcommittee];
-            [data addObject:[newObjects.copy filteredArrayUsingPredicate:predicate]];
-        }
-        
-//        NSString *sectionKey = @"subcommittee";
-//        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sectionKey ascending:YES];
-//        NSArray *sectionedArray = [newObjects sectionedArrayWithSplittingKey:sectionKey withSortDescriptor:@[sortDescriptor]];
-//        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:sectionedArray];
-//        self.subcommittees = [data sectionNamesForKey:sectionKey];
+    } else {         
+        NSString *sectionKey = @"subcommittee";
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sectionKey ascending:YES];
+        NSArray *sectionedArray = [newObjects sectionedArrayWithSplittingKey:sectionKey withSortDescriptor:@[sortDescriptor]];
+        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:sectionedArray];
+        self.subcommittees = [data sectionNamesForKey:sectionKey sectionedArray:YES];
         
         NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
         // This next bit is to get the Exec and the president to be at the top.

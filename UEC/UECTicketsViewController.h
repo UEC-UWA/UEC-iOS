@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECTicketsViewController : UITableViewController
+#import "UECCalendarListViewController.h"
+
+@interface UECTicketsViewController : UECCalendarListViewController
 
 @end
