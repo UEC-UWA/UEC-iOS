@@ -32,6 +32,9 @@
     [[UINavigationBar appearance] setTintColor:UEC_YELLOW];
     NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateHighlighted];
+    
     
     [tabBarController setViewControllers:tabBarVCs];
     

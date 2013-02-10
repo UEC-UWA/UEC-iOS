@@ -1,31 +1,25 @@
 //
-//  UECDataManager.m
+//  APSDataManager.m
 //  UEC
 //
 //  Created by Jad Osseiran on 7/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UECDataManager.h"
+#import "APSDataManager.h"
 
-#import "NSManagedObject+UEC.h"
+#import "NSManagedObject+Appulse.h"
 
-#import "Person.h"
-#import "Event.h"
-#import "PhotoAlbum.h"
-#import "NewsArticle.h"
-
-
-@interface UECDataManager ()
+@interface APSDataManager ()
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @end
 
-@implementation UECDataManager
+@implementation APSDataManager
 
-+ (UECDataManager *)sharedManager
++ (APSDataManager *)sharedManager
 {
-    static __DISPATCH_ONCE__ UECDataManager *singletonObject = nil;
+    static __DISPATCH_ONCE__ APSDataManager *singletonObject = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -36,7 +30,7 @@
     return singletonObject;
 }
 
-#pragma mark - Downloading
+#pragma mark - Public Methods
 
 - (void)getDataForEntityName:(NSString *)entityName
           coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
@@ -57,10 +51,21 @@
     NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
     
     [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
-        NSSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
+        NSMutableSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
         NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
         
-        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
+        if (![coreDataSet isEqualToSet:cachedSet]) {
+            // Allow for initial downaload.
+            if ([coreDataSet count] > [cachedSet count]) {
+                [coreDataSet minusSet:cachedSet];
+                for (id object in coreDataSet)
+                    [self.managedObjectContext deleteObject:object];
+            }
+        }
+        
+#warning currently I only check that the existing object match in relation to their identifiers. I have to find a way to make it so I can know if the backend has updated an existing record so that I can set needsReloading to YES.
+//        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
+        BOOL needsReloading = YES;
         if (downloadCompletionBlock) {
             downloadCompletionBlock(needsReloading, cachedObjects);
         }
@@ -73,6 +78,31 @@
     
     // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
 #endif
+}
+
+- (void)setRelationshipType:(APSDataManagerEntityRelationship)relationshipType
+             fromEntityName:(NSString *)fromEntityName
+               toEntityName:(NSString *)toEntityName
+              fromAttribute:(NSString *)attribute
+               relationship:(NSString *)relationship
+        inverseRelationship:(NSString *)inverseRelationship
+                 completion:(void (^)())completionBlock
+{
+    id value = [fromEntityName valueForKey:attribute];
+    
+    [self.class findAllByAttribute:attribute value:value forEntityName:fromEntityName completion:^(NSArray *fromObjects) {
+        if (fromObjects.count > 0) {
+            [self.class findAllByAttribute:@"identifier" value:value forEntityName:toEntityName completion:^(NSArray *toObjects) {
+                if (toObjects.count > 0) {
+                    [self.class linRelationshipType:relationshipType fromObjects:fromObjects toObjects:toObjects relationship:relationship inverseRelationship:inverseRelationship value:value];
+                }
+            }];
+        }
+        
+        if (completionBlock) {
+            completionBlock();
+        }
+    }];
 }
 
 #pragma mark - Mapping
@@ -112,6 +142,55 @@
             completionBlock(cachedEntities);
         }
     });
+}
+
+#pragma mark - Private Methods
+
++ (void)logErrorForEntityName:(NSString *)entityName
+{
+    NSLog(@"\"%@\" does not appear to be a valide NSManagedObject subclass.", entityName);
+}
+
+//+ (BOOL)
+
++ (void)linRelationshipType:(APSDataManagerEntityRelationship)relationshipType
+                fromObjects:(NSArray *)fromObjects
+                  toObjects:(NSArray *)toObjects
+               relationship:(NSString *)relationship
+        inverseRelationship:(NSString *)inverseRelationship
+                      value:(id)value
+{
+    [fromObjects enumerateObjectsUsingBlock:^(id fromObj, NSUInteger fromIdx, BOOL *fromStop) {
+        switch (relationshipType) {
+            case APSDataManagerEntityRelationshipOneToOne: {
+                [toObjects enumerateObjectsUsingBlock:^(id toObj, NSUInteger toIdx, BOOL *toStop) {
+                    [fromObj setValue:value forKey:relationship];
+                }];
+                break;
+            }
+                
+            case APSDataManagerEntityRelationshipOneToMany:
+                [fromObj setValue:[[NSSet alloc] initWithArray:toObjects] forKey:relationship];
+                break;
+                
+            case APSDataManagerEntityRelationshipManyToMany: {
+                [toObjects enumerateObjectsUsingBlock:^(id toObj, NSUInteger toIdx, BOOL *toStop) {
+                    [fromObj setValue:[[NSSet alloc] initWithArray:toObjects] forKey:relationship];
+                    [toObj setValue:[[NSSet alloc] initWithArray:fromObjects] forKey:inverseRelationship];
+                }];
+                break;
+            }
+                
+            default:
+                break;
+        }
+    }];
+    
+    if (relationshipType == APSDataManagerEntityRelationshipManyToOne) {
+        [toObjects enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            [obj setValue:[[NSSet alloc] initWithArray:fromObjects] forKey:inverseRelationship];
+        }];
+    }
 }
 
 #pragma mark - Core Data Accessors
@@ -199,7 +278,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationWillTerminateNotification object:nil];
     
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"UEC" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:[self.dataSource coreDataXcodeDataModelName] withExtension:@"momd"];
     self.managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     
     NSURL *documentDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
@@ -227,13 +306,6 @@
             NSLog(@"Error saving context: %@", error);
         }
     }];
-}
-
-#pragma mark - Private Methods
-
-+ (void)logErrorForEntityName:(NSString *)entityName
-{
-    NSLog(@"\"%@\" does not appear to be a valide NSManagedObject subclass.", entityName);
 }
 
 @end

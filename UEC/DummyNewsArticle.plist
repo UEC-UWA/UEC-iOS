@@ -14,7 +14,222 @@
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
-		<string>blah</string>
+		<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+  var BASE_URL = &quot;/&quot;;
+--&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;alternate&quot; type=&quot;application/calendar&quot; title=&quot;All Days&quot; href=&quot;/calendar/2013/02/all/ical&quot; /&gt;
+
+    &lt;title&gt;UEC Freshers | University Engineers&apos; Club&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/cck/content.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/img_assist/img_assist.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/node/node.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/defaults.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/system.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/user/user.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/./modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/date/date.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/style.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/files/color/garland-edea9297/style.css&quot;;&lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/misc/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/misc/drupal.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/modules/img_assist/img_assist.js&quot;&gt;&lt;/script&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;print&quot;&gt;@import &quot;/themes/garland/print.css&quot;;&lt;/style&gt;
+    &lt;!--[if lt IE 7]&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/fix-ie.css&quot;;&lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;sidebars&quot;&gt;
+
+&lt;!-- Layout --&gt;
+  &lt;div id=&quot;header-region&quot; class=&quot;clear-block&quot;&gt;&lt;/div&gt;
+
+    &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;div id=&quot;container&quot; class=&quot;clear-block&quot;&gt;
+
+      &lt;div id=&quot;header&quot;&gt;
+        &lt;div id=&quot;logo-floater&quot;&gt;
+        &lt;h1&gt;&lt;a href=&quot;/&quot; title=&quot;&quot;&gt;&lt;img src=&quot;/files/garland_logo.png&quot; alt=&quot;&quot; id=&quot;logo&quot; /&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;        &lt;/div&gt;
+
+                  &lt;ul class=&quot;links primary-links&quot;&gt;&lt;li class=&quot;first menu-1-1-2&quot;&gt;&lt;a href=&quot;/node/14&quot; title=&quot;Learn about the club and committee&quot; class=&quot;menu-1-1-2&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;menu-1-2-2&quot;&gt;&lt;a href=&quot;/contact&quot; title=&quot;Contact us by mail or fill out our web based contact form.&quot; class=&quot;menu-1-2-2&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last menu-1-3-2&quot;&gt;&lt;a href=&quot;/past_events&quot; title=&quot;A list of past events with photo galleries and event reports&quot; class=&quot;menu-1-3-2&quot;&gt;Past Events&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;                
+      &lt;/div&gt; &lt;!-- /header --&gt;
+
+              &lt;div id=&quot;sidebar-left&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-search-0&quot; class=&quot;clear-block block block-search&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;form action=&quot;/node/815&quot;  accept-charset=&quot;UTF-8&quot; method=&quot;post&quot; id=&quot;search-block-form&quot;&gt;
+&lt;div&gt;&lt;div class=&quot;container-inline&quot;&gt;&lt;div class=&quot;form-item&quot; id=&quot;edit-search-block-form-keys-wrapper&quot;&gt;
+ &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;search_block_form_keys&quot; id=&quot;edit-search-block-form-keys&quot;  size=&quot;15&quot; value=&quot;&quot; title=&quot;Enter the terms you wish to search for.&quot; class=&quot;form-text&quot; /&gt;
+&lt;/div&gt;
+&lt;input type=&quot;submit&quot; name=&quot;op&quot; id=&quot;edit-submit&quot; value=&quot;Search&quot;  class=&quot;form-submit&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;form_id&quot; id=&quot;edit-search-block-form&quot; value=&quot;search_block_form&quot;  /&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-block-2&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;embed type=&quot;application/x-shockwave-flash&quot; src=&quot;http://picasaweb.google.com.au/s/c/bin/slideshow.swf&quot; width=&quot;196&quot; height=&quot;196&quot; flashvars=&quot;host=picasaweb.google.com.au&amp;hl=en_GB&amp;feat=flashalbum&amp;RGB=0xF1F1F1&amp;feed=http%3A%2F%2Fpicasaweb.google.com.au%2Fdata%2Ffeed%2Fapi%2Fuser%2Fuecofuwa%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Duecofuwa&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;&gt;&lt;/embed&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-views-calendar&quot; class=&quot;clear-block block block-views&quot;&gt;
+
+  &lt;h2&gt;Event Calendar&lt;/h2&gt;
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div class=&apos;view view-calendar&apos;&gt;&lt;div class=&apos;view-content view-content-calendar&apos;&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;table&gt;
+ &lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;prev&quot;&gt;&lt;span class=&quot;prev&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/1/all&amp;amp;&quot; class=&quot;active&quot;&gt;« &lt;/a&gt;&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;heading&quot; colspan=&quot;5&quot;&gt;&lt;a href=&quot;/calendar/2013/02&quot;&gt;Feb 2013&lt;/a&gt;&lt;/th&gt;&lt;th class=&quot;next&quot;&gt;&lt;span class=&quot;next&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/3/all&amp;amp;&quot; class=&quot;active&quot;&gt; »&lt;/a&gt;&lt;/span&gt;&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;div class=&quot;month-view&quot;&gt;&lt;table class=&quot;mini&quot;&gt;
+&lt;tbody&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;days sun&quot;&gt;S&lt;/td&gt;&lt;td class=&quot;days mon&quot;&gt;M&lt;/td&gt;&lt;td class=&quot;days tue&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days wed&quot;&gt;W&lt;/td&gt;&lt;td class=&quot;days thu&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days fri&quot;&gt;F&lt;/td&gt;&lt;td class=&quot;days sat&quot;&gt;S&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb1&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/1&quot;&gt;1&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb2&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/2&quot;&gt;2&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb3&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/3&quot;&gt;3&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb4&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/4&quot;&gt;4&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb5&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/5&quot;&gt;5&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb6&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/6&quot;&gt;6&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb7&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/7&quot;&gt;7&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb8&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/8&quot;&gt;8&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb9&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/9&quot;&gt;9&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun today mini&quot; id=&quot;feb10&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/10&quot;&gt;10&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb11&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/11&quot;&gt;11&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb12&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/12&quot;&gt;12&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb13&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/13&quot;&gt;13&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb14&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/14&quot;&gt;14&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb15&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/15&quot;&gt;15&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb16&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/16&quot;&gt;16&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb17&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/17&quot;&gt;17&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb18&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/18&quot;&gt;18&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb19&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/19&quot;&gt;19&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb20&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/20&quot;&gt;20&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb21&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/21&quot;&gt;21&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb22&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/22&quot;&gt;22&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb23&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/23&quot;&gt;23&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb24&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/24&quot;&gt;24&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb25&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/25&quot;&gt;25&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb26&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/26&quot;&gt;26&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb27&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/27&quot;&gt;27&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb28&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/28&quot;&gt;28&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt; &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;text-align:right&quot;&gt;&lt;a href=&quot;/calendar/2013/02/all/ical&quot; class=&quot;ical-icon&quot; title=&quot;ical&quot;&gt;&lt;img src=&quot;/modules/date/images/ical16x16.gif&quot; alt=&quot;Add to calendar&quot; title=&quot;Add to calendar&quot; width=&quot;16&quot; height=&quot;16&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+      &lt;div id=&quot;center&quot;&gt;&lt;div id=&quot;squeeze&quot;&gt;&lt;div class=&quot;right-corner&quot;&gt;&lt;div class=&quot;left-corner&quot;&gt;
+          &lt;div class=&quot;breadcrumb&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;          
+                    &lt;h2&gt;UEC Freshers&lt;/h2&gt;          
+          
+                              
+&lt;div id=&quot;node-815&quot; class=&quot;node&quot;&gt;
+
+
+
+      &lt;span class=&quot;submitted&quot;&gt;8 February, 2013 - 22:47 — Webmaster&lt;/span&gt;
+  
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;p&gt;
+Welcome to 2013.
+&lt;/p&gt;
+&lt;p&gt;
+ If you&apos;re a fresher at UWA this year, this post is for you.
+&lt;/p&gt;
+&lt;p&gt;
+ Make sure you join the UEC Fresher group to stay informed about all our first year events, as well as all our other events - &lt;a href=&quot;http://www.facebook.com/groups/470638059666179/&quot;&gt;http://www.facebook.com/groups/470638059666179/&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ This is for you, Engineering Science students, as well as anyone studying a unit or major in the ECM (Engineering, Computing and Maths) Faculty, and anyone else cool enough to hang with the Engineers!
+&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;clear-block clear&quot;&gt;
+    &lt;div class=&quot;meta&quot;&gt;
+          &lt;div class=&quot;terms&quot;&gt;&lt;ul class=&quot;links inline&quot;&gt;&lt;li class=&quot;first taxonomy_term_1&quot;&gt;&lt;a href=&quot;/taxonomy/term/1&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_1&quot;&gt;General&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last taxonomy_term_4&quot;&gt;&lt;a href=&quot;/taxonomy/term/4&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_4&quot;&gt;Social&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+&lt;/div&gt;          &lt;span class=&quot;clear&quot;&gt;&lt;/span&gt;
+                    &lt;div id=&quot;footer&quot;&gt;
+&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;!-- /.left-corner, /.right-corner, /#squeeze, /#center --&gt;
+
+              &lt;div id=&quot;sidebar-right&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-block-1&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div align=&quot;center&quot; style=&quot;line-height: 50px;&quot;&gt;
+&lt;h2 style=&quot;margin-bottom: 15px&quot;&gt;Our Sponsors&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.bcg.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/804/_original&quot; alt=&quot;BostonConsultingGroup&quot; border=&quot;0&quot; width=&quot;200px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.chevron.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/758/_original&quot; alt=&quot;Chevron&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.thiess.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/765/_original&quot; alt=&quot;Thiess&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.lycopodium.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/761/_original&quot; alt=&quot;Lycopodium&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.monadelphous.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/762/_original&quot; alt=&quot;Monadelphous&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.coffey.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.uec.org.au/files/images/coffey_0.thumbnail.png&quot; alt=&quot;Coffey&quot; class=&quot;image thumbnail&quot; width=&quot;100&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.cardno.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/757/_original&quot; alt=&quot;Cardno&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.hatch.ca/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/760/_original&quot; alt=&quot;Hatch&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.riotinto.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/801/_original&quot; alt=&quot;RioTinto&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.technipgrads.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/802/_original&quot; alt=&quot;Technip&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.structerre.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/764/_original&quot; alt=&quot;Structerre&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.ghd.com/australia/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/759/_original&quot; alt=&quot;GHD&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.enerflex.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/803/_original&quot; alt=&quot;Enerflex&quot; border=&quot;0&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.skmconsulting.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/763/_original&quot; alt=&quot;Sinclair Knight Merz&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;!-- 2011 --&gt;
+&lt;!--
+&lt;p&gt;
+&lt;a href=&quot;http://www.bhpbilliton.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/756/_original&quot; alt=&quot;BHP Billiton&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.minproc.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/754/_original&quot; alt=&quot;AMEC Minproc&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.apache-energy.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/755/_original&quot; alt=&quot;Apache Energy&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+--&gt;
+
+
+
+
+
+
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+    &lt;/div&gt; &lt;!-- /container --&gt;
+  &lt;/div&gt;
+&lt;!-- /layout --&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</string>
 		<key>category</key>
 		<string>Other</string>
 	</dict>
@@ -22,7 +237,7 @@
 		<key>title</key>
 		<string>Some Title</string>
 		<key>summary</key>
-		<string>Blah blah blah Blah blah blah Blah blah blah Blah blah blah</string>
+		<string>Let&apos;s Blah blah blah Blah blah blah Blah blah blah Blah blah blah</string>
 		<key>date</key>
 		<date>2013-02-02T17:14:34Z</date>
 		<key>id</key>
@@ -30,7 +245,222 @@
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
-		<string>blah</string>
+		<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+  var BASE_URL = &quot;/&quot;;
+--&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;alternate&quot; type=&quot;application/calendar&quot; title=&quot;All Days&quot; href=&quot;/calendar/2013/02/all/ical&quot; /&gt;
+
+    &lt;title&gt;UEC Freshers | University Engineers&apos; Club&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/cck/content.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/img_assist/img_assist.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/node/node.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/defaults.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/system.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/user/user.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/./modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/date/date.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/style.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/files/color/garland-edea9297/style.css&quot;;&lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/misc/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/misc/drupal.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/modules/img_assist/img_assist.js&quot;&gt;&lt;/script&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;print&quot;&gt;@import &quot;/themes/garland/print.css&quot;;&lt;/style&gt;
+    &lt;!--[if lt IE 7]&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/fix-ie.css&quot;;&lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;sidebars&quot;&gt;
+
+&lt;!-- Layout --&gt;
+  &lt;div id=&quot;header-region&quot; class=&quot;clear-block&quot;&gt;&lt;/div&gt;
+
+    &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;div id=&quot;container&quot; class=&quot;clear-block&quot;&gt;
+
+      &lt;div id=&quot;header&quot;&gt;
+        &lt;div id=&quot;logo-floater&quot;&gt;
+        &lt;h1&gt;&lt;a href=&quot;/&quot; title=&quot;&quot;&gt;&lt;img src=&quot;/files/garland_logo.png&quot; alt=&quot;&quot; id=&quot;logo&quot; /&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;        &lt;/div&gt;
+
+                  &lt;ul class=&quot;links primary-links&quot;&gt;&lt;li class=&quot;first menu-1-1-2&quot;&gt;&lt;a href=&quot;/node/14&quot; title=&quot;Learn about the club and committee&quot; class=&quot;menu-1-1-2&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;menu-1-2-2&quot;&gt;&lt;a href=&quot;/contact&quot; title=&quot;Contact us by mail or fill out our web based contact form.&quot; class=&quot;menu-1-2-2&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last menu-1-3-2&quot;&gt;&lt;a href=&quot;/past_events&quot; title=&quot;A list of past events with photo galleries and event reports&quot; class=&quot;menu-1-3-2&quot;&gt;Past Events&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;                
+      &lt;/div&gt; &lt;!-- /header --&gt;
+
+              &lt;div id=&quot;sidebar-left&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-search-0&quot; class=&quot;clear-block block block-search&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;form action=&quot;/node/815&quot;  accept-charset=&quot;UTF-8&quot; method=&quot;post&quot; id=&quot;search-block-form&quot;&gt;
+&lt;div&gt;&lt;div class=&quot;container-inline&quot;&gt;&lt;div class=&quot;form-item&quot; id=&quot;edit-search-block-form-keys-wrapper&quot;&gt;
+ &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;search_block_form_keys&quot; id=&quot;edit-search-block-form-keys&quot;  size=&quot;15&quot; value=&quot;&quot; title=&quot;Enter the terms you wish to search for.&quot; class=&quot;form-text&quot; /&gt;
+&lt;/div&gt;
+&lt;input type=&quot;submit&quot; name=&quot;op&quot; id=&quot;edit-submit&quot; value=&quot;Search&quot;  class=&quot;form-submit&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;form_id&quot; id=&quot;edit-search-block-form&quot; value=&quot;search_block_form&quot;  /&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-block-2&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;embed type=&quot;application/x-shockwave-flash&quot; src=&quot;http://picasaweb.google.com.au/s/c/bin/slideshow.swf&quot; width=&quot;196&quot; height=&quot;196&quot; flashvars=&quot;host=picasaweb.google.com.au&amp;hl=en_GB&amp;feat=flashalbum&amp;RGB=0xF1F1F1&amp;feed=http%3A%2F%2Fpicasaweb.google.com.au%2Fdata%2Ffeed%2Fapi%2Fuser%2Fuecofuwa%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Duecofuwa&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;&gt;&lt;/embed&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-views-calendar&quot; class=&quot;clear-block block block-views&quot;&gt;
+
+  &lt;h2&gt;Event Calendar&lt;/h2&gt;
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div class=&apos;view view-calendar&apos;&gt;&lt;div class=&apos;view-content view-content-calendar&apos;&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;table&gt;
+ &lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;prev&quot;&gt;&lt;span class=&quot;prev&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/1/all&amp;amp;&quot; class=&quot;active&quot;&gt;« &lt;/a&gt;&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;heading&quot; colspan=&quot;5&quot;&gt;&lt;a href=&quot;/calendar/2013/02&quot;&gt;Feb 2013&lt;/a&gt;&lt;/th&gt;&lt;th class=&quot;next&quot;&gt;&lt;span class=&quot;next&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/3/all&amp;amp;&quot; class=&quot;active&quot;&gt; »&lt;/a&gt;&lt;/span&gt;&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;div class=&quot;month-view&quot;&gt;&lt;table class=&quot;mini&quot;&gt;
+&lt;tbody&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;days sun&quot;&gt;S&lt;/td&gt;&lt;td class=&quot;days mon&quot;&gt;M&lt;/td&gt;&lt;td class=&quot;days tue&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days wed&quot;&gt;W&lt;/td&gt;&lt;td class=&quot;days thu&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days fri&quot;&gt;F&lt;/td&gt;&lt;td class=&quot;days sat&quot;&gt;S&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb1&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/1&quot;&gt;1&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb2&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/2&quot;&gt;2&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb3&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/3&quot;&gt;3&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb4&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/4&quot;&gt;4&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb5&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/5&quot;&gt;5&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb6&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/6&quot;&gt;6&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb7&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/7&quot;&gt;7&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb8&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/8&quot;&gt;8&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb9&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/9&quot;&gt;9&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun today mini&quot; id=&quot;feb10&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/10&quot;&gt;10&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb11&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/11&quot;&gt;11&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb12&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/12&quot;&gt;12&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb13&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/13&quot;&gt;13&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb14&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/14&quot;&gt;14&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb15&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/15&quot;&gt;15&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb16&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/16&quot;&gt;16&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb17&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/17&quot;&gt;17&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb18&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/18&quot;&gt;18&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb19&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/19&quot;&gt;19&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb20&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/20&quot;&gt;20&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb21&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/21&quot;&gt;21&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb22&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/22&quot;&gt;22&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb23&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/23&quot;&gt;23&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb24&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/24&quot;&gt;24&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb25&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/25&quot;&gt;25&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb26&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/26&quot;&gt;26&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb27&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/27&quot;&gt;27&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb28&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/28&quot;&gt;28&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt; &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;text-align:right&quot;&gt;&lt;a href=&quot;/calendar/2013/02/all/ical&quot; class=&quot;ical-icon&quot; title=&quot;ical&quot;&gt;&lt;img src=&quot;/modules/date/images/ical16x16.gif&quot; alt=&quot;Add to calendar&quot; title=&quot;Add to calendar&quot; width=&quot;16&quot; height=&quot;16&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+      &lt;div id=&quot;center&quot;&gt;&lt;div id=&quot;squeeze&quot;&gt;&lt;div class=&quot;right-corner&quot;&gt;&lt;div class=&quot;left-corner&quot;&gt;
+          &lt;div class=&quot;breadcrumb&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;          
+                    &lt;h2&gt;UEC Freshers&lt;/h2&gt;          
+          
+                              
+&lt;div id=&quot;node-815&quot; class=&quot;node&quot;&gt;
+
+
+
+      &lt;span class=&quot;submitted&quot;&gt;8 February, 2013 - 22:47 — Webmaster&lt;/span&gt;
+  
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;p&gt;
+Welcome to 2013.
+&lt;/p&gt;
+&lt;p&gt;
+ If you&apos;re a fresher at UWA this year, this post is for you.
+&lt;/p&gt;
+&lt;p&gt;
+ Make sure you join the UEC Fresher group to stay informed about all our first year events, as well as all our other events - &lt;a href=&quot;http://www.facebook.com/groups/470638059666179/&quot;&gt;http://www.facebook.com/groups/470638059666179/&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ This is for you, Engineering Science students, as well as anyone studying a unit or major in the ECM (Engineering, Computing and Maths) Faculty, and anyone else cool enough to hang with the Engineers!
+&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;clear-block clear&quot;&gt;
+    &lt;div class=&quot;meta&quot;&gt;
+          &lt;div class=&quot;terms&quot;&gt;&lt;ul class=&quot;links inline&quot;&gt;&lt;li class=&quot;first taxonomy_term_1&quot;&gt;&lt;a href=&quot;/taxonomy/term/1&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_1&quot;&gt;General&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last taxonomy_term_4&quot;&gt;&lt;a href=&quot;/taxonomy/term/4&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_4&quot;&gt;Social&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+&lt;/div&gt;          &lt;span class=&quot;clear&quot;&gt;&lt;/span&gt;
+                    &lt;div id=&quot;footer&quot;&gt;
+&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;!-- /.left-corner, /.right-corner, /#squeeze, /#center --&gt;
+
+              &lt;div id=&quot;sidebar-right&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-block-1&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div align=&quot;center&quot; style=&quot;line-height: 50px;&quot;&gt;
+&lt;h2 style=&quot;margin-bottom: 15px&quot;&gt;Our Sponsors&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.bcg.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/804/_original&quot; alt=&quot;BostonConsultingGroup&quot; border=&quot;0&quot; width=&quot;200px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.chevron.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/758/_original&quot; alt=&quot;Chevron&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.thiess.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/765/_original&quot; alt=&quot;Thiess&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.lycopodium.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/761/_original&quot; alt=&quot;Lycopodium&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.monadelphous.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/762/_original&quot; alt=&quot;Monadelphous&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.coffey.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.uec.org.au/files/images/coffey_0.thumbnail.png&quot; alt=&quot;Coffey&quot; class=&quot;image thumbnail&quot; width=&quot;100&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.cardno.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/757/_original&quot; alt=&quot;Cardno&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.hatch.ca/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/760/_original&quot; alt=&quot;Hatch&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.riotinto.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/801/_original&quot; alt=&quot;RioTinto&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.technipgrads.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/802/_original&quot; alt=&quot;Technip&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.structerre.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/764/_original&quot; alt=&quot;Structerre&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.ghd.com/australia/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/759/_original&quot; alt=&quot;GHD&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.enerflex.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/803/_original&quot; alt=&quot;Enerflex&quot; border=&quot;0&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.skmconsulting.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/763/_original&quot; alt=&quot;Sinclair Knight Merz&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;!-- 2011 --&gt;
+&lt;!--
+&lt;p&gt;
+&lt;a href=&quot;http://www.bhpbilliton.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/756/_original&quot; alt=&quot;BHP Billiton&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.minproc.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/754/_original&quot; alt=&quot;AMEC Minproc&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.apache-energy.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/755/_original&quot; alt=&quot;Apache Energy&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+--&gt;
+
+
+
+
+
+
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+    &lt;/div&gt; &lt;!-- /container --&gt;
+  &lt;/div&gt;
+&lt;!-- /layout --&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</string>
 		<key>category</key>
 		<string>Education</string>
 	</dict>
@@ -38,7 +468,7 @@
 		<key>title</key>
 		<string>Lorem Ipsum</string>
 		<key>summary</key>
-		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in...</string>
+		<string>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in...Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in...</string>
 		<key>date</key>
 		<date>2013-01-19T17:14:34Z</date>
 		<key>id</key>
@@ -46,7 +476,222 @@
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
-		<string>blah</string>
+		<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+  var BASE_URL = &quot;/&quot;;
+--&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;alternate&quot; type=&quot;application/calendar&quot; title=&quot;All Days&quot; href=&quot;/calendar/2013/02/all/ical&quot; /&gt;
+
+    &lt;title&gt;UEC Freshers | University Engineers&apos; Club&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/cck/content.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/img_assist/img_assist.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/node/node.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/defaults.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/system.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/user/user.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/./modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/date/date.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/style.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/files/color/garland-edea9297/style.css&quot;;&lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/misc/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/misc/drupal.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/modules/img_assist/img_assist.js&quot;&gt;&lt;/script&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;print&quot;&gt;@import &quot;/themes/garland/print.css&quot;;&lt;/style&gt;
+    &lt;!--[if lt IE 7]&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/fix-ie.css&quot;;&lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;sidebars&quot;&gt;
+
+&lt;!-- Layout --&gt;
+  &lt;div id=&quot;header-region&quot; class=&quot;clear-block&quot;&gt;&lt;/div&gt;
+
+    &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;div id=&quot;container&quot; class=&quot;clear-block&quot;&gt;
+
+      &lt;div id=&quot;header&quot;&gt;
+        &lt;div id=&quot;logo-floater&quot;&gt;
+        &lt;h1&gt;&lt;a href=&quot;/&quot; title=&quot;&quot;&gt;&lt;img src=&quot;/files/garland_logo.png&quot; alt=&quot;&quot; id=&quot;logo&quot; /&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;        &lt;/div&gt;
+
+                  &lt;ul class=&quot;links primary-links&quot;&gt;&lt;li class=&quot;first menu-1-1-2&quot;&gt;&lt;a href=&quot;/node/14&quot; title=&quot;Learn about the club and committee&quot; class=&quot;menu-1-1-2&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;menu-1-2-2&quot;&gt;&lt;a href=&quot;/contact&quot; title=&quot;Contact us by mail or fill out our web based contact form.&quot; class=&quot;menu-1-2-2&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last menu-1-3-2&quot;&gt;&lt;a href=&quot;/past_events&quot; title=&quot;A list of past events with photo galleries and event reports&quot; class=&quot;menu-1-3-2&quot;&gt;Past Events&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;                
+      &lt;/div&gt; &lt;!-- /header --&gt;
+
+              &lt;div id=&quot;sidebar-left&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-search-0&quot; class=&quot;clear-block block block-search&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;form action=&quot;/node/815&quot;  accept-charset=&quot;UTF-8&quot; method=&quot;post&quot; id=&quot;search-block-form&quot;&gt;
+&lt;div&gt;&lt;div class=&quot;container-inline&quot;&gt;&lt;div class=&quot;form-item&quot; id=&quot;edit-search-block-form-keys-wrapper&quot;&gt;
+ &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;search_block_form_keys&quot; id=&quot;edit-search-block-form-keys&quot;  size=&quot;15&quot; value=&quot;&quot; title=&quot;Enter the terms you wish to search for.&quot; class=&quot;form-text&quot; /&gt;
+&lt;/div&gt;
+&lt;input type=&quot;submit&quot; name=&quot;op&quot; id=&quot;edit-submit&quot; value=&quot;Search&quot;  class=&quot;form-submit&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;form_id&quot; id=&quot;edit-search-block-form&quot; value=&quot;search_block_form&quot;  /&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-block-2&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;embed type=&quot;application/x-shockwave-flash&quot; src=&quot;http://picasaweb.google.com.au/s/c/bin/slideshow.swf&quot; width=&quot;196&quot; height=&quot;196&quot; flashvars=&quot;host=picasaweb.google.com.au&amp;hl=en_GB&amp;feat=flashalbum&amp;RGB=0xF1F1F1&amp;feed=http%3A%2F%2Fpicasaweb.google.com.au%2Fdata%2Ffeed%2Fapi%2Fuser%2Fuecofuwa%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Duecofuwa&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;&gt;&lt;/embed&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-views-calendar&quot; class=&quot;clear-block block block-views&quot;&gt;
+
+  &lt;h2&gt;Event Calendar&lt;/h2&gt;
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div class=&apos;view view-calendar&apos;&gt;&lt;div class=&apos;view-content view-content-calendar&apos;&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;table&gt;
+ &lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;prev&quot;&gt;&lt;span class=&quot;prev&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/1/all&amp;amp;&quot; class=&quot;active&quot;&gt;« &lt;/a&gt;&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;heading&quot; colspan=&quot;5&quot;&gt;&lt;a href=&quot;/calendar/2013/02&quot;&gt;Feb 2013&lt;/a&gt;&lt;/th&gt;&lt;th class=&quot;next&quot;&gt;&lt;span class=&quot;next&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/3/all&amp;amp;&quot; class=&quot;active&quot;&gt; »&lt;/a&gt;&lt;/span&gt;&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;div class=&quot;month-view&quot;&gt;&lt;table class=&quot;mini&quot;&gt;
+&lt;tbody&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;days sun&quot;&gt;S&lt;/td&gt;&lt;td class=&quot;days mon&quot;&gt;M&lt;/td&gt;&lt;td class=&quot;days tue&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days wed&quot;&gt;W&lt;/td&gt;&lt;td class=&quot;days thu&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days fri&quot;&gt;F&lt;/td&gt;&lt;td class=&quot;days sat&quot;&gt;S&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb1&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/1&quot;&gt;1&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb2&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/2&quot;&gt;2&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb3&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/3&quot;&gt;3&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb4&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/4&quot;&gt;4&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb5&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/5&quot;&gt;5&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb6&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/6&quot;&gt;6&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb7&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/7&quot;&gt;7&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb8&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/8&quot;&gt;8&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb9&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/9&quot;&gt;9&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun today mini&quot; id=&quot;feb10&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/10&quot;&gt;10&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb11&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/11&quot;&gt;11&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb12&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/12&quot;&gt;12&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb13&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/13&quot;&gt;13&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb14&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/14&quot;&gt;14&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb15&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/15&quot;&gt;15&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb16&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/16&quot;&gt;16&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb17&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/17&quot;&gt;17&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb18&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/18&quot;&gt;18&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb19&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/19&quot;&gt;19&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb20&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/20&quot;&gt;20&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb21&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/21&quot;&gt;21&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb22&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/22&quot;&gt;22&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb23&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/23&quot;&gt;23&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb24&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/24&quot;&gt;24&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb25&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/25&quot;&gt;25&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb26&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/26&quot;&gt;26&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb27&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/27&quot;&gt;27&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb28&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/28&quot;&gt;28&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt; &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;text-align:right&quot;&gt;&lt;a href=&quot;/calendar/2013/02/all/ical&quot; class=&quot;ical-icon&quot; title=&quot;ical&quot;&gt;&lt;img src=&quot;/modules/date/images/ical16x16.gif&quot; alt=&quot;Add to calendar&quot; title=&quot;Add to calendar&quot; width=&quot;16&quot; height=&quot;16&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+      &lt;div id=&quot;center&quot;&gt;&lt;div id=&quot;squeeze&quot;&gt;&lt;div class=&quot;right-corner&quot;&gt;&lt;div class=&quot;left-corner&quot;&gt;
+          &lt;div class=&quot;breadcrumb&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;          
+                    &lt;h2&gt;UEC Freshers&lt;/h2&gt;          
+          
+                              
+&lt;div id=&quot;node-815&quot; class=&quot;node&quot;&gt;
+
+
+
+      &lt;span class=&quot;submitted&quot;&gt;8 February, 2013 - 22:47 — Webmaster&lt;/span&gt;
+  
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;p&gt;
+Welcome to 2013.
+&lt;/p&gt;
+&lt;p&gt;
+ If you&apos;re a fresher at UWA this year, this post is for you.
+&lt;/p&gt;
+&lt;p&gt;
+ Make sure you join the UEC Fresher group to stay informed about all our first year events, as well as all our other events - &lt;a href=&quot;http://www.facebook.com/groups/470638059666179/&quot;&gt;http://www.facebook.com/groups/470638059666179/&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ This is for you, Engineering Science students, as well as anyone studying a unit or major in the ECM (Engineering, Computing and Maths) Faculty, and anyone else cool enough to hang with the Engineers!
+&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;clear-block clear&quot;&gt;
+    &lt;div class=&quot;meta&quot;&gt;
+          &lt;div class=&quot;terms&quot;&gt;&lt;ul class=&quot;links inline&quot;&gt;&lt;li class=&quot;first taxonomy_term_1&quot;&gt;&lt;a href=&quot;/taxonomy/term/1&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_1&quot;&gt;General&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last taxonomy_term_4&quot;&gt;&lt;a href=&quot;/taxonomy/term/4&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_4&quot;&gt;Social&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+&lt;/div&gt;          &lt;span class=&quot;clear&quot;&gt;&lt;/span&gt;
+                    &lt;div id=&quot;footer&quot;&gt;
+&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;!-- /.left-corner, /.right-corner, /#squeeze, /#center --&gt;
+
+              &lt;div id=&quot;sidebar-right&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-block-1&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div align=&quot;center&quot; style=&quot;line-height: 50px;&quot;&gt;
+&lt;h2 style=&quot;margin-bottom: 15px&quot;&gt;Our Sponsors&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.bcg.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/804/_original&quot; alt=&quot;BostonConsultingGroup&quot; border=&quot;0&quot; width=&quot;200px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.chevron.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/758/_original&quot; alt=&quot;Chevron&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.thiess.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/765/_original&quot; alt=&quot;Thiess&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.lycopodium.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/761/_original&quot; alt=&quot;Lycopodium&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.monadelphous.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/762/_original&quot; alt=&quot;Monadelphous&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.coffey.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.uec.org.au/files/images/coffey_0.thumbnail.png&quot; alt=&quot;Coffey&quot; class=&quot;image thumbnail&quot; width=&quot;100&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.cardno.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/757/_original&quot; alt=&quot;Cardno&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.hatch.ca/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/760/_original&quot; alt=&quot;Hatch&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.riotinto.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/801/_original&quot; alt=&quot;RioTinto&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.technipgrads.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/802/_original&quot; alt=&quot;Technip&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.structerre.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/764/_original&quot; alt=&quot;Structerre&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.ghd.com/australia/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/759/_original&quot; alt=&quot;GHD&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.enerflex.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/803/_original&quot; alt=&quot;Enerflex&quot; border=&quot;0&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.skmconsulting.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/763/_original&quot; alt=&quot;Sinclair Knight Merz&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;!-- 2011 --&gt;
+&lt;!--
+&lt;p&gt;
+&lt;a href=&quot;http://www.bhpbilliton.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/756/_original&quot; alt=&quot;BHP Billiton&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.minproc.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/754/_original&quot; alt=&quot;AMEC Minproc&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.apache-energy.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/755/_original&quot; alt=&quot;Apache Energy&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+--&gt;
+
+
+
+
+
+
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+    &lt;/div&gt; &lt;!-- /container --&gt;
+  &lt;/div&gt;
+&lt;!-- /layout --&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;</string>
 		<key>category</key>
 		<string>Social</string>
 	</dict>
@@ -62,7 +707,223 @@
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
-		<string>blah</string>
+		<string>&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;
+  &quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;
+&lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot; xml:lang=&quot;en&quot; lang=&quot;en&quot;&gt;
+  &lt;head&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+&lt;script type=&quot;text/javascript&quot;&gt;&lt;!--
+  var BASE_URL = &quot;/&quot;;
+--&gt;&lt;/script&gt;
+
+&lt;link rel=&quot;alternate&quot; type=&quot;application/calendar&quot; title=&quot;All Days&quot; href=&quot;/calendar/2013/02/all/ical&quot; /&gt;
+
+    &lt;title&gt;UEC Freshers | University Engineers&apos; Club&lt;/title&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/cck/content.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/img_assist/img_assist.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/node/node.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/defaults.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/system/system.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/user/user.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/./modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/calendar/calendar.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/modules/date/date.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/style.css&quot;;&lt;/style&gt;
+&lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/files/color/garland-edea9297/style.css&quot;;&lt;/style&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;/misc/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/misc/drupal.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/modules/img_assist/img_assist.js&quot;&gt;&lt;/script&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;print&quot;&gt;@import &quot;/themes/garland/print.css&quot;;&lt;/style&gt;
+    &lt;!--[if lt IE 7]&gt;
+    &lt;style type=&quot;text/css&quot; media=&quot;all&quot;&gt;@import &quot;/themes/garland/fix-ie.css&quot;;&lt;/style&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;sidebars&quot;&gt;
+
+&lt;!-- Layout --&gt;
+  &lt;div id=&quot;header-region&quot; class=&quot;clear-block&quot;&gt;&lt;/div&gt;
+
+    &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;div id=&quot;container&quot; class=&quot;clear-block&quot;&gt;
+
+      &lt;div id=&quot;header&quot;&gt;
+        &lt;div id=&quot;logo-floater&quot;&gt;
+        &lt;h1&gt;&lt;a href=&quot;/&quot; title=&quot;&quot;&gt;&lt;img src=&quot;/files/garland_logo.png&quot; alt=&quot;&quot; id=&quot;logo&quot; /&gt;&lt;span&gt;&lt;/span&gt;&lt;/a&gt;&lt;/h1&gt;        &lt;/div&gt;
+
+                  &lt;ul class=&quot;links primary-links&quot;&gt;&lt;li class=&quot;first menu-1-1-2&quot;&gt;&lt;a href=&quot;/node/14&quot; title=&quot;Learn about the club and committee&quot; class=&quot;menu-1-1-2&quot;&gt;About Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;menu-1-2-2&quot;&gt;&lt;a href=&quot;/contact&quot; title=&quot;Contact us by mail or fill out our web based contact form.&quot; class=&quot;menu-1-2-2&quot;&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last menu-1-3-2&quot;&gt;&lt;a href=&quot;/past_events&quot; title=&quot;A list of past events with photo galleries and event reports&quot; class=&quot;menu-1-3-2&quot;&gt;Past Events&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;                
+      &lt;/div&gt; &lt;!-- /header --&gt;
+
+              &lt;div id=&quot;sidebar-left&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-search-0&quot; class=&quot;clear-block block block-search&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;form action=&quot;/node/815&quot;  accept-charset=&quot;UTF-8&quot; method=&quot;post&quot; id=&quot;search-block-form&quot;&gt;
+&lt;div&gt;&lt;div class=&quot;container-inline&quot;&gt;&lt;div class=&quot;form-item&quot; id=&quot;edit-search-block-form-keys-wrapper&quot;&gt;
+ &lt;input type=&quot;text&quot; maxlength=&quot;128&quot; name=&quot;search_block_form_keys&quot; id=&quot;edit-search-block-form-keys&quot;  size=&quot;15&quot; value=&quot;&quot; title=&quot;Enter the terms you wish to search for.&quot; class=&quot;form-text&quot; /&gt;
+&lt;/div&gt;
+&lt;input type=&quot;submit&quot; name=&quot;op&quot; id=&quot;edit-submit&quot; value=&quot;Search&quot;  class=&quot;form-submit&quot; /&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;form_id&quot; id=&quot;edit-search-block-form&quot; value=&quot;search_block_form&quot;  /&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-block-2&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;embed type=&quot;application/x-shockwave-flash&quot; src=&quot;http://picasaweb.google.com.au/s/c/bin/slideshow.swf&quot; width=&quot;196&quot; height=&quot;196&quot; flashvars=&quot;host=picasaweb.google.com.au&amp;hl=en_GB&amp;feat=flashalbum&amp;RGB=0xF1F1F1&amp;feed=http%3A%2F%2Fpicasaweb.google.com.au%2Fdata%2Ffeed%2Fapi%2Fuser%2Fuecofuwa%3Falt%3Drss%26kind%3Dphoto%26access%3Dpublic%26psc%3DF%26q%26uname%3Duecofuwa&quot; pluginspage=&quot;http://www.macromedia.com/go/getflashplayer&quot;&gt;&lt;/embed&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&quot;block-views-calendar&quot; class=&quot;clear-block block block-views&quot;&gt;
+
+  &lt;h2&gt;Event Calendar&lt;/h2&gt;
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div class=&apos;view view-calendar&apos;&gt;&lt;div class=&apos;view-content view-content-calendar&apos;&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;table&gt;
+ &lt;thead&gt;&lt;tr&gt;&lt;th class=&quot;prev&quot;&gt;&lt;span class=&quot;prev&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/1/all&amp;amp;&quot; class=&quot;active&quot;&gt;« &lt;/a&gt;&lt;/span&gt;&lt;/th&gt;&lt;th class=&quot;heading&quot; colspan=&quot;5&quot;&gt;&lt;a href=&quot;/calendar/2013/02&quot;&gt;Feb 2013&lt;/a&gt;&lt;/th&gt;&lt;th class=&quot;next&quot;&gt;&lt;span class=&quot;next&quot;&gt;&lt;a href=&quot;/node/815?mini=calendar/2013/3/all&amp;amp;&quot; class=&quot;active&quot;&gt; »&lt;/a&gt;&lt;/span&gt;&lt;/th&gt; &lt;/tr&gt;&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;div class=&quot;calendar-calendar&quot;&gt;&lt;div class=&quot;month-view&quot;&gt;&lt;table class=&quot;mini&quot;&gt;
+&lt;tbody&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;days sun&quot;&gt;S&lt;/td&gt;&lt;td class=&quot;days mon&quot;&gt;M&lt;/td&gt;&lt;td class=&quot;days tue&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days wed&quot;&gt;W&lt;/td&gt;&lt;td class=&quot;days thu&quot;&gt;T&lt;/td&gt;&lt;td class=&quot;days fri&quot;&gt;F&lt;/td&gt;&lt;td class=&quot;days sat&quot;&gt;S&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb1&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/1&quot;&gt;1&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb2&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/2&quot;&gt;2&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb3&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/3&quot;&gt;3&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb4&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/4&quot;&gt;4&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb5&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/5&quot;&gt;5&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb6&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/6&quot;&gt;6&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb7&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/7&quot;&gt;7&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb8&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/8&quot;&gt;8&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb9&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/9&quot;&gt;9&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun today mini&quot; id=&quot;feb10&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/10&quot;&gt;10&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb11&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/11&quot;&gt;11&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb12&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/12&quot;&gt;12&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb13&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/13&quot;&gt;13&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb14&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/14&quot;&gt;14&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb15&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/15&quot;&gt;15&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb16&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/16&quot;&gt;16&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;odd&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb17&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/17&quot;&gt;17&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb18&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/18&quot;&gt;18&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb19&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/19&quot;&gt;19&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb20&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/20&quot;&gt;20&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb21&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/21&quot;&gt;21&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb fri mini&quot; id=&quot;feb22&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/22&quot;&gt;22&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb sat mini&quot; id=&quot;feb23&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/23&quot;&gt;23&lt;/a&gt;&lt;/div&gt;&lt;/td&gt; &lt;/tr&gt;
+ &lt;tr class=&quot;even&quot;&gt;&lt;td class=&quot;feb sun mini&quot; id=&quot;feb24&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/24&quot;&gt;24&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb mon mini&quot; id=&quot;feb25&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/25&quot;&gt;25&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb tue mini&quot; id=&quot;feb26&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/26&quot;&gt;26&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb wed mini&quot; id=&quot;feb27&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/27&quot;&gt;27&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class=&quot;feb thu mini&quot; id=&quot;feb28&quot;&gt;&lt;div class=&quot;mini-day-off&quot;&gt;&lt;a href=&quot;/calendar/2013/02/28&quot;&gt;28&lt;/a&gt;&lt;/div&gt;&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt;&lt;td&gt;&lt;div class=&quot;calendar-empty&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/td&gt; &lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;div style=&quot;text-align:right&quot;&gt;&lt;a href=&quot;/calendar/2013/02/all/ical&quot; class=&quot;ical-icon&quot; title=&quot;ical&quot;&gt;&lt;img src=&quot;/modules/date/images/ical16x16.gif&quot; alt=&quot;Add to calendar&quot; title=&quot;Add to calendar&quot; width=&quot;16&quot; height=&quot;16&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+      &lt;div id=&quot;center&quot;&gt;&lt;div id=&quot;squeeze&quot;&gt;&lt;div class=&quot;right-corner&quot;&gt;&lt;div class=&quot;left-corner&quot;&gt;
+          &lt;div class=&quot;breadcrumb&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/div&gt;          
+                    &lt;h2&gt;UEC Freshers&lt;/h2&gt;          
+          
+                              
+&lt;div id=&quot;node-815&quot; class=&quot;node&quot;&gt;
+
+
+
+      &lt;span class=&quot;submitted&quot;&gt;8 February, 2013 - 22:47 — Webmaster&lt;/span&gt;
+  
+  &lt;div class=&quot;content&quot;&gt;
+    &lt;p&gt;
+Welcome to 2013.
+&lt;/p&gt;
+&lt;p&gt;
+ If you&apos;re a fresher at UWA this year, this post is for you.
+&lt;/p&gt;
+&lt;p&gt;
+ Make sure you join the UEC Fresher group to stay informed about all our first year events, as well as all our other events - &lt;a href=&quot;http://www.facebook.com/groups/470638059666179/&quot;&gt;http://www.facebook.com/groups/470638059666179/&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+ This is for you, Engineering Science students, as well as anyone studying a unit or major in the ECM (Engineering, Computing and Maths) Faculty, and anyone else cool enough to hang with the Engineers!
+&lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;div class=&quot;clear-block clear&quot;&gt;
+    &lt;div class=&quot;meta&quot;&gt;
+          &lt;div class=&quot;terms&quot;&gt;&lt;ul class=&quot;links inline&quot;&gt;&lt;li class=&quot;first taxonomy_term_1&quot;&gt;&lt;a href=&quot;/taxonomy/term/1&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_1&quot;&gt;General&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;last taxonomy_term_4&quot;&gt;&lt;a href=&quot;/taxonomy/term/4&quot; rel=&quot;tag&quot; title=&quot;&quot; class=&quot;taxonomy_term_4&quot;&gt;Social&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+&lt;/div&gt;          &lt;span class=&quot;clear&quot;&gt;&lt;/span&gt;
+                    &lt;div id=&quot;footer&quot;&gt;
+&lt;/div&gt;
+      &lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;!-- /.left-corner, /.right-corner, /#squeeze, /#center --&gt;
+
+              &lt;div id=&quot;sidebar-right&quot; class=&quot;sidebar&quot;&gt;
+                    &lt;div id=&quot;block-block-1&quot; class=&quot;clear-block block block-block&quot;&gt;
+
+
+  &lt;div class=&quot;content&quot;&gt;&lt;div align=&quot;center&quot; style=&quot;line-height: 50px;&quot;&gt;
+&lt;h2 style=&quot;margin-bottom: 15px&quot;&gt;Our Sponsors&lt;/h2&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.bcg.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/804/_original&quot; alt=&quot;BostonConsultingGroup&quot; border=&quot;0&quot; width=&quot;200px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.chevron.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/758/_original&quot; alt=&quot;Chevron&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.thiess.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/765/_original&quot; alt=&quot;Thiess&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.lycopodium.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/761/_original&quot; alt=&quot;Lycopodium&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.monadelphous.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/762/_original&quot; alt=&quot;Monadelphous&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.coffey.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://www.uec.org.au/files/images/coffey_0.thumbnail.png&quot; alt=&quot;Coffey&quot; class=&quot;image thumbnail&quot; width=&quot;100&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.cardno.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/757/_original&quot; alt=&quot;Cardno&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.hatch.ca/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/760/_original&quot; alt=&quot;Hatch&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.riotinto.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/801/_original&quot; alt=&quot;RioTinto&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.technipgrads.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/802/_original&quot; alt=&quot;Technip&quot; border=&quot;0&quot; width=&quot;120px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.structerre.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/764/_original&quot; alt=&quot;Structerre&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.ghd.com/australia/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/759/_original&quot; alt=&quot;GHD&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.enerflex.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/803/_original&quot; alt=&quot;Enerflex&quot; border=&quot;0&quot; width=&quot;150px&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.skmconsulting.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/763/_original&quot; alt=&quot;Sinclair Knight Merz&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+
+&lt;!-- 2011 --&gt;
+&lt;!--
+&lt;p&gt;
+&lt;a href=&quot;http://www.bhpbilliton.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/756/_original&quot; alt=&quot;BHP Billiton&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.minproc.com/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/754/_original&quot; alt=&quot;AMEC Minproc&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&quot;http://www.apache-energy.com.au/&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/image/view/755/_original&quot; alt=&quot;Apache Energy&quot; border=&quot;0&quot;&gt;&lt;/a&gt;
+&lt;/p&gt;
+--&gt;
+
+
+
+
+
+
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+        &lt;/div&gt;
+      
+    &lt;/div&gt; &lt;!-- /container --&gt;
+  &lt;/div&gt;
+&lt;!-- /layout --&gt;
+
+    &lt;/body&gt;
+&lt;/html&gt;
+</string>
 		<key>category</key>
 		<string>Education</string>
 	</dict>

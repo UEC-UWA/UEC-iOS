@@ -10,8 +10,9 @@
 
 #import "UECNewsViewController.h"
 
+#import "UECArticleViewController.h"
 #import "UECNewsArticleCell.h"
-#import "UECDataManager.h"
+#import "APSDataManager.h"
 
 #import "NewsArticle.h"
 
@@ -77,7 +78,7 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)refreshData
 {
-    [[UECDataManager sharedManager] getDataForEntityName:@"NewsArticle" coreDataCompletion:^(NSArray *cachedObjects) {
+    [[APSDataManager sharedManager] getDataForEntityName:@"NewsArticle" coreDataCompletion:^(NSArray *cachedObjects) {
         [self reloadDataWithNewObjects:cachedObjects];
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
         if (needsReloading) {
@@ -164,6 +165,11 @@ static CGFloat kCellHeight = 120.0;
     } else {
         newsArticle = self.newsArticles[indexPath.row];
     }
+    
+    UECArticleViewController *articleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
+    articleVC.newsArticle = newsArticle;
+    
+    [self.navigationController pushViewController:articleVC animated:YES];
 }
 
 #pragma mark - Content Filtering

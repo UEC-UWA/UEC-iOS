@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>date</key>
+		<date>2013-02-10T08:33:03Z</date>
+		<key>id</key>
+		<integer>1</integer>
+		<key>key_photo_path</key>
+		<string></string>
+		<key>name</key>
+		<string>Fresher BBQ</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2013-03-10T08:33:03Z</date>
+		<key>id</key>
+		<integer>2</integer>
+		<key>key_photo_path</key>
+		<string></string>
+		<key>name</key>
+		<string>Jobs Galore</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2013-03-11T08:33:03Z</date>
+		<key>id</key>
+		<integer>3</integer>
+		<key>key_photo_path</key>
+		<string></string>
+		<key>name</key>
+		<string>Goonzebo Fiesta</string>
+	</dict>
+</array>
+</plist>

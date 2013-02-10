@@ -1,16 +1,16 @@
 //
-//  NSManagedObject+UEC.m
+//  NSManagedObject+Appulse.m
 //  UEC
 //
-//  Created by Jad Osseiran on 7/02/13.
+//  Created by Jad Osseiran on 10/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "NSManagedObject+UEC.h"
+#import "NSManagedObject+Appulse.h"
 
-#import "UECDataManager.h"
+#import "APSDataManager.h"
 
-@implementation NSManagedObject (UEC)
+@implementation NSManagedObject (Appulse)
 
 + (void)newEntity:(NSString *)entity withIdentifierAttribute:(NSString *)attribute value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock completion:(void (^)(NSManagedObject *entity))completionBlock
 {
@@ -91,7 +91,7 @@
 
 + (NSManagedObjectContext *)managedObjectContext
 {
-    return [UECDataManager sharedManager].managedObjectContext;
+    return [APSDataManager sharedManager].managedObjectContext;
 }
 
 + (NSEntityDescription *)entity

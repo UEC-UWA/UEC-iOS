@@ -56,6 +56,8 @@
 		<string>total_tickets</string>
 		<key>extendedSale</key>
 		<string>extended_sale</string>
+		<key>address</key>
+		<string>address</string>
 	</dict>
 	<key>NewsArticle</key>
 	<dict>

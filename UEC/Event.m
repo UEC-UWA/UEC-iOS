@@ -2,7 +2,7 @@
 //  Event.m
 //  UEC
 //
-//  Created by Jad Osseiran on 9/02/13.
+//  Created by Jad Osseiran on 10/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -12,15 +12,16 @@
 @implementation Event
 
 @dynamic endDate;
+@dynamic endSale;
+@dynamic extendedSale;
 @dynamic identifier;
 @dynamic location;
 @dynamic name;
 @dynamic startDate;
-@dynamic type;
 @dynamic startSale;
-@dynamic endSale;
-@dynamic extendedSale;
-@dynamic totalTickets;
 @dynamic ticketsLeft;
+@dynamic totalTickets;
+@dynamic type;
+@dynamic address;
 
 @end

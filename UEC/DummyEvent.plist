@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<dict/>
+<array>
+	<dict>
+		<key>end_date</key>
+		<date>2013-03-20T16:00:00Z</date>
+		<key>start_date</key>
+		<string>20/03/2013 7:00:00 PM</string>
+		<key>identifier</key>
+		<integer>1</integer>
+		<key>location</key>
+		<string>UWA Ref</string>
+		<key>name</key>
+		<string>Fresher Welcome</string>
+		<key>type</key>
+		<string>Social</string>
+		<key>start_sale</key>
+		<date>2013-03-10T03:00:42Z</date>
+		<key>end_sale</key>
+		<date>2013-03-17T03:00:42Z</date>
+		<key>extended_sale</key>
+		<false/>
+		<key>total_tickets</key>
+		<integer>100</integer>
+		<key>tickets_left</key>
+		<integer>5</integer>
+		<key>address</key>
+		<string>35 Stirling Hwy, Crawley WA 6009</string>
+	</dict>
+	<dict>
+		<key>end_date</key>
+		<date>2013-04-25T10:00:00Z</date>
+		<key>start_date</key>
+		<string>25/04/2013 9:00:00 PM</string>
+		<key>identifier</key>
+		<integer>2</integer>
+		<key>location</key>
+		<string>Uni Club</string>
+		<key>name</key>
+		<string>Let&apos;s Get Some Jobs</string>
+		<key>type</key>
+		<string>Educational</string>
+		<key>start_sale</key>
+		<date>2013-04-10T03:00:42Z</date>
+		<key>end_sale</key>
+		<date>2013-04-17T03:00:42Z</date>
+		<key>extended_sale</key>
+		<true/>
+		<key>total_tickets</key>
+		<integer>200</integer>
+		<key>tickets_left</key>
+		<integer>100</integer>
+		<key>address</key>
+		<string>35 Stirling Hwy, Crawley WA 6009</string>
+	</dict>
+</array>
 </plist>

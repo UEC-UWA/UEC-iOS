@@ -11,9 +11,10 @@
 
 #import "UECCommitteeViewController.h"
 
-#import "UECDataManager.h"
-
+#import "APSDataManager.h"
 #import "Person.h"
+
+#import "NSArray+TableViewOrdering.h"
 
 @interface UECCommitteeViewController ()
 
@@ -29,7 +30,7 @@ static CGFloat kCellHeight = 55.0;
 {
     [super viewDidLoad];
 
-    [[UECDataManager sharedManager] getDataForEntityName:@"Person" coreDataCompletion:^(NSArray *cachedObjects) {
+    [[APSDataManager sharedManager] getDataForEntityName:@"Person" coreDataCompletion:^(NSArray *cachedObjects) {
         [self reloadDataWithNewObjects:cachedObjects];
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
         if (needsReloading) {
@@ -76,10 +77,9 @@ static CGFloat kCellHeight = 55.0;
 {
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    } else {
+    } else {        
         NSArray *subcommittees = [newObjects valueForKeyPath:@"@distinctUnionOfObjects.subcommittee"];
         self.subcommittees = [subcommittees sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
-        NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
         
         NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:self.subcommittees.count];
         NSPredicate *predicate = nil;
@@ -89,7 +89,14 @@ static CGFloat kCellHeight = 55.0;
             predicate = [NSPredicate predicateWithFormat:@"subcommittee LIKE %@", subcommittee];
             [data addObject:[newObjects.copy filteredArrayUsingPredicate:predicate]];
         }
-                
+        
+//        NSString *sectionKey = @"subcommittee";
+//        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sectionKey ascending:YES];
+//        NSArray *sectionedArray = [newObjects sectionedArrayWithSplittingKey:sectionKey withSortDescriptor:@[sortDescriptor]];
+//        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:sectionedArray];
+//        self.subcommittees = [data sectionNamesForKey:sectionKey];
+        
+        NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
         // This next bit is to get the Exec and the president to be at the top.
         self.committeeMembers = [self customSortedArrayWithPositionOfExec:execPosition inArray:data];
         

@@ -10,6 +10,9 @@
 
 @interface UECEventsListViewController ()
 
+@property (strong, nonatomic) NSArray *eventDateTitles;
+@property (strong, nonatomic) NSArray *events;
+
 @end
 
 @implementation UECEventsListViewController

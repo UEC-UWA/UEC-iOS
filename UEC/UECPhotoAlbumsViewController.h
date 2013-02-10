@@ -1,5 +1,5 @@
 //
-//  UECSettingsViewController.h
+//  UECPhotosViewController.h
 //  UEC
 //
 //  Created by Jad Osseiran on 7/02/13.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECSettingsViewController : UITableViewController
+@interface UECPhotoAlbumsViewController : UICollectionViewController
 
 @end

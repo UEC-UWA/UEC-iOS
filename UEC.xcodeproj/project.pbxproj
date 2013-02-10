@@ -50,9 +50,8 @@
 		0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */; };
 		0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */; };
 		0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0559112116C3CF2500BF14D2 /* CoreData.framework */; };
-		0559112916C3D1F700BF14D2 /* NSManagedObject+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */; };
 		0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559112B16C3D4B400BF14D2 /* DummyEvent.plist */; };
-		0559112F16C3D4F000BF14D2 /* UECDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559112E16C3D4EF00BF14D2 /* UECDataManager.m */; };
+		0559112F16C3D4F000BF14D2 /* APSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559112E16C3D4EF00BF14D2 /* APSDataManager.m */; };
 		0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113016C3E6D200BF14D2 /* DummyPerson.plist */; };
 		0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */; };
 		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
@@ -64,14 +63,18 @@
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
 		05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
-		05DD22D516C2B75700CF18F0 /* UECPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D416C2B75700CF18F0 /* UECPhotosViewController.m */; };
-		05DD22D916C2B77900CF18F0 /* UECSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D816C2B77900CF18F0 /* UECSettingsViewController.m */; };
+		05DD22D516C2B75700CF18F0 /* UECPhotoAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */; };
 		05DD22F416C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */; };
 		05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */; };
 		05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */; };
 		05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */; };
-		05DD22F816C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F216C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard */; };
 		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
+		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
+		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
+		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
+		05F9178F16C781F300B1BCE1 /* NSArray+TableViewOrdering.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178E16C781F300B1BCE1 /* NSArray+TableViewOrdering.m */; };
+		05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */; };
+		05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -193,11 +196,9 @@
 		0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventsListViewController.m; sourceTree = "<group>"; };
 		0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UEC.xcdatamodel; sourceTree = "<group>"; };
 		0559112116C3CF2500BF14D2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+UEC.h"; sourceTree = "<group>"; };
-		0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+UEC.m"; sourceTree = "<group>"; };
 		0559112B16C3D4B400BF14D2 /* DummyEvent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyEvent.plist; sourceTree = "<group>"; };
-		0559112D16C3D4EF00BF14D2 /* UECDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECDataManager.h; sourceTree = "<group>"; };
-		0559112E16C3D4EF00BF14D2 /* UECDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDataManager.m; sourceTree = "<group>"; };
+		0559112D16C3D4EF00BF14D2 /* APSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSDataManager.h; sourceTree = "<group>"; };
+		0559112E16C3D4EF00BF14D2 /* APSDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APSDataManager.m; sourceTree = "<group>"; };
 		0559113016C3E6D200BF14D2 /* DummyPerson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyPerson.plist; sourceTree = "<group>"; };
 		0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MappingDictionaries.plist; sourceTree = "<group>"; };
 		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
@@ -214,17 +215,26 @@
 		05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarViewController.m; sourceTree = "<group>"; };
 		05DD22CF16C2B73200CF18F0 /* UECCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeViewController.h; sourceTree = "<group>"; };
 		05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeViewController.m; sourceTree = "<group>"; };
-		05DD22D316C2B75700CF18F0 /* UECPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotosViewController.h; sourceTree = "<group>"; };
-		05DD22D416C2B75700CF18F0 /* UECPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotosViewController.m; sourceTree = "<group>"; };
-		05DD22D716C2B77900CF18F0 /* UECSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECSettingsViewController.h; sourceTree = "<group>"; };
-		05DD22D816C2B77900CF18F0 /* UECSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECSettingsViewController.m; sourceTree = "<group>"; };
+		05DD22D316C2B75700CF18F0 /* UECPhotoAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotoAlbumsViewController.h; sourceTree = "<group>"; };
+		05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotoAlbumsViewController.m; sourceTree = "<group>"; };
 		05DD22EB16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CalendarStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22ED16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CommitteeStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22EF16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/NewsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotosStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		05DD22F316C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/SettingsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
 		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
+		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
+		05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Appulse.m"; sourceTree = "<group>"; };
+		05F9177B16C7648400B1BCE1 /* UECArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECArticleViewController.h; sourceTree = "<group>"; };
+		05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECArticleViewController.m; sourceTree = "<group>"; };
+		05F9178716C7780200B1BCE1 /* UECActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECActivity.h; sourceTree = "<group>"; };
+		05F9178816C7780200B1BCE1 /* UECActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECActivity.m; sourceTree = "<group>"; };
+		05F9178D16C781F300B1BCE1 /* NSArray+TableViewOrdering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+TableViewOrdering.h"; sourceTree = "<group>"; };
+		05F9178E16C781F300B1BCE1 /* NSArray+TableViewOrdering.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+TableViewOrdering.m"; sourceTree = "<group>"; };
+		05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyPhotoAlbum.plist; sourceTree = "<group>"; };
+		05F9179316C791FC00B1BCE1 /* UECPhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotoAlbumCell.h; sourceTree = "<group>"; };
+		05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotoAlbumCell.m; sourceTree = "<group>"; };
+		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -407,7 +417,6 @@
 				05DD22CE16C2B71A00CF18F0 /* Calendar */,
 				05DD22D216C2B73500CF18F0 /* Committee */,
 				05DD22D616C2B75A00CF18F0 /* Photos */,
-				05DD22DA16C2B77D00CF18F0 /* Settings */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -427,6 +436,7 @@
 			children = (
 				05B76D0D16C4E6B200CECDF6 /* Managers */,
 				05B76D1116C4E6B800CECDF6 /* Categories */,
+				05F9178A16C7780600B1BCE1 /* Subclasses */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -472,6 +482,7 @@
 				0559112B16C3D4B400BF14D2 /* DummyEvent.plist */,
 				051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */,
 				0559113016C3E6D200BF14D2 /* DummyPerson.plist */,
+				05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */,
 				0559115616C41A6100BF14D2 /* gentleman.png */,
 			);
 			name = "Temp Dummy";
@@ -482,8 +493,8 @@
 			children = (
 				05DD22BB16C2AF4800CF18F0 /* UECUniversalAppManager.h */,
 				05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */,
-				0559112D16C3D4EF00BF14D2 /* UECDataManager.h */,
-				0559112E16C3D4EF00BF14D2 /* UECDataManager.m */,
+				0559112D16C3D4EF00BF14D2 /* APSDataManager.h */,
+				0559112E16C3D4EF00BF14D2 /* APSDataManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -491,8 +502,10 @@
 		05B76D1116C4E6B800CECDF6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				0559112716C3D1F600BF14D2 /* NSManagedObject+UEC.h */,
-				0559112816C3D1F600BF14D2 /* NSManagedObject+UEC.m */,
+				05F9178D16C781F300B1BCE1 /* NSArray+TableViewOrdering.h */,
+				05F9178E16C781F300B1BCE1 /* NSArray+TableViewOrdering.m */,
+				05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */,
+				05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */,
 				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
 				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
 				051B3D5516C5775F007BAB12 /* NSDate+Formatter.h */,
@@ -529,7 +542,6 @@
 				05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */,
 				05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */,
 				05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */,
-				05DD22F216C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard */,
 			);
 			name = "iPhone Storyboards";
 			sourceTree = "<group>";
@@ -549,6 +561,8 @@
 				05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */,
 				051B3D4F16C56C08007BAB12 /* UECNewsArticleCell.h */,
 				051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */,
+				05F9177B16C7648400B1BCE1 /* UECArticleViewController.h */,
+				05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */,
 			);
 			name = News;
 			sourceTree = "<group>";
@@ -578,19 +592,21 @@
 		05DD22D616C2B75A00CF18F0 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				05DD22D316C2B75700CF18F0 /* UECPhotosViewController.h */,
-				05DD22D416C2B75700CF18F0 /* UECPhotosViewController.m */,
+				05DD22D316C2B75700CF18F0 /* UECPhotoAlbumsViewController.h */,
+				05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */,
+				05F9179316C791FC00B1BCE1 /* UECPhotoAlbumCell.h */,
+				05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */,
 			);
 			name = Photos;
 			sourceTree = "<group>";
 		};
-		05DD22DA16C2B77D00CF18F0 /* Settings */ = {
+		05F9178A16C7780600B1BCE1 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
-				05DD22D716C2B77900CF18F0 /* UECSettingsViewController.h */,
-				05DD22D816C2B77900CF18F0 /* UECSettingsViewController.m */,
+				05F9178716C7780200B1BCE1 /* UECActivity.h */,
+				05F9178816C7780200B1BCE1 /* UECActivity.m */,
 			);
-			name = Settings;
+			name = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -724,7 +740,6 @@
 				05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */,
 				05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */,
 				05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */,
-				05DD22F816C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard in Resources */,
 				055910EE16C3AE9600BF14D2 /* CalendarPreviousMonth.png in Resources */,
 				055910EF16C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png in Resources */,
 				055910F016C3AE9600BF14D2 /* CalendarRow.png in Resources */,
@@ -742,6 +757,7 @@
 				0559115716C41A6100BF14D2 /* gentleman.png in Resources */,
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */,
+				05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,15 +798,13 @@
 				05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */,
 				05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */,
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
-				05DD22D516C2B75700CF18F0 /* UECPhotosViewController.m in Sources */,
-				05DD22D916C2B77900CF18F0 /* UECSettingsViewController.m in Sources */,
+				05DD22D516C2B75700CF18F0 /* UECPhotoAlbumsViewController.m in Sources */,
 				055910FA16C3AFB400BF14D2 /* UECCalendarRowCell.m in Sources */,
 				0559110116C3B24600BF14D2 /* UECMonthViewController.m in Sources */,
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
 				0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */,
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
-				0559112916C3D1F700BF14D2 /* NSManagedObject+UEC.m in Sources */,
-				0559112F16C3D4F000BF14D2 /* UECDataManager.m in Sources */,
+				0559112F16C3D4F000BF14D2 /* APSDataManager.m in Sources */,
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
 				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 				051B3D4316C568B3007BAB12 /* Person.m in Sources */,
@@ -799,6 +813,11 @@
 				051B3D4C16C568B3007BAB12 /* Event.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
+				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
+				05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */,
+				05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */,
+				05F9178F16C781F300B1BCE1 /* NSArray+TableViewOrdering.m in Sources */,
+				05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -898,14 +917,6 @@
 				05DD22F116C2BAF800CF18F0 /* en */,
 			);
 			name = PhotosStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		05DD22F216C2BAF800CF18F0 /* SettingsStoryboard_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				05DD22F316C2BAF800CF18F0 /* en */,
-			);
-			name = SettingsStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1078,10 +1089,11 @@
 		0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */,
 				051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */,
 				0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */,
 			);
-			currentVersion = 051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */;
+			currentVersion = 05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */;
 			path = UEC.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
