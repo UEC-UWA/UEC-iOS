@@ -13,7 +13,7 @@
 @protocol UECCalendarListViewController <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRefreshDataWithCompletion:(void (^)(NSArray *objects))completionBlock;
+- (void)didRefreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock;
 
 @end
 

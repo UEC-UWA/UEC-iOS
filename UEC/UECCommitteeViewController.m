@@ -45,13 +45,6 @@ static CGFloat kCellHeight = 55.0;
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Helper Methods
-
-- (Person *)personForIndexPath:(NSIndexPath *)indexPath
-{
-    return self.committeeMembers[indexPath.section][indexPath.row];
-}
-
 #pragma mark - Data Source Organising
 
 - (NSArray *)customSortedArrayWithPositionOfExec:(NSInteger)execPosition inArray:(NSMutableArray *)array
@@ -82,7 +75,7 @@ static CGFloat kCellHeight = 55.0;
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sectionKey ascending:YES];
         NSArray *sectionedArray = [newObjects sectionedArrayWithSplittingKey:sectionKey withSortDescriptor:@[sortDescriptor]];
         NSMutableArray *data = [[NSMutableArray alloc] initWithArray:sectionedArray];
-        self.subcommittees = [data sectionNamesForKey:sectionKey sectionedArray:YES];
+        self.subcommittees = [data sectionHeaderObjectsForKey:sectionKey sectionedArray:YES];
         
         NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
         // This next bit is to get the Exec and the president to be at the top.
@@ -124,7 +117,7 @@ static CGFloat kCellHeight = 55.0;
     __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...    
-    Person *person = [self personForIndexPath:indexPath];
+    Person *person = self.committeeMembers[indexPath.section][indexPath.row];
     
     [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
                    placeholderImage:[UIImage imageNamed:@"gentleman.png"]

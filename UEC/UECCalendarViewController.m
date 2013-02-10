@@ -19,6 +19,9 @@
 #import "APSDataManager.h"
 #import "Event.h"
 
+#import "NSArray+TableViewOrdering.h"
+#import "NSDate+Formatter.h"
+
 @interface UECCalendarViewController () <UECMonthViewControllerDelegate, UECCalendarListViewController>
 // Segmented control to switch view controllers
 @property (strong, nonatomic) UISegmentedControl *eventsDisplaySegmentControl;
@@ -35,12 +38,7 @@ static NSInteger kMonthsDisplay = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-        
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(deviceOrientationDidChangeNotification:)
                                                  name:UIDeviceOrientationDidChangeNotification
@@ -65,6 +63,11 @@ static NSInteger kMonthsDisplay = 0;
                  toViewController:self.allViewControllers[self.eventsDisplaySegmentControl.selectedSegmentIndex]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -74,28 +77,36 @@ static NSInteger kMonthsDisplay = 0;
 
 #pragma mark - Data Refreshing
 
-- (void)refreshDataCompletion:(void (^)(NSArray *objects))completionBlock
+- (void)refreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock
 {
     [[APSDataManager sharedManager] getDataForEntityName:@"Event" coreDataCompletion:^(NSArray *cachedObjects) {
-        [self reloadDataWithNewObjects:cachedObjects completion:completionBlock];
+        [self reloadDataWithNewObjects:cachedObjects withHeaderKey:headerKey completion:completionBlock];
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
         if (needsReloading) {
-            [self reloadDataWithNewObjects:downloadedObjects completion:completionBlock];
+        [self reloadDataWithNewObjects:downloadedObjects withHeaderKey:headerKey completion:completionBlock];
         }
     }];
 }
 
-- (void)reloadDataWithNewObjects:(NSArray *)newObjects completion:(void (^)(NSArray *objects))completionBlock
+- (void)reloadDataWithNewObjects:(NSArray *)newObjects
+                   withHeaderKey:(NSString *)headerKey
+                      completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock
 {
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
         
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:headerKey ascending:YES];
+        NSArray *events = [newObjects sectionedArrayWithSplittingKey:headerKey withSortDescriptor:@[sortDescriptor]];
+        NSArray *sectionHeaders = [events sectionHeaderObjectsForKey:headerKey sectionedArray:YES];
+        
+        NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[sectionHeaders count]];
+        for (NSDate *date in sectionHeaders)
+            [sectionNames addObject:[date stringValue]];
         
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
         if (completionBlock) {
-            completionBlock(newObjects);
+            completionBlock(events, sectionNames);
         }
     }
 }
@@ -197,9 +208,9 @@ static NSInteger kMonthsDisplay = 0;
     
 }
 
-- (void)didRefreshDataWithCompletion:(void (^)(NSArray *))completionBlock
+- (void)didRefreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *, NSArray *))completionBlock
 {
-    [self refreshDataCompletion:completionBlock];
+    [self refreshDataWithHeaderKey:headerKey completion:completionBlock];
 }
 
 @end

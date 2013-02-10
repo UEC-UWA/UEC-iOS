@@ -6,8 +6,8 @@
 		<key>end_date</key>
 		<date>2013-03-20T16:00:00Z</date>
 		<key>start_date</key>
-		<string>20/03/2013 7:00:00 PM</string>
-		<key>identifier</key>
+		<date>2013-03-20T11:00:00Z</date>
+		<key>id</key>
 		<integer>1</integer>
 		<key>location</key>
 		<string>UWA Ref</string>
@@ -32,8 +32,8 @@
 		<key>end_date</key>
 		<date>2013-04-25T10:00:00Z</date>
 		<key>start_date</key>
-		<string>25/04/2013 9:00:00 PM</string>
-		<key>identifier</key>
+		<date>2013-04-25T13:00:00Z</date>
+		<key>id</key>
 		<integer>2</integer>
 		<key>location</key>
 		<string>Uni Club</string>

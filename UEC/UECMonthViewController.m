@@ -22,32 +22,32 @@
 
 @interface UECMonthViewController ()
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property (strong, nonatomic) TSQCalendarView *calendarView;
 @end
 
 @implementation UECMonthViewController
 
-- (void)loadView;
+- (void)loadView
 {
-    TSQCalendarView *calendarView = [[TSQCalendarView alloc] init];
-    calendarView.calendar = [NSCalendar currentCalendar];
-    calendarView.rowCellClass = [UECCalendarRowCell class];
-    calendarView.firstDate = [[NSDate date] startOfCurrentYear];
-    calendarView.lastDate = [[NSDate date] endOfCurrentYear];
-    calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
-    calendarView.pagingEnabled = YES;
+    self.calendarView = [[TSQCalendarView alloc] init];
+    self.calendarView.calendar = [NSCalendar currentCalendar];
+    self.calendarView.rowCellClass = [UECCalendarRowCell class];
+    self.calendarView.firstDate = [[NSDate date] startOfCurrentYear];
+    self.calendarView.lastDate = [[NSDate date] endOfCurrentYear];
+    self.calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
+    self.calendarView.pagingEnabled = YES;
     CGFloat onePixel = 1.0f / [UIScreen mainScreen].scale;
-    calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
+    self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    [calendarView.tableView addSubview:self.refreshControl];
+    [self.calendarView.tableView addSubview:self.refreshControl];
     
-    self.view = calendarView;
-}
-
-- (void)viewDidAppear:(BOOL)animated;
-{
-    [super viewDidAppear:animated];
+    self.view = self.calendarView;
+    
+    [self.delegate didRefreshDataWithHeaderKey:@"startDate" completion:^(NSArray *data, NSArray *sectionNames) {
+        [self.calendarView.tableView reloadData];
+    }];
 }
 
 #pragma mark - Actions
@@ -55,7 +55,12 @@
 - (void)handleRefresh:(id)sender
 {
     // Refresh data here
-    [self.refreshControl endRefreshing];
+    
+    
+    [self.delegate didRefreshDataWithHeaderKey:@"startDate" completion:^(NSArray *data, NSArray *sectionNames) {
+        [self.calendarView.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 @end

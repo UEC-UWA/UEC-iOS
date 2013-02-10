@@ -8,18 +8,53 @@
 
 #import "UECTicketsViewController.h"
 
+#import "Event.h"
+
+#import "NSDate+Formatter.h"
+
 @interface UECTicketsViewController ()
 
 @end
 
 @implementation UECTicketsViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self.delegate didRefreshDataWithHeaderKey:@"startSale" completion:^(NSArray *data, NSArray *sectionNames) {
+        self.events = data;
+        self.eventDateTitles = sectionNames;
+        
+        [self.tableView reloadData];
+    }];
+}
+
+#pragma mark - Refresh
+
+- (void)handleRefresh:(id)sender
+{
+    [self.delegate didRefreshDataWithHeaderKey:@"startSale" completion:^(NSArray *data, NSArray *sectionNames) {
+        self.events = data;
+        self.eventDateTitles = sectionNames;
+        
+        [self.tableView reloadData];
+        [self.refreshControl endRefreshing];
+    }];
+}
+
+#pragma mark - Table view data source
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Ticket Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    Event *event = self.events[indexPath.section][indexPath.row];
+    
     // Configure the cell...
+    cell.textLabel.text = event.name;
+    cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [event.startSale stringNoTimeValue], [event.endSale stringNoTimeValue]];
     
     return cell;
 }

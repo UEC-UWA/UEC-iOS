@@ -11,5 +11,6 @@
 @interface NSDate (Formatter)
 
 - (NSString *)stringValue;
+- (NSString *)stringNoTimeValue;
 
 @end

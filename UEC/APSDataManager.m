@@ -36,48 +36,61 @@
           coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
           downloadCompletion:(void (^)(BOOL needsReloading, NSArray *downloadedObjects))downloadCompletionBlock
 {
-    __block NSArray *coreDataObjects = nil;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    [self.class findAllForEntityName:entityName completion:^(NSArray *objects) {
-        coreDataObjects = objects;
+    dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
+    dispatch_async(downloadingQueue, ^{
+        __block NSArray *coreDataObjects = nil;
         
-        if (coreDataCompletionBlock) {
-            coreDataCompletionBlock(objects);
-        }
-    }];
+        [self.class findAllForEntityName:entityName completion:^(NSArray *objects) {
+            coreDataObjects = objects;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
+                if (coreDataCompletionBlock) {
+                    coreDataCompletionBlock(objects);
+                }
+            });
+        }];
+        
 #ifdef LOCAL_DATA
-    NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
-    NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
-    
-    [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
-        NSMutableSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
-        NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
+        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
+        NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
         
-        if (![coreDataSet isEqualToSet:cachedSet]) {
-            // Allow for initial downaload.
-            if ([coreDataSet count] > [cachedSet count]) {
-                [coreDataSet minusSet:cachedSet];
-                for (id object in coreDataSet)
-                    [self.managedObjectContext deleteObject:object];
+        [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
+            NSMutableSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
+            NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
+            
+            if (![coreDataSet isEqualToSet:cachedSet]) {
+                // Allow for initial downaload.
+                if ([coreDataSet count] > [cachedSet count]) {
+                    [coreDataSet minusSet:cachedSet];
+                    for (id object in coreDataSet)
+                        [self.managedObjectContext deleteObject:object];
+                }
             }
-        }
-        
+            
 #warning currently I only check that the existing object match in relation to their identifiers. I have to find a way to make it so I can know if the backend has updated an existing record so that I can set needsReloading to YES.
-//        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
-        BOOL needsReloading = YES;
-        if (downloadCompletionBlock) {
-            downloadCompletionBlock(needsReloading, cachedObjects);
-        }
-    }];
+            //        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
+            BOOL needsReloading = YES;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
+                if (downloadCompletionBlock) {
+                    downloadCompletionBlock(needsReloading, cachedObjects);
+                }
+            });
+        }];
 #else
-    NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-    
-    NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
-    [path appendString:serverPaths[entityName][@"GET"]];
-    
-    // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
+        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+        
+        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
+        [path appendString:serverPaths[entityName][@"GET"]];
+        
+        // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
 #endif
+    });
 }
 
 - (void)setRelationshipType:(APSDataManagerEntityRelationship)relationshipType

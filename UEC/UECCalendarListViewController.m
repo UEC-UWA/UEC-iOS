@@ -28,13 +28,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Refresh
-
-- (void)handleRefresh:(id)sender
-{
-    [self.refreshControl endRefreshing];
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -47,6 +40,11 @@
 {
     // Return the number of rows in the section.
     return [self.events[section] count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return self.eventDateTitles[section];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

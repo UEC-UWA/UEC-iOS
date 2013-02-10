@@ -12,20 +12,31 @@
 
 #pragma mark - Helper Methods
 
-+ (NSDateFormatter *)formatter
++ (NSDateFormatter *)formatterWithStyle:(void (^)(NSDateFormatter *formatter))formatterBlock
 {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateStyle = NSDateFormatterMediumStyle;
-    formatter.timeStyle = NSDateFormatterShortStyle;
-    
-    return formatter;
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    if (formatterBlock) {
+        formatterBlock(dateFormatter);
+    }
+    return dateFormatter;
 }
 
 #pragma mark - Public Methods
 
 - (NSString *)stringValue
 {    
-    return [[self.class formatter] stringFromDate:self];
+    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+    }] stringFromDate:self];
+}
+
+- (NSString *)stringNoTimeValue
+{
+    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterNoStyle;
+    }] stringFromDate:self];
 }
 
 @end

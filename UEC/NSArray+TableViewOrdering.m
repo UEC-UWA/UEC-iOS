@@ -18,7 +18,7 @@
     else
         sortedArray = self;
     
-    NSArray *sections = [sortedArray sectionNamesForKey:splittingKey sectionedArray:NO];
+    NSArray *sections = [sortedArray sectionHeaderObjectsForKey:splittingKey sectionedArray:NO];
     
     NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:sections.count];
     NSPredicate *predicate = nil;
@@ -32,7 +32,7 @@
     return data;
 }
 
-- (NSArray *)sectionNamesForKey:(NSString *)key sectionedArray:(BOOL)sectionArray
+- (NSArray *)sectionHeaderObjectsForKey:(NSString *)key sectionedArray:(BOOL)sectionArray
 {
     NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[self count]];
 

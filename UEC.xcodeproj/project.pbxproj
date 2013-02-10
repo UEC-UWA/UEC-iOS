@@ -67,7 +67,7 @@
 		05DD22F416C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */; };
 		05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */; };
 		05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */; };
-		05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */; };
+		05DD22F716C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */; };
 		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
@@ -221,7 +221,7 @@
 		05DD22EB16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CalendarStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22ED16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CommitteeStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22EF16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/NewsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotosStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotoAlbumsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
 		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
 		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
@@ -289,13 +289,13 @@
 			name = Tickets;
 			sourceTree = "<group>";
 		};
-		051B3D5416C56EFD007BAB12 /* Event List */ = {
+		051B3D5416C56EFD007BAB12 /* Events */ = {
 			isa = PBXGroup;
 			children = (
 				0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */,
 				0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */,
 			);
-			name = "Event List";
+			name = Events;
 			sourceTree = "<group>";
 		};
 		0542FA9116C2A85A00B327B7 = {
@@ -427,7 +427,7 @@
 		0559110316C3B41100BF14D2 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */,
+				05FB0AE116C7CE9A00D91F9C /* Nibs */,
 				05DD22A916C2AB7A00CF18F0 /* iPhone Storyboards */,
 				05DD22AC16C2AC0C00CF18F0 /* iPad Storyboard */,
 			);
@@ -544,7 +544,7 @@
 				05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */,
 				05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */,
 				05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */,
-				05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */,
+				05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */,
 			);
 			name = "iPhone Storyboards";
 			sourceTree = "<group>";
@@ -576,11 +576,8 @@
 				055910E316C3AE8600BF14D2 /* Images */,
 				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
-				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
-				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
 				051B3D5216C56EEF007BAB12 /* Month */,
-				051B3D5416C56EFD007BAB12 /* Event List */,
-				051B3D5316C56EF7007BAB12 /* Tickets */,
+				05FB0AE016C7CC3600D91F9C /* List */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -612,6 +609,25 @@
 				05F9178816C7780200B1BCE1 /* UECActivity.m */,
 			);
 			name = Subclasses;
+			sourceTree = "<group>";
+		};
+		05FB0AE016C7CC3600D91F9C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
+				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
+				051B3D5416C56EFD007BAB12 /* Events */,
+				051B3D5316C56EF7007BAB12 /* Tickets */,
+			);
+			name = List;
+			sourceTree = "<group>";
+		};
+		05FB0AE116C7CE9A00D91F9C /* Nibs */ = {
+			isa = PBXGroup;
+			children = (
+				051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */,
+			);
+			name = Nibs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -744,7 +760,7 @@
 				05DD22F416C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard in Resources */,
 				05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */,
 				05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */,
-				05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */,
+				05DD22F716C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard in Resources */,
 				055910EE16C3AE9600BF14D2 /* CalendarPreviousMonth.png in Resources */,
 				055910EF16C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png in Resources */,
 				055910F016C3AE9600BF14D2 /* CalendarRow.png in Resources */,
@@ -917,12 +933,12 @@
 			name = NewsStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */ = {
+		05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05DD22F116C2BAF800CF18F0 /* en */,
 			);
-			name = PhotosStoryboard_iPhone.storyboard;
+			name = PhotoAlbumsStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

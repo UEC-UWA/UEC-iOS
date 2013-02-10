@@ -11,6 +11,6 @@
 @interface NSArray (TableViewOrdering)
 
 - (NSArray *)sectionedArrayWithSplittingKey:(NSString *)splittingKey withSortDescriptor:(NSArray *)sortDescriptors;
-- (NSArray *)sectionNamesForKey:(NSString *)key sectionedArray:(BOOL)sectionArray;
+- (NSArray *)sectionHeaderObjectsForKey:(NSString *)key sectionedArray:(BOOL)sectionArray;
 
 @end
