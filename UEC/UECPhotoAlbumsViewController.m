@@ -26,6 +26,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.title = @"Photos";
+    
     [[APSDataManager sharedManager] getDataForEntityName:@"PhotoAlbum" coreDataCompletion:^(NSArray *cachedObjects) {
         self.photoAlbums = cachedObjects;
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {

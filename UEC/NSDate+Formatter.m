@@ -26,7 +26,7 @@
 - (NSString *)stringValue
 {    
     return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
-        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     }] stringFromDate:self];
 }
@@ -34,7 +34,7 @@
 - (NSString *)stringNoTimeValue
 {
     return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
-        formatter.dateStyle = NSDateFormatterMediumStyle;
+        formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
     }] stringFromDate:self];
 }

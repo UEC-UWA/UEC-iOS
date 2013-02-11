@@ -27,8 +27,10 @@
 
 @implementation UECMonthViewController
 
-- (void)loadView
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.calendarView = [[TSQCalendarView alloc] init];
     self.calendarView.calendar = [NSCalendar currentCalendar];
     self.calendarView.rowCellClass = [UECCalendarRowCell class];

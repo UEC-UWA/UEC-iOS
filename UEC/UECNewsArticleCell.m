@@ -8,6 +8,12 @@
 
 #import "UECNewsArticleCell.h"
 
+@interface UECNewsArticleCell ()
+
+@property CGRect lastFrame;
+
+@end
+
 @implementation UECNewsArticleCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier

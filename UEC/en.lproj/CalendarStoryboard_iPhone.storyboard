@@ -136,6 +136,9 @@
         </class>
         <class className="UECCalendarViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="UECEventsListViewController" superclassName="UECCalendarListViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECEventsListViewController.h"/>

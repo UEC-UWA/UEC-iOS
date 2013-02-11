@@ -60,8 +60,6 @@ static CGFloat kCellHeight = 120.0;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -141,7 +139,7 @@ static CGFloat kCellHeight = 120.0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"News Cell";
+    static NSString *CellIdentifier = @"News Cell"; 
     
     UECNewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     

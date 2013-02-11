@@ -141,7 +141,7 @@ static NSInteger kMonthsDisplay = 0;
     // Check the newVC is non-nil otherwise expect a crash: NSInvalidArgumentException
     if (newVC) {
         // Set the new view controller frame
-        newVC.view.frame = self.view.frame;
+        [self setContainerFrame:newVC forDevice:[UIDevice currentDevice]];
         // Check the oldVC is non-nil otherwise expect a crash: NSInvalidArgumentException
         if (oldVC) {
             // Start both the view controller transitions
@@ -188,17 +188,24 @@ static NSInteger kMonthsDisplay = 0;
 
 #pragma mark - Rotation
 
-- (void)deviceOrientationDidChangeNotification:(NSNotification *)notification
+- (void)setContainerFrame:(UIViewController *)containerVC forDevice:(UIDevice *)device
 {
-    CGSize size = [UIScreen mainScreen].bounds.size;
-    UIApplication *application = [UIApplication sharedApplication];
+    if (device.orientation == UIInterfaceOrientationPortraitUpsideDown)
+        return;
     
-    if (!UIInterfaceOrientationIsLandscape(application.statusBarOrientation))
-        size = CGSizeMake(size.height, size.width);
+    CGRect bounds = [UIScreen mainScreen].bounds;
     
-    CGRect frame = self.currentViewController.view.frame;
-    frame.size = size;
-    self.currentViewController.view.frame = frame;
+    if (UIInterfaceOrientationIsLandscape(device.orientation))
+        bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
+    
+    containerVC.view.frame = bounds;
+    
+}
+
+- (void)deviceOrientationDidChangeNotification:(NSNotification *)notification
+{    
+    UIDevice *device = [notification object];
+    [self setContainerFrame:self.currentViewController forDevice:device];
 }
 
 #pragma mark - Touched Evvent Delegate
