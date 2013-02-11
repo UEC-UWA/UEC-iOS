@@ -25,23 +25,36 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
-    self.title = @"Photos";
-    
-    [[APSDataManager sharedManager] getDataForEntityName:@"PhotoAlbum" coreDataCompletion:^(NSArray *cachedObjects) {
-        self.photoAlbums = cachedObjects;
-    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
-        if (needsReloading) {
-            self.photoAlbums = downloadedObjects;
-        }
-    }];
-    
+    // Here I need to figure out which photo albums to update. There should not
+    // be any point in reloading all of them, even with SDWebImage.
+    [self refreshData];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Refresh
+
+- (void)refreshData
+{
+    [[APSDataManager sharedManager] getDataForEntityName:@"PhotoAlbum" coreDataCompletion:^(NSArray *cachedObjects) {
+        self.photoAlbums = cachedObjects;
+        [self.collectionView reloadData];
+    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
+        if (needsReloading) {
+            self.photoAlbums = downloadedObjects;
+            [self.collectionView reloadData];
+        }
+    }];
 }
 
 #pragma mark - Collection View

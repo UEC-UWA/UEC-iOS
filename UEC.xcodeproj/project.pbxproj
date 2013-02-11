@@ -31,6 +31,7 @@
 		0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
 		0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAD816C2A85A00B327B7 /* InfoPlist.strings */; };
 		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
+		054860DC16C9571A00C5191F /* AboutStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 054860DB16C9571A00C5191F /* AboutStoryboard_iPhone.storyboard */; };
 		055910D416C3AD5400BF14D2 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910CF16C3AD3A00BF14D2 /* libSDWebImage.a */; };
 		055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910D516C3AD7D00BF14D2 /* ImageIO.framework */; };
 		055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910DD16C3ADED00BF14D2 /* libTimesSquare.a */; };
@@ -67,7 +68,7 @@
 		05DD22F416C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */; };
 		05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */; };
 		05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */; };
-		05DD22F716C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */; };
+		05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */; };
 		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
@@ -174,6 +175,7 @@
 		0542FAD916C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0542FADB16C2A85A00B327B7 /* UECTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UECTests.h; sourceTree = "<group>"; };
 		0542FADC16C2A85A00B327B7 /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
+		054860DB16C9571A00C5191F /* AboutStoryboard_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AboutStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		055910D516C3AD7D00BF14D2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TimesSquare.xcodeproj; path = "objc-TimesSquare/TimesSquare.xcodeproj"; sourceTree = "<group>"; };
@@ -221,7 +223,7 @@
 		05DD22EB16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CalendarStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22ED16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/CommitteeStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05DD22EF16C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/NewsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotoAlbumsStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		05DD22F116C2BAF800CF18F0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/PhotosStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
 		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
 		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
@@ -544,7 +546,8 @@
 				05DD22EE16C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard */,
 				05DD22EA16C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard */,
 				05DD22EC16C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard */,
-				05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */,
+				05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */,
+				054860DB16C9571A00C5191F /* AboutStoryboard_iPhone.storyboard */,
 			);
 			name = "iPhone Storyboards";
 			sourceTree = "<group>";
@@ -760,7 +763,7 @@
 				05DD22F416C2BAF800CF18F0 /* CalendarStoryboard_iPhone.storyboard in Resources */,
 				05DD22F516C2BAF800CF18F0 /* CommitteeStoryboard_iPhone.storyboard in Resources */,
 				05DD22F616C2BAF800CF18F0 /* NewsStoryboard_iPhone.storyboard in Resources */,
-				05DD22F716C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard in Resources */,
+				05DD22F716C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard in Resources */,
 				055910EE16C3AE9600BF14D2 /* CalendarPreviousMonth.png in Resources */,
 				055910EF16C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png in Resources */,
 				055910F016C3AE9600BF14D2 /* CalendarRow.png in Resources */,
@@ -779,6 +782,7 @@
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */,
 				05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */,
+				054860DC16C9571A00C5191F /* AboutStoryboard_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -933,12 +937,12 @@
 			name = NewsStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
-		05DD22F016C2BAF800CF18F0 /* PhotoAlbumsStoryboard_iPhone.storyboard */ = {
+		05DD22F016C2BAF800CF18F0 /* PhotosStoryboard_iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				05DD22F116C2BAF800CF18F0 /* en */,
 			);
-			name = PhotoAlbumsStoryboard_iPhone.storyboard;
+			name = PhotosStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
