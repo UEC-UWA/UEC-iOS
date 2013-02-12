@@ -76,5 +76,16 @@
 		<key>category</key>
 		<string>category</string>
 	</dict>
+	<key>Sponsor</key>
+	<dict>
+		<key>identifier</key>
+		<string>id</string>
+		<key>websitePath</key>
+		<string>website_path</string>
+		<key>name</key>
+		<string>name</string>
+		<key>logoPath</key>
+		<string>logo_path</string>
+	</dict>
 </dict>
 </plist>

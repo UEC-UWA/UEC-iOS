@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0507189916CA97D000208110 /* Sponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507189816CA97D000208110 /* Sponsor.m */; };
 		051B3D4316C568B3007BAB12 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4216C568B3007BAB12 /* Person.m */; };
 		051B3D4616C568B3007BAB12 /* PhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4516C568B3007BAB12 /* PhotoAlbum.m */; };
 		051B3D4916C568B3007BAB12 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4816C568B3007BAB12 /* NewsArticle.m */; };
@@ -139,6 +140,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0507189316CA971300208110 /* UEC 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UEC 4.xcdatamodel"; sourceTree = "<group>"; };
+		0507189716CA97D000208110 /* Sponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sponsor.h; sourceTree = "<group>"; };
+		0507189816CA97D000208110 /* Sponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sponsor.m; sourceTree = "<group>"; };
 		051B3D4116C568B3007BAB12 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		051B3D4216C568B3007BAB12 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		051B3D4416C568B3007BAB12 /* PhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbum.h; sourceTree = "<group>"; };
@@ -458,6 +462,8 @@
 		0559110F16C3CD4200BF14D2 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0507189716CA97D000208110 /* Sponsor.h */,
+				0507189816CA97D000208110 /* Sponsor.m */,
 				051B3D4A16C568B3007BAB12 /* Event.h */,
 				051B3D4B16C568B3007BAB12 /* Event.m */,
 				051B3D4716C568B3007BAB12 /* NewsArticle.h */,
@@ -844,6 +850,7 @@
 				05F9178F16C781F300B1BCE1 /* NSArray+TableViewOrdering.m in Sources */,
 				05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
+				0507189916CA97D000208110 /* Sponsor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1115,11 +1122,12 @@
 		0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0507189316CA971300208110 /* UEC 4.xcdatamodel */,
 				05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */,
 				051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */,
 				0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */,
 			);
-			currentVersion = 05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */;
+			currentVersion = 0507189316CA971300208110 /* UEC 4.xcdatamodel */;
 			path = UEC.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

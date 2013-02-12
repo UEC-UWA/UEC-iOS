@@ -193,13 +193,19 @@ static NSInteger kMonthsDisplay = 0;
     if (device.orientation == UIInterfaceOrientationPortraitUpsideDown)
         return;
     
-    CGRect bounds = [UIScreen mainScreen].bounds;
+//    CGRect bounds = [UIScreen mainScreen].bounds;
+//    
+//    if (UIInterfaceOrientationIsLandscape(device.orientation))
+//        bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
+//    
+//    containerVC.view.frame = bounds;
+//    containerVC.view.frame = self.view.bounds;
     
-    if (UIInterfaceOrientationIsLandscape(device.orientation))
-        bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
-    
-    containerVC.view.frame = bounds;
-    
+    NSLayoutConstraint *wConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:containerVC.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
+    NSLayoutConstraint *hConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:containerVC.view attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
+
+    [containerVC.view removeConstraints:containerVC.view.constraints];
+    [containerVC.view addConstraints:@[wConstraint, hConstraint]];
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification *)notification
