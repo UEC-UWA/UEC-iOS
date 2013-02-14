@@ -10,7 +10,6 @@
 		0507189916CA97D000208110 /* Sponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0507189816CA97D000208110 /* Sponsor.m */; };
 		051B3D4316C568B3007BAB12 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4216C568B3007BAB12 /* Person.m */; };
 		051B3D4616C568B3007BAB12 /* PhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4516C568B3007BAB12 /* PhotoAlbum.m */; };
-		051B3D4916C568B3007BAB12 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4816C568B3007BAB12 /* NewsArticle.m */; };
 		051B3D4C16C568B3007BAB12 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4B16C568B3007BAB12 /* Event.m */; };
 		051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */; };
 		051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */; };
@@ -58,6 +57,8 @@
 		0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */; };
 		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
 		0559115716C41A6100BF14D2 /* gentleman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0559115616C41A6100BF14D2 /* gentleman.png */; };
+		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
+		0593169C16CD3B7B006B0845 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169B16CD3B7B006B0845 /* NewsArticle.m */; };
 		05B76D3416C4F62A00CECDF6 /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B76D3316C4F62400CECDF6 /* libMBProgressHUD.a */; };
 		05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */; };
 		05DD22BD16C2AF4800CF18F0 /* UECUniversalAppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22BC16C2AF4800CF18F0 /* UECUniversalAppManager.m */; };
@@ -140,15 +141,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0507189316CA971300208110 /* UEC 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "UEC 4.xcdatamodel"; sourceTree = "<group>"; };
+		0507189316CA971300208110 /* UEC 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 4.xcdatamodel"; sourceTree = "<group>"; };
 		0507189716CA97D000208110 /* Sponsor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sponsor.h; sourceTree = "<group>"; };
 		0507189816CA97D000208110 /* Sponsor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sponsor.m; sourceTree = "<group>"; };
 		051B3D4116C568B3007BAB12 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		051B3D4216C568B3007BAB12 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		051B3D4416C568B3007BAB12 /* PhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbum.h; sourceTree = "<group>"; };
 		051B3D4516C568B3007BAB12 /* PhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbum.m; sourceTree = "<group>"; };
-		051B3D4716C568B3007BAB12 /* NewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsArticle.h; sourceTree = "<group>"; };
-		051B3D4816C568B3007BAB12 /* NewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsArticle.m; sourceTree = "<group>"; };
 		051B3D4A16C568B3007BAB12 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		051B3D4B16C568B3007BAB12 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyNewsArticle.plist; sourceTree = "<group>"; };
@@ -210,6 +209,10 @@
 		0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MappingDictionaries.plist; sourceTree = "<group>"; };
 		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
 		0559115616C41A6100BF14D2 /* gentleman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gentleman.png; sourceTree = "<group>"; };
+		0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		0593169A16CD3B7B006B0845 /* NewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsArticle.h; sourceTree = "<group>"; };
+		0593169B16CD3B7B006B0845 /* NewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsArticle.m; sourceTree = "<group>"; };
 		05B76D2E16C4F62400CECDF6 /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		05B76D3A16C4FAA400CECDF6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
@@ -443,6 +446,8 @@
 		0559110416C3B42700BF14D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */,
+				0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */,
 				05B76D0D16C4E6B200CECDF6 /* Managers */,
 				05B76D1116C4E6B800CECDF6 /* Categories */,
 				05F9178A16C7780600B1BCE1 /* Subclasses */,
@@ -462,12 +467,12 @@
 		0559110F16C3CD4200BF14D2 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				0593169A16CD3B7B006B0845 /* NewsArticle.h */,
+				0593169B16CD3B7B006B0845 /* NewsArticle.m */,
 				0507189716CA97D000208110 /* Sponsor.h */,
 				0507189816CA97D000208110 /* Sponsor.m */,
 				051B3D4A16C568B3007BAB12 /* Event.h */,
 				051B3D4B16C568B3007BAB12 /* Event.m */,
-				051B3D4716C568B3007BAB12 /* NewsArticle.h */,
-				051B3D4816C568B3007BAB12 /* NewsArticle.m */,
 				051B3D4416C568B3007BAB12 /* PhotoAlbum.h */,
 				051B3D4516C568B3007BAB12 /* PhotoAlbum.m */,
 				051B3D4116C568B3007BAB12 /* Person.h */,
@@ -840,7 +845,6 @@
 				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 				051B3D4316C568B3007BAB12 /* Person.m in Sources */,
 				051B3D4616C568B3007BAB12 /* PhotoAlbum.m in Sources */,
-				051B3D4916C568B3007BAB12 /* NewsArticle.m in Sources */,
 				051B3D4C16C568B3007BAB12 /* Event.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
@@ -851,6 +855,8 @@
 				05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 				0507189916CA97D000208110 /* Sponsor.m in Sources */,
+				0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */,
+				0593169C16CD3B7B006B0845 /* NewsArticle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

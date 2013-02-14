@@ -118,6 +118,21 @@
     }];
 }
 
+- (NSFetchedResultsController *)fetchedResultsControllerWithRequest:(void (^)(NSFetchRequest *request))fetchRequestBlock
+                                                         entityName:(NSString *)entityName
+                                                 sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                                                          cacheName:(NSString *)cacheName
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    if (fetchRequestBlock)
+        fetchRequestBlock(request);
+    
+    return [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                               managedObjectContext:self.managedObjectContext
+                                                 sectionNameKeyPath:sectionNameKeyPath
+                                                          cacheName:cacheName];
+}
+
 #pragma mark - Mapping
 
 - (void)cacheData:(NSArray *)data forEntityName:(NSString *)entityName completion:(void (^)(NSArray *cachedObjects))completionBlock

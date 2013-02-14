@@ -20,10 +20,7 @@
 
 @interface UECNewsViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
 
-@property (strong, nonatomic) NSArray *newsArticles;
-
 // Searching
-@property (strong, nonatomic) NSMutableArray *filteredListContent;
 @property (copy, nonatomic) NSString *savedSearchTerm;
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
@@ -89,7 +86,7 @@ static CGFloat kCellHeight = 120.0;
             [self reloadDataWithNewObjects:downloadedObjects];
         }
     }];
-}
+} 
 
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
 {
@@ -98,12 +95,8 @@ static CGFloat kCellHeight = 120.0;
         
         self.searchDisplayController.searchBar.userInteractionEnabled = NO;
         self.searchDisplayController.searchBar.alpha = 0.75;
-    } else {
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
-        self.newsArticles = [newObjects sortedArrayUsingDescriptors:@[sortDescriptor]];
-        
-        // create a filtered list that will contain products for the search results table.
-        self.filteredListContent = [NSMutableArray arrayWithCapacity:[self.newsArticles count]];
+    } else {        
+        self.fetchedResultsController = [self defaultFetchedResultsController];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -121,15 +114,51 @@ static CGFloat kCellHeight = 120.0;
     [self.refreshControl endRefreshing];
 }
 
+#pragma mark - NSFetchedResultsController
+
+- (NSFetchedResultsController *)defaultFetchedResultsController
+{
+    return [self fetchedResultsControllerForSearching:nil withScope:nil];
+}
+
+- (NSFetchedResultsController *)fetchedResultsControllerForSearching:(NSString *)searchString withScope:(NSString *)scope
+{
+    NSFetchedResultsController *fetchResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
+        NSPredicate *filterPredicate = nil;
+        
+        if (scope && ![scope isEqualToString:@"All"])
+            filterPredicate = [NSPredicate predicateWithFormat:@"category LIKE %@", scope];
+        
+        NSMutableArray *predicateArray = [NSMutableArray array];
+        if (searchString && searchString.length > 0) {
+            [predicateArray addObject:[NSPredicate predicateWithFormat:@"title CONTAINS[cd] %@", searchString]];
+            if (filterPredicate) {
+                filterPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:[NSArray arrayWithObjects:filterPredicate, [NSCompoundPredicate orPredicateWithSubpredicates:predicateArray], nil]];
+            } else {
+                filterPredicate = [NSCompoundPredicate orPredicateWithSubpredicates:predicateArray];
+            }
+        }
+        
+        [request setPredicate:filterPredicate];
+        [request setSortDescriptors:@[sortDescriptor]];
+        
+    } entityName:@"NewsArticle" sectionNameKeyPath:nil cacheName:nil];
+    
+    NSError *error = nil;
+    if (![fetchResultsController performFetch:&error]) {
+        // Handle error here.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+    }
+    
+    return fetchResultsController;
+}
+
 #pragma mark - Table view data source
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [self.filteredListContent count];
-    } else {
-        return [self.newsArticles count];
-    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -143,12 +172,7 @@ static CGFloat kCellHeight = 120.0;
     
     UECNewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NewsArticle *newsArticle = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        newsArticle = self.filteredListContent[indexPath.row];
-    } else {
-        newsArticle = self.newsArticles[indexPath.row];
-    }
+    NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     // Configure the cell...
     cell.titleLabel.text = newsArticle.title;
@@ -163,12 +187,7 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NewsArticle *newsArticle = nil;
-    if (tableView == self.searchDisplayController.searchResultsTableView) {
-        newsArticle = self.filteredListContent[indexPath.row];
-    } else {
-        newsArticle = self.newsArticles[indexPath.row];
-    }
+    NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     UECArticleViewController *articleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
     articleVC.newsArticle = newsArticle;
@@ -180,22 +199,7 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
-    // First clear the filtered array.
-	[self.filteredListContent removeAllObjects];
-	
-	// Search the main list for products whose type matches the scope (if selected)
-    // and whose name matches searchText; add items that match to the filtered array.
-	for (NewsArticle *article in self.newsArticles) {
-		if ([scope isEqualToString:@"All"] || [article.category isEqualToString:scope]) {
-            unsigned options = (NSCaseInsensitiveSearch | NSDiacriticInsensitiveSearch);
-            NSRange range = NSMakeRange(0, [searchText length]);
-			NSComparisonResult result = [article.title compare:searchText
-                                                       options:options
-                                                         range:range];
-            if (result == NSOrderedSame)
-				[self.filteredListContent addObject:article];
-		}
-	}
+    self.fetchedResultsController = [self fetchedResultsControllerForSearching:searchText withScope:scope];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -213,10 +217,14 @@ static CGFloat kCellHeight = 120.0;
 {
     [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    
 
     // Return YES to cause the search result table view to be reloaded.
     return YES;
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView
+{
+    self.fetchedResultsController = [self defaultFetchedResultsController];
 }
 
 @end

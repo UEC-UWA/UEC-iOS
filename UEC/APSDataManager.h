@@ -6,16 +6,16 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <CoreData/CoreData.h>
+
 #import <Foundation/Foundation.h>
 
-typedef enum {
+typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
     APSDataManagerEntityRelationshipOneToOne,
     APSDataManagerEntityRelationshipOneToMany,
     APSDataManagerEntityRelationshipManyToOne,
     APSDataManagerEntityRelationshipManyToMany
-} APSDataManagerEntityRelationship;
-
-@class NSManagedObject;
+};
 
 @protocol APSDataManagerDataSource <NSObject>
 @required
@@ -41,5 +41,10 @@ typedef enum {
                relationship:(NSString *)relationship
         inverseRelationship:(NSString *)inverseRelationship
                  completion:(void (^)())completionBlock;
+
+- (NSFetchedResultsController *)fetchedResultsControllerWithRequest:(void (^)(NSFetchRequest *request))fetchRequestBlock
+                                                         entityName:(NSString *)entityName
+                                                 sectionNameKeyPath:(NSString *)sectionNameKeyPath
+                                                          cacheName:(NSString *)cacheName;
 
 @end

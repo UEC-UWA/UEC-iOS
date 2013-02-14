@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECCommitteeViewController : UITableViewController
+#import "CoreDataTableViewController.h"
+
+@interface UECCommitteeViewController : CoreDataTableViewController
 
 @end

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECNewsViewController : UITableViewController
+#import "CoreDataTableViewController.h"
+
+@interface UECNewsViewController : CoreDataTableViewController
 
 @end
