@@ -42,7 +42,7 @@ static NSInteger kMonthsDisplay = 0;
                                              selector:@selector(deviceOrientationDidChangeNotification:)
                                                  name:UIDeviceOrientationDidChangeNotification
                                                object:nil];
-    
+    [self setGestureRecognisers];
     [self setupSegmentControl];
     
     UIStoryboard *calendarStoryboard = [[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:@"Calendar"];
@@ -60,6 +60,8 @@ static NSInteger kMonthsDisplay = 0;
     self.eventsDisplaySegmentControl.selectedSegmentIndex = kMonthsDisplay;
     [self cycleFromViewController:self.currentViewController
                  toViewController:self.allViewControllers[self.eventsDisplaySegmentControl.selectedSegmentIndex]];
+    
+    [self refreshData];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,6 +74,45 @@ static NSInteger kMonthsDisplay = 0;
     [super viewWillDisappear:animated];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - Gesture Recogniser
+
+- (void)setGestureRecognisers
+{
+    UISwipeGestureRecognizer *leftSwipGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    leftSwipGR.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:leftSwipGR];
+    
+    UISwipeGestureRecognizer *rightSwipeGR = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+    rightSwipeGR.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:rightSwipeGR];
+}
+
+- (void)handleSwipe:(UISwipeGestureRecognizer *)swipeGR
+{
+    NSInteger currentSegmentIndex = self.eventsDisplaySegmentControl.selectedSegmentIndex;
+    NSInteger nextIndex = -1;
+    
+    switch (swipeGR.direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            nextIndex = (currentSegmentIndex + 1) % [self.allViewControllers count];
+            break;
+            
+        case UISwipeGestureRecognizerDirectionRight:
+            nextIndex = (currentSegmentIndex - 1) % [self.allViewControllers count];
+            if (currentSegmentIndex == 0)
+                nextIndex = [self.allViewControllers count] - 1;
+            break;
+            
+        default:
+            break;
+    }
+
+    self.eventsDisplaySegmentControl.selectedSegmentIndex = nextIndex;
+    UIViewController *newVC = self.allViewControllers[nextIndex];
+    
+    [self cycleFromViewController:self.currentViewController toViewController:newVC];
 }
 
 #pragma mark - Data Refreshing
@@ -92,21 +133,11 @@ static NSInteger kMonthsDisplay = 0;
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         
-        
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        if (completionBlock) {
-//            completionBlock(events, sectionNames);
-//        }
-
-//        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:headerKey ascending:YES];
-//        NSArray *events = [newObjects sectionedArrayWithSplittingKey:headerKey withSortDescriptor:@[sortDescriptor]];
-//        NSArray *sectionHeaders = [events sectionHeaderObjectsForKey:headerKey sectionedArray:YES];
-//        
-//        NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[sectionHeaders count]];
-//        for (NSDate *date in sectionHeaders)
-//            [sectionNames addObject:[date stringValue]];
-//        
+        if ([self.currentViewController isKindOfClass:[UECMonthViewController class]]) {
+            [(UECMonthViewController *)self.currentViewController setEvents:newObjects];
+        }
     }
 }
 #pragma mark - Segment Control Setup

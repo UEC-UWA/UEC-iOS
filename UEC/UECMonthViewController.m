@@ -20,12 +20,14 @@
 
 @end
 
-@interface UECMonthViewController ()
+@interface UECMonthViewController () <TSQCalendarViewDelegate>
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) TSQCalendarView *calendarView;
 @end
 
 @implementation UECMonthViewController
+
+@synthesize events = _events;
 
 - (void)viewDidLoad
 {
@@ -45,10 +47,17 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.calendarView.tableView addSubview:self.refreshControl];
     
-    self.view = self.calendarView;
+    self.calendarView.delegate = self;
     
-    [self.delegate didRefreshData];
-    [self.calendarView.tableView reloadData];
+    self.view = self.calendarView;
+}
+
+- (void)setEvents:(NSArray *)events
+{
+    if (_events != events) {
+        _events = events;
+        self.events = events;
+    }
 }
 
 #pragma mark - Actions
@@ -56,9 +65,26 @@
 - (void)handleRefresh:(id)sender
 {
     // Refresh data here
-    [self.delegate didRefreshData];
-    [self.calendarView.tableView reloadData];
+    [self refresh];
+    
     [self.refreshControl endRefreshing];
+}
+
+- (void)refresh
+{
+    [self.delegate didRefreshData];
+    
+    NSArray *dates = [self.events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
+    
+    [self.calendarView setEventsForDates:dates];
+    [self.calendarView.tableView reloadData];
+}
+
+#pragma mark - TSQCalendarViewDelegate
+
+- (void)calendarView:(TSQCalendarView *)calendarView didSelectDate:(NSDate *)date
+{
+    
 }
 
 @end

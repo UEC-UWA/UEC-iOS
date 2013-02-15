@@ -38,4 +38,9 @@
     return [UIImage imageNamed:[NSString stringWithFormat:@"CalendarRow%@.png", self.bottomRow ? @"Bottom" : @""]];
 }
 
+- (UIImage *)eventBackgroundImage;
+{
+    return [UIImage imageNamed:@"gentleman.png"];
+}
+
 @end
