@@ -28,6 +28,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="order" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="photoPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="subcommittee" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,7 +49,7 @@
     <elements>
         <element name="Event" positionX="-1793" positionY="-963" width="128" height="223"/>
         <element name="NewsArticle" positionX="-1647" positionY="-709" width="128" height="150"/>
-        <element name="Person" positionX="-2034" positionY="-927" width="128" height="163"/>
+        <element name="Person" positionX="-2034" positionY="-927" width="128" height="180"/>
         <element name="PhotoAlbum" positionX="-2000" positionY="-666" width="128" height="103"/>
         <element name="Sponsor" positionX="-2169" positionY="-720" width="128" height="103"/>
     </elements>

@@ -19,7 +19,6 @@
 #import "APSDataManager.h"
 #import "Event.h"
 
-#import "NSArray+TableViewOrdering.h"
 #import "NSDate+Formatter.h"
 
 @interface UECCalendarViewController () <UECMonthViewControllerDelegate, UECCalendarListViewController>
@@ -96,18 +95,18 @@ static NSInteger kMonthsDisplay = 0;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
         
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:headerKey ascending:YES];
-        NSArray *events = [newObjects sectionedArrayWithSplittingKey:headerKey withSortDescriptor:@[sortDescriptor]];
-        NSArray *sectionHeaders = [events sectionHeaderObjectsForKey:headerKey sectionedArray:YES];
-        
-        NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[sectionHeaders count]];
-        for (NSDate *date in sectionHeaders)
-            [sectionNames addObject:[date stringValue]];
-        
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        if (completionBlock) {
-            completionBlock(events, sectionNames);
-        }
+//        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:headerKey ascending:YES];
+//        NSArray *events = [newObjects sectionedArrayWithSplittingKey:headerKey withSortDescriptor:@[sortDescriptor]];
+//        NSArray *sectionHeaders = [events sectionHeaderObjectsForKey:headerKey sectionedArray:YES];
+//        
+//        NSMutableArray *sectionNames = [[NSMutableArray alloc] initWithCapacity:[sectionHeaders count]];
+//        for (NSDate *date in sectionHeaders)
+//            [sectionNames addObject:[date stringValue]];
+//        
+//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        if (completionBlock) {
+//            completionBlock(events, sectionNames);
+//        }
     }
 }
 #pragma mark - Segment Control Setup
@@ -140,8 +139,6 @@ static NSInteger kMonthsDisplay = 0;
     
     // Check the newVC is non-nil otherwise expect a crash: NSInvalidArgumentException
     if (newVC) {
-        // Set the new view controller frame
-        [self setContainerFrame:newVC forDevice:[UIDevice currentDevice]];
         // Check the oldVC is non-nil otherwise expect a crash: NSInvalidArgumentException
         if (oldVC) {
             // Start both the view controller transitions
@@ -172,6 +169,9 @@ static NSInteger kMonthsDisplay = 0;
             // Store a reference to the current controller
             self.currentViewController = newVC;
         }
+        
+        // Set the new view controller frame
+        [self setContainerFrame:newVC forDevice:[UIDevice currentDevice]];
     }
 }
 
@@ -193,19 +193,16 @@ static NSInteger kMonthsDisplay = 0;
     if (device.orientation == UIInterfaceOrientationPortraitUpsideDown)
         return;
     
-//    CGRect bounds = [UIScreen mainScreen].bounds;
-//    
-//    if (UIInterfaceOrientationIsLandscape(device.orientation))
-//        bounds.size = CGSizeMake(bounds.size.height, bounds.size.width);
-//    
-//    containerVC.view.frame = bounds;
-//    containerVC.view.frame = self.view.bounds;
+    [containerVC.view setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    NSLayoutConstraint *wConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:containerVC.view attribute:NSLayoutAttributeWidth multiplier:1.0 constant:0.0];
-    NSLayoutConstraint *hConstraint = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:containerVC.view attribute:NSLayoutAttributeHeight multiplier:1.0 constant:0.0];
-
-    [containerVC.view removeConstraints:containerVC.view.constraints];
-    [containerVC.view addConstraints:@[wConstraint, hConstraint]];
+    NSLayoutConstraint *con1 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterX relatedBy:0 toItem:containerVC.view attribute:NSLayoutAttributeCenterX multiplier:1 constant:0];
+    NSLayoutConstraint *con2 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY relatedBy:0 toItem:containerVC.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
+    NSLayoutConstraint *con3 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeWidth relatedBy:0 toItem:containerVC.view attribute:NSLayoutAttributeWidth multiplier:1 constant:0];
+    NSLayoutConstraint *con4 = [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeHeight relatedBy:0 toItem:containerVC.view attribute:NSLayoutAttributeHeight multiplier:1 constant:0];
+    
+    NSArray *constraints = @[con1, con2, con3, con4];
+    
+    [self.view addConstraints:constraints];
 }
 
 - (void)deviceOrientationDidChangeNotification:(NSNotification *)notification

@@ -14,11 +14,7 @@
 #import "APSDataManager.h"
 #import "Person.h"
 
-#import "NSArray+TableViewOrdering.h"
-
 @interface UECCommitteeViewController ()
-
-@property (strong, nonatomic) NSArray *committeeMembers, *subcommittees;
 
 @end
 
@@ -47,39 +43,43 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Data Source Organising
 
-- (NSArray *)customSortedArrayWithPositionOfExec:(NSInteger)execPosition inArray:(NSMutableArray *)array
+- (void)setTransientOrderInObjects:(NSArray *)fethcedObjects
 {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"position LIKE %@", @"President"];
-    Person *president = [[[array[execPosition] copy] filteredArrayUsingPredicate:predicate] lastObject];
-    NSInteger presidentIndex = [array[execPosition] indexOfObject:president];
+    NSMutableArray *seenSubcommittees = [[NSMutableArray alloc] init];
     
-    NSMutableArray *execArray = [array[execPosition] mutableCopy];
-    [execArray exchangeObjectAtIndex:presidentIndex withObjectAtIndex:0];
-    array[execPosition] = execArray;
+    [fethcedObjects enumerateObjectsUsingBlock:^(Person *person, NSUInteger idx, BOOL *stop) {
+        if ([seenSubcommittees containsObject:person.subcommittee]) {
+            person.order = @([seenSubcommittees indexOfObject:person.subcommittee] + 1);
+        } else {
+            [seenSubcommittees addObject:person.subcommittee];
+            person.order = @([seenSubcommittees indexOfObject:person.subcommittee] + 1);
+        }
+        
+        if ([person.subcommittee isEqualToString:@"Executive"])
+            person.order = @(0);
+        
+        if ([person.position isEqualToString:@"President"]) {
+            person.order = @(-1);
+        }
+        
+    }];
     
-    [array exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
-    
-    NSMutableArray *subcommittees = self.subcommittees.mutableCopy;
-    [subcommittees exchangeObjectAtIndex:execPosition withObjectAtIndex:0];
-    self.subcommittees = subcommittees;
-    
-    return array;
+    [[APSDataManager sharedManager] saveContext];
 }
 
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
 {
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    } else {         
-        NSString *sectionKey = @"subcommittee";
-        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:sectionKey ascending:YES];
-        NSArray *sectionedArray = [newObjects sectionedArrayWithSplittingKey:sectionKey withSortDescriptor:@[sortDescriptor]];
-        NSMutableArray *data = [[NSMutableArray alloc] initWithArray:sectionedArray];
-        self.subcommittees = [data sectionHeaderObjectsForKey:sectionKey sectionedArray:YES];
+    } else {
         
-        NSInteger execPosition = [self.subcommittees indexOfObject:@"Executive"];
-        // This next bit is to get the Exec and the president to be at the top.
-        self.committeeMembers = [self customSortedArrayWithPositionOfExec:execPosition inArray:data];
+        [self setTransientOrderInObjects:newObjects];
+        
+        self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+            NSSortDescriptor *orderSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+            NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES];
+            request.sortDescriptors = @[orderSortDescriptor, firstNameSortDescriptor];
+        } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
         
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         
@@ -89,21 +89,9 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return self.committeeMembers.count;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return [self.committeeMembers[section] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return self.subcommittees[section];
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +105,7 @@ static CGFloat kCellHeight = 55.0;
     __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...    
-    Person *person = self.committeeMembers[indexPath.section][indexPath.row];
+    Person *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
                    placeholderImage:[UIImage imageNamed:@"gentleman.png"]

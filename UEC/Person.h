@@ -2,7 +2,7 @@
 //  Person.h
 //  UEC
 //
-//  Created by Jad Osseiran on 9/02/13.
+//  Created by Jad Osseiran on 15/02/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -20,5 +20,6 @@
 @property (nonatomic, retain) NSString * position;
 @property (nonatomic, retain) NSString * subcommittee;
 @property (nonatomic, retain) NSString * summary;
+@property (nonatomic, retain) NSNumber * order;
 
 @end

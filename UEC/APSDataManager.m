@@ -35,9 +35,7 @@
 - (void)getDataForEntityName:(NSString *)entityName
           coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
           downloadCompletion:(void (^)(BOOL needsReloading, NSArray *downloadedObjects))downloadCompletionBlock
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
+{    
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
         __block NSArray *coreDataObjects = nil;
@@ -46,8 +44,6 @@
             coreDataObjects = objects;
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
                 if (coreDataCompletionBlock) {
                     coreDataCompletionBlock(objects);
                 }
@@ -74,9 +70,7 @@
 #warning currently I only check that the existing object match in relation to their identifiers. I have to find a way to make it so I can know if the backend has updated an existing record so that I can set needsReloading to YES.
             //        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
             BOOL needsReloading = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                
+            dispatch_async(dispatch_get_main_queue(), ^{                
                 if (downloadCompletionBlock) {
                     downloadCompletionBlock(needsReloading, cachedObjects);
                 }
