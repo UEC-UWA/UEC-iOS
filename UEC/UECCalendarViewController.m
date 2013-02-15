@@ -76,25 +76,29 @@ static NSInteger kMonthsDisplay = 0;
 
 #pragma mark - Data Refreshing
 
-- (void)refreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock
+- (void)refreshData
 {
     [[APSDataManager sharedManager] getDataForEntityName:@"Event" coreDataCompletion:^(NSArray *cachedObjects) {
-        [self reloadDataWithNewObjects:cachedObjects withHeaderKey:headerKey completion:completionBlock];
+        [self reloadDataWithNewObjects:cachedObjects];
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
         if (needsReloading) {
-        [self reloadDataWithNewObjects:downloadedObjects withHeaderKey:headerKey completion:completionBlock];
+        [self reloadDataWithNewObjects:downloadedObjects];
         }
     }];
 }
 
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
-                   withHeaderKey:(NSString *)headerKey
-                      completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock
 {
     if (newObjects.count == 0) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     } else {
         
+        
+//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//        if (completionBlock) {
+//            completionBlock(events, sectionNames);
+//        }
+
 //        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:headerKey ascending:YES];
 //        NSArray *events = [newObjects sectionedArrayWithSplittingKey:headerKey withSortDescriptor:@[sortDescriptor]];
 //        NSArray *sectionHeaders = [events sectionHeaderObjectsForKey:headerKey sectionedArray:YES];
@@ -103,10 +107,6 @@ static NSInteger kMonthsDisplay = 0;
 //        for (NSDate *date in sectionHeaders)
 //            [sectionNames addObject:[date stringValue]];
 //        
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        if (completionBlock) {
-//            completionBlock(events, sectionNames);
-//        }
     }
 }
 #pragma mark - Segment Control Setup
@@ -218,9 +218,9 @@ static NSInteger kMonthsDisplay = 0;
     
 }
 
-- (void)didRefreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *, NSArray *))completionBlock
+- (void)didRefreshData
 {
-    [self refreshDataWithHeaderKey:headerKey completion:completionBlock];
+    [self refreshData];
 }
 
 @end

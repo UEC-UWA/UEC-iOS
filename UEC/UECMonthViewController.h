@@ -13,7 +13,7 @@
 @protocol UECMonthViewControllerDelegate <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRefreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock;
+- (void)didRefreshData;
 
 @end
 

@@ -28,33 +28,32 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
+#pragma mark - Refresh
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (void)handleRefresh:(id)sender
 {
-    // Return the number of sections.
-    return [self.events count];
+    [self.delegate didRefreshData];
+    
+    [self.refreshControl endRefreshing];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+#pragma mark - Table view data source
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
-    // Return the number of rows in the section.
-    return [self.events[section] count];
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return self.eventDateTitles[section];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSString *rawDateStr = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
+    //convert default date string to NSDate...
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZ"];
+    NSDate *date = [formatter dateFromString:rawDateStr];
     
-    // Configure the cell...
-    
-    return cell;
+    //convert NSDate to format we want...
+    return [date stringValue];
 }
 
 #pragma mark - Table view delegate

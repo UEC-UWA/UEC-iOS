@@ -8,18 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+#import "CoreDataTableViewController.h"
+
+#import "APSDataManager.h"
+#import "NSDate+Formatter.h"
+
 @class Event;
 
 @protocol UECCalendarListViewController <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRefreshDataWithHeaderKey:(NSString *)headerKey completion:(void (^)(NSArray *data, NSArray *sectionNames))completionBlock;
+- (void)didRefreshData;
 
 @end
 
-@interface UECCalendarListViewController : UITableViewController
+@interface UECCalendarListViewController : CoreDataTableViewController
 
 @property (weak, nonatomic) id <UECCalendarListViewController> delegate;
-@property (strong, nonatomic) NSArray *events, *eventDateTitles;
 
 @end

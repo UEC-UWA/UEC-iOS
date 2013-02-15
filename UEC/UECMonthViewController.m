@@ -47,9 +47,8 @@
     
     self.view = self.calendarView;
     
-    [self.delegate didRefreshDataWithHeaderKey:@"startDate" completion:^(NSArray *data, NSArray *sectionNames) {
-        [self.calendarView.tableView reloadData];
-    }];
+    [self.delegate didRefreshData];
+    [self.calendarView.tableView reloadData];
 }
 
 #pragma mark - Actions
@@ -57,12 +56,9 @@
 - (void)handleRefresh:(id)sender
 {
     // Refresh data here
-    
-    
-    [self.delegate didRefreshDataWithHeaderKey:@"startDate" completion:^(NSArray *data, NSArray *sectionNames) {
-        [self.calendarView.tableView reloadData];
-        [self.refreshControl endRefreshing];
-    }];
+    [self.delegate didRefreshData];
+    [self.calendarView.tableView reloadData];
+    [self.refreshControl endRefreshing];
 }
 
 @end

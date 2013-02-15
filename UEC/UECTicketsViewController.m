@@ -10,8 +10,6 @@
 
 #import "Event.h"
 
-#import "NSDate+Formatter.h"
-
 @interface UECTicketsViewController ()
 
 @end
@@ -22,25 +20,10 @@
 {
     [super viewDidLoad];
     
-    [self.delegate didRefreshDataWithHeaderKey:@"startSale" completion:^(NSArray *data, NSArray *sectionNames) {
-        self.events = data;
-        self.eventDateTitles = sectionNames;
-        
-        [self.tableView reloadData];
-    }];
-}
-
-#pragma mark - Refresh
-
-- (void)handleRefresh:(id)sender
-{
-    [self.delegate didRefreshDataWithHeaderKey:@"startSale" completion:^(NSArray *data, NSArray *sectionNames) {
-        self.events = data;
-        self.eventDateTitles = sectionNames;
-        
-        [self.tableView reloadData];
-        [self.refreshControl endRefreshing];
-    }];
+    self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
+        request.sortDescriptors = @[sortDescriptor];
+    } entityName:@"Event" sectionNameKeyPath:@"startSale" cacheName:nil];
 }
 
 #pragma mark - Table view data source
@@ -50,9 +33,9 @@
     static NSString *CellIdentifier = @"Ticket Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Event *event = self.events[indexPath.section][indexPath.row];
-    
     // Configure the cell...
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     cell.textLabel.text = event.name;
     cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [event.startSale stringNoTimeValue], [event.endSale stringNoTimeValue]];
     
