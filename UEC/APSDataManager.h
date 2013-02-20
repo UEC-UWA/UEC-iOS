@@ -45,4 +45,6 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
                                                  sectionNameKeyPath:(NSString *)sectionNameKeyPath
                                                           cacheName:(NSString *)cacheName;
 
+- (void)saveContext;
+
 @end

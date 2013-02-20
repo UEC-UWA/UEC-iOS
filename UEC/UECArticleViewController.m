@@ -28,7 +28,6 @@
     [self.webView loadHTMLString:self.newsArticle.content baseURL:nil];
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor darkGrayColor];
 }
 
 - (void)didReceiveMemoryWarning

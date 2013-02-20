@@ -137,6 +137,11 @@
                                                           cacheName:cacheName];
 }
 
+- (void)saveContext
+{
+    [self saveContext:self.mainContext];
+}
+
 #pragma mark - Mapping
 
 - (void)cacheData:(NSArray *)data forEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context completion:(void (^)(NSArray *cachedObjects))completionBlock

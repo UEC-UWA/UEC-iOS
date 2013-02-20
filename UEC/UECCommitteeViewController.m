@@ -10,6 +10,8 @@
 #import <MBProgressHUD/MBProgressHUD.h>
 
 #import "UECCommitteeViewController.h"
+#import "UECCommitteeMemberViewController.h"
+#import "UECCommitteeMemberCell.h"
 
 #import "APSDataManager.h"
 #import "Person.h"
@@ -40,7 +42,9 @@ static CGFloat kCellHeight = 55.0;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Person Detail Segue"]) {
-//        [self.navigationController pushViewController:[segue destinationViewController] animated:YES];
+        UECCommitteeMemberViewController *committeeMemberVC = [segue destinationViewController];
+        NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
+        committeeMemberVC.person = [self.fetchedResultsController objectAtIndexPath:selectedIndexPath];
     }
 }
 
@@ -67,7 +71,7 @@ static CGFloat kCellHeight = 55.0;
         
     }];
     
-//    [[APSDataManager sharedManager] saveContext];
+    [[APSDataManager sharedManager] saveContext];
 }
 
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
@@ -80,7 +84,7 @@ static CGFloat kCellHeight = 55.0;
         
         self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
             NSSortDescriptor *orderSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-            NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"firstName" ascending:YES];
+            NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
             request.sortDescriptors = @[orderSortDescriptor, firstNameSortDescriptor];
         } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
         
@@ -105,22 +109,20 @@ static CGFloat kCellHeight = 55.0;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Committee Cell";
-    __block UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UECCommitteeMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...    
     Person *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
-                   placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                              
-                          }];
-    cell.imageView.clipsToBounds = YES;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    [cell.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
+                          placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                     
+                                 }];
 
-    // TODO: Make the first name bold.
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", person.firstName, person.lastName];
-    cell.detailTextLabel.text = person.position;
+    cell.firstNameLabel.text = person.firstName;
+    cell.lastNameLabel.text = person.lastName;
+    cell.positionLabel.text = person.position;
     
     return cell;
 }

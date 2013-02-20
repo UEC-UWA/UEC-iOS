@@ -13,10 +13,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
     [[UINavigationBar appearance] setTintColor:UEC_YELLOW];
-    NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
-    [[UINavigationBar appearance] setTitleTextAttributes:attributes];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateNormal];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateHighlighted];
+    NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
+    [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
+    
+    NSDictionary *barButtonAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
+    [[UIBarButtonItem appearance] setTintColor:[UIColor darkGrayColor]];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateNormal];
+    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateHighlighted];
     
     // Override point for customization after application launch.
     return YES;
