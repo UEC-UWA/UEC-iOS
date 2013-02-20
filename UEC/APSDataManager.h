@@ -26,8 +26,6 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
 
 @property (weak, nonatomic) id <APSDataManagerDataSource> dataSource;
 
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 + (APSDataManager *)sharedManager;
 
 - (void)getDataForEntityName:(NSString *)entityName
@@ -46,7 +44,5 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
                                                          entityName:(NSString *)entityName
                                                  sectionNameKeyPath:(NSString *)sectionNameKeyPath
                                                           cacheName:(NSString *)cacheName;
-
-- (void)saveContext;
 
 @end

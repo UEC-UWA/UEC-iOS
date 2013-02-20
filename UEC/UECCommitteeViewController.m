@@ -25,6 +25,8 @@ static CGFloat kCellHeight = 55.0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.title = @"Committee";
 
     [[APSDataManager sharedManager] getDataForEntityName:@"Person" coreDataCompletion:^(NSArray *cachedObjects) {
         [self reloadDataWithNewObjects:cachedObjects];
@@ -35,10 +37,11 @@ static CGFloat kCellHeight = 55.0;
     }];
 }
 
-- (void)didReceiveMemoryWarning
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if ([segue.identifier isEqualToString:@"Person Detail Segue"]) {
+//        [self.navigationController pushViewController:[segue destinationViewController] animated:YES];
+    }
 }
 
 #pragma mark - Data Source Organising
@@ -64,7 +67,7 @@ static CGFloat kCellHeight = 55.0;
         
     }];
     
-    [[APSDataManager sharedManager] saveContext];
+//    [[APSDataManager sharedManager] saveContext];
 }
 
 - (void)reloadDataWithNewObjects:(NSArray *)newObjects
@@ -120,19 +123,6 @@ static CGFloat kCellHeight = 55.0;
     cell.detailTextLabel.text = person.position;
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
 }
 
 @end

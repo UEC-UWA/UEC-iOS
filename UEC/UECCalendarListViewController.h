@@ -18,7 +18,7 @@
 @protocol UECCalendarListViewController <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRefreshData;
+- (void)didRequestDataRefresh;
 
 @end
 

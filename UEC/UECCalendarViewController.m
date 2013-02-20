@@ -15,7 +15,6 @@
 #import "UECTicketsViewController.h"
 #import "UECCalendarListViewController.h"
 
-#import "UECUniversalAppManager.h"
 #import "APSDataManager.h"
 #import "Event.h"
 
@@ -45,12 +44,11 @@ static NSInteger kMonthsDisplay = 0;
     [self setGestureRecognisers];
     [self setupSegmentControl];
     
-    UIStoryboard *calendarStoryboard = [[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:@"Calendar"];
-    UECMonthViewController *monthsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECMonthViewController"];
+    UECMonthViewController *monthsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECMonthViewController"];
     monthsVC.delegate = self;
-    UECEventsListViewController *eventsListVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECEventsListViewController"];
+    UECEventsListViewController *eventsListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECEventsListViewController"];
     eventsListVC.delegate = self;
-    UECTicketsViewController *ticketsVC = [calendarStoryboard instantiateViewControllerWithIdentifier:@"UECTicketsViewController"];
+    UECTicketsViewController *ticketsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECTicketsViewController"];
     ticketsVC.delegate = self;
     
     // Add the view controllers to the array
@@ -123,7 +121,7 @@ static NSInteger kMonthsDisplay = 0;
         [self reloadDataWithNewObjects:cachedObjects];
     } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
         if (needsReloading) {
-        [self reloadDataWithNewObjects:downloadedObjects];
+            [self reloadDataWithNewObjects:downloadedObjects];
         }
     }];
 }
@@ -140,6 +138,7 @@ static NSInteger kMonthsDisplay = 0;
         }
     }
 }
+
 #pragma mark - Segment Control Setup
 
 - (void)setupSegmentControl
@@ -249,7 +248,7 @@ static NSInteger kMonthsDisplay = 0;
     
 }
 
-- (void)didRefreshData
+- (void)didRequestDataRefresh
 {
     [self refreshData];
 }

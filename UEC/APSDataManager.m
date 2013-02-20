@@ -13,6 +13,8 @@
 @interface APSDataManager ()
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+@property (strong, nonatomic) NSManagedObjectContext *mainContext;
 @end
 
 @implementation APSDataManager
@@ -38,52 +40,60 @@
 {    
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
-        __block NSArray *coreDataObjects = nil;
         
-        [self.class findAllForEntityName:entityName completion:^(NSArray *objects) {
-            coreDataObjects = objects;
+        // Create a new ManagedObjectContext for multi threading core data operations.
+        NSManagedObjectContext *threadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        threadContext.parentContext = self.mainContext;
+        
+        [threadContext performBlock:^{
+            __block NSArray *coreDataObjects = nil;
             
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (coreDataCompletionBlock) {
-                    coreDataCompletionBlock(objects);
-                }
-            });
-        }];
-        
+            [self.class findAllForEntityName:entityName inContext:threadContext completion:^(NSArray *objects) {
+                coreDataObjects = objects;
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (coreDataCompletionBlock) {
+                        coreDataCompletionBlock(objects);
+                    }
+                });
+            }];
+            
 #ifdef LOCAL_DATA
-        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
-        NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
-        
-        [self cacheData:localData forEntityName:entityName completion:^(NSArray *cachedObjects) {
-            NSMutableSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
-            NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
+            NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
+            NSArray *localData = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
             
-            if (![coreDataSet isEqualToSet:cachedSet]) {
-                // Allow for initial downaload.
-                if ([coreDataSet count] > [cachedSet count]) {
-                    [coreDataSet minusSet:cachedSet];
-                    for (id object in coreDataSet)
-                        [self.managedObjectContext deleteObject:object];
+            [self cacheData:localData forEntityName:entityName inContext:threadContext completion:^(NSArray *cachedObjects) {
+                NSMutableSet *coreDataSet = [NSSet setWithArray:coreDataObjects];
+                NSSet *cachedSet = [NSSet setWithArray:cachedObjects];
+                
+                if (![coreDataSet isEqualToSet:cachedSet]) {
+                    // Allow for initial downaload.
+                    if ([coreDataSet count] > [cachedSet count]) {
+                        [coreDataSet minusSet:cachedSet];
+                        for (id object in coreDataSet)
+                            [threadContext deleteObject:object];
+                    }
                 }
-            }
-            
+                
 #warning currently I only check that the existing object match in relation to their identifiers. I have to find a way to make it so I can know if the backend has updated an existing record so that I can set needsReloading to YES.
-            //        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
-            BOOL needsReloading = YES;
-            dispatch_async(dispatch_get_main_queue(), ^{                
-                if (downloadCompletionBlock) {
-                    downloadCompletionBlock(needsReloading, cachedObjects);
-                }
-            });
-        }];
+                //        BOOL needsReloading = ![coreDataSet isEqualToSet:cachedSet];
+                BOOL needsReloading = YES;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (downloadCompletionBlock) {
+                        downloadCompletionBlock(needsReloading, cachedObjects);
+                    }
+                });
+            }];
 #else
-        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-        
-        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
-        [path appendString:serverPaths[entityName][@"GET"]];
-        
-        // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
+            NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+            
+            NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
+            [path appendString:serverPaths[entityName][@"GET"]];
+            
+            // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
 #endif
+        }];
+        
     });
 }
 
@@ -97,9 +107,9 @@
 {
     id value = [fromEntityName valueForKey:attribute];
     
-    [self.class findAllByAttribute:attribute value:value forEntityName:fromEntityName completion:^(NSArray *fromObjects) {
+    [self.class findAllByAttribute:attribute inContext:self.mainContext value:value forEntityName:fromEntityName completion:^(NSArray *fromObjects) {
         if (fromObjects.count > 0) {
-            [self.class findAllByAttribute:@"identifier" value:value forEntityName:toEntityName completion:^(NSArray *toObjects) {
+            [self.class findAllByAttribute:@"identifier" inContext:self.mainContext value:value forEntityName:toEntityName completion:^(NSArray *toObjects) {
                 if (toObjects.count > 0) {
                     [self.class linRelationshipType:relationshipType fromObjects:fromObjects toObjects:toObjects relationship:relationship inverseRelationship:inverseRelationship value:value];
                 }
@@ -122,14 +132,14 @@
         fetchRequestBlock(request);
     
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                               managedObjectContext:self.managedObjectContext
+                                               managedObjectContext:self.mainContext
                                                  sectionNameKeyPath:sectionNameKeyPath
                                                           cacheName:cacheName];
 }
 
 #pragma mark - Mapping
 
-- (void)cacheData:(NSArray *)data forEntityName:(NSString *)entityName completion:(void (^)(NSArray *cachedObjects))completionBlock
+- (void)cacheData:(NSArray *)data forEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context completion:(void (^)(NSArray *cachedObjects))completionBlock
 {
     NSMutableArray *cachedEntities = [[NSMutableArray alloc] init];
     
@@ -142,7 +152,8 @@
     for (NSDictionary *dataObject in data) {
         dispatch_group_enter(group);
         [self.class newEntityWithName:entityName
-              withIdentifierAttribute:@"identifier"
+                            inContext:context
+                          idAttribute:@"identifier"
                                 value:dataObject[@"id"]
                              onInsert:^(NSManagedObject *entity) {
                                  [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
@@ -158,7 +169,7 @@
     }
     
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
-        [self saveContext];
+        [self saveContext:context];
         
         if (completionBlock) {
             completionBlock(cachedEntities);
@@ -217,12 +228,12 @@
 
 #pragma mark - Core Data Accessors
 
-+ (void)newEntityWithName:(NSString *)entity withIdentifierAttribute:(NSString *)attribute value:(id)value onInsert:(void (^)(NSManagedObject *entity))insertBlock completion:(void (^)(NSManagedObject *entity))completionBlock
++ (void)newEntityWithName:(NSString *)entity inContext:(NSManagedObjectContext *)context idAttribute:(NSString *)attribute value:(id)value onInsert:(void (^)(NSManagedObject *entity))insertBlock completion:(void (^)(NSManagedObject *entity))completionBlock
 {
     Class managedObject = NSClassFromString(entity);
     
-    if ([managedObject respondsToSelector:@selector(newEntity:withIdentifierAttribute:value:onInsert:completion:)]) {
-        [managedObject newEntity:entity withIdentifierAttribute:attribute value:value onInsert:^(NSManagedObject *entity) {
+    if ([managedObject respondsToSelector:@selector(newEntity:inContext:idAttribute:value:onInsert:completion:)]) {
+        [managedObject newEntity:entity inContext:context idAttribute:attribute value:value onInsert:^(NSManagedObject *entity) {
             if (insertBlock) {
                 insertBlock(entity);
             }
@@ -236,12 +247,12 @@
     }
 }
 
-+ (void)findAllForEntityName:(NSString *)entityName completion:(void (^)(NSArray *objects))completionBlock
++ (void)findAllForEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context completion:(void (^)(NSArray *objects))completionBlock
 {
     Class managedObject = NSClassFromString(entityName);
 
-    if ([managedObject respondsToSelector:@selector(findAll:)]) {
-        [managedObject findAll:^(NSArray *objects) {
+    if ([managedObject respondsToSelector:@selector(findAllInContext:completion:)]) {
+        [managedObject findAllInContext:context completion:^(NSArray *objects) {
             if (completionBlock) {
                 completionBlock(objects);
             }
@@ -251,12 +262,12 @@
     }
 }
 
-+ (void)findAllByAttribute:(NSString *)attribute value:(id)value forEntityName:(NSString *)entityName completion:(void (^)(NSArray *objects))completionBlock
++ (void)findAllByAttribute:(NSString *)attribute inContext:(NSManagedObjectContext *)context value:(id)value forEntityName:(NSString *)entityName completion:(void (^)(NSArray *objects))completionBlock
 {
     Class managedObject = NSClassFromString(entityName);
     
-    if ([managedObject respondsToSelector:@selector(findAllByAttribute:value:completion:)]) {
-        [managedObject findAllByAttribute:attribute value:value completion:^(NSArray *objects) {
+    if ([managedObject respondsToSelector:@selector(findAllByAttribute:value:inContext:completion:)]) {
+        [managedObject findAllByAttribute:attribute value:value inContext:context completion:^(NSArray *objects) {
             if (completionBlock) {
                 completionBlock(objects);
             }
@@ -266,12 +277,12 @@
     }
 }
 
-+ (void)findFirstByAttribute:(NSString *)attribute value:(id)value forEntityName:(NSString *)entityName completion:(void (^)(id object))completionBlock
++ (void)findFirstByAttribute:(NSString *)attribute value:(id)value inContext:(NSManagedObjectContext *)context forEntityName:(NSString *)entityName completion:(void (^)(id object))completionBlock
 {
     Class managedObject = NSClassFromString(entityName);
     
-    if ([managedObject respondsToSelector:@selector(findFirstByAttribute:value:)]) {
-        [managedObject findFirstByAttribute:attribute value:value completion:^(id object) {
+    if ([managedObject respondsToSelector:@selector(findFirstByAttribute:value:inContext:completion:)]) {
+        [managedObject findFirstByAttribute:attribute value:value inContext:context completion:^(id object) {
             if (completionBlock) {
                 completionBlock(object);
             }
@@ -281,12 +292,12 @@
     }
 }
 
-+ (NSUInteger)numberOfObjectsForEntityName:(NSString *)entityName
++ (NSUInteger)numberOfObjectsForEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context
 {
     Class managedObject = NSClassFromString(entityName);
     
-    if ([managedObject respondsToSelector:@selector(count)]) {
-        return [managedObject count];
+    if ([managedObject respondsToSelector:@selector(countInContext:)]) {
+        return [managedObject countInContext:context];
     }
     
     [self.class logErrorForEntityName:entityName];
@@ -311,20 +322,20 @@
         NSLog(@"Error adding persistent store: %@", error);
     }
     
-    self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [self.managedObjectContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
+    self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+    [self.mainContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
 }
 
 - (void)applicationShouldSaveContext:(NSNotification *)notification
 {
-    [self saveContext];
+    [self saveContext:self.mainContext];
 }
 
-- (void)saveContext
+- (void)saveContext:(NSManagedObjectContext *)context
 {
-    [self.managedObjectContext performBlock:^{
+    [context performBlock:^{
         NSError *error = nil;
-        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
+        if ([context hasChanges] && ![context save:&error]) {
             NSLog(@"Error saving context: %@", error);
         }
     }];

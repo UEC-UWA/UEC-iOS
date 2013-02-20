@@ -8,21 +8,21 @@
 
 #import "NSManagedObject+Appulse.h"
 
-#import "APSDataManager.h"
-
 @implementation NSManagedObject (Appulse)
 
-+ (void)newEntity:(NSString *)entity withIdentifierAttribute:(NSString *)attribute value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock completion:(void (^)(NSManagedObject *entity))completionBlock
++ (void)newEntity:(NSString *)entity
+        inContext:(NSManagedObjectContext *)context
+      idAttribute:(NSString *)attribute
+            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock
+       completion:(void (^)(NSManagedObject *entity))completionBlock
 {
     id returnedObject = nil;
-    
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
+        
     NSFetchRequest *fs = [NSFetchRequest fetchRequestWithEntityName:entity];
     fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
     
     if ([context countForFetchRequest:fs error:nil] == 0) {
-        returnedObject = [[self alloc] initWithEntity:[self entity] insertIntoManagedObjectContext:context];
+        returnedObject = [[self alloc] initWithEntity:[self entityInContext:context] insertIntoManagedObjectContext:context];
         [returnedObject setValue:value forKey:attribute];
         
         if (insertBlock)
@@ -34,7 +34,7 @@
     } else {
         fs.fetchLimit = 1;
         
-        [self findFirstByAttribute:attribute value:value completion:^(id object) {
+        [self findFirstByAttribute:attribute value:value inContext:context completion:^(id object) {
             if (completionBlock) {
                 completionBlock(object);
             }
@@ -42,32 +42,39 @@
     }
 }
 
-+ (void)findAll:(void (^)(NSArray *objects))completionBlock
++ (void)findAllInContext:(NSManagedObjectContext *)context
+              completion:(void (^)(NSArray *objects))completionBlock
 {
-    NSArray *objects = [[self managedObjectContext] executeFetchRequest:[self fetchRequest] error:nil];
+    NSArray *objects = [context executeFetchRequest:[self fetchRequestInContext:context] error:nil];
     
     if (completionBlock) {
         completionBlock(objects);
     }
 }
 
-+ (void)findAllByAttribute:(NSString *)attribute value:(id)value completion:(void (^)(NSArray *objects))completionBlock
++ (void)findAllByAttribute:(NSString *)attribute
+                     value:(id)value
+                 inContext:(NSManagedObjectContext *)context
+                completion:(void (^)(NSArray *objects))completionBlock
 {
     NSArray *objects = [self fetchRequest:^(NSFetchRequest *fs) {
         fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
-    }];
+    } inContext:context];
     
     if (completionBlock) {
         completionBlock(objects);
     }
 }
 
-+ (void)findFirstByAttribute:(NSString *)attribute value:(id)value completion:(void (^)(id object))completionBlock
++ (void)findFirstByAttribute:(NSString *)attribute
+                       value:(id)value
+                   inContext:(NSManagedObjectContext *)context
+                  completion:(void (^)(id object))completionBlock
 {
     id object = [[self fetchRequest:^(NSFetchRequest *fs) {
         fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
         fs.fetchLimit = 1;
-    }] lastObject];
+    } inContext:context] lastObject];
     
     if (completionBlock) {
         completionBlock(object);
@@ -75,35 +82,31 @@
 }
 
 + (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock
+                inContext:(NSManagedObjectContext *)context
 {
-    NSFetchRequest *fs = [self fetchRequest];
+    NSFetchRequest *fs = [self fetchRequestInContext:context];
     if (fetchRequestBlock)
         fetchRequestBlock(fs);
-    return [[self managedObjectContext] executeFetchRequest:fs error:nil];
+    return [context executeFetchRequest:fs error:nil];
 }
 
-+ (NSUInteger)count
++ (NSUInteger)countInContext:(NSManagedObjectContext *)context
 {
-    return [[self managedObjectContext] countForFetchRequest:[self fetchRequest] error:nil];
+    return [context countForFetchRequest:[self fetchRequestInContext:context] error:nil];
 }
 
 #pragma mark - Private Methods
 
-+ (NSManagedObjectContext *)managedObjectContext
-{
-    return [APSDataManager sharedManager].managedObjectContext;
-}
-
-+ (NSEntityDescription *)entity
++ (NSEntityDescription *)entityInContext:(NSManagedObjectContext *)context
 {
     return [NSEntityDescription entityForName:NSStringFromClass(self)
-                       inManagedObjectContext:[self managedObjectContext]];
+                       inManagedObjectContext:context];
 }
 
-+ (NSFetchRequest *)fetchRequest
++ (NSFetchRequest *)fetchRequestInContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *fs = [[NSFetchRequest alloc] init];
-    fs.entity = [[self class] entity];
+    fs.entity = [[self class] entityInContext:context];
     return fs;
 }
 

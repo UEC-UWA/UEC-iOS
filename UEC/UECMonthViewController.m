@@ -20,7 +20,7 @@
 
 @end
 
-@interface UECMonthViewController () <TSQCalendarViewDelegate>
+@interface UECMonthViewController () <TSQCalendarViewDelegate, TSQCalendarViewDataSource>
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) TSQCalendarView *calendarView;
 @end
@@ -39,7 +39,7 @@
     self.calendarView.firstDate = [[NSDate date] startOfCurrentYear];
     self.calendarView.lastDate = [[NSDate date] endOfCurrentYear];
     self.calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
-    self.calendarView.pagingEnabled = YES;
+    self.calendarView.pagingEnabled = NO;
     CGFloat onePixel = 1.0f / [UIScreen mainScreen].scale;
     self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
     
@@ -48,8 +48,11 @@
     [self.calendarView.tableView addSubview:self.refreshControl];
     
     self.calendarView.delegate = self;
+    self.calendarView.dataSource = self;
     
     self.view = self.calendarView;
+    
+//    [self.delegate didRequestDataRefresh];
 }
 
 - (void)setEvents:(NSArray *)events
@@ -58,6 +61,8 @@
         _events = events;
         self.events = events;
     }
+    
+    [self refresh];
 }
 
 #pragma mark - Actions
@@ -65,18 +70,14 @@
 - (void)handleRefresh:(id)sender
 {
     // Refresh data here
-    [self refresh];
+    
+    [self.delegate didRequestDataRefresh];
     
     [self.refreshControl endRefreshing];
 }
 
 - (void)refresh
 {
-    [self.delegate didRefreshData];
-    
-    NSArray *dates = [self.events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
-    
-    [self.calendarView setEventsForDates:dates];
     [self.calendarView.tableView reloadData];
 }
 
@@ -85,6 +86,13 @@
 - (void)calendarView:(TSQCalendarView *)calendarView didSelectDate:(NSDate *)date
 {
     
+}
+
+#pragma mark - TSQCalendarViewDataSource
+
+- (NSArray *)calendarViewEventDates
+{
+    return [self.events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
 }
 
 @end

@@ -35,6 +35,8 @@ static CGFloat kCellHeight = 120.0;
 {
     [super viewDidLoad];
 
+    self.title = @"News";
+    
     // Add refresh control programmatically (not in NIB)
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];

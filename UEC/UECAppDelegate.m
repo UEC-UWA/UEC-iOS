@@ -8,37 +8,15 @@
 
 #import "UECAppDelegate.h"
 
-#import "UECUniversalAppManager.h"
-
 @implementation UECAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    UIStoryboard *mainStroyboard = [[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:@"Main"];
-    UITabBarController *tabBarController = [mainStroyboard instantiateInitialViewController];
-    
-    NSArray *tabBarItems = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"TabBarItems" ofType:@"plist"]];
-    NSMutableArray *tabBarVCs = [[NSMutableArray alloc] initWithCapacity:tabBarItems.count];
-    
-    for (NSString *tabBarItemTitle in tabBarItems) {
-        UIViewController *viewController = [[[UECUniversalAppManager sharedManager] deviceStroyboardFromTitle:tabBarItemTitle] instantiateInitialViewController];
-        UINavigationController *tabBarItem = [[UINavigationController alloc] initWithRootViewController:viewController];
-        tabBarItem.title = tabBarItemTitle;
-        tabBarItem.topViewController.title = tabBarItemTitle;
-        
-        [tabBarVCs addObject:tabBarItem];
-    }
-    
+{    
     [[UINavigationBar appearance] setTintColor:UEC_YELLOW];
     NSDictionary *attributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:attributes];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateNormal];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:attributes forState:UIControlStateHighlighted];
-    
-    
-    [tabBarController setViewControllers:tabBarVCs];
-    
-    [self.window setRootViewController:tabBarController];
     
     // Override point for customization after application launch.
     return YES;

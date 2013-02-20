@@ -10,16 +10,28 @@
 
 @interface NSManagedObject (Appulse)
 
-+ (void)newEntity:(NSString *)entity withIdentifierAttribute:(NSString *)attribute value:(id)value onInsert:(void (^)(NSManagedObject *entity))insertBlock completion:(void (^)(NSManagedObject *entity))completionBlock;
++ (void)newEntity:(NSString *)entity
+        inContext:(NSManagedObjectContext *)context
+      idAttribute:(NSString *)attribute
+            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock
+       completion:(void (^)(NSManagedObject *entity))completionBlock;
 
-+ (void)findAll:(void (^)(NSArray *objects))completionBlock;
++ (void)findAllInContext:(NSManagedObjectContext *)context
+              completion:(void (^)(NSArray *objects))completionBlock;
 
-+ (void)findAllByAttribute:(NSString *)attribute value:(id)value completion:(void (^)(NSArray *objects))completionBlock;
++ (void)findAllByAttribute:(NSString *)attribute
+                     value:(id)value
+                 inContext:(NSManagedObjectContext *)context
+                completion:(void (^)(NSArray *objects))completionBlock;
 
-+ (void)findFirstByAttribute:(NSString *)attribute value:(id)value completion:(void (^)(id object))completionBlock;
++ (void)findFirstByAttribute:(NSString *)attribute
+                       value:(id)value
+                   inContext:(NSManagedObjectContext *)context
+                  completion:(void (^)(id object))completionBlock;
 
-+ (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock;
++ (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock
+                inContext:(NSManagedObjectContext *)context;
 
-+ (NSUInteger)count;
++ (NSUInteger)countInContext:(NSManagedObjectContext *)context;
 
 @end

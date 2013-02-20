@@ -20,6 +20,8 @@
     
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    
+    [self.delegate didRequestDataRefresh];
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,7 +34,7 @@
 
 - (void)handleRefresh:(id)sender
 {
-    [self.delegate didRefreshData];
+    [self.delegate didRequestDataRefresh];
     
     [self.refreshControl endRefreshing];
 }
