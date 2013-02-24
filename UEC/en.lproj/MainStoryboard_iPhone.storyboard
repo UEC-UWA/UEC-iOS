@@ -249,12 +249,12 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-8x-fx2"/>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apj-BN-9p6">
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1B-el-VHE">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -275,10 +275,10 @@
                                     <constraint firstItem="Clv-8x-fx2" firstAttribute="leading" secondItem="Tpz-a0-3iC" secondAttribute="leading" type="default" id="B2R-ql-Yig"/>
                                     <constraint firstItem="Clv-8x-fx2" firstAttribute="bottom" secondItem="Tpz-a0-3iC" secondAttribute="bottom" type="default" id="EL2-zx-cPO"/>
                                     <constraint firstItem="apj-BN-9p6" firstAttribute="leading" secondItem="Clv-8x-fx2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="JRj-pC-3za"/>
-                                    <constraint firstItem="dMs-Ua-LJZ" firstAttribute="leading" secondItem="Tpz-a0-3iC" secondAttribute="leading" constant="63" id="LA0-Ih-4yL"/>
+                                    <constraint firstItem="apj-BN-9p6" firstAttribute="leading" secondItem="Tpz-a0-3iC" secondAttribute="leading" constant="63" id="OwF-Is-Ogf"/>
                                     <constraint firstItem="dMs-Ua-LJZ" firstAttribute="top" secondItem="Tpz-a0-3iC" secondAttribute="top" constant="27" id="cDu-L6-bXj"/>
-                                    <constraint firstItem="I1B-el-VHE" firstAttribute="leading" secondItem="apj-BN-9p6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="obj-gU-aYb"/>
                                     <constraint firstItem="I1B-el-VHE" firstAttribute="baseline" secondItem="apj-BN-9p6" secondAttribute="baseline" type="default" id="p5c-jA-DuA"/>
+                                    <constraint firstItem="I1B-el-VHE" firstAttribute="leading" secondItem="apj-BN-9p6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qZF-cD-oQZ"/>
                                     <constraint firstItem="Clv-8x-fx2" firstAttribute="top" secondItem="Tpz-a0-3iC" secondAttribute="top" type="default" id="szi-ho-RbW"/>
                                     <constraint firstItem="dMs-Ua-LJZ" firstAttribute="leading" secondItem="Clv-8x-fx2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wvZ-qf-iIF"/>
                                 </constraints>
@@ -434,23 +434,6 @@
             </objects>
             <point key="canvasLocation" x="1950" y="695"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="MGf-Ci-z9v">
-            <objects>
-                <viewController id="L5Q-fD-Hs7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="tbf-OT-EnM">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="Y4p-ya-D2D"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mpe-k7-WLP" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="339" y="1004"/>
-        </scene>
         <!--Navigation Controller - News-->
         <scene sceneID="kuN-r4-xlr">
             <objects>
@@ -520,12 +503,43 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="L5Q-fD-Hs7" kind="relationship" relationship="rootViewController" id="toK-Re-nYR"/>
+                        <segue destination="lQe-8W-fCV" kind="relationship" relationship="rootViewController" id="ehA-tG-ZgQ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3w-TT-Pn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-187" y="1004"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="CWT-Kf-7uO">
+            <objects>
+                <tableViewController id="lQe-8W-fCV" customClass="UECAboutViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2HA-18-gJ0">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="About Cell" id="OTa-38-dSq">
+                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="lQe-8W-fCV" id="GTg-ca-8Iw"/>
+                            <outlet property="delegate" destination="lQe-8W-fCV" id="jdg-i4-xVX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="8cd-2E-vNu"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hs5-5S-XY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="1004"/>
         </scene>
     </scenes>
     <classes>
@@ -534,6 +548,9 @@
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="UECAboutViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECAboutViewController.h"/>
         </class>
         <class className="UECArticleViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECArticleViewController.h"/>

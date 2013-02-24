@@ -48,7 +48,6 @@
 
 - (void)performActivity
 {
-    
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.url]];
     [self activityDidFinish:YES];
 }
