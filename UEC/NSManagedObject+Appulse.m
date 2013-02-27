@@ -31,8 +31,13 @@
         return returnedObject;
     } else {
         fs.fetchLimit = 1;
+        id foundObject = [self findFirstByAttribute:attribute value:value inContext:context];
         
-        return [self findFirstByAttribute:attribute value:value inContext:context];
+        if (insertBlock) {
+            insertBlock(foundObject);
+        }
+        
+        return foundObject;
     }
 }
 

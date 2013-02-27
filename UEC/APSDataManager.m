@@ -51,14 +51,19 @@
 
 - (void)cacheEntityName:(NSString *)entityName completion:(void (^)())completionBlock
 {
+    NSMutableSet *coreDataObjectsIDs = [[NSMutableSet alloc] init];
+    NSMutableSet *downloadedObjectsIDs = [[NSMutableSet alloc] init];
+    
+    for (id coreDataObject in [self.class findAllForEntityName:entityName inContext:self.mainContext]) {
+        [coreDataObjectsIDs addObject:[coreDataObject objectID]];
+    }
+    
+    // Create a new ManagedObjectContext for multi threading core data operations.
+    NSManagedObjectContext *threadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+    threadContext.parentContext = self.mainContext;
+    
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
-        
-//        NSArray *coreDataObjects = [self.class findAllForEntityName:entityName inContext:self.mainContext];
-        
-        // Create a new ManagedObjectContext for multi threading core data operations.
-        NSManagedObjectContext *threadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-        threadContext.parentContext = self.mainContext;
         
 #if LOCAL_DATA
         NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
@@ -73,46 +78,45 @@
         NSArray *data = blah
 #endif
       
-        NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
-        
         [threadContext performBlock:^{
+            NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
+
             for (NSDictionary *dataObject in data) {
-                [self.class newEntityWithName:entityName
-                                    inContext:threadContext
-                                  idAttribute:@"identifier"
-                                        value:dataObject[@"id"]
-                                     onInsert:^(NSManagedObject *entity) {
-                                         [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                                             if (![key isEqualToString:@"identifier"]) {
-                                                 id value = dataObject[obj];
-                                                 [entity setValue:value forKey:key];
-                                             }
-                                         }];
-                                     }];
+                id downloadedObject = [self.class newEntityWithName:entityName
+                                                          inContext:threadContext
+                                                        idAttribute:@"identifier"
+                                                              value:dataObject[@"id"]
+                                                           onInsert:^(NSManagedObject *entity) {
+                                                               [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                                                                   if (![key isEqualToString:@"identifier"]) {
+                                                                       id value = dataObject[obj];
+                                                                       [entity setValue:value forKey:key];
+                                                                   }
+                                                               }];
+                                                           }];
+                
+                [downloadedObjectsIDs addObject:[downloadedObject objectID]];
             }
-            
+                        
             [self saveContext:threadContext];
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
+                    [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
+                    for (id objectID in coreDataObjectsIDs) {
+                        NSError *error = nil;
+                        NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
+                        [self.mainContext deleteObject:object];
+                    }
+                }
+                
+                [self saveContext:self.mainContext];
+                                
                 if (completionBlock) {
                     completionBlock();
                 }
             });
         }];
-        
-//        NSArray *downloadedObjects = [self.class findAllForEntityName:entityName inContext:self.mainContext];
-//        
-//        NSMutableSet *coreDataSet = [NSMutableSet setWithArray:coreDataObjects];
-//        NSSet *downloadedSet = [NSSet setWithArray:downloadedObjects];
-//        if (![coreDataSet isEqualToSet:downloadedSet]) {
-//            // Allow for initial downaload.
-//            if ([coreDataSet count] > [downloadedSet count]) {
-//                [coreDataSet minusSet:downloadedSet];
-//                for (id object in coreDataSet)
-//                    [threadContext deleteObject:object];
-//            }
-//        }
-
     });
 }
 
@@ -125,9 +129,9 @@
 {
     id value = [fromEntityName valueForKey:attribute];
     
-    NSArray *fromObjects = [self.class findAllByAttribute:attribute inContext:self.mainContext value:value forEntityName:fromEntityName];
+    NSArray *fromObjects = [self.class findAllByAttribute:attribute value:value inContext:self.mainContext forEntityName:fromEntityName];
     if (fromObjects.count > 0) {
-        NSArray *toObjects = [self.class findAllByAttribute:@"identifier" inContext:self.mainContext value:value forEntityName:toEntityName];
+        NSArray *toObjects = [self.class findAllByAttribute:@"identifier" value:value inContext:self.mainContext forEntityName:toEntityName];
         
         if (toObjects.count > 0) {
             [self.class linRelationshipType:relationshipType fromObjects:fromObjects toObjects:toObjects relationship:relationship inverseRelationship:inverseRelationship value:value];
@@ -237,8 +241,8 @@
 }
 
 + (NSArray *)findAllByAttribute:(NSString *)attribute
-                      inContext:(NSManagedObjectContext *)context
                           value:(id)value
+                      inContext:(NSManagedObjectContext *)context
                   forEntityName:(NSString *)entityName
 {
     Class managedObject = NSClassFromString(entityName);
