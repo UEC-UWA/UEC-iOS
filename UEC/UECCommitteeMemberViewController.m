@@ -18,10 +18,10 @@
 
 @interface UECCommitteeMemberViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) IBOutlet UIImageView *pictureImageView;
-@property (strong, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
-@property (strong, nonatomic) IBOutlet UITableViewCell *emailCell;
-@property (strong, nonatomic) IBOutlet UITextView *summaryTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
+@property (weak, nonatomic) IBOutlet UITableViewCell *emailCell;
+@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 
 @property (nonatomic) BOOL pickedFromPicker;
 
@@ -47,6 +47,7 @@
     self.nameLabel.text = fullName;
     self.positionLabel.text = self.person.position;
     self.subcommitteeLabel.text = self.person.subcommittee;
+    self.summaryTextView.text = self.person.summary;
     
     self.emailCell.detailTextLabel.text = self.person.email;
     

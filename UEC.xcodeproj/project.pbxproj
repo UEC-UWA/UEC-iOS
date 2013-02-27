@@ -14,7 +14,6 @@
 		050A78A716D50DB10055B742 /* UECAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A78A616D50DB00055B742 /* UECAboutViewController.m */; };
 		050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 050A78AB16D50F070055B742 /* DummySponsor.plist */; };
 		051B3D4616C568B3007BAB12 /* PhotoAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4516C568B3007BAB12 /* PhotoAlbum.m */; };
-		051B3D4C16C568B3007BAB12 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D4B16C568B3007BAB12 /* Event.m */; };
 		051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */; };
 		051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */; };
 		051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */; };
@@ -69,6 +68,13 @@
 		05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */; };
 		05BC868316D7C02B00FA6C6F /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BC868216D7C02B00FA6C6F /* QuickLook.framework */; };
 		05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */; };
+		05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C52D16DE1BE900D87BA0 /* MapKit.framework */; };
+		05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53216DE1BEE00D87BA0 /* EventKit.framework */; };
+		05D1C53616DE1C1D00D87BA0 /* UECEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53516DE1C1D00D87BA0 /* UECEventDetailViewController.m */; };
+		05D1C53A16DE1C3700D87BA0 /* UECMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53916DE1C3700D87BA0 /* UECMapViewController.m */; };
+		05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */; };
+		05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */; };
+		05D1C54916DE4B8200D87BA0 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C54816DE4B8200D87BA0 /* Event.m */; };
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
 		05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
@@ -151,8 +157,6 @@
 		050A78AB16D50F070055B742 /* DummySponsor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummySponsor.plist; sourceTree = "<group>"; };
 		051B3D4416C568B3007BAB12 /* PhotoAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoAlbum.h; sourceTree = "<group>"; };
 		051B3D4516C568B3007BAB12 /* PhotoAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoAlbum.m; sourceTree = "<group>"; };
-		051B3D4A16C568B3007BAB12 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		051B3D4B16C568B3007BAB12 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyNewsArticle.plist; sourceTree = "<group>"; };
 		051B3D4F16C56C08007BAB12 /* UECNewsArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsArticleCell.h; sourceTree = "<group>"; };
 		051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsArticleCell.m; sourceTree = "<group>"; };
@@ -226,6 +230,17 @@
 		05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		05BC868216D7C02B00FA6C6F /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyAboutUEC.plist; sourceTree = "<group>"; };
+		05D1C52D16DE1BE900D87BA0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		05D1C53216DE1BEE00D87BA0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		05D1C53416DE1C1D00D87BA0 /* UECEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventDetailViewController.h; sourceTree = "<group>"; };
+		05D1C53516DE1C1D00D87BA0 /* UECEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventDetailViewController.m; sourceTree = "<group>"; };
+		05D1C53816DE1C3700D87BA0 /* UECMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMapViewController.h; sourceTree = "<group>"; };
+		05D1C53916DE1C3700D87BA0 /* UECMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECMapViewController.m; sourceTree = "<group>"; };
+		05D1C53B16DE1DB300D87BA0 /* UECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventCell.h; sourceTree = "<group>"; };
+		05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventCell.m; sourceTree = "<group>"; };
+		05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		05D1C54716DE4B8200D87BA0 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		05D1C54816DE4B8200D87BA0 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		05DD22C716C2B6F100CF18F0 /* UECNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsViewController.h; sourceTree = "<group>"; };
 		05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsViewController.m; sourceTree = "<group>"; };
 		05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarViewController.h; sourceTree = "<group>"; };
@@ -251,6 +266,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */,
+				05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */,
+				05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */,
 				05BC868316D7C02B00FA6C6F /* QuickLook.framework in Frameworks */,
 				050A78A416D4F3720055B742 /* MobileCoreServices.framework in Frameworks */,
 				050A78A216D4EFF90055B742 /* MessageUI.framework in Frameworks */,
@@ -330,8 +348,8 @@
 			isa = PBXGroup;
 			children = (
 				0542FAA316C2A85A00B327B7 /* UEC */,
-				05B76D2416C4F52600CECDF6 /* Submodules */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
+				05B76D2416C4F52600CECDF6 /* Submodules */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
 			);
@@ -349,6 +367,9 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */,
+				05D1C53216DE1BEE00D87BA0 /* EventKit.framework */,
+				05D1C52D16DE1BE900D87BA0 /* MapKit.framework */,
 				05BC868216D7C02B00FA6C6F /* QuickLook.framework */,
 				050A78A316D4F3710055B742 /* MobileCoreServices.framework */,
 				050A78A116D4EFF90055B742 /* MessageUI.framework */,
@@ -488,14 +509,14 @@
 		0559110F16C3CD4200BF14D2 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				05D1C54716DE4B8200D87BA0 /* Event.h */,
+				05D1C54816DE4B8200D87BA0 /* Event.m */,
 				05B5C3CC16CE605E009A75F6 /* Person.h */,
 				05B5C3CD16CE605E009A75F6 /* Person.m */,
 				0593169A16CD3B7B006B0845 /* NewsArticle.h */,
 				0593169B16CD3B7B006B0845 /* NewsArticle.m */,
 				0507189716CA97D000208110 /* Sponsor.h */,
 				0507189816CA97D000208110 /* Sponsor.m */,
-				051B3D4A16C568B3007BAB12 /* Event.h */,
-				051B3D4B16C568B3007BAB12 /* Event.m */,
 				051B3D4416C568B3007BAB12 /* PhotoAlbum.h */,
 				051B3D4516C568B3007BAB12 /* PhotoAlbum.m */,
 			);
@@ -568,6 +589,17 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		05D1C53716DE1C2000D87BA0 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				05D1C53416DE1C1D00D87BA0 /* UECEventDetailViewController.h */,
+				05D1C53516DE1C1D00D87BA0 /* UECEventDetailViewController.m */,
+				05D1C53816DE1C3700D87BA0 /* UECMapViewController.h */,
+				05D1C53916DE1C3700D87BA0 /* UECMapViewController.m */,
+			);
+			name = Detail;
+			sourceTree = "<group>";
+		};
 		05DD22CA16C2B6F400CF18F0 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +621,7 @@
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
 				051B3D5216C56EEF007BAB12 /* Month */,
 				05FB0AE016C7CC3600D91F9C /* List */,
+				05D1C53716DE1C2000D87BA0 /* Detail */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -621,6 +654,8 @@
 			children = (
 				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
 				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
+				05D1C53B16DE1DB300D87BA0 /* UECEventCell.h */,
+				05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */,
 				051B3D5416C56EFD007BAB12 /* Events */,
 				051B3D5316C56EF7007BAB12 /* Tickets */,
 			);
@@ -821,7 +856,6 @@
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
 				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 				051B3D4616C568B3007BAB12 /* PhotoAlbum.m in Sources */,
-				051B3D4C16C568B3007BAB12 /* Event.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
@@ -835,6 +869,10 @@
 				05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */,
 				05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */,
 				050A78A716D50DB10055B742 /* UECAboutViewController.m in Sources */,
+				05D1C53616DE1C1D00D87BA0 /* UECEventDetailViewController.m in Sources */,
+				05D1C53A16DE1C3700D87BA0 /* UECMapViewController.m in Sources */,
+				05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */,
+				05D1C54916DE4B8200D87BA0 /* Event.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

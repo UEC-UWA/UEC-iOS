@@ -39,4 +39,12 @@
     }] stringFromDate:self];
 }
 
+- (NSString *)stringNoDateValue
+{
+    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+        formatter.dateStyle = NSDateFormatterNoStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+    }] stringFromDate:self];
+}
+
 @end

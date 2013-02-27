@@ -12,5 +12,6 @@
 
 - (NSString *)stringValue;
 - (NSString *)stringNoTimeValue;
+- (NSString *)stringNoDateValue;
 
 @end

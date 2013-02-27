@@ -14,7 +14,7 @@
 
 - (NSDateComponents *)dateComponents
 {
-    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
     return [[NSCalendar currentCalendar] components:unitFlags fromDate:self];
 }
 
@@ -23,7 +23,19 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
-#pragma mark - Public Methods
+#pragma mark - Compare Methods
+
+- (BOOL)isInSameDayAsDate:(NSDate *)date
+{
+    NSDateComponents *comps = [self dateComponents];
+    NSDateComponents *otherComps = [date dateComponents];
+    
+    return (comps.day == otherComps.day &&
+            comps.month == otherComps.month &&
+            comps.year == otherComps.year);
+}
+
+#pragma mark - Year Methods
 
 - (NSDate *)startOfCurrentYear
 {
@@ -56,18 +68,28 @@
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months
 {
     NSDateComponents *comps = [self dateComponents];
-    
     comps.month += months;
-    
     return [self dateFromComponents:comps];
 }
 
 - (NSDate *)dateByAddingNumberOfDays:(NSInteger)days
 {
     NSDateComponents *comps = [self dateComponents];
-    
     comps.day += days;
-    
+    return [self dateFromComponents:comps];
+}
+
+- (NSDate *)dateByAddingNumberOfHours:(NSInteger)hours
+{
+    NSDateComponents *comps = [self dateComponents];
+    comps.hour += hours;
+    return [self dateFromComponents:comps];
+}
+
+- (NSDate *)dateByAddingNumberOfMinutes:(NSInteger)minutes
+{
+    NSDateComponents *comps = [self dateComponents];
+    comps.minute += minutes;
     return [self dateFromComponents:comps];
 }
 
@@ -76,18 +98,28 @@
 - (NSDate *)dateByRemovingNumberOfMonths:(NSInteger)months
 {
     NSDateComponents *comps = [self dateComponents];
-    
     comps.month -= months;
-    
     return [self dateFromComponents:comps];
 }
 
 - (NSDate *)dateByRemovingNumberOfDays:(NSInteger)days
 {
     NSDateComponents *comps = [self dateComponents];
-    
     comps.day -= days;
-    
+    return [self dateFromComponents:comps];
+}
+
+- (NSDate *)dateByRemovingNumberOfHours:(NSInteger)hours
+{
+    NSDateComponents *comps = [self dateComponents];
+    comps.hour -= hours;
+    return [self dateFromComponents:comps];
+}
+
+- (NSDate *)dateByRemovingNumberOfMinutes:(NSInteger)minutes
+{
+    NSDateComponents *comps = [self dateComponents];
+    comps.minute -= minutes;
     return [self dateFromComponents:comps];
 }
 

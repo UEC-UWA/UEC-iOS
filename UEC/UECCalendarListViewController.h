@@ -13,6 +13,11 @@
 #import "APSDataManager.h"
 #import "NSDate+Formatter.h"
 
+typedef NS_ENUM(NSInteger, UECEventListType) {
+    UECEventListTypeEvents,
+    UECEventListTypeTickets
+};
+
 @class Event;
 
 @protocol UECCalendarListViewController <NSObject>
@@ -25,5 +30,7 @@
 @interface UECCalendarListViewController : CoreDataTableViewController
 
 @property (weak, nonatomic) id <UECCalendarListViewController> delegate;
+
+@property (nonatomic) UECEventListType listType;
 
 @end

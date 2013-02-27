@@ -6,11 +6,20 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "UECCalendarListViewController.h"
+#import "UECEventDetailViewController.h"
+
+#import "UECEventCell.h"
+
+#import "Event.h"
 
 @interface UECCalendarListViewController ()
 
 @end
+
+static CGFloat kCellHeight = 55.0;
 
 @implementation UECCalendarListViewController
 
@@ -46,6 +55,11 @@
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return kCellHeight;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *rawDateStr = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
@@ -58,17 +72,48 @@
     return [date stringValue];
 }
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Event Cell";
+    
+    UECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    switch (self.listType) {
+        case UECEventListTypeEvents:
+            cell.eventDetailLabel.text = event.location;
+            break;
+            
+        case UECEventListTypeTickets:
+            cell.eventDetailLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [event.startSale stringNoTimeValue], [event.endSale stringNoTimeValue]];
+            break;
+            
+        default:
+            break;
+    }
+    
+    cell.eventLabel.text = event.name;
+    
+//    [cell.eventImageView setImageWithURL:nil placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+//        
+//    }];
+    
+//    [cell.categoryImageView setImage:[UIImage imageNamed:@"blah"]];
+    
+    return cell;
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    UECEventDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UECEventDetailViewController"];
+    detailViewController.event = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Pass the selected object to the new view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

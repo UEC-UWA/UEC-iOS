@@ -38,6 +38,8 @@
 		<string>location</string>
 		<key>startDate</key>
 		<string>start_date</string>
+		<key>eventDescription</key>
+		<string>event_description</string>
 		<key>endDate</key>
 		<string>end_date</string>
 		<key>name</key>
@@ -58,6 +60,8 @@
 		<string>extended_sale</string>
 		<key>address</key>
 		<string>address</string>
+		<key>facebookLink</key>
+		<string>facebook_link</string>
 	</dict>
 	<key>NewsArticle</key>
 	<dict>

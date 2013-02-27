@@ -4,7 +4,9 @@
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="endSale" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="extendedSale" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="facebookLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,7 +49,7 @@
         <attribute name="websitePath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Event" positionX="-1793" positionY="-963" width="128" height="223"/>
+        <element name="Event" positionX="-1793" positionY="-963" width="128" height="255"/>
         <element name="NewsArticle" positionX="-1647" positionY="-709" width="128" height="150"/>
         <element name="Person" positionX="-2034" positionY="-927" width="128" height="180"/>
         <element name="PhotoAlbum" positionX="-2000" positionY="-666" width="128" height="103"/>

@@ -10,7 +10,7 @@
 
 @interface UECCommitteeMemberCell : UITableViewCell
 
-@property (strong, nonatomic) IBOutlet UIImageView *pictureImageView;
-@property (strong, nonatomic) IBOutlet UILabel *firstNameLabel, *lastNameLabel, *positionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (weak, nonatomic) IBOutlet UILabel *firstNameLabel, *lastNameLabel, *positionLabel;
 
 @end

@@ -10,13 +10,19 @@
 
 @interface NSDate (Helper)
 
+- (BOOL)isInSameDayAsDate:(NSDate *)date;
+
 - (NSDate *)startOfCurrentYear;
 - (NSDate *)endOfCurrentYear;
 
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months;
 - (NSDate *)dateByAddingNumberOfDays:(NSInteger)days;
+- (NSDate *)dateByAddingNumberOfHours:(NSInteger)hours;
+- (NSDate *)dateByAddingNumberOfMinutes:(NSInteger)minutes;
 
 - (NSDate *)dateByRemovingNumberOfMonths:(NSInteger)months;
 - (NSDate *)dateByRemovingNumberOfDays:(NSInteger)days;
+- (NSDate *)dateByRemovingNumberOfHours:(NSInteger)hours;
+- (NSDate *)dateByRemovingNumberOfMinutes:(NSInteger)minutes;
 
 @end

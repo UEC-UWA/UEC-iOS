@@ -27,11 +27,15 @@
 		<integer>5</integer>
 		<key>address</key>
 		<string>35 Stirling Hwy, Crawley WA 6009</string>
+		<key>event_description</key>
+		<string>Selfies velit neutra, pinterest chambray portland dolor selvage beard try-hard polaroid small batch ad disrupt. Cillum banh mi cardigan, banjo ex dolor pour-over freegan intelligentsia truffaut officia. Williamsburg YOLO swag tempor. Squid bicycle rights cliche excepteur, kogi direct trade pop-up swag nostrud. Ugh tousled enim nesciunt ullamco portland. Intelligentsia brooklyn ut nulla skateboard, eu neutra. Odio qui mumblecore, kale chips PBR messenger bag nostrud nihil ullamco.</string>
+		<key>facebook_link</key>
+		<string>https://www.facebook.com/events/495914063787987/</string>
 	</dict>
 	<dict>
-		<key>end_date</key>
-		<date>2013-04-25T10:00:00Z</date>
 		<key>start_date</key>
+		<date>2013-04-25T10:00:00Z</date>
+		<key>end_date</key>
 		<date>2013-04-25T13:00:00Z</date>
 		<key>id</key>
 		<integer>2</integer>
@@ -53,6 +57,10 @@
 		<integer>100</integer>
 		<key>address</key>
 		<string>35 Stirling Hwy, Crawley WA 6009</string>
+		<key>event_description</key>
+		<string>Cillum occaecat excepteur kale chips. Nisi 8-bit incididunt, polaroid street art american apparel single-origin coffee bicycle rights officia mixtape. Tattooed ethnic cred, ethical hoodie ullamco nisi forage try-hard reprehenderit sed incididunt terry richardson irure. Gentrify tumblr aute, kale chips reprehenderit brooklyn photo booth swag mlkshk. Post-ironic YOLO in pop-up, viral sint incididunt velit squid adipisicing tousled banjo excepteur ethical. Odd future fingerstache mixtape, deserunt velit next level irure bespoke ullamco skateboard. Assumenda ullamco terry richardson authentic.</string>
+		<key>facebook_link</key>
+		<string>https://www.facebook.com/events/495914063787987/</string>
 	</dict>
 </array>
 </plist>
