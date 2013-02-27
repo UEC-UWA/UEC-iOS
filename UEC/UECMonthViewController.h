@@ -21,6 +21,4 @@
 
 @property (weak, nonatomic) id <UECMonthViewControllerDelegate> delegate;
 
-@property (strong, nonatomic) NSArray *events;
-
 @end

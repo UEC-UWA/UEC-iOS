@@ -47,7 +47,7 @@
 
 @interface UECAboutViewController () <QLPreviewControllerDataSource>
 
-@property (strong, nonatomic) NSArray *sponsors;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSURL *aboutUECLocalURL;
 
 @end
@@ -61,18 +61,15 @@ static NSUInteger kNumSections = 3;
     [super viewDidLoad];
     
     self.title = @"About";
-        
-    [[APSDataManager sharedManager] getDataForEntityName:@"Sponsor" coreDataCompletion:^(NSArray *cachedObjects) {
-        self.sponsors = cachedObjects;
-        
+    
+    [[APSDataManager sharedManager] cacheEntityName:@"Sponsor" completion:^{
         [self.tableView reloadData];
-    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
-        if (needsReloading) {
-            self.sponsors = downloadedObjects;
-            
-            [self.tableView reloadData];
-        }
     }];
+    
+    self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+        request.sortDescriptors = @[sortDescriptor];
+    } entityName:@"Sponsor" sectionNameKeyPath:nil cacheName:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -107,7 +104,7 @@ static NSUInteger kNumSections = 3;
             break;
             
         case 2:
-            return [self.sponsors count];
+            return [self.fetchedResultsController.fetchedObjects count];
             break;
             
         default:
@@ -136,13 +133,13 @@ static NSUInteger kNumSections = 3;
         case 2: {
             cell.accessoryType = UITableViewCellAccessoryNone;
             
-            Sponsor *sponsor = self.sponsors[indexPath.row];
-            
+            Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
+                                                                                                  inSection:0]];
             cell.textLabel.text = sponsor.name;
             
-//            [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:sponsor.logoPath] placeholderImage:[UIImage imageNamed:@"gentleman.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-//                
-//            }];
+            [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:sponsor.logoPath] placeholderImage:[UIImage imageNamed:@"gentleman.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                
+            }];
             break;
         }
             
@@ -156,20 +153,18 @@ static NSUInteger kNumSections = 3;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
     if (indexPath.section == 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        
         UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
         [activityIndicator startAnimating];
         
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         cell.accessoryView = activityIndicator;
         
-        [self downloadFile:^(NSURL *fileURL) {
+        [self downloadAboutUECFile:^(NSURL *localURL) {
             cell.accessoryView = nil;
             
-            self.aboutUECLocalURL = fileURL;
+            self.aboutUECLocalURL = localURL;
             
             QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
             quickLookC.dataSource = self;
@@ -178,9 +173,12 @@ static NSUInteger kNumSections = 3;
     }
     
     if (indexPath.section == 2) {
-        Sponsor *sponsor = self.sponsors[indexPath.row];        
+        Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
+                                                                                               inSection:0]];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sponsor.websitePath]];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Quick Look
@@ -203,12 +201,12 @@ static NSUInteger kNumSections = 3;
     return YES;
 }
 
-- (void)downloadFile:(void (^)(NSURL *fileURL))completionBlock;
+- (void)downloadAboutUECFile:(void (^)(NSURL *localURL))completionBlock;
 {
     dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
     
     dispatch_async(downloadQueue, ^{
-#ifdef LOCAL_DATA
+#if LOCAL_DATA
         NSDictionary *aboutUEC = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DummyAboutUEC" ofType:@"plist"]];
         
         NSString *fileAddress = aboutUEC[@"url"];

@@ -10,11 +10,11 @@
 
 @implementation NSManagedObject (Appulse)
 
-+ (void)newEntity:(NSString *)entity
-        inContext:(NSManagedObjectContext *)context
-      idAttribute:(NSString *)attribute
-            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock
-       completion:(void (^)(NSManagedObject *entity))completionBlock
++ (id)newEntity:(NSString *)entity
+      inContext:(NSManagedObjectContext *)context
+    idAttribute:(NSString *)attribute
+          value:(id)value
+       onInsert:(void (^)(NSManagedObject *))insertBlock
 {
     id returnedObject = nil;
         
@@ -28,57 +28,38 @@
         if (insertBlock)
             insertBlock(returnedObject);
         
-        if (completionBlock) {
-            completionBlock(returnedObject);
-        }
+        return returnedObject;
     } else {
         fs.fetchLimit = 1;
         
-        [self findFirstByAttribute:attribute value:value inContext:context completion:^(id object) {
-            if (completionBlock) {
-                completionBlock(object);
-            }
-        }];
+        return [self findFirstByAttribute:attribute value:value inContext:context];
     }
 }
 
-+ (void)findAllInContext:(NSManagedObjectContext *)context
-              completion:(void (^)(NSArray *objects))completionBlock
++ (NSArray *)findAllInContext:(NSManagedObjectContext *)context
 {
-    NSArray *objects = [context executeFetchRequest:[self fetchRequestInContext:context] error:nil];
-    
-    if (completionBlock) {
-        completionBlock(objects);
-    }
+    return [context executeFetchRequest:[self fetchRequestInContext:context] error:nil];
 }
 
-+ (void)findAllByAttribute:(NSString *)attribute
++ (NSArray *)findAllByAttribute:(NSString *)attribute
                      value:(id)value
                  inContext:(NSManagedObjectContext *)context
-                completion:(void (^)(NSArray *objects))completionBlock
 {
-    NSArray *objects = [self fetchRequest:^(NSFetchRequest *fs) {
+    return [self fetchRequest:^(NSFetchRequest *fs) {
         fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
     } inContext:context];
-    
-    if (completionBlock) {
-        completionBlock(objects);
-    }
 }
 
-+ (void)findFirstByAttribute:(NSString *)attribute
++ (id)findFirstByAttribute:(NSString *)attribute
                        value:(id)value
                    inContext:(NSManagedObjectContext *)context
-                  completion:(void (^)(id object))completionBlock
 {
     id object = [[self fetchRequest:^(NSFetchRequest *fs) {
         fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
         fs.fetchLimit = 1;
     } inContext:context] lastObject];
     
-    if (completionBlock) {
-        completionBlock(object);
-    }
+    return object;
 }
 
 + (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock

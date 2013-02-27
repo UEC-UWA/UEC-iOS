@@ -10,7 +10,7 @@
 
 @class NewsArticle;
 
-@interface UECArticleViewController : UIViewController
+@interface UECArticleViewController : UIViewController 
 
 @property (strong, nonatomic) NewsArticle *newsArticle;
 

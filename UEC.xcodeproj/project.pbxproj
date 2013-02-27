@@ -72,13 +72,11 @@
 		05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22C816C2B6F100CF18F0 /* UECNewsViewController.m */; };
 		05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
-		05DD22D516C2B75700CF18F0 /* UECPhotoAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */; };
 		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
 		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
 		05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */; };
-		05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -234,8 +232,6 @@
 		05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarViewController.m; sourceTree = "<group>"; };
 		05DD22CF16C2B73200CF18F0 /* UECCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeViewController.h; sourceTree = "<group>"; };
 		05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeViewController.m; sourceTree = "<group>"; };
-		05DD22D316C2B75700CF18F0 /* UECPhotoAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotoAlbumsViewController.h; sourceTree = "<group>"; };
-		05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotoAlbumsViewController.m; sourceTree = "<group>"; };
 		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
 		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
 		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
@@ -245,8 +241,6 @@
 		05F9178716C7780200B1BCE1 /* UECActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECActivity.h; sourceTree = "<group>"; };
 		05F9178816C7780200B1BCE1 /* UECActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECActivity.m; sourceTree = "<group>"; };
 		05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyPhotoAlbum.plist; sourceTree = "<group>"; };
-		05F9179316C791FC00B1BCE1 /* UECPhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPhotoAlbumCell.h; sourceTree = "<group>"; };
-		05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPhotoAlbumCell.m; sourceTree = "<group>"; };
 		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
 		05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarListViewController.h; sourceTree = "<group>"; };
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
@@ -457,7 +451,6 @@
 				05DD22CA16C2B6F400CF18F0 /* News */,
 				05DD22CE16C2B71A00CF18F0 /* Calendar */,
 				05DD22D216C2B73500CF18F0 /* Committee */,
-				05DD22D616C2B75A00CF18F0 /* Photos */,
 				050A78A816D50DB70055B742 /* About */,
 			);
 			name = Modules;
@@ -610,17 +603,6 @@
 				050A789616D4E0490055B742 /* Detail */,
 			);
 			name = Committee;
-			sourceTree = "<group>";
-		};
-		05DD22D616C2B75A00CF18F0 /* Photos */ = {
-			isa = PBXGroup;
-			children = (
-				05DD22D316C2B75700CF18F0 /* UECPhotoAlbumsViewController.h */,
-				05DD22D416C2B75700CF18F0 /* UECPhotoAlbumsViewController.m */,
-				05F9179316C791FC00B1BCE1 /* UECPhotoAlbumCell.h */,
-				05F9179416C791FC00B1BCE1 /* UECPhotoAlbumCell.m */,
-			);
-			name = Photos;
 			sourceTree = "<group>";
 		};
 		05F9178A16C7780600B1BCE1 /* Subclasses */ = {
@@ -830,7 +812,6 @@
 				05DD22C916C2B6F100CF18F0 /* UECNewsViewController.m in Sources */,
 				05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */,
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
-				05DD22D516C2B75700CF18F0 /* UECPhotoAlbumsViewController.m in Sources */,
 				055910FA16C3AFB400BF14D2 /* UECCalendarRowCell.m in Sources */,
 				0559110116C3B24600BF14D2 /* UECMonthViewController.m in Sources */,
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
@@ -846,7 +827,6 @@
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
 				05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */,
 				05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */,
-				05F9179516C791FC00B1BCE1 /* UECPhotoAlbumCell.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 				0507189916CA97D000208110 /* Sponsor.m in Sources */,
 				0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */,

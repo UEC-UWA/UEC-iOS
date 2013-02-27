@@ -29,14 +29,17 @@ static CGFloat kCellHeight = 55.0;
     [super viewDidLoad];
     
     self.title = @"Committee";
-
-    [[APSDataManager sharedManager] getDataForEntityName:@"Person" coreDataCompletion:^(NSArray *cachedObjects) {
-        [self reloadDataWithNewObjects:cachedObjects];
-    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
-        if (needsReloading) {
-            [self reloadDataWithNewObjects:downloadedObjects];
-        }
+    
+    [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^{
+        [self setCustomCommitteeOrder];
     }];
+    
+    self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *subcommitteeSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"subcommittee" ascending:YES];
+        NSSortDescriptor *orderSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
+        NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
+        request.sortDescriptors = @[subcommitteeSortDescriptor, orderSortDescriptor, lastNameSortDescriptor];
+    } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -50,20 +53,20 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Data Source Organising
 
-- (void)setTransientOrderInObjects:(NSArray *)fethcedObjects
+- (void)setCustomCommitteeOrder
 {
     NSMutableArray *seenSubcommittees = [[NSMutableArray alloc] init];
     
-    [fethcedObjects enumerateObjectsUsingBlock:^(Person *person, NSUInteger idx, BOOL *stop) {
-        if ([seenSubcommittees containsObject:person.subcommittee]) {
-            person.order = @([seenSubcommittees indexOfObject:person.subcommittee] + 1);
-        } else {
+    NSArray *fetchedObjects = [self.fetchedResultsController fetchedObjects];
+    
+    [fetchedObjects enumerateObjectsUsingBlock:^(Person *person, NSUInteger idx, BOOL *stop) {
+        if (![seenSubcommittees containsObject:person.subcommittee])
             [seenSubcommittees addObject:person.subcommittee];
-            person.order = @([seenSubcommittees indexOfObject:person.subcommittee] + 1);
-        }
         
         if ([person.subcommittee isEqualToString:@"Executive"])
             person.order = @(0);
+        else
+            person.order = @([seenSubcommittees indexOfObject:person.subcommittee] + 1);
         
         if ([person.position isEqualToString:@"President"]) {
             person.order = @(-1);
@@ -72,26 +75,6 @@ static CGFloat kCellHeight = 55.0;
     }];
     
     [[APSDataManager sharedManager] saveContext];
-}
-
-- (void)reloadDataWithNewObjects:(NSArray *)newObjects
-{
-    if (newObjects.count == 0) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    } else {
-        
-        [self setTransientOrderInObjects:newObjects];
-        
-        self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
-            NSSortDescriptor *orderSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
-            NSSortDescriptor *firstNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
-            request.sortDescriptors = @[orderSortDescriptor, firstNameSortDescriptor];
-        } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
-        [self.tableView reloadData];
-    }
 }
 
 #pragma mark - Table view data source

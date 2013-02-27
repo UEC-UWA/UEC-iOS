@@ -17,28 +17,12 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
     APSDataManagerEntityRelationshipManyToMany
 };
 
-@protocol APSDataManagerDataSource <NSObject>
-@required
-- (NSString *)coreDataXcodeDataModelName;
-@end
-
 @interface APSDataManager : NSObject
-
-@property (weak, nonatomic) id <APSDataManagerDataSource> dataSource;
 
 + (APSDataManager *)sharedManager;
 
-- (void)getDataForEntityName:(NSString *)entityName
-          coreDataCompletion:(void (^)(NSArray *cachedObjects))coreDataCompletionBlock
-          downloadCompletion:(void (^)(BOOL needsReloading, NSArray *downloadedObjects))downloadCompletionBlock;
-
-- (void)setRelationshipType:(APSDataManagerEntityRelationship)relationshipType
-             fromEntityName:(NSString *)fromEntityName
-               toEntityName:(NSString *)toEntityName
-              fromAttribute:(NSString *)attribute
-               relationship:(NSString *)relationship
-        inverseRelationship:(NSString *)inverseRelationship
-                 completion:(void (^)())completionBlock;
+- (void)cacheEntityName:(NSString *)entityName;
+- (void)cacheEntityName:(NSString *)entityName completion:(void (^)())completionBlock;
 
 - (NSFetchedResultsController *)fetchedResultsControllerWithRequest:(void (^)(NSFetchRequest *request))fetchRequestBlock
                                                          entityName:(NSString *)entityName

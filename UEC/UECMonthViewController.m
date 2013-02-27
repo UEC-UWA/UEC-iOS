@@ -12,6 +12,7 @@
 
 #import "UECCalendarRowCell.h"
 
+#import "APSDataManager.h"
 #import "NSDate+Helper.h"
 
 @interface TSQCalendarView (AccessingPrivateStuff)
@@ -23,11 +24,11 @@
 @interface UECMonthViewController () <TSQCalendarViewDelegate, TSQCalendarViewDataSource>
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) TSQCalendarView *calendarView;
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
 
 @implementation UECMonthViewController
-
-@synthesize events = _events;
 
 - (void)viewDidLoad
 {
@@ -52,17 +53,15 @@
     
     self.view = self.calendarView;
     
-//    [self.delegate didRequestDataRefresh];
+    self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
+        request.sortDescriptors = @[sortDescriptor];
+    } entityName:@"Event" sectionNameKeyPath:nil cacheName:nil];
 }
 
-- (void)setEvents:(NSArray *)events
+- (void)viewDidAppear:(BOOL)animated
 {
-    if (_events != events) {
-        _events = events;
-        self.events = events;
-    }
-    
-    [self refresh];
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - Actions
@@ -92,7 +91,9 @@
 
 - (NSArray *)calendarViewEventDates
 {
-    return [self.events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
+    NSArray *events = [self.fetchedResultsController fetchedObjects];
+    
+    return [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
 }
 
 @end

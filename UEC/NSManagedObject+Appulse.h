@@ -10,24 +10,20 @@
 
 @interface NSManagedObject (Appulse)
 
-+ (void)newEntity:(NSString *)entity
++ (id)newEntity:(NSString *)entity
         inContext:(NSManagedObjectContext *)context
       idAttribute:(NSString *)attribute
-            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock
-       completion:(void (^)(NSManagedObject *entity))completionBlock;
+            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock;
 
-+ (void)findAllInContext:(NSManagedObjectContext *)context
-              completion:(void (^)(NSArray *objects))completionBlock;
++ (NSArray *)findAllInContext:(NSManagedObjectContext *)context;
 
-+ (void)findAllByAttribute:(NSString *)attribute
++ (NSArray *)findAllByAttribute:(NSString *)attribute
                      value:(id)value
-                 inContext:(NSManagedObjectContext *)context
-                completion:(void (^)(NSArray *objects))completionBlock;
+                 inContext:(NSManagedObjectContext *)context;
 
-+ (void)findFirstByAttribute:(NSString *)attribute
++ (id)findFirstByAttribute:(NSString *)attribute
                        value:(id)value
-                   inContext:(NSManagedObjectContext *)context
-                  completion:(void (^)(id object))completionBlock;
+                   inContext:(NSManagedObjectContext *)context;
 
 + (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock
                 inContext:(NSManagedObjectContext *)context;

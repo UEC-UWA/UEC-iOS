@@ -81,31 +81,19 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)refreshData
 {
-    [[APSDataManager sharedManager] getDataForEntityName:@"NewsArticle" coreDataCompletion:^(NSArray *cachedObjects) {
-        [self reloadDataWithNewObjects:cachedObjects];
-    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
-        if (needsReloading) {
-            [self reloadDataWithNewObjects:downloadedObjects];
-        }
-    }];
-} 
-
-- (void)reloadDataWithNewObjects:(NSArray *)newObjects
-{
-    if (newObjects.count == 0) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        self.searchDisplayController.searchBar.userInteractionEnabled = NO;
-        self.searchDisplayController.searchBar.alpha = 0.75;
-    } else {        
-        self.fetchedResultsController = [self defaultFetchedResultsController];
-        
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-        
+    // During the fetch disable search.
+    self.searchDisplayController.searchBar.userInteractionEnabled = NO;
+    self.searchDisplayController.searchBar.alpha = 0.75;
+    
+    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^{
         self.searchDisplayController.searchBar.userInteractionEnabled = YES;
         self.searchDisplayController.searchBar.alpha = 1.0;
-        
-        [self.tableView reloadData];
+    }];
+    
+    self.fetchedResultsController = [self defaultFetchedResultsController];
+
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
     }
 }
 
@@ -191,10 +179,17 @@ static CGFloat kCellHeight = 120.0;
 {
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    UECArticleViewController *articleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
-    articleVC.newsArticle = newsArticle;
-    
-    [self.navigationController pushViewController:articleVC animated:YES];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UECArticleViewController *articleVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+        articleVC.newsArticle = newsArticle;
+        
+        
+    } else {
+        UECArticleViewController *articleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
+        articleVC.newsArticle = newsArticle;
+        
+        [self.navigationController pushViewController:articleVC animated:YES];
+    }
 }
 
 #pragma mark - Content Filtering

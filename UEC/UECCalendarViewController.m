@@ -117,26 +117,7 @@ static NSInteger kMonthsDisplay = 0;
 
 - (void)refreshData
 {
-    [[APSDataManager sharedManager] getDataForEntityName:@"Event" coreDataCompletion:^(NSArray *cachedObjects) {
-        [self reloadDataWithNewObjects:cachedObjects];
-    } downloadCompletion:^(BOOL needsReloading, NSArray *downloadedObjects) {
-        if (needsReloading) {
-            [self reloadDataWithNewObjects:downloadedObjects];
-        }
-    }];
-}
-
-- (void)reloadDataWithNewObjects:(NSArray *)newObjects
-{
-    if (newObjects.count == 0) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    } else {
-        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        
-        if ([self.currentViewController isKindOfClass:[UECMonthViewController class]]) {
-            [(UECMonthViewController *)self.currentViewController setEvents:newObjects];
-        }
-    }
+    [[APSDataManager sharedManager] cacheEntityName:@"Event"];
 }
 
 #pragma mark - Segment Control Setup
