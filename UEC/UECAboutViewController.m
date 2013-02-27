@@ -45,10 +45,13 @@
 
 @end
 
-@interface UECAboutViewController () <QLPreviewControllerDataSource>
+@interface UECAboutViewController () <QLPreviewControllerDataSource, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSURL *aboutUECLocalURL;
+
+@property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
+@property (nonatomic) BOOL beganUpdates;
 
 @end
 
@@ -62,14 +65,16 @@ static NSUInteger kNumSections = 3;
     
     self.title = @"About";
     
-    [[APSDataManager sharedManager] cacheEntityName:@"Sponsor" completion:^{
-        [self.tableView reloadData];
-    }];
+    [[APSDataManager sharedManager] cacheEntityName:@"Sponsor"];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
         request.sortDescriptors = @[sortDescriptor];
     } entityName:@"Sponsor" sectionNameKeyPath:nil cacheName:nil];
+    self.fetchedResultsController.delegate = self;
+    
+    NSError *error = nil;
+    [self.fetchedResultsController performFetch:&error];
 }
 
 - (void)didReceiveMemoryWarning
@@ -248,6 +253,68 @@ static NSUInteger kNumSections = 3;
     previewItem.documentTitle = @"About the UEC";
     
     return previewItem;
+}
+
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
+{
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+        [self.tableView beginUpdates];
+        self.beganUpdates = YES;
+    }
+}
+
+- (void)controller:(NSFetchedResultsController *)controller
+   didChangeObject:(id)anObject
+	   atIndexPath:(NSIndexPath *)indexPath
+	 forChangeType:(NSFetchedResultsChangeType)type
+	  newIndexPath:(NSIndexPath *)newIndexPath
+{
+    
+    indexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:2];
+    newIndexPath = [NSIndexPath indexPathForRow:newIndexPath.row inSection:2];
+    
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+        switch(type) {
+            case NSFetchedResultsChangeInsert:
+                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeDelete:
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeUpdate:
+                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeMove:
+                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+        }
+    }
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    if (self.beganUpdates) [self.tableView endUpdates];
+}
+
+- (void)endSuspensionOfUpdatesDueToContextChanges
+{
+    _suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
+}
+
+- (void)setSuspendAutomaticTrackingOfChangesInManagedObjectContext:(BOOL)suspend
+{
+    if (suspend) {
+        _suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
+    } else {
+        [self performSelector:@selector(endSuspensionOfUpdatesDueToContextChanges) withObject:0 afterDelay:0];
+    }
 }
 
 @end

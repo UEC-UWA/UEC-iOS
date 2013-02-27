@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CoreDataTableViewController.h"
-
-@interface UECAboutViewController : CoreDataTableViewController
+@interface UECAboutViewController : UITableViewController
 
 @end

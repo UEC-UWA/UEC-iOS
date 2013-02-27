@@ -81,14 +81,15 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)refreshData
 {
-    // During the fetch disable search.
-    self.searchDisplayController.searchBar.userInteractionEnabled = NO;
-    self.searchDisplayController.searchBar.alpha = 0.75;
-    
-    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^{
+    if ([self.tableView.visibleCells count] == 0) {
+        self.searchDisplayController.searchBar.userInteractionEnabled = NO;
+        self.searchDisplayController.searchBar.alpha = 0.75;
+    } else {
         self.searchDisplayController.searchBar.userInteractionEnabled = YES;
         self.searchDisplayController.searchBar.alpha = 1.0;
-    }];
+    }
+    
+    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle"];
     
     self.fetchedResultsController = [self defaultFetchedResultsController];
 

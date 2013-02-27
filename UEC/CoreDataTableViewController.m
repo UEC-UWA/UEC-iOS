@@ -42,10 +42,14 @@
             self.title = newfrc.fetchRequest.entity.name;
         }
         if (newfrc) {
-            if (self.debug) NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
+            if (self.debug)
+                NSLog(@"[%@ %@] %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), oldfrc ? @"updated" : @"set");
+            
             [self performFetch]; 
         } else {
-            if (self.debug) NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+            if (self.debug)
+                NSLog(@"[%@ %@] reset to nil", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+            
             [self.tableView reloadData];
         }
     }
@@ -93,10 +97,8 @@
 		   atIndex:(NSUInteger)sectionIndex
 	 forChangeType:(NSFetchedResultsChangeType)type
 {
-    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
-    {
-        switch(type)
-        {
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+        switch(type) {
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
@@ -115,10 +117,8 @@
 	 forChangeType:(NSFetchedResultsChangeType)type
 	  newIndexPath:(NSIndexPath *)newIndexPath
 {		
-    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext)
-    {
-        switch(type)
-        {
+    if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
+        switch(type) {
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
