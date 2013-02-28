@@ -3,6 +3,36 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>start_date</key>
+		<date>2013-02-28T09:23:13Z</date>
+		<key>end_date</key>
+		<date>2013-02-28T12:45:25Z</date>
+		<key>id</key>
+		<integer>3</integer>
+		<key>location</key>
+		<string>Uni Club</string>
+		<key>name</key>
+		<string>Testing Alarms</string>
+		<key>type</key>
+		<string>Other</string>
+		<key>start_sale</key>
+		<date>2013-02-10T03:00:42Z</date>
+		<key>end_sale</key>
+		<date>2013-02-17T03:00:42Z</date>
+		<key>extended_sale</key>
+		<false/>
+		<key>total_tickets</key>
+		<integer>200</integer>
+		<key>tickets_left</key>
+		<integer>100</integer>
+		<key>address</key>
+		<string>35 Stirling Hwy, Crawley WA 6009</string>
+		<key>event_description</key>
+		<string>Cillum occaecat excepteur kale chips. Nisi 8-bit incididunt, polaroid street art american apparel single-origin coffee bicycle rights officia mixtape. Tattooed ethnic cred, ethical hoodie ullamco nisi forage try-hard reprehenderit sed incididunt terry richardson irure. Gentrify tumblr aute, kale chips reprehenderit brooklyn photo booth swag mlkshk. Post-ironic YOLO in pop-up, viral sint incididunt velit squid adipisicing tousled banjo excepteur ethical. Odd future fingerstache mixtape, deserunt velit next level irure bespoke ullamco skateboard. Assumenda ullamco terry richardson authentic.</string>
+		<key>facebook_link</key>
+		<string>https://www.facebook.com/events/495914063787987/</string>
+	</dict>
+	<dict>
 		<key>end_date</key>
 		<date>2013-03-20T16:00:00Z</date>
 		<key>start_date</key>
@@ -34,9 +64,9 @@
 	</dict>
 	<dict>
 		<key>start_date</key>
-		<date>2013-04-25T10:00:00Z</date>
+		<date>2013-11-25T10:00:00Z</date>
 		<key>end_date</key>
-		<date>2013-04-25T13:00:00Z</date>
+		<date>2013-11-25T13:00:00Z</date>
 		<key>id</key>
 		<integer>2</integer>
 		<key>location</key>
@@ -46,9 +76,9 @@
 		<key>type</key>
 		<string>Educational</string>
 		<key>start_sale</key>
-		<date>2013-04-10T03:00:42Z</date>
+		<date>2013-03-10T03:00:42Z</date>
 		<key>end_sale</key>
-		<date>2013-04-17T03:00:42Z</date>
+		<date>2013-03-17T03:00:42Z</date>
 		<key>extended_sale</key>
 		<true/>
 		<key>total_tickets</key>

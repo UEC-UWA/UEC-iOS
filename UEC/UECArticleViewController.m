@@ -8,6 +8,8 @@
 
 #import "UECArticleViewController.h"
 
+#import "UECNewsViewController.h"
+
 #import "UECActivity.h"
 
 #import "NewsArticle.h"
@@ -31,12 +33,24 @@
     self.splitViewController.delegate = self;
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
+    
+    [self configureView];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View
+
+- (void)configureView
+{
+    if (self.newsArticle) {
+        self.title = self.newsArticle.title;
+        [self.webView loadHTMLString:self.newsArticle.content baseURL:nil];
+    }
 }
 
 #pragma mark - Setters
@@ -48,9 +62,8 @@
         self.newsArticle = newsArticle;
     }
     
-    self.title = newsArticle.title;
-    [self.webView loadHTMLString:newsArticle.content baseURL:nil];
-    
+    [self configureView];
+
     if (self.masterPopoverController) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
     }
@@ -86,6 +99,11 @@
 }
 
 #pragma mark - Split view
+
+- (void)showMaster:(id)sender
+{
+
+}
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {

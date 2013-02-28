@@ -13,6 +13,8 @@
 #define SPAN_LATITUDE 0.040872
 #define SPAN_LONGITUDE 0.037863
 
+#define PERTH_CENTER CLLocationCoordinate2DMake(-31.9554, 115.8585)
+
 @interface UECMapViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -101,6 +103,11 @@
 
 - (void)gotToAddress:(NSString *)address
 {
+#warning not smooth zooming and cluncky code.
+    CLLocation *perthLocation = [[CLLocation alloc] initWithLatitude:PERTH_CENTER.latitude
+                                                           longitude:PERTH_CENTER.longitude];
+    [self goToLocation:perthLocation spanningLat:SPAN_LATITUDE andLong:SPAN_LONGITUDE];
+    
     CLLocationCoordinate2D center = [self geoCodeUsingAddress:address];
     CLLocation *location = [[CLLocation alloc] initWithLatitude:center.latitude
                                                       longitude:center.longitude];

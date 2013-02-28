@@ -25,6 +25,8 @@
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
 
+@property (strong, nonatomic) UECArticleViewController *detailVC;
+
 @end
 
 static CGFloat kCellHeight = 120.0;
@@ -50,15 +52,12 @@ static CGFloat kCellHeight = 120.0;
         self.savedSearchTerm = nil;
     }
 
+    self.detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
 
     [self refreshData];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -81,13 +80,15 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)refreshData
 {    
-    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle"];
+    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^{
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
+        }
+    }];
     
     self.fetchedResultsController = [self defaultFetchedResultsController];
-
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self tableView:self.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    }
 }
 
 - (void)refreshInvoked:(id)sender forState:(UIControlState)state
@@ -173,15 +174,14 @@ static CGFloat kCellHeight = 120.0;
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UECArticleViewController *articleVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-        articleVC.newsArticle = newsArticle;
-        
+        self.detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+        self.detailVC.newsArticle = newsArticle;
         
     } else {
-        UECArticleViewController *articleVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
-        articleVC.newsArticle = newsArticle;
+        self.detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
+        self.detailVC.newsArticle = newsArticle;
         
-        [self.navigationController pushViewController:articleVC animated:YES];
+        [self.navigationController pushViewController:self.detailVC animated:YES];
     }
 }
 

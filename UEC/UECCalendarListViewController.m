@@ -99,7 +99,16 @@ static CGFloat kCellHeight = 55.0;
 //        
 //    }];
     
-//    [cell.categoryImageView setImage:[UIImage imageNamed:@"blah"]];
+    NSString *imageName = nil;
+    if ([event.type isEqualToString:@"Social"]) {
+        imageName = @"redsolocup.png";
+    } else if ([event.type isEqualToString:@"Educational"]) {
+        imageName = @"gradhat.png";
+    } else {
+        imageName = @"hardhat.png";
+    }
+    
+    [cell.categoryImageView setImage:[UIImage imageNamed:imageName]];
     
     return cell;
 }

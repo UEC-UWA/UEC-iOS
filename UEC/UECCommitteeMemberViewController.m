@@ -16,7 +16,7 @@
 
 #import "Person.h"
 
-@interface UECCommitteeMemberViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface UECCommitteeMemberViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
@@ -29,21 +29,31 @@
 
 @implementation UECCommitteeMemberViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.splitViewController.delegate = self;
+    
+    [self configureView];
+}
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - View
+
+- (void)configureView
+{
+    if (!self.person)
+        return;
+    
     NSString *fullName = [[NSString alloc] initWithFormat:@"%@ %@", self.person.firstName, self.person.lastName];
     self.title = fullName;
+    
     self.nameLabel.text = fullName;
     self.positionLabel.text = self.person.position;
     self.subcommitteeLabel.text = self.person.subcommittee;
@@ -63,14 +73,21 @@
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
                                      
                                  }];
+    
     self.pictureImageView.layer.cornerRadius = 5;
     self.pictureImageView.layer.masksToBounds = YES;
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Setters
+
+- (void)setPerson:(Person *)person
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (_person != person) {
+        _person = person;
+        self.person = person;
+    }
+    
+    [self configureView];
 }
 
 #pragma mark - Email
@@ -263,6 +280,13 @@
         default:
             break;
     }
+}
+
+#pragma mark - Split view
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+{
+    return NO;
 }
 
 @end

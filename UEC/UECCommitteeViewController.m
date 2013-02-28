@@ -18,6 +18,8 @@
 
 @interface UECCommitteeViewController ()
 
+@property (strong, nonatomic) UECCommitteeMemberViewController *detailVC;
+
 @end
 
 static CGFloat kCellHeight = 55.0;
@@ -32,6 +34,12 @@ static CGFloat kCellHeight = 55.0;
     
     [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^{
         [self setCustomCommitteeOrder];
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+            [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
+        }
     }];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
@@ -40,14 +48,17 @@ static CGFloat kCellHeight = 55.0;
         NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
         request.sortDescriptors = @[subcommitteeSortDescriptor, orderSortDescriptor, lastNameSortDescriptor];
     } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
+    
+    self.detailVC = (UECCommitteeMemberViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{    
     if ([segue.identifier isEqualToString:@"Person Detail Segue"]) {
-        UECCommitteeMemberViewController *committeeMemberVC = [segue destinationViewController];
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
-        committeeMemberVC.person = [self.fetchedResultsController objectAtIndexPath:selectedIndexPath];
+
+        self.detailVC = [segue destinationViewController];
+        self.detailVC.person = [self.fetchedResultsController objectAtIndexPath:selectedIndexPath];
     }
 }
 
@@ -77,7 +88,7 @@ static CGFloat kCellHeight = 55.0;
     [[APSDataManager sharedManager] saveContext];
 }
 
-#pragma mark - Table view data source
+#pragma mark - Table view
 
 - (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
 {
@@ -108,6 +119,14 @@ static CGFloat kCellHeight = 55.0;
     cell.positionLabel.text = person.position;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        self.detailVC = (UECCommitteeMemberViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+        self.detailVC.person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
 }
 
 @end
