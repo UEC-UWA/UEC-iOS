@@ -30,7 +30,7 @@ static CGFloat kCellHeight = 55.0;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [self.delegate didRequestDataRefresh];
+    [self.delegate didRequestDataOnManualRefresh:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,7 +43,7 @@ static CGFloat kCellHeight = 55.0;
 
 - (void)handleRefresh:(id)sender
 {
-    [self.delegate didRequestDataRefresh];
+    [self.delegate didRequestDataOnManualRefresh:YES];
     
     [self.refreshControl endRefreshing];
 }

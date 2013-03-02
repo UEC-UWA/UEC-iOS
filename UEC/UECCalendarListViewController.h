@@ -23,7 +23,7 @@ typedef NS_ENUM(NSInteger, UECEventListType) {
 @protocol UECCalendarListViewController <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRequestDataRefresh;
+- (void)didRequestDataOnManualRefresh:(BOOL)manualRefresh;
 
 @end
 

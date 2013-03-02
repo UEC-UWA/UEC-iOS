@@ -235,9 +235,9 @@ static NSInteger kMonthsDisplay = 0;
     
 }
 
-- (void)didRequestDataRefresh
+- (void)didRequestDataOnManualRefresh:(BOOL)manualRefresh
 {
-    [self refreshDataManually:YES];
+    [self refreshDataManually:manualRefresh];
 }
 
 @end
