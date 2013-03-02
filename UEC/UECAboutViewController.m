@@ -12,6 +12,7 @@
 #import "UECAboutViewController.h"
 
 #import "APSDataManager.h"
+#import "UECReachabilityManager.h"
 
 #import "Sponsor.h"
 
@@ -65,7 +66,11 @@ static NSUInteger kNumSections = 3;
     
     self.title = @"About";
     
-    [[APSDataManager sharedManager] cacheEntityName:@"Sponsor"];
+    [[APSDataManager sharedManager] cacheEntityName:@"Sponsor" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
+        }
+    }];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -170,6 +175,7 @@ static NSUInteger kNumSections = 3;
             cell.accessoryView = nil;
             
             self.aboutUECLocalURL = localURL;
+            [[APSDataManager sharedManager] saveContext];
             
             QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
             quickLookC.dataSource = self;
@@ -254,7 +260,6 @@ static NSUInteger kNumSections = 3;
     
     return previewItem;
 }
-
 
 #pragma mark - NSFetchedResultsControllerDelegate
 

@@ -12,11 +12,12 @@
 
 #import "UECArticleViewController.h"
 #import "UECNewsArticleCell.h"
+
 #import "APSDataManager.h"
+#import "UECReachabilityManager.h"
+#import "NSDate+Formatter.h"
 
 #import "NewsArticle.h"
-
-#import "NSDate+Formatter.h"
 
 @interface UECNewsViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
 
@@ -57,7 +58,7 @@ static CGFloat kCellHeight = 120.0;
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
 
-    [self refreshData];
+    [self refreshInvoked:nil forState:UIControlStateNormal];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -78,9 +79,15 @@ static CGFloat kCellHeight = 120.0;
 
 #pragma mark - Data Management
 
-- (void)refreshData
-{    
-    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^{
+- (void)refreshInvoked:(id)sender forState:(UIControlState)state
+{
+    BOOL manualRefresh = (sender != nil);
+    
+    [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
+        }
+        
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
@@ -89,12 +96,7 @@ static CGFloat kCellHeight = 120.0;
     }];
     
     self.fetchedResultsController = [self defaultFetchedResultsController];
-}
-
-- (void)refreshInvoked:(id)sender forState:(UIControlState)state
-{
-    [self refreshData];
-
+    
     [self.refreshControl endRefreshing];
 }
 
@@ -163,6 +165,9 @@ static CGFloat kCellHeight = 120.0;
     cell.categoryLabel.text = newsArticle.category;
     cell.summaryLabel.text = newsArticle.summary;
     cell.dateLabel.text = [newsArticle.date stringValue];
+    
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+        cell.accessoryType = UITableViewCellAccessoryNone;
     
     return cell;
 }

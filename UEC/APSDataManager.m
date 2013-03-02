@@ -8,6 +8,8 @@
 
 #import "APSDataManager.h"
 
+#import "Reachability.h"
+
 #import "NSManagedObject+Appulse.h"
 
 #define CORE_DATA_XCODE_DATA_MODEL_NAME @"UEC"
@@ -44,13 +46,10 @@
 
 #pragma mark - Public Methods
 
-- (void)cacheEntityName:(NSString *)entityName
+- (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock
 {
-    [self cacheEntityName:entityName completion:nil];
-}
-
-- (void)cacheEntityName:(NSString *)entityName completion:(void (^)())completionBlock
-{
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
     NSMutableSet *coreDataObjectsIDs = [[NSMutableSet alloc] init];
     NSMutableSet *downloadedObjectsIDs = [[NSMutableSet alloc] init];
     
@@ -64,6 +63,22 @@
     
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
+        
+        Reachability *reachability = [Reachability reachabilityForInternetConnection];
+        NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+        if (internetStatus == NotReachable) {
+            // Make sure to wait just enough time to finish the animation of the "Pull to refresh"/
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
+                if (completionBlock) {
+                    completionBlock(NO);
+                }
+                
+                return;
+            });
+        }
+        
         
 #if LOCAL_DATA
         NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
@@ -111,9 +126,11 @@
                 }
                 
                 [self saveContext:self.mainContext];
-                                
+                
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
                 if (completionBlock) {
-                    completionBlock();
+                    completionBlock(YES);
                 }
             });
         }];

@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *emailCell;
 @property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
 
+@property (strong, nonatomic) UIPopoverController *imagePickerpopover;
+
 @property (nonatomic) BOOL pickedFromPicker;
 
 @end
@@ -66,6 +68,8 @@
         phantomBarbuttonItem.tintColor = [UIColor darkGrayColor];
         
         self.navigationItem.rightBarButtonItem = phantomBarbuttonItem;
+    } else {
+        self.navigationItem.rightBarButtonItem = nil;
     }
     
     [self.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:self.person.photoPath]
@@ -213,9 +217,21 @@
     
     mediaUI.delegate = self;
     
-    [self presentViewController:mediaUI animated:YES completion:^{
-        
-    }];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        if (self.imagePickerpopover.popoverVisible) {
+            [self.imagePickerpopover dismissPopoverAnimated:YES];
+        } else {
+            NSDictionary *navAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
+            [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
+            
+            self.imagePickerpopover = [[UIPopoverController alloc] initWithContentViewController:mediaUI];
+            
+            [self.imagePickerpopover presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    } else {
+        [self presentViewController:mediaUI animated:YES completion:nil];
+    }
+    
     return YES;
 }
 
@@ -224,9 +240,10 @@
 // For responding to the user tapping Cancel.
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
+        [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
+    }
 }
 
 // For responding to the user accepting a newly-captured picture or movie

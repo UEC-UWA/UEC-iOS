@@ -14,6 +14,8 @@
 #import "UECCommitteeMemberCell.h"
 
 #import "APSDataManager.h"
+#import "UECReachabilityManager.h"
+
 #import "Person.h"
 
 @interface UECCommitteeViewController ()
@@ -32,7 +34,11 @@ static CGFloat kCellHeight = 55.0;
     
     self.title = @"Committee";
     
-    [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^{
+    [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
+        }
+        
         [self setCustomCommitteeOrder];
         
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

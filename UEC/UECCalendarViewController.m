@@ -16,9 +16,11 @@
 #import "UECCalendarListViewController.h"
 
 #import "APSDataManager.h"
+#import "UECReachabilityManager.h"
+#import "NSDate+Formatter.h"
+
 #import "Event.h"
 
-#import "NSDate+Formatter.h"
 
 @interface UECCalendarViewController () <UECMonthViewControllerDelegate, UECCalendarListViewController>
 // Segmented control to switch view controllers
@@ -59,7 +61,7 @@ static NSInteger kMonthsDisplay = 0;
     [self cycleFromViewController:self.currentViewController
                  toViewController:self.allViewControllers[self.eventsDisplaySegmentControl.selectedSegmentIndex]];
     
-    [self refreshData];
+    [self refreshDataManually:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -115,9 +117,13 @@ static NSInteger kMonthsDisplay = 0;
 
 #pragma mark - Data Refreshing
 
-- (void)refreshData
+- (void)refreshDataManually:(BOOL)manualRefresh
 {
-    [[APSDataManager sharedManager] cacheEntityName:@"Event"];
+    [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
+        }
+    }];
 }
 
 #pragma mark - Segment Control Setup
@@ -231,7 +237,7 @@ static NSInteger kMonthsDisplay = 0;
 
 - (void)didRequestDataRefresh
 {
-    [self refreshData];
+    [self refreshDataManually:YES];
 }
 
 @end

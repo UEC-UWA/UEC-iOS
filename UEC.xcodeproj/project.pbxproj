@@ -57,6 +57,9 @@
 		0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAD816C2A85A00B327B7 /* InfoPlist.strings */; };
 		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
 		05439C8016DF66E200346D09 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 05439C7F16DF66E200346D09 /* Event.m */; };
+		055323F516E2038A00C83C8D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F416E2038A00C83C8D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055323F616E2048E00C83C8D /* SystemConfiguration.framework */; };
+		055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F916E20A2900C83C8D /* UECReachabilityManager.m */; };
 		055910D416C3AD5400BF14D2 /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910CF16C3AD3A00BF14D2 /* libSDWebImage.a */; };
 		055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910D516C3AD7D00BF14D2 /* ImageIO.framework */; };
 		055910E016C3ADFE00BF14D2 /* libTimesSquare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910DD16C3ADED00BF14D2 /* libTimesSquare.a */; };
@@ -231,6 +234,11 @@
 		0542FADC16C2A85A00B327B7 /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
 		05439C7E16DF66E200346D09 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		05439C7F16DF66E200346D09 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		055323F316E2038A00C83C8D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		055323F416E2038A00C83C8D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		055323F616E2048E00C83C8D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		055323F816E20A2900C83C8D /* UECReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECReachabilityManager.h; sourceTree = "<group>"; };
+		055323F916E20A2900C83C8D /* UECReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECReachabilityManager.m; sourceTree = "<group>"; };
 		055910C816C3AD3900BF14D2 /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		055910D516C3AD7D00BF14D2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		055910D716C3ADEC00BF14D2 /* TimesSquare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TimesSquare.xcodeproj; path = "objc-TimesSquare/TimesSquare.xcodeproj"; sourceTree = "<group>"; };
@@ -310,6 +318,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */,
 				05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */,
 				05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */,
 				05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */,
@@ -495,6 +504,7 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				055323F616E2048E00C83C8D /* SystemConfiguration.framework */,
 				05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */,
 				05D1C53216DE1BEE00D87BA0 /* EventKit.framework */,
 				05D1C52D16DE1BE900D87BA0 /* MapKit.framework */,
@@ -616,6 +626,8 @@
 		0559110416C3B42700BF14D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				055323F316E2038A00C83C8D /* Reachability.h */,
+				055323F416E2038A00C83C8D /* Reachability.m */,
 				05B76D0D16C4E6B200CECDF6 /* Managers */,
 				05B76D1116C4E6B800CECDF6 /* Categories */,
 				05F9178A16C7780600B1BCE1 /* Subclasses */,
@@ -678,6 +690,8 @@
 			children = (
 				0559112D16C3D4EF00BF14D2 /* APSDataManager.h */,
 				0559112E16C3D4EF00BF14D2 /* APSDataManager.m */,
+				055323F816E20A2900C83C8D /* UECReachabilityManager.h */,
+				055323F916E20A2900C83C8D /* UECReachabilityManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1019,6 +1033,8 @@
 				05D1C53A16DE1C3700D87BA0 /* UECMapViewController.m in Sources */,
 				05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */,
 				05439C8016DF66E200346D09 /* Event.m in Sources */,
+				055323F516E2038A00C83C8D /* Reachability.m in Sources */,
+				055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

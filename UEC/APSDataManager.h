@@ -21,8 +21,7 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
 
 + (APSDataManager *)sharedManager;
 
-- (void)cacheEntityName:(NSString *)entityName;
-- (void)cacheEntityName:(NSString *)entityName completion:(void (^)())completionBlock;
+- (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock;
 
 - (NSFetchedResultsController *)fetchedResultsControllerWithRequest:(void (^)(NSFetchRequest *request))fetchRequestBlock
                                                          entityName:(NSString *)entityName

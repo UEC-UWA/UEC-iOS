@@ -8,6 +8,14 @@
 
 #import "UECAppDelegate.h"
 
+#import "Reachability.h"
+
+@interface UECAppDelegate ()
+
+@property (strong, nonatomic) Reachability *internetReach;
+
+@end
+
 @implementation UECAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -20,6 +28,15 @@
     [[UIBarButtonItem appearance] setTintColor:[UIColor darkGrayColor]];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateNormal];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateHighlighted];
+    
+    // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
+    // method "reachabilityChanged" will be called.
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reachabilityChanged:)
+                                                 name:kReachabilityChangedNotification
+                                               object:nil];
+    self.internetReach = [Reachability reachabilityForInternetConnection];
+	[self.internetReach startNotifier];
     
     // Override point for customization after application launch.
     return YES;
