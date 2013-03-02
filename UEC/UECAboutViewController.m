@@ -177,9 +177,11 @@ static NSUInteger kNumSections = 3;
             self.aboutUECLocalURL = localURL;
             [[APSDataManager sharedManager] saveContext];
             
-            QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
-            quickLookC.dataSource = self;
-            [self.navigationController pushViewController:quickLookC animated:YES];
+            if (localURL) {
+                QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
+                quickLookC.dataSource = self;
+                [self.navigationController pushViewController:quickLookC animated:YES];
+            }
         }];
     }
     
@@ -234,14 +236,26 @@ static NSUInteger kNumSections = 3;
         NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSString *filePath = [documentsPath stringByAppendingPathComponent:@"AboutUEC.pdf"];
 
+        NSURL *localURL = nil;
         if ([self needsDownloadingWithLastUpdate:lastUpdate atFilePath:filePath]) {
-            NSData *fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileAddress]];
-            [fileData writeToFile:filePath atomically:YES];
+            Reachability *reachability = [Reachability reachabilityForInternetConnection];
+            NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+            if (internetStatus != NotReachable) {
+                NSData *fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileAddress]];
+                [fileData writeToFile:filePath atomically:YES];
+                
+                localURL = [NSURL fileURLWithPath:filePath];
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Download File" message:@"You are not connected to the Internet. Try downloading the file when you have an active connection." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alertView show];
+                });
+            }
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (completionBlock) {
-                completionBlock([NSURL fileURLWithPath:filePath]);
+                completionBlock(localURL);
             }
         });
     });

@@ -8,11 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+#import "Reachability.h"
+
 @interface UECReachabilityManager : NSObject
 
 + (UECReachabilityManager *)sharedManager;
 
 - (void)handleReachabilityAlertOnRefresh:(BOOL)refresh;
 - (void)handleReachbilityAlertViewWithBlock:(void (^)(UIAlertView *reachbilityAlertView))alertViewBlock onRefresh:(BOOL)refresh;
+
+- (void)resetAlerts;
 
 @end

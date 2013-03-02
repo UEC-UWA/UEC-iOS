@@ -51,19 +51,17 @@ static NSInteger kReachbilityAlertViewTag = 66;
     if (alertViewBlock) {
         alertViewBlock(alertView);
     }
-    
-    alertView.tag = kReachbilityAlertViewTag;
-        
+            
     [alertView show];
+    
+    self.shouldShowAlert = NO;
+}
+
+- (void)resetAlerts
+{
+    self.shouldShowAlert = YES;
 }
 
 #pragma mark - Alert view delegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (alertView.tag == kReachbilityAlertViewTag) {
-        self.shouldShowAlert = NO;
-    }
-}
 
 @end

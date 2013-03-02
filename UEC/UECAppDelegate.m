@@ -8,7 +8,7 @@
 
 #import "UECAppDelegate.h"
 
-#import "Reachability.h"
+#import "UECReachabilityManager.h"
 
 @interface UECAppDelegate ()
 
@@ -67,6 +67,21 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - Reachability
+
+- (void)reachabilityChanged:(NSNotification *)notification
+{
+	Reachability *curReach = [notification object];
+	NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
+    
+    [[UECReachabilityManager sharedManager] resetAlerts];
+    
+    NetworkStatus networkStatus = [curReach currentReachabilityStatus];
+    if (networkStatus == NotReachable) {
+        [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
+    }
 }
 
 @end
