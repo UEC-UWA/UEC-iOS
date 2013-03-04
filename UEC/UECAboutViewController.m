@@ -7,49 +7,21 @@
 //
 
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <QuickLook/QuickLook.h>
 
 #import "UECAboutViewController.h"
 
 #import "APSDataManager.h"
 #import "UECReachabilityManager.h"
+#import "UECAlertManager.h"
+
+#import "UECPreviewItem.h"
 
 #import "Sponsor.h"
-
-@interface UECAboutPreviewItem : NSObject <QLPreviewItem>
-@property (strong, nonatomic) NSString *documentTitle;
-@property (strong, nonatomic) NSURL *localURL;
-@end
-
-@implementation UECAboutPreviewItem
-
-@synthesize previewItemTitle = _previewItemTitle;
-@synthesize previewItemURL = _previewItemURL;
-
-- (NSString *)previewItemTitle
-{
-    if (!_previewItemTitle) {
-        _previewItemTitle = self.documentTitle;
-    }
-
-    return _previewItemTitle;
-}
-
-- (NSURL *)previewItemURL
-{
-    if (!_previewItemURL) {
-        _previewItemURL = self.localURL;
-    }
-    
-    return _previewItemURL;
-}
-
-@end
 
 @interface UECAboutViewController () <QLPreviewControllerDataSource, NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSURL *aboutUECLocalURL;
+@property (strong, nonatomic) UECPreviewItem *aboutPreview;
 
 @property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
 @property (nonatomic) BOOL beganUpdates;
@@ -174,13 +146,16 @@ static NSUInteger kNumSections = 3;
         [self downloadAboutUECFile:^(NSURL *localURL) {
             cell.accessoryView = nil;
             
-            self.aboutUECLocalURL = localURL;
-            [[APSDataManager sharedManager] saveContext];
+            self.aboutPreview = [[UECPreviewItem alloc] init];
+            self.aboutPreview.localURL = localURL;
+            self.aboutPreview.documentTitle = @"About the UEC";
             
-            if (localURL) {
+            if ([QLPreviewController canPreviewItem:self.aboutPreview]) {
                 QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
                 quickLookC.dataSource = self;
                 [self.navigationController pushViewController:quickLookC animated:YES];
+            } else {
+                [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
             }
         }];
     }
@@ -194,7 +169,7 @@ static NSUInteger kNumSections = 3;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark - Quick Look
+#pragma mark - Downloading
 
 - (BOOL)needsDownloadingWithLastUpdate:(NSDate *)lastUpdate
                             atFilePath:(NSString *)filePath
@@ -216,50 +191,33 @@ static NSUInteger kNumSections = 3;
 
 - (void)downloadAboutUECFile:(void (^)(NSURL *localURL))completionBlock;
 {
-    dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
-    
-    dispatch_async(downloadQueue, ^{
 #if LOCAL_DATA
-        NSDictionary *aboutUEC = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DummyAboutUEC" ofType:@"plist"]];
-        
-        NSString *fileAddress = aboutUEC[@"url"];
-        NSDate *lastUpdate = aboutUEC[@"last_update"];
+    NSDictionary *aboutUEC = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DummyAboutUEC" ofType:@"plist"]];
+    
+    NSString *fileAddress = aboutUEC[@"url"];
+    NSDate *lastUpdate = aboutUEC[@"last_update"];
 #else
-        NSDictionary *serverConnections = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-        NSString *serverAddress = serverConnections[@"AboutUEC"];
-        
-        // Handle the JSON response here.
-        NSDictionary *aboutUEC =
+    NSDictionary *serverConnections = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+    NSString *serverAddress = serverConnections[@"AboutUEC"];
+    
+    // Handle the JSON response here.
+    NSDictionary *aboutUEC =
 #endif
-        
-        // Get the file path for the file.
-        NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [documentsPath stringByAppendingPathComponent:@"AboutUEC.pdf"];
-
-        NSURL *localURL = nil;
-        if ([self needsDownloadingWithLastUpdate:lastUpdate atFilePath:filePath]) {
-            Reachability *reachability = [Reachability reachabilityForInternetConnection];
-            NetworkStatus internetStatus = [reachability currentReachabilityStatus];
-            if (internetStatus != NotReachable) {
-                NSData *fileData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:fileAddress]];
-                [fileData writeToFile:filePath atomically:YES];
-                
-                localURL = [NSURL fileURLWithPath:filePath];
-            } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Download File" message:@"You are not connected to the Internet. Try downloading the file when you have an active connection." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alertView show];
-                });
-            }
+    
+    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *fileName = [[fileAddress pathComponents] lastObject];
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
+    
+    if ([self needsDownloadingWithLastUpdate:lastUpdate atFilePath:filePath]) {
+        [[APSDataManager sharedManager] downloadFileAtURL:[[NSURL alloc] initWithString:fileAddress] intoFilePath:filePath completion:completionBlock];
+    } else {
+        if (completionBlock) {
+            completionBlock([[NSURL alloc] initFileURLWithPath:filePath]);
         }
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (completionBlock) {
-                completionBlock(localURL);
-            }
-        });
-    });
+    }
 }
+
+#pragma mark - Quick Look
 
 - (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
 {
@@ -268,11 +226,7 @@ static NSUInteger kNumSections = 3;
 
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index;
 {
-    UECAboutPreviewItem *previewItem = [[UECAboutPreviewItem alloc] init];
-    previewItem.localURL = self.aboutUECLocalURL;
-    previewItem.documentTitle = @"About the UEC";
-    
-    return previewItem;
+    return self.aboutPreview;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate

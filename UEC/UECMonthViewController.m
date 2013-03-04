@@ -70,7 +70,7 @@
 {
     // Refresh data here
     
-    [self.delegate didRequestDataRefresh];
+    [self.delegate didRequestDataOnManualRefresh:YES];
     
     [self.refreshControl endRefreshing];
 }

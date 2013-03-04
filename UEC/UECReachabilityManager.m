@@ -16,8 +16,6 @@
 
 @end
 
-static NSInteger kReachbilityAlertViewTag = 66;
-
 @implementation UECReachabilityManager
 
 + (UECReachabilityManager *)sharedManager

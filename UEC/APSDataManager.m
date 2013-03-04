@@ -8,6 +8,9 @@
 
 #import "APSDataManager.h"
 
+#import "AFURLConnectionOperation.h"
+#import "AFHTTPRequestOperation.h"
+
 #import "Reachability.h"
 
 #import "NSManagedObject+Appulse.h"
@@ -42,6 +45,62 @@
     });
     
     return singletonObject;
+}
+
+#pragma mark - Downloading
+
+- (void)downloadFileAtURL:(NSURL *)url
+             intoFilePath:(NSString *)filePath
+    downloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock
+               completion:(void (^)(NSURL *localURL))completionBlock
+{
+    dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
+    
+    dispatch_async(downloadQueue, ^{
+        Reachability *reachability = [Reachability reachabilityForInternetConnection];
+        NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+        
+        if (internetStatus != NotReachable) {
+            
+            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
+            AFURLConnectionOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            
+            operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+            [operation setDownloadProgressBlock:progressBlock];
+            
+            [operation setCompletionBlock:^{
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completionBlock) {
+                        completionBlock([NSURL fileURLWithPath:filePath]);
+                    }
+                });
+            }];
+            
+            [operation start];
+            
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Download File" message:@"You are not connected to the Internet. Try downloading the file when you have an active connection." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alertView show];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completionBlock) {
+                        completionBlock(nil);
+                    }
+                });
+            });
+        }
+    });
+}
+
+- (void)downloadFileAtURL:(NSURL *)url
+             intoFilePath:(NSString *)filePath
+               completion:(void (^)(NSURL *localURL))completionBlock;
+{
+    [self downloadFileAtURL:url
+               intoFilePath:filePath
+      downloadProgressBlock:nil
+                 completion:completionBlock];
 }
 
 #pragma mark - Public Methods

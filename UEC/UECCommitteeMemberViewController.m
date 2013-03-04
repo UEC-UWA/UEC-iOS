@@ -110,6 +110,19 @@
     }];
 }
 
+/*
+ Delegate method alerting when the email has finished.
+ */
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+		  didFinishWithResult:(MFMailComposeResult)result
+						error:(NSError *)error
+{
+	[self becomeFirstResponder];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -128,20 +141,6 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Send a Phantom to your lovely Thebses." delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Photo", @"Choose Photo", @"I Just Need Words Thanks", nil];
     [actionSheet showFromBarButtonItem:self.navigationItem.rightBarButtonItem animated:YES];
 }
-
-/*
- Delegate method alerting when the email has finished.
- */
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-		  didFinishWithResult:(MFMailComposeResult)result
-						error:(NSError *)error
-{
-	[self becomeFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-
 
 - (void)launchCamera
 {
@@ -243,6 +242,8 @@
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
         [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 

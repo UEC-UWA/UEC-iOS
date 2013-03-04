@@ -2,35 +2,22 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Person</key>
+	<key>NewsArticle</key>
 	<dict>
-		<key>firstName</key>
-		<string>first_name</string>
-		<key>lastName</key>
-		<string>last_name</string>
-		<key>photoPath</key>
-		<string>photo_path</string>
-		<key>position</key>
-		<string>position</string>
-		<key>email</key>
-		<string>email</string>
-		<key>subcommittee</key>
-		<string>subcommittee</string>
-		<key>identifier</key>
-		<string>id</string>
+		<key>link</key>
+		<string>link</string>
+		<key>title</key>
+		<string>title</string>
+		<key>content</key>
+		<string>content</string>
 		<key>summary</key>
 		<string>summary</string>
-	</dict>
-	<key>PhotoAlbum</key>
-	<dict>
-		<key>name</key>
-		<string>name</string>
 		<key>date</key>
 		<string>date</string>
 		<key>identifier</key>
 		<string>id</string>
-		<key>keyPhotoPath</key>
-		<string>key_photo_path</string>
+		<key>category</key>
+		<string>category</string>
 	</dict>
 	<key>Event</key>
 	<dict>
@@ -63,22 +50,35 @@
 		<key>facebookLink</key>
 		<string>facebook_link</string>
 	</dict>
-	<key>NewsArticle</key>
+	<key>Person</key>
 	<dict>
-		<key>link</key>
-		<string>link</string>
-		<key>title</key>
-		<string>title</string>
-		<key>content</key>
-		<string>content</string>
-		<key>summary</key>
-		<string>summary</string>
-		<key>date</key>
-		<string>date</string>
+		<key>firstName</key>
+		<string>first_name</string>
+		<key>lastName</key>
+		<string>last_name</string>
+		<key>photoPath</key>
+		<string>photo_path</string>
+		<key>position</key>
+		<string>position</string>
+		<key>email</key>
+		<string>email</string>
+		<key>subcommittee</key>
+		<string>subcommittee</string>
 		<key>identifier</key>
 		<string>id</string>
-		<key>category</key>
-		<string>category</string>
+		<key>summary</key>
+		<string>summary</string>
+	</dict>
+	<key>Bend</key>
+	<dict>
+		<key>identifier</key>
+		<string>id</string>
+		<key>fileAddress</key>
+		<string>file_address</string>
+		<key>title</key>
+		<string>title</string>
+		<key>size</key>
+		<string>size</string>
 	</dict>
 	<key>Sponsor</key>
 	<dict>

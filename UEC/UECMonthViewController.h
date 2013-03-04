@@ -13,7 +13,7 @@
 @protocol UECMonthViewControllerDelegate <NSObject>
 
 - (void)didSelectEvent:(Event *)event;
-- (void)didRequestDataRefresh;
+- (void)didRequestDataOnManualRefresh:(BOOL)manualRefresh;
 
 @end
 

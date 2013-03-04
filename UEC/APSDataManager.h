@@ -21,6 +21,19 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
 
 + (APSDataManager *)sharedManager;
 
+#pragma mark - Downloading
+
+- (void)downloadFileAtURL:(NSURL *)url
+             intoFilePath:(NSString *)filePath
+    downloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock
+               completion:(void (^)(NSURL *localURL))completionBlock;
+
+- (void)downloadFileAtURL:(NSURL *)url
+             intoFilePath:(NSString *)filePath
+               completion:(void (^)(NSURL *localURL))completionBlock;
+
+#pragma mark - Core Data
+
 - (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock;
 
 - (NSFetchedResultsController *)fetchedResultsControllerWithRequest:(void (^)(NSFetchRequest *request))fetchRequestBlock
