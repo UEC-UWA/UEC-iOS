@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopDownloads) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopDownloads:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     
     self.title = @"Bends";
 
@@ -62,30 +62,26 @@
 
 #pragma mark - Downloading
 
-- (void)stopDownloads:(NSArray *)bends
-{    
+- (void)deleteBends:(NSArray *)bends
+{
     for (Bend *bend in bends) {
         bend.downloading = @(NO);
         
-        if (![[NSFileManager defaultManager] fileExistsAtPath:bend.localURLString]) {
-            NSError *error = nil;
-            if (![[NSFileManager defaultManager] removeItemAtPath:bend.localURLString error:&error]) {
-                NSLog(@"Error removing: %@", bend.localURLString);
-            }
+        NSError *error = nil;
+        if (![[NSFileManager defaultManager] removeItemAtPath:bend.localURLString error:&error]) {
+            NSLog(@"Error removing: %@", bend.localURLString);
         }
-        bend.localURLString = @"13897";
         
-        NSLog(@"Bend: %@", bend);
+        bend.localURLString = nil;
     }
-
-    [[APSDataManager sharedManager] saveContext];
     
-    [[APSDataManager sharedManager] stopCurrentDownloads];
+    [[APSDataManager sharedManager] saveContext];
 }
 
-- (void)stopDownloads
+- (void)stopDownloads:(NSNotification *)notification
 {
-    [self stopDownloads:self.activeDownloads];
+    [self deleteBends:self.activeDownloads];
+    [[APSDataManager sharedManager] stopCurrentDownloads];
 }
 
 - (NSString *)formattedSizeForBytes:(long long)bytes
@@ -269,7 +265,7 @@
     // Return NO if you do not want the specified item to be editable.
     Bend *bend = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    return [bend.purchased boolValue];
+    return ([bend.purchased boolValue] && bend.localURLString && ![bend.downloading boolValue]);
 }
 
 // Override to support editing the table view.
@@ -278,7 +274,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Bend *bend = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
-        [self stopDownloads:@[bend]];
+        [self deleteBends:@[bend]];
         
         [tableView reloadData];
     }
@@ -290,7 +286,7 @@
 {
     Bend *bend = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    if ([bend.purchased boolValue]) {
+    if ([bend.purchased boolValue] && bend.localURLString) {
         self.previewBend = [[UECPreviewItem alloc] init];
         self.previewBend.localURL = [[NSURL alloc] initFileURLWithPath:bend.localURLString];
         self.previewBend.documentTitle = bend.title;
