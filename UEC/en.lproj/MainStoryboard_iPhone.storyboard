@@ -1105,7 +1105,7 @@
         <scene sceneID="rP0-if-yvS">
             <objects>
                 <navigationController id="e7u-jA-40e" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Bends" id="KF7-rT-q7l"/>
+                    <tabBarItem key="tabBarItem" title="Bends" image="book.png" id="KF7-rT-q7l"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmG-tR-FA8" customClass="UECBendNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1123,6 +1123,7 @@
     </scenes>
     <resources>
         <image name="about.png" width="30" height="30"/>
+        <image name="book.png" width="30" height="30"/>
         <image name="calendar.png" width="30" height="30"/>
         <image name="committee.png" width="30" height="30"/>
         <image name="newspaper.png" width="30" height="30"/>

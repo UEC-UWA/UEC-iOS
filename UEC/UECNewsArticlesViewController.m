@@ -26,7 +26,7 @@
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
 
-@property (strong, nonatomic) UECArticleViewController *detailVC;
+@property (strong, nonatomic) UINavigationController *detailNavController;
 
 @end
 
@@ -53,7 +53,7 @@ static CGFloat kCellHeight = 120.0;
         self.savedSearchTerm = nil;
     }
     
-    self.detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailNavController = (UINavigationController *)[self.splitViewController.viewControllers lastObject];
     
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
@@ -179,14 +179,16 @@ static CGFloat kCellHeight = 120.0;
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-        self.detailVC.newsArticle = newsArticle;
+        [self.splitViewController setViewControllers:@[self.navigationController, self.detailNavController]];
+        
+        UECArticleViewController *detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+        detailVC.newsArticle = newsArticle;
         
     } else {
-        self.detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
-        self.detailVC.newsArticle = newsArticle;
+        UECArticleViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
+        detailVC.newsArticle = newsArticle;
         
-        [self.navigationController pushViewController:self.detailVC animated:YES];
+        [self.navigationController pushViewController:detailVC animated:YES];
     }
 }
 

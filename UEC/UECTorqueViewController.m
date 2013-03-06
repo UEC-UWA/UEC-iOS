@@ -8,6 +8,8 @@
 
 #import "UECTorqueViewController.h"
 
+#import "UECTorquePreviewController.h"
+
 #import "APSDataManager.h"
 #import "UECReachabilityManager.h"
 
@@ -114,12 +116,18 @@
         self.torquePreview.documentTitle = torque.name;
         self.torquePreview.localURL = localURL;
         
-        if ([QLPreviewController canPreviewItem:self.torquePreview]) {
-            QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
-            quickLookC.dataSource = self;
-            [self.navigationController pushViewController:quickLookC animated:YES];
+        QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
+        quickLookC.dataSource = self;
+        UINavigationController *quickLookNavController = [[UINavigationController alloc] initWithRootViewController:quickLookC];
+        
+        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+            [self.splitViewController setViewControllers:@[self.navigationController, quickLookNavController]];
         } else {
-            [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+            if ([QLPreviewController canPreviewItem:self.torquePreview]) {
+                [self.navigationController pushViewController:quickLookC animated:YES];
+            } else {
+                [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+            }
         }
     }];
     
