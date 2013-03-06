@@ -16,22 +16,64 @@
                     </tabBar>
                     <connections>
                         <segue destination="U8S-6h-bqX" kind="relationship" relationship="viewControllers" id="JAy-gu-Ggz"/>
-                        <segue destination="pGt-s3-lqp" kind="relationship" relationship="viewControllers" id="IKV-CD-Xw4"/>
-                        <segue destination="lf5-fj-bP2" kind="relationship" relationship="viewControllers" id="oEd-hv-eFH"/>
-                        <segue destination="e7u-jA-40e" kind="relationship" relationship="viewControllers" id="Tza-vA-Plx"/>
-                        <segue destination="rYW-Du-y9D" kind="relationship" relationship="viewControllers" id="ZbC-74-HsV"/>
+                        <segue destination="lf5-fj-bP2" kind="relationship" relationship="viewControllers" id="FNT-hW-Szk"/>
+                        <segue destination="pGt-s3-lqp" kind="relationship" relationship="viewControllers" id="9l9-cy-4d5"/>
+                        <segue destination="e7u-jA-40e" kind="relationship" relationship="viewControllers" id="TmD-Ea-mev"/>
+                        <segue destination="rYW-Du-y9D" kind="relationship" relationship="viewControllers" id="8Xz-9G-bs2"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="123" y="259"/>
         </scene>
-        <!--News View Controller-->
+        <!--Torque View Controller-->
+        <scene sceneID="3Fq-gn-PGZ">
+            <objects>
+                <tableViewController storyboardIdentifier="UECTorqueViewController" id="I64-S4-vxb" customClass="UECTorqueViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Nof-Az-ufX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Torque Cell" textLabel="W8e-2o-eba" detailTextLabel="iWQ-7F-cbI" style="IBUITableViewCellStyleSubtitle" id="veB-Ka-6eO">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8e-2o-eba">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWQ-7F-cbI">
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="I64-S4-vxb" id="KTv-4N-4q8"/>
+                            <outlet property="delegate" destination="I64-S4-vxb" id="d9m-pZ-sBa"/>
+                        </connections>
+                    </tableView>
+                    <nil key="simulatedStatusBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSK-bH-mxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2" y="-1291"/>
+        </scene>
+        <!--News Articles View Controller-->
         <scene sceneID="bf3-nD-XgU">
             <objects>
-                <tableViewController id="idY-IG-7JH" customClass="UECNewsViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="UECNewsArticlesViewController" id="idY-IG-7JH" customClass="UECNewsArticlesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r3F-Zj-rCB">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search news articles" id="hTb-Es-5pt">
@@ -54,8 +96,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qd0-5B-uiv"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="w7t-lb-BJZ" id="7mw-yT-QDI"/>
                     </connections>
@@ -71,14 +114,14 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="203" y="-607"/>
+            <point key="canvasLocation" x="2" y="-623"/>
         </scene>
         <!--Article View Controller-->
         <scene sceneID="15b-DE-guv">
             <objects>
                 <viewController storyboardIdentifier="UECArticleViewController" id="9fu-Is-0dX" customClass="UECArticleViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wqm-RH-lBY">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nV3-NA-Cl0">
@@ -93,15 +136,16 @@
                             <constraint firstItem="nV3-NA-Cl0" firstAttribute="bottom" secondItem="wqm-RH-lBY" secondAttribute="bottom" type="default" id="vnj-Nv-4tm"/>
                         </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="webView" destination="nV3-NA-Cl0" id="nud-ut-g4F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrg-y5-hk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="635" y="-607"/>
+            <point key="canvasLocation" x="434" y="-623"/>
         </scene>
         <!--Calendar View Controller - Second-->
         <scene sceneID="TxM-h9-UJn">
@@ -784,12 +828,27 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="idY-IG-7JH" kind="relationship" relationship="rootViewController" id="LqB-4J-P12"/>
+                        <segue destination="QqK-MJ-OF5" kind="relationship" relationship="rootViewController" id="ta3-st-M73"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTc-Vw-i78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-257" y="-607"/>
+            <point key="canvasLocation" x="-890" y="-623"/>
+        </scene>
+        <!--News View Controller-->
+        <scene sceneID="cnf-jy-uio">
+            <objects>
+                <viewController id="QqK-MJ-OF5" customClass="UECNewsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bI9-ai-m3u">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kvb-Ct-lMv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EKJ-TK-ToX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-441" y="-623"/>
         </scene>
         <!--Navigation Controller - Calendar-->
         <scene sceneID="TVD-QF-vLZ">
@@ -1048,7 +1107,7 @@
                 <navigationController id="e7u-jA-40e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Bends" id="KF7-rT-q7l"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmG-tR-FA8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmG-tR-FA8" customClass="UECBendNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1092,13 +1151,16 @@
                 <relationship kind="outlet" name="sizeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="UECBendNavigationBar" superclassName="UINavigationBar">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECBendNavigationBar.h"/>
+        </class>
         <class className="UECBendsViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECBendsViewController.h"/>
         </class>
         <class className="UECCalendarListViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECCalendarListViewController.h"/>
         </class>
-        <class className="UECCalendarViewController" superclassName="UIViewController">
+        <class className="UECCalendarViewController" superclassName="UECSegmentChildrenViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECCalendarViewController.h"/>
         </class>
         <class className="UECCommitteeMemberCell" superclassName="UITableViewCell">
@@ -1166,11 +1228,20 @@
         <class className="UECMonthViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECMonthViewController.h"/>
         </class>
-        <class className="UECNewsViewController" superclassName="CoreDataTableViewController">
+        <class className="UECNewsArticlesViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECNewsArticlesViewController.h"/>
+        </class>
+        <class className="UECNewsViewController" superclassName="UECSegmentChildrenViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECNewsViewController.h"/>
+        </class>
+        <class className="UECSegmentChildrenViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECSegmentChildrenViewController.h"/>
         </class>
         <class className="UECTicketsViewController" superclassName="UECCalendarListViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECTicketsViewController.h"/>
+        </class>
+        <class className="UECTorqueViewController" superclassName="CoreDataTableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECTorqueViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

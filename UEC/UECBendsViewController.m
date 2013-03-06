@@ -22,6 +22,8 @@
 
 @property (strong, nonatomic) UECPreviewItem *previewBend;
 
+@property (strong, nonatomic) NSMutableArray *activeDownloads;
+
 @end
 
 @implementation UECBendsViewController
@@ -30,8 +32,12 @@
 {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopDownloads) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    
     self.title = @"Bends";
 
+    self.activeDownloads = [[NSMutableArray alloc] init];
+    
     [[APSDataManager sharedManager] cacheEntityName:@"Bend" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
@@ -43,7 +49,7 @@
         request.sortDescriptors = @[sortDescriptor];
     } entityName:@"Bend" sectionNameKeyPath:nil cacheName:nil];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonItemStyleBordered target:self action:@selector(restorePurchases:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Restore" style:UIBarButtonItemStyleBordered target:self action:@selector(restorePurchases:)];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Bend Bought Cell"];
 }
@@ -55,6 +61,32 @@
 }
 
 #pragma mark - Downloading
+
+- (void)stopDownloads:(NSArray *)bends
+{    
+    for (Bend *bend in bends) {
+        bend.downloading = @(NO);
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:bend.localURLString]) {
+            NSError *error = nil;
+            if (![[NSFileManager defaultManager] removeItemAtPath:bend.localURLString error:&error]) {
+                NSLog(@"Error removing: %@", bend.localURLString);
+            }
+        }
+        bend.localURLString = @"13897";
+        
+        NSLog(@"Bend: %@", bend);
+    }
+
+    [[APSDataManager sharedManager] saveContext];
+    
+    [[APSDataManager sharedManager] stopCurrentDownloads];
+}
+
+- (void)stopDownloads
+{
+    [self stopDownloads:self.activeDownloads];
+}
 
 - (NSString *)formattedSizeForBytes:(long long)bytes
 {    
@@ -122,7 +154,6 @@
                                       totalBytesExpectedToRead:totalBytesExpectedToRead];
                                     
                                 } completion:^(NSURL *localURL) {
-                                    bend.purchased = @(YES);
                                     bend.downloading = @(NO);
                                     bend.localURLString = [localURL path];
                                                                         
@@ -136,7 +167,7 @@
 
 #pragma mark - In-app purchase
 
-- (void)restorePurchases:(id)sender
+- (IBAction)restorePurchases:(id)sender
 {
     
 }
@@ -147,13 +178,15 @@
     
     Bend *bend = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:cell]];
     
+    [self.activeDownloads addObject:bend];
+    
     // TODO: Here handle the in-app purchase.
     // if (successfullPurchase) {
-    [cell.purchaseButton removeFromSuperview];
     
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
     
     bend.downloading = @(YES);
+    bend.purchased = @(YES);
     [[APSDataManager sharedManager] saveContext];
     
     [self.tableView reloadData];
@@ -161,6 +194,8 @@
     UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
     
     [self downloadBend:bend inCell:downloadCell completion:^{
+        [self.activeDownloads removeObject:bend];
+        
         [self.tableView reloadData];
     }];
 }
@@ -192,15 +227,28 @@
     }
     
     if ([bend.purchased boolValue]) {
-        CellIdentifier = @"Bend Bought Cell";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
-        cell.textLabel.text = bend.title;
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        return cell;
+        if (bend.localURLString) {
+            CellIdentifier = @"Bend Bought Cell";
+            
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            
+            cell.textLabel.text = bend.title;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            
+            return cell;
+        } else {
+            CellIdentifier = @"Bend Cell";
+            
+            UECBendCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+            
+            cell.nameLabel.text = bend.title;
+            cell.sizeLabel.text = [self formattedSizeForBytes:[bend.size longLongValue]];
+            
+            cell.purchaseButton.titleLabel.text = @"Free";
+            [cell.purchaseButton addTarget:self action:@selector(purchaseBend:) forControlEvents:UIControlEventTouchUpInside];
+            
+            return cell;
+        }
     } else {
         CellIdentifier = @"Bend Cell";
         
@@ -212,6 +260,27 @@
         [cell.purchaseButton addTarget:self action:@selector(purchaseBend:) forControlEvents:UIControlEventTouchUpInside];
         
         return cell;
+    }
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    Bend *bend = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    return [bend.purchased boolValue];
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        Bend *bend = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        [self stopDownloads:@[bend]];
+        
+        [tableView reloadData];
     }
 }
 
@@ -227,8 +296,6 @@
         self.previewBend.documentTitle = bend.title;
         
         if ([QLPreviewController canPreviewItem:self.previewBend]) {
-
-            
             QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
             quickLookC.dataSource = self;
             

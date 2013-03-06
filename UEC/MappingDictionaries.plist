@@ -19,6 +19,17 @@
 		<key>category</key>
 		<string>category</string>
 	</dict>
+	<key>Torque</key>
+	<dict>
+		<key>identifier</key>
+		<string>id</string>
+		<key>fileAddress</key>
+		<string>file_address</string>
+		<key>name</key>
+		<string>title</string>
+		<key>date</key>
+		<string>date</string>
+	</dict>
 	<key>Event</key>
 	<dict>
 		<key>location</key>

@@ -191,17 +191,18 @@ static NSUInteger kNumSections = 3;
 
 - (void)downloadAboutUECFile:(void (^)(NSURL *localURL))completionBlock;
 {
-#if LOCAL_DATA
     NSDictionary *aboutUEC = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DummyAboutUEC" ofType:@"plist"]];
     
     NSString *fileAddress = aboutUEC[@"url"];
     NSDate *lastUpdate = aboutUEC[@"last_update"];
+#if LOCAL_DATA
+
 #else
-    NSDictionary *serverConnections = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-    NSString *serverAddress = serverConnections[@"AboutUEC"];
-    
-    // Handle the JSON response here.
-    NSDictionary *aboutUEC =
+//    NSDictionary *serverConnections = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+//    NSString *serverAddress = serverConnections[@"AboutUEC"];
+//    
+//    // Handle the JSON response here.
+//    NSDictionary *aboutUEC =
 #endif
     
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];

@@ -1,5 +1,5 @@
 //
-//  Sponsor.h
+//  Torque.h
 //  UEC
 //
 //  Created by Jad Osseiran on 6/03/13.
@@ -10,11 +10,12 @@
 #import <CoreData/CoreData.h>
 
 
-@interface Sponsor : NSManagedObject
+@interface Torque : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSString * logoPath;
+@property (nonatomic, retain) NSString * localURLString;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * websitePath;
+@property (nonatomic, retain) NSDate * date;
+@property (nonatomic, retain) NSString * fileAddress;
 
 @end

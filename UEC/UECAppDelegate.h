@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class UECBendsViewController;
+
 @interface UECAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

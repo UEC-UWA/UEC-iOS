@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECCalendarViewController : UIViewController
+#import "UECSegmentChildrenViewController.h"
+
+@interface UECCalendarViewController : UECSegmentChildrenViewController
 
 @end

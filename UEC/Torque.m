@@ -1,22 +1,20 @@
 //
-//  Bend.m
+//  Torque.m
 //  UEC
 //
 //  Created by Jad Osseiran on 6/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "Bend.h"
+#import "Torque.h"
 
 
-@implementation Bend
+@implementation Torque
 
-@dynamic downloading;
-@dynamic fileAddress;
 @dynamic identifier;
 @dynamic localURLString;
-@dynamic purchased;
-@dynamic size;
-@dynamic title;
+@dynamic name;
+@dynamic date;
+@dynamic fileAddress;
 
 @end

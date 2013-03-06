@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<integer>1</integer>
+		<key>title</key>
+		<string>Week 1</string>
+		<key>file_address</key>
+		<string>http://samplepdf.com/sample.pdf</string>
+		<key>date</key>
+		<date>2013-03-06T13:48:50Z</date>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>2</integer>
+		<key>title</key>
+		<string>Week 2</string>
+		<key>file_address</key>
+		<string>http://samplepdf.com/sample.pdf</string>
+		<key>date</key>
+		<date>2013-03-13T13:48:50Z</date>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>3</integer>
+		<key>title</key>
+		<string>Week 3</string>
+		<key>file_address</key>
+		<string>http://samplepdf.com/sample.pdf</string>
+		<key>date</key>
+		<date>2013-03-20T13:48:50Z</date>
+	</dict>
+	<dict>
+		<key>id</key>
+		<integer>4</integer>
+		<key>title</key>
+		<string>Week 4</string>
+		<key>file_address</key>
+		<string>http://samplepdf.com/sample.pdf</string>
+		<key>date</key>
+		<date>2013-03-27T13:48:50Z</date>
+	</dict>
+</array>
+</plist>

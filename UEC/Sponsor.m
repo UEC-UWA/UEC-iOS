@@ -2,7 +2,7 @@
 //  Sponsor.m
 //  UEC
 //
-//  Created by Jad Osseiran on 12/02/13.
+//  Created by Jad Osseiran on 6/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -11,9 +11,9 @@
 
 @implementation Sponsor
 
-@dynamic name;
-@dynamic logoPath;
 @dynamic identifier;
+@dynamic logoPath;
+@dynamic name;
 @dynamic websitePath;
 
 @end

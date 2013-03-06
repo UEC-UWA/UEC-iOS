@@ -26,6 +26,8 @@
 
 @property (strong, nonatomic) NSString *coreDataXcodeDataModelName;
 @property (strong, nonatomic) NSDictionary *mappingDictionaries;
+
+@property (strong, nonatomic) NSMutableArray *currentDownloads;
 @end
 
 @implementation APSDataManager
@@ -40,7 +42,9 @@
         
         singletonObject.coreDataXcodeDataModelName = CORE_DATA_XCODE_DATA_MODEL_NAME;
         singletonObject.mappingDictionaries = MAPPING_DICTIONARIES;
-            
+        
+        singletonObject.currentDownloads = [[NSMutableArray alloc] init];
+        
         [singletonObject setupCoreData];
     });
     
@@ -63,19 +67,31 @@
         if (internetStatus != NotReachable) {
             
             NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-            AFURLConnectionOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
             
             operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
             [operation setDownloadProgressBlock:progressBlock];
             
-            [operation setCompletionBlock:^{
+            [self.currentDownloads addObject:operation];
+            
+            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                [self.currentDownloads removeObject:operation];
+                
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (completionBlock) {
                         completionBlock([NSURL fileURLWithPath:filePath]);
                     }
                 });
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                [self.currentDownloads removeObject:operation];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (completionBlock) {
+                        completionBlock(nil);
+                    }
+                });
             }];
-            
+                        
             [operation start];
             
         } else {
@@ -101,6 +117,15 @@
                intoFilePath:filePath
       downloadProgressBlock:nil
                  completion:completionBlock];
+}
+
+- (void)stopCurrentDownloads
+{
+    for (AFHTTPRequestOperation *operation in self.currentDownloads)
+        [operation cancel];
+    
+#warning do I still need this?
+    [self.currentDownloads removeAllObjects];
 }
 
 #pragma mark - Public Methods
@@ -138,18 +163,18 @@
             });
         }
         
-        
-#if LOCAL_DATA
         NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
         NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
+#if LOCAL_DATA
+
 #else
-        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-        
-        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
-        [path appendString:serverPaths[entityName][@"GET"]];
-        
-        // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
-        NSArray *data = blah
+//        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+//        
+//        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
+//        [path appendString:serverPaths[entityName][@"GET"]];
+//        
+//        // TODO: Here the downloading will have to happen. Then call cacheData:forEntityName:completion: in the completion block.
+//        NSArray *data = blah
 #endif
       
         [threadContext performBlock:^{
@@ -239,7 +264,7 @@
 
 + (void)logErrorForEntityName:(NSString *)entityName
 {
-    NSLog(@"\"%@\" does not appear to be a valide NSManagedObject subclass.", entityName);
+    NSLog(@"\"%@\" does not appear to be a valide NSManagedObject subclass. Make sure that the class name perfectly matches %@", entityName, entityName);
 }
 
 + (void)linRelationshipType:(APSDataManagerEntityRelationship)relationshipType
@@ -386,12 +411,18 @@
 {
     NSError *childError = nil;
     [context save:&childError];
-    [self.mainContext performBlock:^{
+    
+    UIBackgroundTaskIdentifier task = UIBackgroundTaskInvalid;
+    dispatch_block_t block = ^{
         NSError *parentError = nil;
         if ([self.mainContext hasChanges] && ![self.mainContext save:&parentError]) {
             NSLog(@"Error saving context: %@", parentError);
         }
-    }];
+        [[UIApplication sharedApplication] endBackgroundTask:task];
+    };
+    
+    task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
+    [self.mainContext performBlock:block];
 }
 
 @end

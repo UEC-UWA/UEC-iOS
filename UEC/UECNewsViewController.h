@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "CoreDataTableViewController.h"
+#import "UECSegmentChildrenViewController.h"
 
-@interface UECNewsViewController : CoreDataTableViewController
+@interface UECNewsViewController : UECSegmentChildrenViewController
 
 @end

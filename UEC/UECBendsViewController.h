@@ -12,4 +12,6 @@
 
 @interface UECBendsViewController : CoreDataTableViewController
 
+- (void)stopDownloads;
+
 @end

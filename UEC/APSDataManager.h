@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
              intoFilePath:(NSString *)filePath
                completion:(void (^)(NSURL *localURL))completionBlock;
 
+- (void)stopCurrentDownloads;
+
 #pragma mark - Core Data
 
 - (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock;
