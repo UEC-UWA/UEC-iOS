@@ -20,15 +20,31 @@
 
 + (UECReachabilityManager *)sharedManager
 {
+    return [UECReachabilityManager sharedManagerWithDelegate:nil];
+}
+
++ (UECReachabilityManager *)sharedManagerWithDelegate:(id)delegate;
+{
     static __DISPATCH_ONCE__ UECReachabilityManager *singletonObject = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
         singletonObject.shouldShowAlert = YES;
+        singletonObject.delegate = delegate;
     });
     
     return singletonObject;
+}
+
+- (void)setNetworkStatus:(NetworkStatus)networkStatus
+{
+    if (_networkStatus != networkStatus) {
+        _networkStatus = networkStatus;
+        self.networkStatus = networkStatus;
+    }
+    
+    [self.delegate reachability:self networkStatusHasChanged:self.networkStatus];
 }
 
 - (void)handleReachabilityAlertOnRefresh:(BOOL)refresh
@@ -59,7 +75,5 @@
 {
     self.shouldShowAlert = YES;
 }
-
-#pragma mark - Alert view delegate
 
 @end

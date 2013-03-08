@@ -110,23 +110,25 @@
     [self downloadTorque:torque completion:^(NSURL *localURL) {
         cell.accessoryView = nil;
         
-        torque.localURLString = [localURL path];
-        [[APSDataManager sharedManager] saveContext];
-        
-        self.torquePreview.documentTitle = torque.name;
-        self.torquePreview.localURL = localURL;
-        
-        QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
-        quickLookC.dataSource = self;
-        UINavigationController *quickLookNavController = [[UINavigationController alloc] initWithRootViewController:quickLookC];
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            [self.splitViewController setViewControllers:@[self.navigationController, quickLookNavController]];
-        } else {
-            if ([QLPreviewController canPreviewItem:self.torquePreview]) {
-                [self.navigationController pushViewController:quickLookC animated:YES];
+        if (localURL) {
+            torque.localURLString = [localURL path];
+            [[APSDataManager sharedManager] saveContext];
+            
+            self.torquePreview.documentTitle = torque.name;
+            self.torquePreview.localURL = localURL;
+            
+            UECTorquePreviewController *quickLookC = [[UECTorquePreviewController alloc] init];
+            quickLookC.dataSource = self;
+            UINavigationController *quickLookNavController = [[UINavigationController alloc] initWithRootViewController:quickLookC];
+            
+            if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+                [self.splitViewController setViewControllers:@[self.navigationController, quickLookNavController]];
             } else {
-                [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+                if ([QLPreviewController canPreviewItem:self.torquePreview]) {
+                    [self.navigationController pushViewController:quickLookC animated:YES];
+                } else {
+                    [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+                }
             }
         }
     }];

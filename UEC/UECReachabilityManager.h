@@ -10,9 +10,19 @@
 
 #import "Reachability.h"
 
+@class UECReachabilityManager;
+@protocol UECReachabilityManagerDelegate <NSObject>
+- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(NetworkStatus)networkStatus;
+@end
+
 @interface UECReachabilityManager : NSObject
 
+@property (weak, nonatomic) id <UECReachabilityManagerDelegate> delegate;
+
+@property (nonatomic) NetworkStatus networkStatus;
+
 + (UECReachabilityManager *)sharedManager;
++ (UECReachabilityManager *)sharedManagerWithDelegate:(id)delegate;
 
 - (void)handleReachabilityAlertOnRefresh:(BOOL)refresh;
 - (void)handleReachbilityAlertViewWithBlock:(void (^)(UIAlertView *reachbilityAlertView))alertViewBlock onRefresh:(BOOL)refresh;

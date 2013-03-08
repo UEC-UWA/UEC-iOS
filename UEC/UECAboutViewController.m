@@ -146,16 +146,18 @@ static NSUInteger kNumSections = 3;
         [self downloadAboutUECFile:^(NSURL *localURL) {
             cell.accessoryView = nil;
             
-            self.aboutPreview = [[UECPreviewItem alloc] init];
-            self.aboutPreview.localURL = localURL;
-            self.aboutPreview.documentTitle = @"About the UEC";
-            
-            if ([QLPreviewController canPreviewItem:self.aboutPreview]) {
-                QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
-                quickLookC.dataSource = self;
-                [self.navigationController pushViewController:quickLookC animated:YES];
-            } else {
-                [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+            if (localURL) {
+                self.aboutPreview = [[UECPreviewItem alloc] init];
+                self.aboutPreview.localURL = localURL;
+                self.aboutPreview.documentTitle = @"About the UEC";
+                
+                if ([QLPreviewController canPreviewItem:self.aboutPreview]) {
+                    QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
+                    quickLookC.dataSource = self;
+                    [self.navigationController pushViewController:quickLookC animated:YES];
+                } else {
+                    [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
+                }
             }
         }];
     }

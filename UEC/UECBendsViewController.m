@@ -18,9 +18,10 @@
 
 #import "Bend.h"
 
-@interface UECBendsViewController () <QLPreviewControllerDataSource>
+@interface UECBendsViewController () <QLPreviewControllerDataSource, UECReachabilityManagerDelegate>
 
 @property (strong, nonatomic) UECPreviewItem *previewBend;
+@property (strong, nonatomic)UECReachabilityManager *reachabilityManager;
 
 @property (strong, nonatomic) NSMutableArray *activeDownloads;
 
@@ -37,10 +38,11 @@
     self.title = @"Bends";
 
     self.activeDownloads = [[NSMutableArray alloc] init];
+    self.reachabilityManager = [UECReachabilityManager sharedManagerWithDelegate:self];
     
     [[APSDataManager sharedManager] cacheEntityName:@"Bend" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
-            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
+            [self.reachabilityManager handleReachabilityAlertOnRefresh:NO];
         }
     }];
     
@@ -119,7 +121,9 @@
     cell.widthConstraint.constant += increment;
 }
 
-- (void)downloadBend:(Bend *)bend inCell:(UECDownloadingCell *)cell completion:(void (^)())completionBlock;
+- (void)downloadBend:(Bend *)bend
+              inCell:(UECDownloadingCell *)cell
+          completion:(void (^)(BOOL success))completionBlock;
 {    
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *bendsPath = [documentsPath stringByAppendingPathComponent:@"Bends"];
@@ -151,12 +155,19 @@
                                     
                                 } completion:^(NSURL *localURL) {
                                     bend.downloading = @(NO);
-                                    bend.localURLString = [localURL path];
-                                                                        
-                                    [[APSDataManager sharedManager] saveContext];
-                                                                    
-                                    if (completionBlock) {
-                                        completionBlock();
+
+                                    if (localURL) {
+                                        bend.localURLString = [localURL path];
+                                        
+                                        [[APSDataManager sharedManager] saveContext];
+                                        
+                                        if (completionBlock) {
+                                            completionBlock(YES);
+                                        }
+                                    } else {
+                                        if (completionBlock) {
+                                            completionBlock(NO);
+                                        }
                                     }
                                 }];
 }
@@ -189,10 +200,12 @@
     
     UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
     
-    [self downloadBend:bend inCell:downloadCell completion:^{
-        [self.activeDownloads removeObject:bend];
-        
-        [self.tableView reloadData];
+    [self downloadBend:bend inCell:downloadCell completion:^(BOOL success) {
+        if (success) {
+            [self.activeDownloads removeObject:bend];
+            
+            [self.tableView reloadData];
+        }
     }];
 }
 
@@ -312,6 +325,15 @@
 - (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index;
 {
     return self.previewBend;
+}
+
+#pragma mark - Reachability
+
+- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(NetworkStatus)networkStatus
+{
+    if (networkStatus == NotReachable) {
+        [self stopDownloads:nil];
+    }
 }
 
 @end

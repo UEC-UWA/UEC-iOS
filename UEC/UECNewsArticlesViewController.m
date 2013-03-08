@@ -91,7 +91,8 @@ static CGFloat kCellHeight = 120.0;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
             NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
             [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-            [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
+            if ([self.fetchedResultsController.fetchedObjects count] > 0)
+                [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
         }
     }];
     

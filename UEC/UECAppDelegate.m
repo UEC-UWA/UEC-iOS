@@ -78,12 +78,16 @@
 	Reachability *curReach = [notification object];
 	NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
     
-    [[UECReachabilityManager sharedManager] resetAlerts];
+    UECReachabilityManager *reachabilityManager = [UECReachabilityManager sharedManager];
+    
+    [reachabilityManager resetAlerts];
     
     NetworkStatus networkStatus = [curReach currentReachabilityStatus];
     if (networkStatus == NotReachable) {
-        [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
+        [reachabilityManager handleReachabilityAlertOnRefresh:NO];
     }
+    
+    reachabilityManager.networkStatus = networkStatus;
 }
 
 @end
