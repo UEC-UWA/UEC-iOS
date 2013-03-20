@@ -10,6 +10,8 @@
 
 #import "UECMapViewController.h"
 
+#import "AFJSONRequestOperation.h"
+
 #define SPAN_LATITUDE 0.040872
 #define SPAN_LONGITUDE 0.037863
 
@@ -62,30 +64,45 @@
 
 #pragma mark - Google geocoding
 
-- (CLLocationCoordinate2D)geoCodeUsingAddress:(NSString *)address
+- (void)getLocationFromAddressString:(NSString *)addressStr completion:(void (^)(BOOL success, CLLocationCoordinate2D location))completionBlock
 {
-    NSString *urlStr = [NSString stringWithFormat:@"http://maps.google.com/maps/geo?q=%@&output=csv",
-                        [address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    NSError *error;
-    NSString *locationStr = [NSString stringWithContentsOfURL:[NSURL URLWithString:urlStr] encoding:NSUTF8StringEncoding error:&error];
-    NSArray *items = [locationStr componentsSeparatedByString:@","];
-    
-    CGFloat latitude = 0.0;
-    CGFloat longitude = 0.0;
-    
-    if ([items count] >= 4 && [[items objectAtIndex:0] isEqualToString:@"200"]) {
-        latitude = [[items objectAtIndex:2] doubleValue];
-        longitude = [[items objectAtIndex:3] doubleValue];
-    } else {
-        NSLog(@"Address, %@ not found: Error %@",address, [items objectAtIndex:0]);
-    }
-    
-    CLLocationCoordinate2D location;
-    location.latitude = latitude;
-    location.longitude = longitude;
-    
-    return location;
+    //build url string using address query
+	NSString *urlString = [NSString stringWithFormat:@"http://maps.googleapis.com/maps/api/geocode/json?address=%@&sensor=true", addressStr];
+	
+	//build request URL
+	NSURL *requestURL = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    //build NSURLRequest
+    NSURLRequest *geocodingRequest = [NSURLRequest requestWithURL:requestURL
+                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                  timeoutInterval:60.0];
+    AFJSONRequestOperation *operation = nil;
+    operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:geocodingRequest
+                                                                success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+                                                                    
+                                                                    NSDictionary *locationDict = [JSON[@"results"] lastObject] [@"geometry"][@"location"];
+                                                                    
+                                                                    CLLocationCoordinate2D location;
+                                                                    location.latitude = [locationDict[@"lat"] floatValue];
+                                                                    location.longitude = [locationDict[@"lng"] floatValue];
+                                                                    
+                                                                    if (completionBlock) {
+                                                                        completionBlock(YES, location);
+                                                                    }
+                                                                } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+                                                                    
+                                                                    CLLocationCoordinate2D location;
+                                                                    location.latitude = 0.0;
+                                                                    location.longitude = 0.0;
+                                                                    
+                                                                    if (completionBlock) {
+                                                                        completionBlock(NO, location);
+                                                                    }
+                                                                    
+                                                                    NSLog(@"Error: %@", error);
+                                                                }];
+    [operation start];
 }
+
 
 #pragma mark - Map Regions
 
@@ -103,24 +120,34 @@
 
 - (void)gotToAddress:(NSString *)address
 {
-#warning not smooth zooming and cluncky code.
-    CLLocation *perthLocation = [[CLLocation alloc] initWithLatitude:PERTH_CENTER.latitude
-                                                           longitude:PERTH_CENTER.longitude];
-    [self goToLocation:perthLocation spanningLat:SPAN_LATITUDE andLong:SPAN_LONGITUDE];
-    
-    CLLocationCoordinate2D center = [self geoCodeUsingAddress:address];
-    CLLocation *location = [[CLLocation alloc] initWithLatitude:center.latitude
-                                                      longitude:center.longitude];
-    
-    [self goToLocation:location spanningLat:SPAN_LATITUDE andLong:SPAN_LONGITUDE];
-    
-    // Show the pin.
-    MKPointAnnotation *addressAnnotation = [[MKPointAnnotation alloc] init];
-    addressAnnotation.title = self.eventTitle;
-    addressAnnotation.subtitle = self.address;
-    addressAnnotation.coordinate = center;
-        
-    [self.mapView addAnnotation:addressAnnotation];
+    [self getLocationFromAddressString:address completion:^(BOOL success, CLLocationCoordinate2D coordinate) {
+        if (success) {
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude
+                                                              longitude:coordinate.longitude];
+            
+            [self goToLocation:location spanningLat:SPAN_LATITUDE andLong:SPAN_LONGITUDE];
+            
+            // Show the pin.
+            MKPointAnnotation *addressAnnotation = [[MKPointAnnotation alloc] init];
+            addressAnnotation.title = self.eventTitle;
+            addressAnnotation.subtitle = self.address;
+            addressAnnotation.coordinate = coordinate;
+            
+            [self.mapView addAnnotation:addressAnnotation];
+        } else {
+            NSString *message = [[NSString alloc] initWithFormat:@"\"%@\" was not found.", address];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Address Not Found"
+                                                                message:message
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+            [alertView show];
+            
+            CLLocation *perthLocation = [[CLLocation alloc] initWithLatitude:PERTH_CENTER.latitude
+                                                                   longitude:PERTH_CENTER.longitude];
+            [self goToLocation:perthLocation spanningLat:SPAN_LATITUDE andLong:SPAN_LONGITUDE];
+        }
+    }];
 }
 
 @end

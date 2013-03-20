@@ -137,6 +137,10 @@
 		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
 		05F9179116C790B800B1BCE1 /* DummyPhotoAlbum.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05F9179016C790B800B1BCE1 /* DummyPhotoAlbum.plist */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
+		05FDB27F16F0B5C0008DAA8A /* UECTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECTheme.m */; };
+		05FDB28016F0B5C0008DAA8A /* UECTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECTheme.m */; };
+		05FDB28716F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */; };
+		05FDB28816F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -388,6 +392,14 @@
 		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
 		05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarListViewController.h; sourceTree = "<group>"; };
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
+		05FDB27916F0B4F9008DAA8A /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		05FDB27A16F0B4F9008DAA8A /* fr */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = fr; path = fr.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		05FDB27B16F0B4F9008DAA8A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05FDB27C16F0B4F9008DAA8A /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05FDB27D16F0B5C0008DAA8A /* UECTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTheme.h; sourceTree = "<group>"; };
+		05FDB27E16F0B5C0008DAA8A /* UECTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTheme.m; sourceTree = "<group>"; };
+		05FDB28516F0B6CC008DAA8A /* UECTheme_iOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTheme_iOS6.h; sourceTree = "<group>"; };
+		05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTheme_iOS6.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -616,6 +628,7 @@
 				0559110416C3B42700BF14D2 /* Helpers */,
 				0559110216C3B40A00BF14D2 /* Modules */,
 				0536F74416DF8386008ECFDA /* Images */,
+				05FDB26A16F0B2AB008DAA8A /* Theme */,
 				0542FAA416C2A85A00B327B7 /* Supporting Files */,
 			);
 			path = UEC;
@@ -1007,6 +1020,17 @@
 			name = List;
 			sourceTree = "<group>";
 		};
+		05FDB26A16F0B2AB008DAA8A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				05FDB27D16F0B5C0008DAA8A /* UECTheme.h */,
+				05FDB27E16F0B5C0008DAA8A /* UECTheme.m */,
+				05FDB28516F0B6CC008DAA8A /* UECTheme_iOS6.h */,
+				05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */,
+			);
+			name = Theme;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1065,6 +1089,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				fr,
 			);
 			mainGroup = 0542FA9116C2A85A00B327B7;
 			productRefGroup = 0542FA9B16C2A85A00B327B7 /* Products */;
@@ -1270,6 +1295,8 @@
 				05BCDC8116E77A2900AA0FA2 /* UECTorqueViewController.m in Sources */,
 				05BCDC8516E77F0600AA0FA2 /* Torque.m in Sources */,
 				05BCDC8A16E794D500AA0FA2 /* UECTorquePreviewController.m in Sources */,
+				05FDB27F16F0B5C0008DAA8A /* UECTheme.m in Sources */,
+				05FDB28716F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1278,6 +1305,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */,
+				05FDB28016F0B5C0008DAA8A /* UECTheme.m in Sources */,
+				05FDB28816F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1311,6 +1340,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0542FAA716C2A85A00B327B7 /* en */,
+				05FDB27B16F0B4F9008DAA8A /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1319,6 +1349,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0542FAB616C2A85A00B327B7 /* en */,
+				05FDB27916F0B4F9008DAA8A /* fr */,
 			);
 			name = MainStoryboard_iPhone.storyboard;
 			sourceTree = "<group>";
@@ -1327,6 +1358,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0542FAB916C2A85A00B327B7 /* en */,
+				05FDB27A16F0B4F9008DAA8A /* fr */,
 			);
 			name = MainStoryboard_iPad.storyboard;
 			sourceTree = "<group>";
@@ -1335,6 +1367,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				0542FAD916C2A85A00B327B7 /* en */,
+				05FDB27C16F0B4F9008DAA8A /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

@@ -30,7 +30,7 @@ static CGFloat kCellHeight = 55.0;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [self.delegate didRequestDataOnManualRefresh:NO];
+    [self.delegate didRequestDataOnManualRefresh:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,9 +43,9 @@ static CGFloat kCellHeight = 55.0;
 
 - (void)handleRefresh:(id)sender
 {
-    [self.delegate didRequestDataOnManualRefresh:YES];
-    
-    [self.refreshControl endRefreshing];
+    [self.delegate didRequestDataOnManualRefresh:YES completion:^{
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -99,16 +99,16 @@ static CGFloat kCellHeight = 55.0;
 //        
 //    }];
     
-    NSString *imageName = nil;
+    UIImage *image = nil;
     if ([event.type isEqualToString:@"Social"]) {
-        imageName = @"redsolocup.png";
+        image = [[UECThemeManager sharedTheme] socialEventImage];
     } else if ([event.type isEqualToString:@"Educational"]) {
-        imageName = @"gradhat.png";
+        image = [[UECThemeManager sharedTheme] educationEventImage];
     } else {
-        imageName = @"hardhat.png";
+        image = [[UECThemeManager sharedTheme] otherEventImage];
     }
     
-    [cell.categoryImageView setImage:[UIImage imageNamed:imageName]];
+    [cell.categoryImageView setImage:image];
     
     return cell;
 }

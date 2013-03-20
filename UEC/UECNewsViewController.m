@@ -27,7 +27,7 @@
     // Add the view controllers to the array
     self.allViewControllers = @[newsArticlesVC, torqueVC];
     
-    [self setupSegmentControlWithItems:@[@"News", @"Torque"]];
+    [self setupSegmentControlWithItems:@[@"Articles", @"Torque"]];
 }
 
 

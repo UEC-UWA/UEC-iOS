@@ -14,7 +14,7 @@
       inContext:(NSManagedObjectContext *)context
     idAttribute:(NSString *)attribute
           value:(id)value
-       onInsert:(void (^)(NSManagedObject *))insertBlock
+       onInsert:(void (^)(NSManagedObject *object))insertBlock
 {
     id returnedObject = nil;
         
@@ -63,7 +63,7 @@
         fs.predicate = [NSPredicate predicateWithFormat:@"%K = %@", attribute, value];
         fs.fetchLimit = 1;
     } inContext:context] lastObject];
-    
+
     return object;
 }
 

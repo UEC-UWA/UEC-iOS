@@ -21,7 +21,7 @@
 
 @end
 
-@interface UECMonthViewController () <TSQCalendarViewDelegate, TSQCalendarViewDataSource>
+@interface UECMonthViewController () <TSQCalendarViewDelegate, NSFetchedResultsControllerDelegate>
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 @property (strong, nonatomic) TSQCalendarView *calendarView;
 
@@ -48,8 +48,8 @@
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     [self.calendarView.tableView addSubview:self.refreshControl];
     
+//    self.calendarView.dataSource = self;
     self.calendarView.delegate = self;
-    self.calendarView.dataSource = self;
     
     self.view = self.calendarView;
     
@@ -57,6 +57,13 @@
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
         request.sortDescriptors = @[sortDescriptor];
     } entityName:@"Event" sectionNameKeyPath:nil cacheName:nil];
+    
+    self.fetchedResultsController.delegate = self;
+    
+    [self.delegate didRequestDataOnManualRefresh:NO completion:^{
+        NSError *error = nil;
+        [self.fetchedResultsController performFetch:&error];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -70,14 +77,14 @@
 {
     // Refresh data here
     
-    [self.delegate didRequestDataOnManualRefresh:YES];
-    
-    [self.refreshControl endRefreshing];
-}
-
-- (void)refresh
-{
-    [self.calendarView.tableView reloadData];
+    [self.delegate didRequestDataOnManualRefresh:YES completion:^{
+        NSError *error = nil;
+        [self.fetchedResultsController performFetch:&error];
+        
+        [self.calendarView.tableView reloadData];
+        
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - TSQCalendarViewDelegate
@@ -89,11 +96,25 @@
 
 #pragma mark - TSQCalendarViewDataSource
 
-- (NSArray *)calendarViewEventDates
+- (NSArray *)calendarViewEventDaes
 {
     NSArray *events = [self.fetchedResultsController fetchedObjects];
     
-    return [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
+//    NSLog(@"CUNT: %@", [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"]);
+    
+    NSArray *cunt = [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
+    
+    if (cunt)
+    return @[[cunt lastObject]];
+    else
+        return nil;
+}
+
+#pragma mark - NSFetchedResultsControllerDelegate
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.calendarView.tableView reloadData];
 }
 
 @end

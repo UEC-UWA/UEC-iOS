@@ -10,7 +10,7 @@
 
 @implementation UECCalendarRowCell
 
-- (void)layoutViewsForColumnAtIndex:(NSUInteger)index inRect:(CGRect)rect;
+- (void)layoutViewsForColumnAtIndex:(NSUInteger)index inRect:(CGRect)rect
 {
     // Move down for the row at the top
     rect.origin.y += self.columnSpacing;
@@ -18,29 +18,29 @@
     [super layoutViewsForColumnAtIndex:index inRect:rect];
 }
 
-- (UIImage *)todayBackgroundImage;
+- (UIImage *)todayBackgroundImage
 {
     return [[UIImage imageNamed:@"CalendarTodaysDate.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
 }
 
-- (UIImage *)selectedBackgroundImage;
+- (UIImage *)selectedBackgroundImage
 {
     return [[UIImage imageNamed:@"CalendarSelectedDate.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
 }
 
-- (UIImage *)notThisMonthBackgroundImage;
+- (UIImage *)notThisMonthBackgroundImage
 {
     return [[UIImage imageNamed:@"CalendarPreviousMonth.png"] stretchableImageWithLeftCapWidth:0 topCapHeight:0];
 }
 
-- (UIImage *)backgroundImage;
+- (UIImage *)backgroundImage
 {
     return [UIImage imageNamed:[NSString stringWithFormat:@"CalendarRow%@.png", self.bottomRow ? @"Bottom" : @""]];
 }
 
-- (UIImage *)eventBackgroundImage;
+- (UIImage *)eventBackgroundImage
 {
-    return [UIImage imageNamed:@"gentleman.png"];
+    return [[UIImage imageNamed:@"CalendarSelectedDate.png"] stretchableImageWithLeftCapWidth:4 topCapHeight:4];
 }
 
 @end

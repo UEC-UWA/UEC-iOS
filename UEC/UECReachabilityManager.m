@@ -57,7 +57,7 @@
     if (!(self.shouldShowAlert || refresh))
         return;
     
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No Internet Connection"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"NO_INTERNET_TITLE", @"No Internet Alertview Title")
                                                         message:@"You are not connected to the Internet. The app is using cached data."
                                                        delegate:self
                                               cancelButtonTitle:@"OK"

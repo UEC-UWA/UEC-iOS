@@ -56,9 +56,18 @@
 
 - (void)refreshDataManually:(BOOL)manualRefresh
 {
+    [self refreshDataManually:manualRefresh completion:nil];
+}
+
+- (void)refreshDataManually:(BOOL)manualRefresh completion:(void (^)(void))completionBlock
+{
     [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
+        }
+        
+        if (completionBlock) {
+            completionBlock();
         }
     }];
 }
@@ -70,9 +79,9 @@
     
 }
 
-- (void)didRequestDataOnManualRefresh:(BOOL)manualRefresh
+- (void)didRequestDataOnManualRefresh:(BOOL)manualRefresh completion:(void (^)(void))completionBlock
 {
-    [self refreshDataManually:manualRefresh];
+    [self refreshDataManually:manualRefresh completion:completionBlock];
 }
 
 @end

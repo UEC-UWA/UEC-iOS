@@ -94,11 +94,11 @@ static CGFloat kCellHeight = 120.0;
             if ([self.fetchedResultsController.fetchedObjects count] > 0)
                 [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
         }
+        
+        [self.refreshControl endRefreshing];
     }];
     
     self.fetchedResultsController = [self defaultFetchedResultsController];
-    
-    [self.refreshControl endRefreshing];
 }
 
 #pragma mark - NSFetchedResultsController

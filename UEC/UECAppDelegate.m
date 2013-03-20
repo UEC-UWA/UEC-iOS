@@ -21,15 +21,8 @@
 @implementation UECAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{    
-    [[UINavigationBar appearance] setTintColor:UEC_YELLOW];
-    NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
-    [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
-    
-    NSDictionary *barButtonAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
-    [[UIBarButtonItem appearance] setTintColor:[UIColor darkGrayColor]];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateNormal];
-    [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateHighlighted];
+{
+    [UECThemeManager customiseAppAppearance];
     
     // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
     // method "reachabilityChanged" will be called.
