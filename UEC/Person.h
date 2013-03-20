@@ -2,7 +2,7 @@
 //  Person.h
 //  UEC
 //
-//  Created by Jad Osseiran on 6/03/13.
+//  Created by Jad Osseiran on 20/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -14,7 +14,7 @@
 
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * firstName;
-@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * lastName;
 @property (nonatomic, retain) NSNumber * order;
 @property (nonatomic, retain) NSString * photoPath;

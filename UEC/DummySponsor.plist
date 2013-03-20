@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>id</key>
-		<integer>1</integer>
+		<string>1</string>
 		<key>name</key>
 		<string>BHP</string>
 		<key>website_path</key>
@@ -14,7 +14,7 @@
 	</dict>
 	<dict>
 		<key>id</key>
-		<integer>2</integer>
+		<string>2</string>
 		<key>name</key>
 		<string>Rio Tinto</string>
 		<key>website_path</key>
@@ -24,7 +24,7 @@
 	</dict>
 	<dict>
 		<key>id</key>
-		<integer>3</integer>
+		<string>3</string>
 		<key>name</key>
 		<string>CLOUGH</string>
 		<key>website_path</key>

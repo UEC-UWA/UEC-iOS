@@ -18,7 +18,7 @@
 		<key>summary</key>
 		<string>He is the president.</string>
 		<key>id</key>
-		<integer>1</integer>
+		<string>1</string>
 	</dict>
 	<dict>
 		<key>first_name</key>
@@ -36,7 +36,7 @@
 		<key>summary</key>
 		<string>He is not the president... anymore</string>
 		<key>id</key>
-		<integer>2</integer>
+		<string>2</string>
 	</dict>
 	<dict>
 		<key>first_name</key>
@@ -54,7 +54,7 @@
 		<key>summary</key>
 		<string>Motor sport bitch.</string>
 		<key>id</key>
-		<integer>3</integer>
+		<string>3</string>
 	</dict>
 	<dict>
 		<key>first_name</key>
@@ -72,7 +72,7 @@
 		<key>summary</key>
 		<string>phantoms this way.</string>
 		<key>id</key>
-		<integer>4</integer>
+		<string>4</string>
 	</dict>
 </array>
 </plist>

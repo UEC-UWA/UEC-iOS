@@ -2,7 +2,7 @@
 //  Sponsor.h
 //  UEC
 //
-//  Created by Jad Osseiran on 6/03/13.
+//  Created by Jad Osseiran on 20/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 @interface Sponsor : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * logoPath;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * websitePath;

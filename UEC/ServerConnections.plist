@@ -5,31 +5,18 @@
 	<key>AboutUEC</key>
 	<string>http://aboutUECJSON</string>
 	<key>BasePath</key>
-	<string>http://theuecservercraphere.com/api</string>
+	<string>http://uec.org.au/app_scripts/?script=</string>
 	<key>Person</key>
-	<dict>
-		<key>GET</key>
-		<string>/committee.json</string>
-	</dict>
+	<string>person</string>
 	<key>NewsArticle</key>
-	<dict>
-		<key>GET</key>
-		<string></string>
-	</dict>
+	<string>newsarticle</string>
 	<key>Event</key>
-	<dict>
-		<key>GET</key>
-		<string></string>
-	</dict>
-	<key>PhotoAlbum</key>
-	<dict>
-		<key>GET</key>
-		<string></string>
-	</dict>
+	<string>event</string>
 	<key>Sponsor</key>
-	<dict>
-		<key>GET</key>
-		<string></string>
-	</dict>
+	<string>sponsor</string>
+	<key>Torque</key>
+	<string>torque</string>
+	<key>Bend</key>
+	<string>bend</string>
 </dict>
 </plist>

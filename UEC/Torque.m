@@ -2,7 +2,7 @@
 //  Torque.m
 //  UEC
 //
-//  Created by Jad Osseiran on 6/03/13.
+//  Created by Jad Osseiran on 20/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -11,10 +11,10 @@
 
 @implementation Torque
 
+@dynamic date;
+@dynamic fileAddress;
 @dynamic identifier;
 @dynamic localURLString;
 @dynamic name;
-@dynamic date;
-@dynamic fileAddress;
 
 @end

@@ -10,7 +10,7 @@
 		<key>date</key>
 		<date>2013-02-08T17:14:34Z</date>
 		<key>id</key>
-		<integer>1</integer>
+		<string>1</string>
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
@@ -472,7 +472,7 @@ Welcome to 2013.
 		<key>date</key>
 		<date>2013-02-04T17:14:34Z</date>
 		<key>id</key>
-		<integer>4</integer>
+		<string>4</string>
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
@@ -704,7 +704,7 @@ Welcome to 2013.
 		<key>date</key>
 		<date>2013-02-09T17:14:34Z</date>
 		<key>id</key>
-		<integer>3</integer>
+		<string>3</string>
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>
