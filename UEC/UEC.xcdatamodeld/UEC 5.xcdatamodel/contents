@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12D78" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Bend" representedClassName="Bend" syncable="YES">
-        <attribute name="downloading" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="fileAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="localURLString" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="purchased" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <attribute name="size" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
@@ -54,17 +45,18 @@
     </entity>
     <entity name="Torque" representedClassName="Torque" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="downloaded" optional="YES" syncable="YES"/>
+        <attribute name="downloading" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="fileAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bend" positionX="-1946" positionY="-657" width="128" height="150"/>
         <element name="Event" positionX="-1793" positionY="-963" width="128" height="270"/>
         <element name="NewsArticle" positionX="-1647" positionY="-709" width="128" height="150"/>
         <element name="Person" positionX="-2034" positionY="-927" width="128" height="180"/>
         <element name="Sponsor" positionX="-2169" positionY="-720" width="128" height="105"/>
-        <element name="Torque" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Torque" positionX="160" positionY="192" width="128" height="150"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  Torque.h
 //  UEC
 //
-//  Created by Jad Osseiran on 20/03/13.
+//  Created by Jad Osseiran on 27/03/13.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -17,5 +17,7 @@
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * localURLString;
 @property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * downloading;
+@property (nonatomic, retain) UNKNOWN_TYPE downloaded;
 
 @end
