@@ -32,6 +32,8 @@
     NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
     [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
     
+    [[UITabBar appearance] setSelectedImageTintColor:UEC_YELLOW];
+    
     NSDictionary *barButtonAttributes = @{UITextAttributeTextColor: [UIColor whiteColor]};
     [[UIBarButtonItem appearance] setTintColor:[UIColor darkGrayColor]];
     [[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:barButtonAttributes forState:UIControlStateNormal];

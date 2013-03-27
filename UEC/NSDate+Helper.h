@@ -10,10 +10,15 @@
 
 @interface NSDate (Helper)
 
+- (BOOL)isBetweenDate:(NSDate *)beginDate andDate:(NSDate *)endDate;
 - (BOOL)isInSameDayAsDate:(NSDate *)date;
+- (NSInteger)daysDifferenceToDate:(NSDate *)toDate;
 
 - (NSDate *)startOfCurrentYear;
 - (NSDate *)endOfCurrentYear;
+
+- (NSDate *)beginningOfDay;
+- (NSDate *)endOfDay;
 
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months;
 - (NSDate *)dateByAddingNumberOfDays:(NSInteger)days;

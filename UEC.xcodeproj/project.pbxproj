@@ -54,6 +54,13 @@
 		0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
 		0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAD816C2A85A00B327B7 /* InfoPlist.strings */; };
 		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
+		054A32891702F10F0070D9A9 /* UECCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A32881702F10F0070D9A9 /* UECCalendarView.m */; };
+		054A328C1702F67C0070D9A9 /* CalendarSelectedDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A328A1702F67B0070D9A9 /* CalendarSelectedDate.png */; };
+		054A328D1702F67C0070D9A9 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A328B1702F67B0070D9A9 /* CalendarSelectedDate@2x.png */; };
+		054A32901702F6E90070D9A9 /* CalendarEvent.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A328E1702F6E80070D9A9 /* CalendarEvent.png */; };
+		054A32911702F6E90070D9A9 /* CalendarEvent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A328F1702F6E80070D9A9 /* CalendarEvent@2x.png */; };
+		054A32941702F9CB0070D9A9 /* CalendarNoEvent.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A32921702F9CB0070D9A9 /* CalendarNoEvent.png */; };
+		054A32951702F9CB0070D9A9 /* CalendarNoEvent@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 054A32931702F9CB0070D9A9 /* CalendarNoEvent@2x.png */; };
 		055323F516E2038A00C83C8D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F416E2038A00C83C8D /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055323F616E2048E00C83C8D /* SystemConfiguration.framework */; };
 		055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F916E20A2900C83C8D /* UECReachabilityManager.m */; };
@@ -64,8 +71,6 @@
 		055910F116C3AE9600BF14D2 /* CalendarRow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */; };
 		055910F216C3AE9600BF14D2 /* CalendarRowBottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */; };
 		055910F316C3AE9600BF14D2 /* CalendarRowBottom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */; };
-		055910F416C3AE9600BF14D2 /* CalendarSelectedDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */; };
-		055910F516C3AE9600BF14D2 /* CalendarSelectedDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */; };
 		055910F616C3AE9600BF14D2 /* CalendarTodaysDate.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */; };
 		055910F716C3AE9600BF14D2 /* CalendarTodaysDate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */; };
 		055910FA16C3AFB400BF14D2 /* UECCalendarRowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */; };
@@ -259,6 +264,14 @@
 		0542FAD916C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0542FADB16C2A85A00B327B7 /* UECTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UECTests.h; sourceTree = "<group>"; };
 		0542FADC16C2A85A00B327B7 /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
+		054A32871702F10F0070D9A9 /* UECCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarView.h; sourceTree = "<group>"; };
+		054A32881702F10F0070D9A9 /* UECCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarView.m; sourceTree = "<group>"; };
+		054A328A1702F67B0070D9A9 /* CalendarSelectedDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarSelectedDate.png; sourceTree = "<group>"; };
+		054A328B1702F67B0070D9A9 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
+		054A328E1702F6E80070D9A9 /* CalendarEvent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarEvent.png; sourceTree = "<group>"; };
+		054A328F1702F6E80070D9A9 /* CalendarEvent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarEvent@2x.png"; sourceTree = "<group>"; };
+		054A32921702F9CB0070D9A9 /* CalendarNoEvent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarNoEvent.png; sourceTree = "<group>"; };
+		054A32931702F9CB0070D9A9 /* CalendarNoEvent@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarNoEvent@2x.png"; sourceTree = "<group>"; };
 		055323F316E2038A00C83C8D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		055323F416E2038A00C83C8D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		055323F616E2048E00C83C8D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -271,8 +284,6 @@
 		055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRow@2x.png"; sourceTree = "<group>"; };
 		055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarRowBottom.png; sourceTree = "<group>"; };
 		055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarRowBottom@2x.png"; sourceTree = "<group>"; };
-		055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarSelectedDate.png; sourceTree = "<group>"; };
-		055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarSelectedDate@2x.png"; sourceTree = "<group>"; };
 		055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CalendarTodaysDate.png; sourceTree = "<group>"; };
 		055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CalendarTodaysDate@2x.png"; sourceTree = "<group>"; };
 		055910F816C3AFB400BF14D2 /* UECCalendarRowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarRowCell.h; sourceTree = "<group>"; };
@@ -457,8 +468,7 @@
 			children = (
 				055910FF16C3B24600BF14D2 /* UECMonthViewController.h */,
 				0559110016C3B24600BF14D2 /* UECMonthViewController.m */,
-				055910F816C3AFB400BF14D2 /* UECCalendarRowCell.h */,
-				055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */,
+				054A32831702F0E60070D9A9 /* TimeSquare */,
 			);
 			name = Month;
 			sourceTree = "<group>";
@@ -488,6 +498,7 @@
 				05BCDC9116E79A7600AA0FA2 /* building_88x88.png */,
 				05BCDC9216E79A7600AA0FA2 /* face_55x55.png */,
 				05BCDC9316E79A7600AA0FA2 /* face_110x110.png */,
+				055910E316C3AE8600BF14D2 /* Calendar */,
 				0536F76916DF8506008ECFDA /* Launch Images */,
 				0536F76816DF8500008ECFDA /* Icon */,
 				0536F75D16DF83E8008ECFDA /* Tab Bar */,
@@ -659,21 +670,36 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		055910E316C3AE8600BF14D2 /* Images */ = {
+		054A32831702F0E60070D9A9 /* TimeSquare */ = {
+			isa = PBXGroup;
+			children = (
+				054A32871702F10F0070D9A9 /* UECCalendarView.h */,
+				054A32881702F10F0070D9A9 /* UECCalendarView.m */,
+				055910F816C3AFB400BF14D2 /* UECCalendarRowCell.h */,
+				055910F916C3AFB400BF14D2 /* UECCalendarRowCell.m */,
+			);
+			name = TimeSquare;
+			sourceTree = "<group>";
+		};
+		055910E316C3AE8600BF14D2 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
 				055910E416C3AE9600BF14D2 /* CalendarPreviousMonth.png */,
 				055910E516C3AE9600BF14D2 /* CalendarPreviousMonth@2x.png */,
+				054A32921702F9CB0070D9A9 /* CalendarNoEvent.png */,
+				054A32931702F9CB0070D9A9 /* CalendarNoEvent@2x.png */,
+				054A328E1702F6E80070D9A9 /* CalendarEvent.png */,
+				054A328F1702F6E80070D9A9 /* CalendarEvent@2x.png */,
 				055910E616C3AE9600BF14D2 /* CalendarRow.png */,
 				055910E716C3AE9600BF14D2 /* CalendarRow@2x.png */,
 				055910E816C3AE9600BF14D2 /* CalendarRowBottom.png */,
 				055910E916C3AE9600BF14D2 /* CalendarRowBottom@2x.png */,
-				055910EA16C3AE9600BF14D2 /* CalendarSelectedDate.png */,
-				055910EB16C3AE9600BF14D2 /* CalendarSelectedDate@2x.png */,
+				054A328A1702F67B0070D9A9 /* CalendarSelectedDate.png */,
+				054A328B1702F67B0070D9A9 /* CalendarSelectedDate@2x.png */,
 				055910EC16C3AE9600BF14D2 /* CalendarTodaysDate.png */,
 				055910ED16C3AE9600BF14D2 /* CalendarTodaysDate@2x.png */,
 			);
-			name = Images;
+			name = Calendar;
 			sourceTree = "<group>";
 		};
 		0559110216C3B40A00BF14D2 /* Modules */ = {
@@ -941,7 +967,6 @@
 		05DD22CE16C2B71A00CF18F0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				055910E316C3AE8600BF14D2 /* Images */,
 				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
 				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
 				051B3D5216C56EEF007BAB12 /* Month */,
@@ -1155,8 +1180,6 @@
 				055910F116C3AE9600BF14D2 /* CalendarRow@2x.png in Resources */,
 				055910F216C3AE9600BF14D2 /* CalendarRowBottom.png in Resources */,
 				055910F316C3AE9600BF14D2 /* CalendarRowBottom@2x.png in Resources */,
-				055910F416C3AE9600BF14D2 /* CalendarSelectedDate.png in Resources */,
-				055910F516C3AE9600BF14D2 /* CalendarSelectedDate@2x.png in Resources */,
 				055910F616C3AE9600BF14D2 /* CalendarTodaysDate.png in Resources */,
 				055910F716C3AE9600BF14D2 /* CalendarTodaysDate@2x.png in Resources */,
 				0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */,
@@ -1201,6 +1224,12 @@
 				05BCDC9516E79A7600AA0FA2 /* building_88x88.png in Resources */,
 				05BCDC9616E79A7600AA0FA2 /* face_55x55.png in Resources */,
 				05BCDC9716E79A7600AA0FA2 /* face_110x110.png in Resources */,
+				054A328C1702F67C0070D9A9 /* CalendarSelectedDate.png in Resources */,
+				054A328D1702F67C0070D9A9 /* CalendarSelectedDate@2x.png in Resources */,
+				054A32901702F6E90070D9A9 /* CalendarEvent.png in Resources */,
+				054A32911702F6E90070D9A9 /* CalendarEvent@2x.png in Resources */,
+				054A32941702F9CB0070D9A9 /* CalendarNoEvent.png in Resources */,
+				054A32951702F9CB0070D9A9 /* CalendarNoEvent@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,6 +1319,7 @@
 				05E59FFB16F9F56C0016B8AE /* Person.m in Sources */,
 				05E59FFE16F9F56C0016B8AE /* Sponsor.m in Sources */,
 				05E5A00116F9F56C0016B8AE /* NewsArticle.m in Sources */,
+				054A32891702F10F0070D9A9 /* UECCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1425,8 +1455,8 @@
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Warren Beckwith (KL92D2NQV8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Warren Beckwith (KL92D2NQV8)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1438,8 +1468,8 @@
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0643B33C-BB98-4A05-9F88-D8376B214E40";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0643B33C-BB98-4A05-9F88-D8376B214E40";
+				PROVISIONING_PROFILE = "AA15D8BC-4A2C-4208-9B1D-F252C32DFFD3";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA15D8BC-4A2C-4208-9B1D-F252C32DFFD3";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

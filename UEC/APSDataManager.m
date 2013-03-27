@@ -164,73 +164,50 @@
             });
         }
         
-//        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
-//        NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
+        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
+        NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
 
-        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-        
-        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
-        [path appendString:serverPaths[entityName]];
-        
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:path]];
-        
-        AFJSONRequestOperation *operation = nil;
-        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        [threadContext performBlock:^{
+            NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
             
-            [threadContext performBlock:^{
-                NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
-                
-                for (NSDictionary *dataObject in JSON) {
-                    id downloadedObject = [self.class newEntityWithName:entityName
-                                                              inContext:threadContext
-                                                            idAttribute:@"identifier"
-                                                                  value:dataObject[@"id"]
-                                                               onInsert:^(NSManagedObject *entity) {
-                                                                   [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                                                                       if (![key isEqualToString:@"identifier"]) {
-#warning temporary checks for the sent down data
-                                                                           if ([obj isEqualToString:@"summary"] && [NSStringFromClass([entity class]) isEqualToString:@"NewsArticle"]) {
-                                                                               [entity setValue:@"Cam will fix this soon" forKey:key];
-                                                                           } else if ([obj isEqualToString:@"date"]) {
-                                                                               [entity setValue:[NSDate date] forKey:key];
-                                                                           } else {
-                                                                               id value = dataObject[obj];
-                                                                               [entity setValue:value forKey:key];
-                                                                           }
-                                                                       }
-                                                                   }];
+            for (NSDictionary *dataObject in data) {
+                id downloadedObject = [self.class newEntityWithName:entityName
+                                                          inContext:threadContext
+                                                        idAttribute:@"identifier"
+                                                              value:dataObject[@"id"]
+                                                           onInsert:^(NSManagedObject *entity) {
+                                                               [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                                                                   if (![key isEqualToString:@"identifier"]) {
+                                                                       id value = dataObject[obj];
+                                                                       [entity setValue:value forKey:key];
+                                                                   }
                                                                }];
-                    
-                    [downloadedObjectsIDs addObject:[downloadedObject objectID]];
+                                                           }];
+                
+                [downloadedObjectsIDs addObject:[downloadedObject objectID]];
+            }
+            
+            [self saveContext:threadContext];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
+                    [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
+                    for (id objectID in coreDataObjectsIDs) {
+                        NSError *error = nil;
+                        NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
+                        [self.mainContext deleteObject:object];
+                    }
                 }
                 
-                [self saveContext:threadContext];
+                [self saveContext:self.mainContext];
                 
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
-                        [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
-                        for (id objectID in coreDataObjectsIDs) {
-                            NSError *error = nil;
-                            NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
-                            [self.mainContext deleteObject:object];
-                        }
-                    }
-                    
-                    [self saveContext:self.mainContext];
-                    
-                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                    
-                    if (completionBlock) {
-                        completionBlock(YES);
-                    }
-                });
-            }];
-
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
-            
+                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                
+                if (completionBlock) {
+                    completionBlock(YES);
+                }
+            });
         }];
-        
-        [operation start];
     });
 }
 

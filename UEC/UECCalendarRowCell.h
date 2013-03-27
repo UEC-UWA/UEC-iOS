@@ -10,4 +10,6 @@
 
 @interface UECCalendarRowCell : TSQCalendarRowCell
 
+- (void)setEventDates:(NSArray *)eventDates;
+
 @end

@@ -241,7 +241,7 @@ Welcome to 2013.
 		<key>date</key>
 		<date>2013-02-02T17:14:34Z</date>
 		<key>id</key>
-		<integer>2</integer>
+		<string>2</string>
 		<key>link</key>
 		<string>http://www.uec.org.au</string>
 		<key>content</key>

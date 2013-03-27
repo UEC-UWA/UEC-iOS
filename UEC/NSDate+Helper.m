@@ -23,16 +23,38 @@
     return [[NSCalendar currentCalendar] dateFromComponents:comps];
 }
 
+- (NSDate *)dateByAddingUnitsToComps:(void (^)(NSDateComponents *comps))compsBlock
+{
+    NSDateComponents *comps = [[NSDateComponents alloc] init];
+    if (compsBlock) {
+        compsBlock(comps);
+    }
+    return [[NSCalendar currentCalendar] dateByAddingComponents:comps toDate:self options:0];
+}
+
 #pragma mark - Compare Methods
+
+- (BOOL)isBetweenDate:(NSDate *)beginDate andDate:(NSDate *)endDate
+{
+    if ([self compare:beginDate] == NSOrderedAscending)
+    	return NO;
+    
+    if ([self compare:endDate] == NSOrderedDescending)
+    	return NO;
+    
+    return YES;
+}
 
 - (BOOL)isInSameDayAsDate:(NSDate *)date
 {
-    NSDateComponents *comps = [self dateComponents];
-    NSDateComponents *otherComps = [date dateComponents];
-    
-    return (comps.day == otherComps.day &&
-            comps.month == otherComps.month &&
-            comps.year == otherComps.year);
+    return [self isBetweenDate:[self beginningOfDay] andDate:[self endOfDay]];
+}
+
+- (NSInteger)daysDifferenceToDate:(NSDate *)toDate
+{
+    unsigned unitFlags = NSDayCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:unitFlags fromDate:self toDate:toDate options:0];
+    return [components day] + 1;
 }
 
 #pragma mark - Year Methods
@@ -63,64 +85,88 @@
     return [endMonthDate dateByAddingNumberOfDays:(numDaysInMonth - comps.day)];
 }
 
+#pragma mark - Day Start & Ends
+
+- (NSDate *)dayWithHour:(NSUInteger)hour minute:(NSUInteger)minute second:(NSUInteger)second
+{
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:unitFlags fromDate:self];
+    
+    comps.hour = hour;
+    comps.minute = minute;
+    comps.second = second;
+    
+    return [[NSCalendar currentCalendar] dateFromComponents:comps];
+}
+
+- (NSDate *)beginningOfDay
+{
+    return [self dayWithHour:0 minute:0 second:0];
+}
+
+- (NSDate *)endOfDay
+{
+    return [self dayWithHour:23 minute:59 second:59];
+}
+
 #pragma mark - Adding Methods
 
 - (NSDate *)dateByAddingNumberOfMonths:(NSInteger)months
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.month += months;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.month = months;
+    }];
 }
 
 - (NSDate *)dateByAddingNumberOfDays:(NSInteger)days
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.day += days;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.day = days;
+    }];
 }
 
 - (NSDate *)dateByAddingNumberOfHours:(NSInteger)hours
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.hour += hours;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.hour = hours;
+    }];
 }
 
 - (NSDate *)dateByAddingNumberOfMinutes:(NSInteger)minutes
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.minute += minutes;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.minute = minutes;
+    }];
 }
 
 #pragma mark - Removing Methods
 
 - (NSDate *)dateByRemovingNumberOfMonths:(NSInteger)months
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.month -= months;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.month = -months;
+    }];
 }
 
 - (NSDate *)dateByRemovingNumberOfDays:(NSInteger)days
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.day -= days;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.day = -days;
+    }];
 }
 
 - (NSDate *)dateByRemovingNumberOfHours:(NSInteger)hours
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.hour -= hours;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.hour = -hours;
+    }];
 }
 
 - (NSDate *)dateByRemovingNumberOfMinutes:(NSInteger)minutes
 {
-    NSDateComponents *comps = [self dateComponents];
-    comps.minute -= minutes;
-    return [self dateFromComponents:comps];
+    return [self dateByAddingUnitsToComps:^(NSDateComponents *comps) {
+        comps.minute = -minutes;
+    }];
 }
 
 @end

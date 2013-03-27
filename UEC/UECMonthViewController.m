@@ -10,6 +10,7 @@
 
 #import "UECMonthViewController.h"
 
+#import "UECCalendarView.h"
 #import "UECCalendarRowCell.h"
 
 #import "APSDataManager.h"
@@ -21,9 +22,9 @@
 
 @end
 
-@interface UECMonthViewController () <TSQCalendarViewDelegate, NSFetchedResultsControllerDelegate>
+@interface UECMonthViewController () <NSFetchedResultsControllerDelegate, TSQCalendarViewDelegate, UECCalendarViewDataSource>
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
-@property (strong, nonatomic) TSQCalendarView *calendarView;
+@property (strong, nonatomic) UECCalendarView *calendarView;
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end
@@ -34,24 +35,7 @@
 {
     [super viewDidLoad];
     
-    self.calendarView = [[TSQCalendarView alloc] init];
-    self.calendarView.calendar = [NSCalendar currentCalendar];
-    self.calendarView.rowCellClass = [UECCalendarRowCell class];
-    self.calendarView.firstDate = [[NSDate date] startOfCurrentYear];
-    self.calendarView.lastDate = [[NSDate date] endOfCurrentYear];
-    self.calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
-    self.calendarView.pagingEnabled = NO;
-    CGFloat onePixel = 1.0f / [UIScreen mainScreen].scale;
-    self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    [self.calendarView.tableView addSubview:self.refreshControl];
-    
-//    self.calendarView.dataSource = self;
-    self.calendarView.delegate = self;
-    
-    self.view = self.calendarView;
+    [self setupCalendar];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"startDate" ascending:YES];
@@ -63,6 +47,8 @@
     [self.delegate didRequestDataOnManualRefresh:NO completion:^{
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
+        
+        [self.calendarView reloadCalendar];
     }];
 }
 
@@ -81,33 +67,45 @@
         NSError *error = nil;
         [self.fetchedResultsController performFetch:&error];
         
-        [self.calendarView.tableView reloadData];
+        [self.calendarView reloadCalendar];
         
         [self.refreshControl endRefreshing];
     }];
 }
 
-#pragma mark - TSQCalendarViewDelegate
+#pragma mark - Calendar 
+
+- (void)setupCalendar
+{
+    self.calendarView = [[UECCalendarView alloc] init];
+    self.calendarView.calendar = [NSCalendar currentCalendar];
+    self.calendarView.rowCellClass = [UECCalendarRowCell class];
+    self.calendarView.firstDate = [[NSDate date] startOfCurrentYear];
+    self.calendarView.lastDate = [[NSDate date] endOfCurrentYear];
+    self.calendarView.backgroundColor = [UIColor colorWithRed:0.84f green:0.85f blue:0.86f alpha:1.0f];
+    self.calendarView.pagingEnabled = NO;
+    CGFloat onePixel = 1.0f / [UIScreen mainScreen].scale;
+    self.calendarView.contentInset = UIEdgeInsetsMake(0.0f, onePixel, 0.0f, onePixel);
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.calendarView.tableView addSubview:self.refreshControl];
+    
+    self.calendarView.dataSource = self;
+    self.calendarView.delegate = self;
+    
+    self.view = self.calendarView;
+}
 
 - (void)calendarView:(TSQCalendarView *)calendarView didSelectDate:(NSDate *)date
 {
     
 }
 
-#pragma mark - TSQCalendarViewDataSource
-
-- (NSArray *)calendarViewEventDaes
+- (NSArray *)calendarViewEventDates
 {
     NSArray *events = [self.fetchedResultsController fetchedObjects];
-    
-//    NSLog(@"CUNT: %@", [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"]);
-    
-    NSArray *cunt = [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
-    
-    if (cunt)
-    return @[[cunt lastObject]];
-    else
-        return nil;
+    return [events valueForKeyPath:@"@distinctUnionOfObjects.startDate"];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
