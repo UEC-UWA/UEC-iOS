@@ -47,7 +47,7 @@
 
 - (BOOL)isInSameDayAsDate:(NSDate *)date
 {
-    return [self isBetweenDate:[self beginningOfDay] andDate:[self endOfDay]];
+    return [self isBetweenDate:[date beginningOfDay] andDate:[date endOfDay]];
 }
 
 - (NSInteger)daysDifferenceToDate:(NSDate *)toDate
