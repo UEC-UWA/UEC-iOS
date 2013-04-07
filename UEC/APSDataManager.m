@@ -129,6 +129,22 @@
     [self.currentDownloads removeAllObjects];
 }
 
+#pragma mark - Logging
+
+- (void)logJSON:(id)JSON forEntityName:(NSString *)entityName
+{    
+    if ([JSON isKindOfClass:[NSDictionary class]]) {
+        NSLog(@"JSON is is hashmap, make sure to wrap it in an array");
+        return;
+    }
+    
+    if (![JSON isKindOfClass:[NSArray class]]) {
+        NSLog(@"Yeah that JSON is not wrapped in an array... Maybe it will crash maybe it wont.");
+    } else {
+        NSLog(@"JSON for %@: %@", entityName, JSON);
+    }
+}
+
 #pragma mark - Public Methods
 
 - (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock
@@ -164,50 +180,70 @@
             });
         }
         
-        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
-        NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
-
-        [threadContext performBlock:^{
-            NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
+        
+        //        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
+        //        NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
+        
+        NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+        
+        NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
+        [path appendString:serverPaths[entityName]];
+        
+        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:path]];
+        
+        AFJSONRequestOperation *operation = nil;
+        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
             
-            for (NSDictionary *dataObject in data) {
-                id downloadedObject = [self.class newEntityWithName:entityName
-                                                          inContext:threadContext
-                                                        idAttribute:@"identifier"
-                                                              value:dataObject[@"id"]
-                                                           onInsert:^(NSManagedObject *entity) {
-                                                               [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                                                                   if (![key isEqualToString:@"identifier"]) {
-                                                                       id value = dataObject[obj];
-                                                                       [entity setValue:value forKey:key];
-                                                                   }
+            [threadContext performBlock:^{
+                NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
+                
+                for (NSDictionary *dataObject in JSON) {
+                    id downloadedObject = [self.class newEntityWithName:entityName
+                                                              inContext:threadContext
+                                                            idAttribute:@"identifier"
+                                                                  value:dataObject[@"id"]
+                                                               onInsert:^(NSManagedObject *entity) {
+                                                                   
+                                                                   [self logJSON:JSON forEntityName:entityName];
+                                                                   
+                                                                   [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                                                                       if (![key isEqualToString:@"identifier"]) {
+                                                                           id value = dataObject[obj];
+                                                                           [entity setValue:value forKey:key];
+                                                                       }
+                                                                   }];
                                                                }];
-                                                           }];
+                    
+                    [downloadedObjectsIDs addObject:[downloadedObject objectID]];
+                }
                 
-                [downloadedObjectsIDs addObject:[downloadedObject objectID]];
-            }
-            
-            [self saveContext:threadContext];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
-                    [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
-                    for (id objectID in coreDataObjectsIDs) {
-                        NSError *error = nil;
-                        NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
-                        [self.mainContext deleteObject:object];
+                [self saveContext:threadContext];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
+                        [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
+                        for (id objectID in coreDataObjectsIDs) {
+                            NSError *error = nil;
+                            NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
+                            [self.mainContext deleteObject:object];
+                        }
                     }
-                }
-                
-                [self saveContext:self.mainContext];
-                
-                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-                
-                if (completionBlock) {
-                    completionBlock(YES);
-                }
-            });
+                    
+                    [self saveContext:self.mainContext];
+                    
+                    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                    
+                    if (completionBlock) {
+                        completionBlock(YES);
+                    }
+                });
+            }];
+            
+        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+            
         }];
+        
+        [operation start];
     });
 }
 
