@@ -6,8 +6,6 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <MBProgressHUD/MBProgressHUD.h>
-
 #import "UECNewsArticlesViewController.h"
 
 #import "UECArticleViewController.h"

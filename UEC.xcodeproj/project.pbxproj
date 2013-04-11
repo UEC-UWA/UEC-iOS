@@ -1390,6 +1390,7 @@
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1407,8 +1408,9 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6BB6DD78-EB6A-48D7-B8ED-7C85B6251658";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6BB6DD78-EB6A-48D7-B8ED-7C85B6251658";
+				PROVISIONING_PROFILE = "EBF91AFF-55CC-491C-8AD9-BD9B8F521125";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EBF91AFF-55CC-491C-8AD9-BD9B8F521125";
+				USER_HEADER_SEARCH_PATHS = "objc-TimesSquare";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1416,8 +1418,9 @@
 		0542FAE216C2A85A00B327B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -1428,8 +1431,9 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "B8EF7440-45A5-4DBC-903B-A26989DC9887";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8EF7440-45A5-4DBC-903B-A26989DC9887";
+				PROVISIONING_PROFILE = "7A06126B-18E5-40B0-99EC-39D8446F104D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7A06126B-18E5-40B0-99EC-39D8446F104D";
+				USER_HEADER_SEARCH_PATHS = "objc-TimesSquare";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

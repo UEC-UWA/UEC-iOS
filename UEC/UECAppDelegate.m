@@ -33,7 +33,7 @@
     self.internetReach = [Reachability reachabilityForInternetConnection];
 	[self.internetReach startNotifier];
         
-    [TestFlight takeOff:@"09f4d977-d76f-4503-b188-2f688258ec15"];
+    [TestFlight takeOff:@"06760142-99fc-4b04-b984-727e2fc54aaa"];
     
     // Override point for customization after application launch.
     return YES;

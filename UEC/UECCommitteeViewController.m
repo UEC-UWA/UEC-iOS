@@ -7,7 +7,6 @@
 //
 
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <MBProgressHUD/MBProgressHUD.h>
 
 #import "UECCommitteeViewController.h"
 #import "UECCommitteeMemberViewController.h"
