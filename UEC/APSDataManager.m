@@ -15,6 +15,7 @@
 #import "Reachability.h"
 
 #import "NSManagedObject+Appulse.h"
+#import "APSDataManager+UEC.h"
 
 #define CORE_DATA_XCODE_DATA_MODEL_NAME @"UEC"
 #define MAPPING_DICTIONARIES [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MappingDictionaries" ofType:@"plist"]]
@@ -129,22 +130,6 @@
     [self.currentDownloads removeAllObjects];
 }
 
-#pragma mark - Logging
-
-- (void)logJSON:(id)JSON forEntityName:(NSString *)entityName
-{    
-    if ([JSON isKindOfClass:[NSDictionary class]]) {
-        NSLog(@"JSON is is hashmap, make sure to wrap it in an array");
-        return;
-    }
-    
-    if (![JSON isKindOfClass:[NSArray class]]) {
-        NSLog(@"Yeah that JSON is not wrapped in an array... Maybe it will crash maybe it wont.");
-    } else {
-        NSLog(@"JSON for %@: %@", entityName, JSON);
-    }
-}
-
 #pragma mark - Public Methods
 
 - (void)cacheEntityName:(NSString *)entityName completion:(void (^)(BOOL internetReachable))completionBlock
@@ -179,11 +164,7 @@
                 return;
             });
         }
-        
-        
-        //        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
-        //        NSArray *data = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
-        
+
         NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
         
         NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
@@ -203,12 +184,11 @@
                                                             idAttribute:@"identifier"
                                                                   value:dataObject[@"id"]
                                                                onInsert:^(NSManagedObject *entity) {
-                                                                   
-                                                                   [self logJSON:JSON forEntityName:entityName];
-                                                                   
                                                                    [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
                                                                        if (![key isEqualToString:@"identifier"]) {
-                                                                           id value = dataObject[obj];
+#warning Really need to find out how to turn a JSON date through AFJSONRequestOperation
+                                                                           NSDate *date = [self dateForUECJSONValue:dataObject[obj]];
+                                                                           id value = (date) ? date : dataObject[obj];
                                                                            [entity setValue:value forKey:key];
                                                                        }
                                                                    }];

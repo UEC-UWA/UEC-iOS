@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UECBendCell.h"
+#import "UECTorqueCell.h"
 
-@implementation UECBendCell
+@implementation UECTorqueCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

@@ -8,8 +8,6 @@
 
 #import "UECArticleViewController.h"
 
-#import "UECNewsViewController.h"
-
 #import "UECActivity.h"
 
 #import "NewsArticle.h"

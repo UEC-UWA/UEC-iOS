@@ -45,18 +45,19 @@
     </entity>
     <entity name="Torque" representedClassName="Torque" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="downloaded" optional="YES" syncable="YES"/>
+        <attribute name="downloaded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="downloading" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="fileAddress" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localURLString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="size" optional="YES" attributeType="Double" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
         <element name="Event" positionX="-1793" positionY="-963" width="128" height="270"/>
         <element name="NewsArticle" positionX="-1647" positionY="-709" width="128" height="150"/>
         <element name="Person" positionX="-2034" positionY="-927" width="128" height="180"/>
         <element name="Sponsor" positionX="-2169" positionY="-720" width="128" height="105"/>
-        <element name="Torque" positionX="160" positionY="192" width="128" height="150"/>
+        <element name="Torque" positionX="160" positionY="192" width="128" height="165"/>
     </elements>
 </model>

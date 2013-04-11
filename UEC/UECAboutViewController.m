@@ -119,9 +119,6 @@ static NSUInteger kNumSections = 3;
                                                                                                   inSection:0]];
             cell.textLabel.text = sponsor.name;
             
-            [cell.imageView setImageWithURL:[[NSURL alloc] initWithString:sponsor.logoPath] placeholderImage:[UIImage imageNamed:@"gentleman.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                
-            }];
             break;
         }
             

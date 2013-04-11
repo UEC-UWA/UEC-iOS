@@ -10,8 +10,6 @@
 
 #import "UECReachabilityManager.h"
 
-#import "Bend.h"
-
 @interface UECAppDelegate ()
 
 @property (strong, nonatomic) Reachability *internetReach;

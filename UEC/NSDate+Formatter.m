@@ -14,7 +14,7 @@
 
 + (NSDateFormatter *)formatterWithStyle:(void (^)(NSDateFormatter *formatter))formatterBlock
 {
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    __DISPATCH_ONCE__ NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     if (formatterBlock) {
         formatterBlock(dateFormatter);
     }

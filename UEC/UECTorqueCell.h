@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UECBendCell : UITableViewCell
+@interface UECTorqueCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel, *sizeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
 @end
