@@ -10,6 +10,8 @@
 
 #import "UECReachabilityManager.h"
 
+#import "TestFlight.h"
+
 @interface UECAppDelegate ()
 
 @property (strong, nonatomic) Reachability *internetReach;
@@ -30,6 +32,8 @@
                                                object:nil];
     self.internetReach = [Reachability reachabilityForInternetConnection];
 	[self.internetReach startNotifier];
+        
+    [TestFlight takeOff:@"09f4d977-d76f-4503-b188-2f688258ec15"];
     
     // Override point for customization after application launch.
     return YES;

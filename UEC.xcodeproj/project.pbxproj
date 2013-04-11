@@ -108,7 +108,6 @@
 		05ADFF2416F9B7860090926E /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ADFF1916F9B7860090926E /* AFURLConnectionOperation.m */; };
 		05ADFF2516F9B7860090926E /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ADFF1B16F9B7860090926E /* AFXMLRequestOperation.m */; };
 		05ADFF2616F9B7860090926E /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ADFF1D16F9B7860090926E /* UIImageView+AFNetworking.m */; };
-		05ADFF4416F9B7CD0090926E /* libMBProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05ADFF2C16F9B7930090926E /* libMBProgressHUD.a */; };
 		05ADFF4516F9B7D00090926E /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05ADFF3D16F9B7C20090926E /* libSDWebImage.a */; };
 		05ADFF4616F9B7D30090926E /* libTimesSquare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05ADFF3616F9B7AF0090926E /* libTimesSquare.a */; };
 		05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B5C3E916CF3B73009A75F6 /* UECCommitteeMemberViewController.m */; };
@@ -130,6 +129,10 @@
 		05D1C53A16DE1C3700D87BA0 /* UECMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53916DE1C3700D87BA0 /* UECMapViewController.m */; };
 		05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */; };
 		05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */; };
+		05D250AD1716D490003177ED /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D250A91716D490003177ED /* libTestFlight.a */; };
+		05D250AE1716D490003177ED /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D250AA1716D490003177ED /* README.md */; };
+		05D250AF1716D490003177ED /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 05D250AB1716D490003177ED /* release_notes.md */; };
+		05D250B41716D4CD003177ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D250B31716D4CD003177ED /* libz.dylib */; };
 		05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
 		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
@@ -150,13 +153,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0542FA9916C2A85A00B327B7;
 			remoteInfo = UEC;
-		};
-		05ADFF2B16F9B7930090926E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 05ADFF2716F9B7920090926E /* MBProgressHUD.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D286A7491518C70F00E13FB8;
-			remoteInfo = MBProgressHUD;
 		};
 		05ADFF3516F9B7AF0090926E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -185,13 +181,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 531041E0157EAFA400BBABC3;
 			remoteInfo = "SDWebImage+MKAnnotation";
-		};
-		05ADFF4016F9B7C50090926E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 05ADFF2716F9B7920090926E /* MBProgressHUD.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = D286A7481518C70F00E13FB8;
-			remoteInfo = MBProgressHUD;
 		};
 		05ADFF4216F9B7C80090926E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -345,7 +334,6 @@
 		05ADFF1B16F9B7860090926E /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		05ADFF1C16F9B7860090926E /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		05ADFF1D16F9B7860090926E /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
-		05ADFF2716F9B7920090926E /* MBProgressHUD.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MBProgressHUD.xcodeproj; path = MBProgressHUD/MBProgressHUD.xcodeproj; sourceTree = "<group>"; };
 		05ADFF2D16F9B7A50090926E /* TimesSquare.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TimesSquare.xcodeproj; path = "objc-TimesSquare/TimesSquare.xcodeproj"; sourceTree = "<group>"; };
 		05ADFF3016F9B7AF0090926E /* SDWebImage.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDWebImage.xcodeproj; path = SDWebImage/SDWebImage.xcodeproj; sourceTree = "<group>"; };
 		05B5C3E816CF3B73009A75F6 /* UECCommitteeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberViewController.h; sourceTree = "<group>"; };
@@ -374,6 +362,11 @@
 		05D1C53B16DE1DB300D87BA0 /* UECEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventCell.h; sourceTree = "<group>"; };
 		05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventCell.m; sourceTree = "<group>"; };
 		05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		05D250A91716D490003177ED /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		05D250AA1716D490003177ED /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		05D250AB1716D490003177ED /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		05D250AC1716D490003177ED /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		05D250B31716D4CD003177ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarViewController.h; sourceTree = "<group>"; };
 		05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarViewController.m; sourceTree = "<group>"; };
 		05DD22CF16C2B73200CF18F0 /* UECCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeViewController.h; sourceTree = "<group>"; };
@@ -401,9 +394,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D250B41716D4CD003177ED /* libz.dylib in Frameworks */,
 				05ADFF4616F9B7D30090926E /* libTimesSquare.a in Frameworks */,
 				05ADFF4516F9B7D00090926E /* libSDWebImage.a in Frameworks */,
-				05ADFF4416F9B7CD0090926E /* libMBProgressHUD.a in Frameworks */,
 				055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */,
 				05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */,
 				05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */,
@@ -417,6 +410,7 @@
 				0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */,
 				0542FAA016C2A85A00B327B7 /* Foundation.framework in Frameworks */,
 				0542FAA216C2A85A00B327B7 /* CoreGraphics.framework in Frameworks */,
+				05D250AD1716D490003177ED /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +570,7 @@
 				0542FAA316C2A85A00B327B7 /* UEC */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
 				05B76D2416C4F52600CECDF6 /* Submodules */,
+				05D250A81716D490003177ED /* TestFlightSDK1.2.4 */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
 			);
@@ -593,6 +588,7 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05D250B31716D4CD003177ED /* libz.dylib */,
 				055323F616E2048E00C83C8D /* SystemConfiguration.framework */,
 				05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */,
 				05D1C53216DE1BEE00D87BA0 /* EventKit.framework */,
@@ -833,14 +829,6 @@
 			path = AFNetworking/AFNetworking;
 			sourceTree = "<group>";
 		};
-		05ADFF2816F9B7920090926E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				05ADFF2C16F9B7930090926E /* libMBProgressHUD.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		05ADFF2E16F9B7A50090926E /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -893,7 +881,6 @@
 			children = (
 				05ADFF3016F9B7AF0090926E /* SDWebImage.xcodeproj */,
 				05ADFF2D16F9B7A50090926E /* TimesSquare.xcodeproj */,
-				05ADFF2716F9B7920090926E /* MBProgressHUD.xcodeproj */,
 				05ADFF0A16F9B7860090926E /* AFNetworking */,
 			);
 			name = Submodules;
@@ -907,6 +894,17 @@
 				0536F76C16DF896F008ECFDA /* Map */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		05D250A81716D490003177ED /* TestFlightSDK1.2.4 */ = {
+			isa = PBXGroup;
+			children = (
+				05D250A91716D490003177ED /* libTestFlight.a */,
+				05D250AA1716D490003177ED /* README.md */,
+				05D250AB1716D490003177ED /* release_notes.md */,
+				05D250AC1716D490003177ED /* TestFlight.h */,
+			);
+			path = TestFlightSDK1.2.4;
 			sourceTree = "<group>";
 		};
 		05DD22CA16C2B6F400CF18F0 /* News */ = {
@@ -1021,7 +1019,6 @@
 			);
 			dependencies = (
 				05ADFF4316F9B7C80090926E /* PBXTargetDependency */,
-				05ADFF4116F9B7C50090926E /* PBXTargetDependency */,
 				05ADFF3816F9B7C20090926E /* PBXTargetDependency */,
 			);
 			name = UEC;
@@ -1071,10 +1068,6 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 05ADFF2816F9B7920090926E /* Products */;
-					ProjectRef = 05ADFF2716F9B7920090926E /* MBProgressHUD.xcodeproj */;
-				},
-				{
 					ProductGroup = 05ADFF3116F9B7AF0090926E /* Products */;
 					ProjectRef = 05ADFF3016F9B7AF0090926E /* SDWebImage.xcodeproj */;
 				},
@@ -1092,13 +1085,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		05ADFF2C16F9B7930090926E /* libMBProgressHUD.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMBProgressHUD.a;
-			remoteRef = 05ADFF2B16F9B7930090926E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		05ADFF3616F9B7AF0090926E /* libTimesSquare.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1186,6 +1172,8 @@
 				054A32911702F6E90070D9A9 /* CalendarEvent@2x.png in Resources */,
 				054A32941702F9CB0070D9A9 /* CalendarNoEvent.png in Resources */,
 				054A32951702F9CB0070D9A9 /* CalendarNoEvent@2x.png in Resources */,
+				05D250AE1716D490003177ED /* README.md in Resources */,
+				05D250AF1716D490003177ED /* release_notes.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1298,11 +1286,6 @@
 			name = SDWebImage;
 			targetProxy = 05ADFF3716F9B7C20090926E /* PBXContainerItemProxy */;
 		};
-		05ADFF4116F9B7C50090926E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MBProgressHUD;
-			targetProxy = 05ADFF4016F9B7C50090926E /* PBXContainerItemProxy */;
-		};
 		05ADFF4316F9B7C80090926E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TimesSquare;
@@ -1407,8 +1390,8 @@
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (38ZK5H93SU)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1418,10 +1401,14 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.4\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "AA15D8BC-4A2C-4208-9B1D-F252C32DFFD3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AA15D8BC-4A2C-4208-9B1D-F252C32DFFD3";
+				PROVISIONING_PROFILE = "6BB6DD78-EB6A-48D7-B8ED-7C85B6251658";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6BB6DD78-EB6A-48D7-B8ED-7C85B6251658";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1429,16 +1416,20 @@
 		0542FAE216C2A85A00B327B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Warren Beckwith (KL92D2NQV8)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Warren Beckwith (KL92D2NQV8)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TestFlightSDK1.2.4\"",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0643B33C-BB98-4A05-9F88-D8376B214E40";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0643B33C-BB98-4A05-9F88-D8376B214E40";
+				PROVISIONING_PROFILE = "B8EF7440-45A5-4DBC-903B-A26989DC9887";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B8EF7440-45A5-4DBC-903B-A26989DC9887";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

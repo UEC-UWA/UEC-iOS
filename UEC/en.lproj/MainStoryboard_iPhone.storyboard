@@ -586,12 +586,12 @@
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Clv-8x-fx2"/>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apj-BN-9p6">
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1B-el-VHE">
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
@@ -614,10 +614,10 @@
                                     <constraint firstItem="apj-BN-9p6" firstAttribute="leading" secondItem="Clv-8x-fx2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="JRj-pC-3za"/>
                                     <constraint firstItem="apj-BN-9p6" firstAttribute="leading" secondItem="Tpz-a0-3iC" secondAttribute="leading" constant="63" id="OwF-Is-Ogf"/>
                                     <constraint firstAttribute="bottom" secondItem="dMs-Ua-LJZ" secondAttribute="bottom" constant="6" id="Pyr-gk-NsG"/>
-                                    <constraint firstItem="I1B-el-VHE" firstAttribute="baseline" secondItem="apj-BN-9p6" secondAttribute="baseline" type="default" id="p5c-jA-DuA"/>
                                     <constraint firstItem="I1B-el-VHE" firstAttribute="leading" secondItem="apj-BN-9p6" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="qZF-cD-oQZ"/>
                                     <constraint firstItem="Clv-8x-fx2" firstAttribute="top" secondItem="Tpz-a0-3iC" secondAttribute="top" type="default" id="szi-ho-RbW"/>
                                     <constraint firstItem="dMs-Ua-LJZ" firstAttribute="leading" secondItem="Clv-8x-fx2" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wvZ-qf-iIF"/>
+                                    <constraint firstItem="I1B-el-VHE" firstAttribute="baseline" secondItem="apj-BN-9p6" secondAttribute="baseline" type="default" id="zfh-k5-JFD"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="firstNameLabel" destination="apj-BN-9p6" id="s9r-Ww-Qir"/>
