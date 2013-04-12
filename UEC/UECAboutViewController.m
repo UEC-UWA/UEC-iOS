@@ -159,6 +159,10 @@ static NSUInteger kNumSections = 3;
         }];
     }
     
+    if (indexPath.section == 1) {
+        [self performSegueWithIdentifier:@"About App Segue" sender:self];
+    }
+    
     if (indexPath.section == 2) {
         Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                                                inSection:0]];

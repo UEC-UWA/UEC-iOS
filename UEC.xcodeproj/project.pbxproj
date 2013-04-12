@@ -97,6 +97,8 @@
 		057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6B16E3347D00F74752 /* UECTorqueCell.m */; };
 		057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */; };
 		057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A9816E4554F00F74752 /* UECAlertManager.m */; };
+		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
+		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
 		05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABF04616D4BDF70090BC4C /* UECCommitteeMemberCell.m */; };
 		05ADFF1E16F9B7860090926E /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ADFF0C16F9B7860090926E /* AFHTTPClient.m */; };
@@ -122,6 +124,7 @@
 		05BCDC9516E79A7600AA0FA2 /* building_88x88.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC9116E79A7600AA0FA2 /* building_88x88.png */; };
 		05BCDC9616E79A7600AA0FA2 /* face_55x55.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC9216E79A7600AA0FA2 /* face_55x55.png */; };
 		05BCDC9716E79A7600AA0FA2 /* face_110x110.png in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC9316E79A7600AA0FA2 /* face_110x110.png */; };
+		05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C18F451717892600CA2430 /* UECAboutAppViewController.m */; };
 		05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */; };
 		05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C52D16DE1BE900D87BA0 /* MapKit.framework */; };
 		05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53216DE1BEE00D87BA0 /* EventKit.framework */; };
@@ -311,6 +314,9 @@
 		057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDownloadingCell.m; sourceTree = "<group>"; };
 		057F6A9716E4554F00F74752 /* UECAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAlertManager.h; sourceTree = "<group>"; };
 		057F6A9816E4554F00F74752 /* UECAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAlertManager.m; sourceTree = "<group>"; };
+		0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECVersionInfoViewController.h; sourceTree = "<group>"; };
+		0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECVersionInfoViewController.m; sourceTree = "<group>"; };
+		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		05ABF04516D4BDF70090BC4C /* UECCommitteeMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberCell.h; sourceTree = "<group>"; };
@@ -352,6 +358,8 @@
 		05BCDC9116E79A7600AA0FA2 /* building_88x88.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = building_88x88.png; sourceTree = "<group>"; };
 		05BCDC9216E79A7600AA0FA2 /* face_55x55.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face_55x55.png; sourceTree = "<group>"; };
 		05BCDC9316E79A7600AA0FA2 /* face_110x110.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = face_110x110.png; sourceTree = "<group>"; };
+		05C18F441717892600CA2430 /* UECAboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutAppViewController.h; sourceTree = "<group>"; };
+		05C18F451717892600CA2430 /* UECAboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutAppViewController.m; sourceTree = "<group>"; };
 		05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyAboutUEC.plist; sourceTree = "<group>"; };
 		05D1C52D16DE1BE900D87BA0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		05D1C53216DE1BEE00D87BA0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -441,6 +449,10 @@
 			children = (
 				050A78A516D50DB00055B742 /* UECAboutViewController.h */,
 				050A78A616D50DB00055B742 /* UECAboutViewController.m */,
+				05C18F441717892600CA2430 /* UECAboutAppViewController.h */,
+				05C18F451717892600CA2430 /* UECAboutAppViewController.m */,
+				0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */,
+				0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -628,6 +640,7 @@
 			isa = PBXGroup;
 			children = (
 				0542FAA516C2A85A00B327B7 /* UEC-Info.plist */,
+				0592D845171799F900DB83C8 /* Localizable.strings */,
 				0542FAA616C2A85A00B327B7 /* InfoPlist.strings */,
 				0542FAA916C2A85A00B327B7 /* main.m */,
 				0542FAAB16C2A85A00B327B7 /* UEC-Prefix.pch */,
@@ -1174,6 +1187,7 @@
 				054A32951702F9CB0070D9A9 /* CalendarNoEvent@2x.png in Resources */,
 				05D250AE1716D490003177ED /* README.md in Resources */,
 				05D250AF1716D490003177ED /* release_notes.md in Resources */,
+				0592D846171799F900DB83C8 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1260,6 +1274,8 @@
 				054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */,
 				054DBD6D1716C8A00026A7AE /* APSDataManager+UEC.m in Sources */,
 				054DBD731716CD890026A7AE /* Torque.m in Sources */,
+				05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */,
+				0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

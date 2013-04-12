@@ -809,6 +809,80 @@
             </objects>
             <point key="canvasLocation" x="1597" y="259"/>
         </scene>
+        <!--Version Info View Controller-->
+        <scene sceneID="UL3-Gq-Igq">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTn-nC-hCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="UECVersionInfoViewController" id="0Xs-7e-J18" customClass="UECVersionInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qBe-Do-kHa">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-7A-uZ1">
+                                <items>
+                                    <navigationItem title="UEC App" id="bhh-aX-1EN"/>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiu-iC-vCZ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Let's do this">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismiss:" destination="0Xs-7e-J18" eventType="touchUpInside" id="XK5-v0-yXK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqr-0y-3bU">
+                                <color key="backgroundColor" red="0.92372847576530615" green="0.92372847576530615" blue="0.92372847576530615" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Welcome to the iOS UEC App.
+
+This is the first testing release of the UEC app. The data which you will see is all live from the server and if you want to change something get Cam to show you (he is pretty rad). Obviously this is not the final version, and quite a few things will change depending on your feedback. 
+
+You can send me some feedback by going to the "About tab" and tapping "About The App". Keep it constructive and keep in mind that the changes which will happen are tweaks and not massive changes.
+
+Changes on my roadmap currently are:
+	- Better design;
+	- Chinese, French localization; (Any other languages you are willing to translate)
+	- Proper iPad support
+
+I will send you releases with new features over the next month or so and then when you guys are happy we will release it :).
+
+Love Jad</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Build" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J1-9g-9Sj">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="top" secondItem="qBe-Do-kHa" secondAttribute="top" type="default" id="0Od-n6-L7v"/>
+                            <constraint firstAttribute="bottom" secondItem="eiu-iC-vCZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="9ba-Sy-xHu"/>
+                            <constraint firstItem="Qqr-0y-3bU" firstAttribute="trailing" secondItem="qBe-Do-kHa" secondAttribute="trailing" type="default" id="AfW-s1-6lt"/>
+                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="trailing" secondItem="qBe-Do-kHa" secondAttribute="trailing" type="default" id="Am8-TL-nJW"/>
+                            <constraint firstItem="Qqr-0y-3bU" firstAttribute="top" secondItem="zRR-7A-uZ1" secondAttribute="bottom" type="default" id="CGs-IF-qbE"/>
+                            <constraint firstItem="1J1-9g-9Sj" firstAttribute="centerX" secondItem="eiu-iC-vCZ" secondAttribute="centerX" type="default" id="L8x-lp-Tfs"/>
+                            <constraint firstItem="1J1-9g-9Sj" firstAttribute="centerX" secondItem="Qqr-0y-3bU" secondAttribute="centerX" type="default" id="Lvg-xZ-k9E"/>
+                            <constraint firstItem="eiu-iC-vCZ" firstAttribute="top" secondItem="1J1-9g-9Sj" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="V8R-3c-KZa"/>
+                            <constraint firstItem="1J1-9g-9Sj" firstAttribute="top" secondItem="Qqr-0y-3bU" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="ZZ5-RP-Od4"/>
+                            <constraint firstItem="Qqr-0y-3bU" firstAttribute="leading" secondItem="qBe-Do-kHa" secondAttribute="leading" type="default" id="gg6-xR-tVb"/>
+                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="leading" secondItem="qBe-Do-kHa" secondAttribute="leading" type="default" id="zm6-8i-bSa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="buildLabel" destination="1J1-9g-9Sj" id="VBX-QP-e3u"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-750" y="239"/>
+        </scene>
         <!--Navigation Controller - About-->
         <scene sceneID="yLN-eG-LuM">
             <objects>
@@ -826,7 +900,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3w-TT-Pn8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-187" y="1004"/>
+            <point key="canvasLocation" x="-915" y="1008"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="CWT-Kf-7uO">
@@ -854,10 +928,75 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="8cd-2E-vNu"/>
+                    <connections>
+                        <segue destination="67Q-Nu-ddn" kind="push" identifier="About App Segue" id="adE-JQ-TUc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hs5-5S-XY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="279" y="1004"/>
+            <point key="canvasLocation" x="-449" y="1008"/>
+        </scene>
+        <!--About App View Controller-->
+        <scene sceneID="MMw-tl-NZW">
+            <objects>
+                <tableViewController id="67Q-Nu-ddn" customClass="UECAboutAppViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N3i-a0-rJM">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection headerTitle="Version" footerTitle="" id="moE-qI-B69">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="sw1-Ke-GQj" style="IBUITableViewCellStyleDefault" id="YHW-ck-9c9">
+                                        <rect key="frame" x="0.0" y="46" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Show Version Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sw1-Ke-GQj">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Feedback" footerTitle="The app is obviously not 100% complete yet. We need to do some tunning. Let me know the changes which need doing." id="FBX-pc-WNk">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="UQu-Q6-Ve9" style="IBUITableViewCellStyleDefault" id="yxO-mk-pP6">
+                                        <rect key="frame" x="0.0" y="138" width="320" height="46"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Email Feedback" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UQu-Q6-Ve9">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="67Q-Nu-ddn" id="7og-1Y-VDf"/>
+                            <outlet property="delegate" destination="67Q-Nu-ddn" id="MtZ-IZ-B8D"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="uVT-MR-bvU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRd-gt-JYg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="25" y="1008"/>
         </scene>
         <!--Navigation Controller - Torques-->
         <scene sceneID="rP0-if-yvS">
@@ -1042,6 +1181,9 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="UECAboutAppViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECAboutAppViewController.h"/>
+        </class>
         <class className="UECAboutViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECAboutViewController.h"/>
         </class>
@@ -1141,6 +1283,12 @@
         </class>
         <class className="UECTorquesViewController" superclassName="CoreDataTableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/UECTorquesViewController.h"/>
+        </class>
+        <class className="UECVersionInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UECVersionInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="buildLabel" candidateClass="UILabel"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

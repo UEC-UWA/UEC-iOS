@@ -59,6 +59,20 @@ static CGFloat kCellHeight = 120.0;
     [self refreshInvoked:nil forState:UIControlStateNormal];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (![defaults boolForKey:@"shownVersionInfo"]) {
+        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoViewController"] animated:YES completion:nil];
+        
+        [defaults setBool:YES forKey:@"shownVersionInfo"];
+        [defaults synchronize];
+    }
+}
+
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
