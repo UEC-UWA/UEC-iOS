@@ -66,7 +66,7 @@ static CGFloat kCellHeight = 120.0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if (![defaults boolForKey:@"shownVersionInfo"]) {
-        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoViewController"] animated:YES completion:nil];
+        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"] animated:YES completion:nil];
         
         [defaults setBool:YES forKey:@"shownVersionInfo"];
         [defaults synchronize];

@@ -47,9 +47,11 @@
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
         request.sortDescriptors = @[sortDescriptor];
-    } entityName:@"Torque" sectionNameKeyPath:nil cacheName:nil];
+    } entityName:@"Torque" sectionNameKeyPath:@"downloaded" cacheName:nil];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Torque Downloaded Cell"];
+        
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +73,7 @@
         }
         
         torque.localURLString = nil;
+        torque.downloaded = @(NO);
     }
     
     [[APSDataManager sharedManager] saveContext];
@@ -183,7 +186,6 @@
     NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
     
     torque.downloading = @(YES);
-    torque.downloaded = @(YES);
     [[APSDataManager sharedManager] saveContext];
     
     [self.tableView reloadData];
@@ -192,6 +194,8 @@
     
     [self downloadTorque:torque inCell:downloadCell completion:^(BOOL success) {
         if (success) {
+            torque.downloaded = @(YES);
+
             [self.activeDownloads removeObject:torque];
             
             [self.tableView reloadData];
@@ -200,6 +204,18 @@
 }
 
 #pragma mark - Table view data source
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    return nil;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    Torque *torque = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+
+    return ([torque.downloaded boolValue]) ? @"On Device" : @"Download";
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -218,7 +234,7 @@
         [cell.downloadActivityView startAnimating];
         
         return cell;
-    }
+    } 
     
     if ([torque.downloaded boolValue]) {
         CellIdentifier = @"Torque Downloaded Cell";

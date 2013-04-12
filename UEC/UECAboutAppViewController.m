@@ -45,7 +45,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoViewController"] animated:YES completion:^{
+        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"] animated:YES completion:^{
             [tableView deselectRowAtIndexPath:indexPath animated:NO];
         }];
     }

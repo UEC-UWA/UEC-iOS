@@ -46,11 +46,6 @@
     self.eventsDisplaySegmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [self.eventsDisplaySegmentControl setTintColor:[UIColor darkGrayColor]];
     
-//    // Setting the width to be a bit bigger.
-//    CGRect frame = self.eventsDisplaySegmentControl.frame;
-//    frame.size = CGSizeMake(200.0, frame.size.height);
-//    self.eventsDisplaySegmentControl.frame = frame;
-    
     [[self navigationItem] setTitleView:self.eventsDisplaySegmentControl];
     
     // Ensure a view controller is loaded

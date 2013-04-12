@@ -24,7 +24,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="259"/>
+            <point key="canvasLocation" x="649" y="259"/>
         </scene>
         <!--News Articles View Controller-->
         <scene sceneID="bf3-nD-XgU">
@@ -639,7 +639,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6Q-4Z-P6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2123" y="259"/>
+            <point key="canvasLocation" x="2649" y="259"/>
         </scene>
         <!--Committee Member View Controller-->
         <scene sceneID="fsg-ao-wpc">
@@ -769,7 +769,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GF-GX-cvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2614" y="259"/>
+            <point key="canvasLocation" x="3140" y="259"/>
         </scene>
         <!--Navigation Controller - Calendar-->
         <scene sceneID="TVD-QF-vLZ">
@@ -807,22 +807,16 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvP-VX-tZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="259"/>
+            <point key="canvasLocation" x="2123" y="259"/>
         </scene>
-        <!--Version Info View Controller-->
+        <!--Version Info View Controller - UEC App-->
         <scene sceneID="UL3-Gq-Igq">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yTn-nC-hCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="UECVersionInfoViewController" id="0Xs-7e-J18" customClass="UECVersionInfoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qBe-Do-kHa">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zRR-7A-uZ1">
-                                <items>
-                                    <navigationItem title="UEC App" id="bhh-aX-1EN"/>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiu-iC-vCZ">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Let's do this">
@@ -840,9 +834,9 @@
                                 <color key="backgroundColor" red="0.92372847576530615" green="0.92372847576530615" blue="0.92372847576530615" alpha="1" colorSpace="calibratedRGB"/>
                                 <mutableString key="text">Welcome to the iOS UEC App.
 
-This is the first testing release of the UEC app. The data which you will see is all live from the server and if you want to change something get Cam to show you (he is pretty rad). Obviously this is not the final version, and quite a few things will change depending on your feedback. 
+This is the second testing release of the UEC app. The data which you will see is all live from the server and if you want to change something get Cam to show you (he is pretty rad). Obviously this is not the final version, and quite a few things will change depending on your feedback. 
 
-You can send me some feedback by going to the "About tab" and tapping "About The App". Keep it constructive and keep in mind that the changes which will happen are tweaks and not massive changes.
+You can send me some feedback by going to the "About" tab and tapping "About The App". Keep it constructive and keep in mind that the changes which will happen are tweaks and not massive changes.
 
 Changes on my roadmap currently are:
 	- Better design;
@@ -863,25 +857,24 @@ Love Jad</mutableString>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="top" secondItem="qBe-Do-kHa" secondAttribute="top" type="default" id="0Od-n6-L7v"/>
                             <constraint firstAttribute="bottom" secondItem="eiu-iC-vCZ" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="9ba-Sy-xHu"/>
                             <constraint firstItem="Qqr-0y-3bU" firstAttribute="trailing" secondItem="qBe-Do-kHa" secondAttribute="trailing" type="default" id="AfW-s1-6lt"/>
-                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="trailing" secondItem="qBe-Do-kHa" secondAttribute="trailing" type="default" id="Am8-TL-nJW"/>
-                            <constraint firstItem="Qqr-0y-3bU" firstAttribute="top" secondItem="zRR-7A-uZ1" secondAttribute="bottom" type="default" id="CGs-IF-qbE"/>
                             <constraint firstItem="1J1-9g-9Sj" firstAttribute="centerX" secondItem="eiu-iC-vCZ" secondAttribute="centerX" type="default" id="L8x-lp-Tfs"/>
                             <constraint firstItem="1J1-9g-9Sj" firstAttribute="centerX" secondItem="Qqr-0y-3bU" secondAttribute="centerX" type="default" id="Lvg-xZ-k9E"/>
                             <constraint firstItem="eiu-iC-vCZ" firstAttribute="top" secondItem="1J1-9g-9Sj" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="V8R-3c-KZa"/>
+                            <constraint firstItem="Qqr-0y-3bU" firstAttribute="top" secondItem="qBe-Do-kHa" secondAttribute="top" type="default" id="VXg-Za-OYi"/>
                             <constraint firstItem="1J1-9g-9Sj" firstAttribute="top" secondItem="Qqr-0y-3bU" secondAttribute="bottom" constant="8" symbolic="YES" type="user" id="ZZ5-RP-Od4"/>
                             <constraint firstItem="Qqr-0y-3bU" firstAttribute="leading" secondItem="qBe-Do-kHa" secondAttribute="leading" type="default" id="gg6-xR-tVb"/>
-                            <constraint firstItem="zRR-7A-uZ1" firstAttribute="leading" secondItem="qBe-Do-kHa" secondAttribute="leading" type="default" id="zm6-8i-bSa"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="UEC App" id="qHe-F1-ZIH"/>
                     <connections>
                         <outlet property="buildLabel" destination="1J1-9g-9Sj" id="VBX-QP-e3u"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTn-nC-hCy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-750" y="239"/>
+            <point key="canvasLocation" x="-224" y="239"/>
         </scene>
         <!--Navigation Controller - About-->
         <scene sceneID="yLN-eG-LuM">
@@ -1165,6 +1158,24 @@ Love Jad</mutableString>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUj-f0-uml" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2" y="-623"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="o29-U4-4W4">
+            <objects>
+                <navigationController storyboardIdentifier="UECVersionInfoNavController" id="GlY-Dg-Y4x" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="akg-NB-wrx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0Xs-7e-J18" kind="relationship" relationship="rootViewController" id="epu-9T-8gv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IkF-rn-Sfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-750" y="239"/>
         </scene>
     </scenes>
     <resources>
