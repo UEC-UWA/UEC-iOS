@@ -22,9 +22,9 @@ static NSInteger kPreviewTag = 100;
 
 @implementation UECAlertManager
 
-+ (UECAlertManager *)sharedManager
++ (instancetype)sharedManager
 {
-    static __DISPATCH_ONCE__ UECAlertManager *singletonObject = nil;
+    static __DISPATCH_ONCE__ id singletonObject = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

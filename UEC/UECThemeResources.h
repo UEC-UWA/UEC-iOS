@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import "UECTheme.h"
+#import "UECThemeManager.h"
 
-@interface UECTheme_iOS6 : NSObject <UECTheme>
+@interface UECThemeResources : NSObject <UECTheme>
 
 @end

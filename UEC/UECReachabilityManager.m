@@ -18,12 +18,12 @@
 
 @implementation UECReachabilityManager
 
-+ (UECReachabilityManager *)sharedManager
++ (instancetype)sharedManager
 {
     return [UECReachabilityManager sharedManagerWithDelegate:nil];
 }
 
-+ (UECReachabilityManager *)sharedManagerWithDelegate:(id)delegate;
++ (instancetype)sharedManagerWithDelegate:(id)delegate;
 {
     static __DISPATCH_ONCE__ UECReachabilityManager *singletonObject = nil;
     

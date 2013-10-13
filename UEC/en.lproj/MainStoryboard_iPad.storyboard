@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A598" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1552" identifier="iOS"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
@@ -454,7 +454,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" text="Facebook Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UK1-q2-Vyl">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Facebook Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UK1-q2-Vyl">
                                                     <rect key="frame" x="308" y="0.0" width="153" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="43" id="7Dh-9G-PWT"/>
@@ -468,7 +468,7 @@
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstItem="UK1-q2-Vyl" firstAttribute="centerX" secondItem="PT1-56-Tg2" secondAttribute="centerX" id="Wzm-IY-ke0"/>
-                                            <constraint firstItem="UK1-q2-Vyl" firstAttribute="top" secondItem="PT1-56-Tg2" secondAttribute="top" constant="1" id="mvH-eP-gfp"/>
+                                            <constraint firstItem="UK1-q2-Vyl" firstAttribute="top" secondItem="PT1-56-Tg2" secondAttribute="top" id="mvH-eP-gfp"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>

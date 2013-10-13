@@ -10,7 +10,7 @@
 
 @interface UECAlertManager : NSObject
 
-+ (UECAlertManager *)sharedManager;
++ (instancetype)sharedManager;
 
 - (void)showPreviewAlertForFileName:(NSString *)fileName inController:(UIViewController *)controller;
 

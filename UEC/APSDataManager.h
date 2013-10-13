@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, APSDataManagerEntityRelationship) {
 
 @interface APSDataManager : NSObject
 
-+ (APSDataManager *)sharedManager;
++ (instancetype)sharedManager;
 
 #pragma mark - Downloading
 

@@ -20,6 +20,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    self.window.tintColor = [UIColor blackColor];
     [UECThemeManager customiseAppAppearance];
     
     [TestFlight takeOff:@"06760142-99fc-4b04-b984-727e2fc54aaa"];

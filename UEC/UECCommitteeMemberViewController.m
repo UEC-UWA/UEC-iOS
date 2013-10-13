@@ -7,16 +7,17 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
-#import <MessageUI/MessageUI.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
 #import "UIImageView+WebCache.h"
 
 #import "UECCommitteeMemberViewController.h"
 
+#import "UECMailManager.h"
+
 #import "Person.h"
 
-@interface UECCommitteeMemberViewController () <MFMailComposeViewControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UISplitViewControllerDelegate>
+@interface UECCommitteeMemberViewController () <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UISplitViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
@@ -64,8 +65,7 @@
     self.emailCell.detailTextLabel.text = self.person.email;
     
     if ([self.person.subcommittee isEqualToString:@"Thebse"]) {
-        UIBarButtonItem *phantomBarbuttonItem = [[UIBarButtonItem alloc] initWithTitle:@"Phantom" style:UIBarButtonItemStyleBordered target:self action:@selector(phantom:)];
-        phantomBarbuttonItem.tintColor = [UIColor darkGrayColor];
+        UIBarButtonItem *phantomBarbuttonItem = [[UIBarButtonItem alloc] initWithTitle:@"Phantom" style:UIBarButtonItemStyleDone target:self action:@selector(phantom:)];
         
         self.navigationItem.rightBarButtonItem = phantomBarbuttonItem;
     } else {
@@ -94,43 +94,14 @@
     [self configureView];
 }
 
-#pragma mark - Email
-
-- (void)sendEmail:(void (^)(MFMailComposeViewController *mailComposer))mailComposerBlock
-{
-    // Create a mail modal view.
-    MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
-    mailComposer.mailComposeDelegate = self;
-    if (mailComposerBlock) {
-        mailComposerBlock(mailComposer);
-    }
-	// Present the modal view.
-    [self presentViewController:mailComposer animated:YES completion:^{
-        
-    }];
-}
-
-/*
- Delegate method alerting when the email has finished.
- */
-- (void)mailComposeController:(MFMailComposeViewController *)controller
-		  didFinishWithResult:(MFMailComposeResult)result
-						error:(NSError *)error
-{
-	[self becomeFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
-}
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.emailCell isEqual:[tableView cellForRowAtIndexPath:indexPath]]) {
-        [self sendEmail:^(MFMailComposeViewController *mailComposer) {
+        [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
             [mailComposer setToRecipients:@[self.person.email]];
-        }];
+        } inController:self];
     }
 }
 
@@ -263,14 +234,14 @@
     }
     
     [self dismissViewControllerAnimated:YES completion:^{
-        [self sendEmail:^(MFMailComposeViewController *mailComposer) {
+        [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
             [mailComposer setToRecipients:@[@"thebse@uec.org.au"]];
             [mailComposer setSubject:@"Photo Phantom"];
             [mailComposer addAttachmentData:UIImageJPEGRepresentation(image, 1.0)
                                    mimeType:@"image/jpg"
                                    fileName:@"Phantom.jpg"];
             [mailComposer setMessageBody:@"UEC iOS app Phantom." isHTML:NO];
-        }];
+        } inController:self];
     }];
 }
 
@@ -288,11 +259,12 @@
             break;
             
         case 2:
-            [self sendEmail:^(MFMailComposeViewController *mailComposer) {
+            
+            [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
                 [mailComposer setToRecipients:@[@"thebse@uec.org.au"]];
                 [mailComposer setSubject:@"Written Phantom"];
                 [mailComposer setMessageBody:@"UEC iOS app Phantom." isHTML:NO];
-            }];
+            } inController:self];
             break;
             
         default:

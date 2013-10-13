@@ -21,8 +21,8 @@
 
 @property (nonatomic) AFNetworkReachabilityStatus networkStatus;
 
-+ (UECReachabilityManager *)sharedManager;
-+ (UECReachabilityManager *)sharedManagerWithDelegate:(id)delegate;
++ (instancetype)sharedManager;
++ (instancetype)sharedManagerWithDelegate:(id)delegate;
 
 - (void)handleReachabilityAlertOnRefresh:(BOOL)refresh;
 - (void)handleReachbilityAlertViewWithBlock:(void (^)(UIAlertView *reachbilityAlertView))alertViewBlock onRefresh:(BOOL)refresh;

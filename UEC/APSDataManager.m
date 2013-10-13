@@ -32,7 +32,7 @@
 
 @implementation APSDataManager
 
-+ (APSDataManager *)sharedManager
++ (instancetype)sharedManager
 {
     static __DISPATCH_ONCE__ APSDataManager *singletonObject = nil;
     
@@ -160,21 +160,24 @@
                 return;
             });
         }
-
+        
         NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
         
         NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
         [path appendString:serverPaths[entityName]];
         
-        //build NSURLRequest
-        NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:path]
-                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                      timeoutInterval:60.0];
+//        //build NSURLRequest
+//        NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:path]
+//                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
+//                                                      timeoutInterval:60.0];
+//        
+//        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
+//                                             initWithRequest:request];
+//        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+//        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
+        NSArray *responseObject = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
         
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
-                                             initWithRequest:request];
-        operation.responseSerializer = [AFJSONResponseSerializer serializer];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [threadContext performBlock:^{
                 NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
                 
@@ -218,11 +221,11 @@
                     }
                 });
             }];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            
-        }];
-        
-        [operation start];
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            
+//        }];
+//        
+//        [operation start];
     });
 }
 

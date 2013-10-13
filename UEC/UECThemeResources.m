@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UECTheme_iOS6.h"
+#import "UECThemeResources.h"
 
-@implementation UECTheme_iOS6
+@implementation UECThemeResources
 
 - (UIImage *)socialEventImage
 {

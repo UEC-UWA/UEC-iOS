@@ -10,7 +10,7 @@
             <objects>
                 <tabBarController id="4" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="5">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="5">
                         <rect key="frame" x="0.0" y="431" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -32,7 +32,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="UECNewsArticlesViewController" id="idY-IG-7JH" customClass="UECNewsArticlesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="r3F-Zj-rCB">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search news articles" id="hTb-Es-5pt">
@@ -331,7 +331,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" misplaced="YES" text="Facebook Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-Gl-gu6">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Facebook Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TQ-Gl-gu6">
                                                     <rect key="frame" x="84" y="0.0" width="153" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="153" id="5Qb-Qs-mTt"/>
@@ -344,7 +344,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="4TQ-Gl-gu6" firstAttribute="top" secondItem="MXW-Nv-jP2" secondAttribute="top" constant="1" id="Gzd-il-H5Q"/>
+                                            <constraint firstItem="4TQ-Gl-gu6" firstAttribute="top" secondItem="MXW-Nv-jP2" secondAttribute="top" id="Gzd-il-H5Q"/>
                                             <constraint firstItem="4TQ-Gl-gu6" firstAttribute="centerX" secondItem="MXW-Nv-jP2" secondAttribute="centerX" id="Yay-b5-x36"/>
                                         </constraints>
                                     </tableViewCell>
@@ -816,7 +816,7 @@
                 <navigationController id="pGt-s3-lqp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Calendar" image="calendar.png" id="1c0-se-vtH"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZCO-d6-i88">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZCO-d6-i88" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -835,7 +835,7 @@
                 <navigationController id="lf5-fj-bP2" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Committee" image="committee.png" id="U5L-VR-qpq"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x95-In-kEe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="x95-In-kEe" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -923,7 +923,7 @@ Love Jad</string>
                 <navigationController id="rYW-Du-y9D" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="About" image="about.png" id="JQh-rR-kap"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6XH-R4-vcl">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6XH-R4-vcl" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -941,7 +941,7 @@ Love Jad</string>
             <objects>
                 <tableViewController id="lQe-8W-fCV" customClass="UECAboutViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="2HA-18-gJ0">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -974,7 +974,7 @@ Love Jad</string>
             <objects>
                 <tableViewController id="67Q-Nu-ddn" customClass="UECAboutAppViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="N3i-a0-rJM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
@@ -1036,7 +1036,7 @@ Love Jad</string>
                 <navigationController title="Torques" id="e7u-jA-40e" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Torques" image="book.png" id="KF7-rT-q7l"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmG-tR-FA8" customClass="UECBendNavigationBar">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gmG-tR-FA8" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1054,7 +1054,7 @@ Love Jad</string>
             <objects>
                 <tableViewController id="bSA-WB-rc5" customClass="UECTorquesViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Zy7-5N-7Q9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1185,7 +1185,7 @@ Love Jad</string>
                 <navigationController id="of9-Ll-aL0" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="News" image="newspaper.png" id="jE9-N5-pdY"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lCd-ZZ-WAe">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lCd-ZZ-WAe" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1203,7 +1203,7 @@ Love Jad</string>
             <objects>
                 <navigationController storyboardIdentifier="UECVersionInfoNavController" id="GlY-Dg-Y4x" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="akg-NB-wrx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="akg-NB-wrx" customClass="UECNavigationBar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

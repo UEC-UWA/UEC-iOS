@@ -43,7 +43,6 @@
     [self.eventsDisplaySegmentControl addTarget:self
                                          action:@selector(indexDidChangeForSegmentedControl:)
                                forControlEvents:UIControlEventValueChanged];
-    self.eventsDisplaySegmentControl.segmentedControlStyle = UISegmentedControlStyleBar;
     [self.eventsDisplaySegmentControl setTintColor:[UIColor darkGrayColor]];
     
     [[self navigationItem] setTitleView:self.eventsDisplaySegmentControl];

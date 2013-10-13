@@ -16,6 +16,12 @@
 		051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */; };
 		051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */; };
 		051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */; };
+		052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
+		052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
+		052E74A1180AA384008EA4E8 /* UECNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A0180AA384008EA4E8 /* UECNavigationBar.m */; };
+		052E74A2180AA384008EA4E8 /* UECNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A0180AA384008EA4E8 /* UECNavigationBar.m */; };
+		052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
+		052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
 		0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9D16C2A85A00B327B7 /* UIKit.framework */; };
 		0542FAA016C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
 		0542FAA216C2A85A00B327B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FAA116C2A85A00B327B7 /* CoreGraphics.framework */; };
@@ -95,16 +101,14 @@
 		058B1332180A69C8002BFE55 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B1316180A69C8002BFE55 /* UIImage+WebP.m */; };
 		058B1333180A69C8002BFE55 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B1318180A69C8002BFE55 /* UIImageView+WebCache.m */; };
 		058B1334180A69C8002BFE55 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B1318180A69C8002BFE55 /* UIImageView+WebCache.m */; };
-		058B1354180A710A002BFE55 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058B134E180A710A002BFE55 /* libTestFlight.a */; };
-		058B1355180A710A002BFE55 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 058B134E180A710A002BFE55 /* libTestFlight.a */; };
-		058B1356180A710A002BFE55 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 058B134F180A710A002BFE55 /* README.md */; };
-		058B1357180A710A002BFE55 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 058B134F180A710A002BFE55 /* README.md */; };
-		058B1358180A710A002BFE55 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 058B1350180A710A002BFE55 /* release_notes.md */; };
-		058B1359180A710A002BFE55 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 058B1350180A710A002BFE55 /* release_notes.md */; };
 		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
 		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
 		05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABF04616D4BDF70090BC4C /* UECCommitteeMemberCell.m */; };
+		05B34B50180A90B0008A0182 /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B34B4A180A90B0008A0182 /* libTestFlight.a */; };
+		05B34B51180A90B0008A0182 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05B34B4B180A90B0008A0182 /* README.md */; };
+		05B34B52180A90B0008A0182 /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 05B34B4C180A90B0008A0182 /* release_notes.md */; };
+		05B34B54180A90E1008A0182 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B34B53180A90E1008A0182 /* Security.framework */; };
 		05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B5C3E916CF3B73009A75F6 /* UECCommitteeMemberViewController.m */; };
 		05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */; };
 		05B9423E1717F85D00A100A1 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B9423D1717F85D00A100A1 /* Event.m */; };
@@ -133,10 +137,8 @@
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
 		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
-		05FDB27F16F0B5C0008DAA8A /* UECTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECTheme.m */; };
-		05FDB28016F0B5C0008DAA8A /* UECTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECTheme.m */; };
-		05FDB28716F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */; };
-		05FDB28816F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */; };
+		05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
+		05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,6 +166,12 @@
 		051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UECNewsArticleCell.xib; sourceTree = "<group>"; };
 		051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 2.xcdatamodel"; sourceTree = "<group>"; };
+		052E749B180AA059008EA4E8 /* UECThemeResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeResources.h; sourceTree = "<group>"; };
+		052E749C180AA059008EA4E8 /* UECThemeResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeResources.m; sourceTree = "<group>"; };
+		052E749F180AA384008EA4E8 /* UECNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNavigationBar.h; sourceTree = "<group>"; };
+		052E74A0180AA384008EA4E8 /* UECNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNavigationBar.m; sourceTree = "<group>"; };
+		052E74A3180AA615008EA4E8 /* UECMailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMailManager.h; sourceTree = "<group>"; };
+		052E74A4180AA615008EA4E8 /* UECMailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECMailManager.m; sourceTree = "<group>"; };
 		0542FA9A16C2A85A00B327B7 /* UEC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UEC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0542FA9D16C2A85A00B327B7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0542FA9F16C2A85A00B327B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -260,12 +268,6 @@
 		058B1316180A69C8002BFE55 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		058B1317180A69C8002BFE55 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		058B1318180A69C8002BFE55 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
-		058B134E180A710A002BFE55 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTestFlight.a; path = TestFlightSDK1.2.4/libTestFlight.a; sourceTree = SOURCE_ROOT; };
-		058B134F180A710A002BFE55 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = TestFlightSDK1.2.4/README.md; sourceTree = SOURCE_ROOT; };
-		058B1350180A710A002BFE55 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = release_notes.md; path = TestFlightSDK1.2.4/release_notes.md; sourceTree = SOURCE_ROOT; };
-		058B1351180A710A002BFE55 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestFlight.h; path = TestFlightSDK1.2.4/TestFlight.h; sourceTree = SOURCE_ROOT; };
-		058B1352180A710A002BFE55 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TestFlight+AsyncLogging.h"; path = "TestFlightSDK1.2.4/TestFlight+AsyncLogging.h"; sourceTree = SOURCE_ROOT; };
-		058B1353180A710A002BFE55 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TestFlight+ManualSessions.h"; path = "TestFlightSDK1.2.4/TestFlight+ManualSessions.h"; sourceTree = SOURCE_ROOT; };
 		0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECVersionInfoViewController.h; sourceTree = "<group>"; };
 		0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECVersionInfoViewController.m; sourceTree = "<group>"; };
 		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -273,6 +275,13 @@
 		0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		05ABF04516D4BDF70090BC4C /* UECCommitteeMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberCell.h; sourceTree = "<group>"; };
 		05ABF04616D4BDF70090BC4C /* UECCommitteeMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeMemberCell.m; sourceTree = "<group>"; };
+		05B34B4A180A90B0008A0182 /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		05B34B4B180A90B0008A0182 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		05B34B4C180A90B0008A0182 /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		05B34B4D180A90B0008A0182 /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		05B34B4E180A90B0008A0182 /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		05B34B4F180A90B0008A0182 /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		05B34B53180A90E1008A0182 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		05B5C3E816CF3B73009A75F6 /* UECCommitteeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberViewController.h; sourceTree = "<group>"; };
 		05B5C3E916CF3B73009A75F6 /* UECCommitteeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeMemberViewController.m; sourceTree = "<group>"; };
 		05B76D3A16C4FAA400CECDF6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
@@ -323,10 +332,8 @@
 		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
 		05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarListViewController.h; sourceTree = "<group>"; };
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
-		05FDB27D16F0B5C0008DAA8A /* UECTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTheme.h; sourceTree = "<group>"; };
-		05FDB27E16F0B5C0008DAA8A /* UECTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTheme.m; sourceTree = "<group>"; };
-		05FDB28516F0B6CC008DAA8A /* UECTheme_iOS6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTheme_iOS6.h; sourceTree = "<group>"; };
-		05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTheme_iOS6.m; sourceTree = "<group>"; };
+		05FDB27D16F0B5C0008DAA8A /* UECThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeManager.h; sourceTree = "<group>"; };
+		05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,7 +341,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058B1354180A710A002BFE55 /* libTestFlight.a in Frameworks */,
+				05B34B54180A90E1008A0182 /* Security.framework in Frameworks */,
+				05B34B50180A90B0008A0182 /* libTestFlight.a in Frameworks */,
 				05D250B41716D4CD003177ED /* libz.dylib in Frameworks */,
 				055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */,
 				05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */,
@@ -359,7 +367,6 @@
 				0542FAD016C2A85A00B327B7 /* SenTestingKit.framework in Frameworks */,
 				0542FAD116C2A85A00B327B7 /* UIKit.framework in Frameworks */,
 				0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */,
-				058B1355180A710A002BFE55 /* libTestFlight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,7 +437,7 @@
 				0542FAA316C2A85A00B327B7 /* UEC */,
 				05D1A575180A5EA300091BAA /* Images.xcassets */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
-				058B1335180A6A66002BFE55 /* TestFlight */,
+				05B34B49180A90B0008A0182 /* TestFlightSDK1.2.4 */,
 				058B11B4180A68B0002BFE55 /* Submodules */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
@@ -449,6 +456,7 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05B34B53180A90E1008A0182 /* Security.framework */,
 				05D250B31716D4CD003177ED /* libz.dylib */,
 				055323F616E2048E00C83C8D /* SystemConfiguration.framework */,
 				05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */,
@@ -702,17 +710,17 @@
 			path = SDWebImage/SDWebImage;
 			sourceTree = "<group>";
 		};
-		058B1335180A6A66002BFE55 /* TestFlight */ = {
+		05B34B49180A90B0008A0182 /* TestFlightSDK1.2.4 */ = {
 			isa = PBXGroup;
 			children = (
-				058B134E180A710A002BFE55 /* libTestFlight.a */,
-				058B134F180A710A002BFE55 /* README.md */,
-				058B1350180A710A002BFE55 /* release_notes.md */,
-				058B1351180A710A002BFE55 /* TestFlight.h */,
-				058B1352180A710A002BFE55 /* TestFlight+AsyncLogging.h */,
-				058B1353180A710A002BFE55 /* TestFlight+ManualSessions.h */,
+				05B34B4A180A90B0008A0182 /* libTestFlight.a */,
+				05B34B4B180A90B0008A0182 /* README.md */,
+				05B34B4C180A90B0008A0182 /* release_notes.md */,
+				05B34B4D180A90B0008A0182 /* TestFlight+AsyncLogging.h */,
+				05B34B4E180A90B0008A0182 /* TestFlight+ManualSessions.h */,
+				05B34B4F180A90B0008A0182 /* TestFlight.h */,
 			);
-			path = TestFlight;
+			path = TestFlightSDK1.2.4;
 			sourceTree = "<group>";
 		};
 		05B76D0D16C4E6B200CECDF6 /* Managers */ = {
@@ -724,6 +732,8 @@
 				055323F916E20A2900C83C8D /* UECReachabilityManager.m */,
 				057F6A9716E4554F00F74752 /* UECAlertManager.h */,
 				057F6A9816E4554F00F74752 /* UECAlertManager.m */,
+				052E74A3180AA615008EA4E8 /* UECMailManager.h */,
+				052E74A4180AA615008EA4E8 /* UECMailManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -843,10 +853,12 @@
 		05FDB26A16F0B2AB008DAA8A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
-				05FDB27D16F0B5C0008DAA8A /* UECTheme.h */,
-				05FDB27E16F0B5C0008DAA8A /* UECTheme.m */,
-				05FDB28516F0B6CC008DAA8A /* UECTheme_iOS6.h */,
-				05FDB28616F0B6CC008DAA8A /* UECTheme_iOS6.m */,
+				05FDB27D16F0B5C0008DAA8A /* UECThemeManager.h */,
+				05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */,
+				052E749B180AA059008EA4E8 /* UECThemeResources.h */,
+				052E749C180AA059008EA4E8 /* UECThemeResources.m */,
+				052E749F180AA384008EA4E8 /* UECNavigationBar.h */,
+				052E74A0180AA384008EA4E8 /* UECNavigationBar.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -929,7 +941,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058B1358180A710A002BFE55 /* release_notes.md in Resources */,
+				05B34B52180A90B0008A0182 /* release_notes.md in Resources */,
 				0542FAA816C2A85A00B327B7 /* InfoPlist.strings in Resources */,
 				0542FAB716C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				0542FABA16C2A85A00B327B7 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -941,7 +953,7 @@
 				0559115716C41A6100BF14D2 /* gentleman.png in Resources */,
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */,
-				058B1356180A710A002BFE55 /* README.md in Resources */,
+				05B34B51180A90B0008A0182 /* README.md in Resources */,
 				050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */,
 				05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */,
 				057F6A5916E31BCF00F74752 /* DummyBend.plist in Resources */,
@@ -954,8 +966,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058B1359180A710A002BFE55 /* release_notes.md in Resources */,
-				058B1357180A710A002BFE55 /* README.md in Resources */,
 				0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -998,6 +1008,7 @@
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
 				0559112F16C3D4F000BF14D2 /* APSDataManager.m in Sources */,
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
+				052E74A1180AA384008EA4E8 /* UECNavigationBar.m in Sources */,
 				058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
@@ -1030,17 +1041,18 @@
 				058B12ED180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
 				057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */,
 				057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */,
+				052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */,
 				057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */,
 				05BCDC7A16E774B000AA0FA2 /* UECNewsArticlesViewController.m in Sources */,
 				05BCDC7E16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m in Sources */,
-				05FDB27F16F0B5C0008DAA8A /* UECTheme.m in Sources */,
-				05FDB28716F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */,
+				05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
 				058B132F180A69C8002BFE55 /* UIImage+MultiFormat.m in Sources */,
 				054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */,
 				054DBD6D1716C8A00026A7AE /* APSDataManager+UEC.m in Sources */,
 				05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */,
 				0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */,
 				058B1329180A69C8002BFE55 /* SDWebImagePrefetcher.m in Sources */,
+				052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */,
 				05B9423E1717F85D00A100A1 /* Event.m in Sources */,
 				05B942441717F85E00A100A1 /* Person.m in Sources */,
 				05B942471717F85E00A100A1 /* NewsArticle.m in Sources */,
@@ -1063,6 +1075,7 @@
 				058B12F0180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */,
 				058B131E180A69C8002BFE55 /* SDImageCache.m in Sources */,
 				058B12F8180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */,
+				052E74A2180AA384008EA4E8 /* UECNavigationBar.m in Sources */,
 				058B12F4180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
 				058B1322180A69C8002BFE55 /* SDWebImageDecoder.m in Sources */,
 				058B12F2180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */,
@@ -1071,6 +1084,7 @@
 				058B1334180A69C8002BFE55 /* UIImageView+WebCache.m in Sources */,
 				058B1320180A69C8002BFE55 /* SDWebImageCompat.m in Sources */,
 				058B12F6180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
+				052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */,
 				058B132E180A69C8002BFE55 /* UIImage+GIF.m in Sources */,
 				058B1330180A69C8002BFE55 /* UIImage+MultiFormat.m in Sources */,
 				058B12FA180A68E8002BFE55 /* AFURLSessionManager.m in Sources */,
@@ -1078,8 +1092,8 @@
 				058B131A180A69C8002BFE55 /* MKAnnotationView+WebCache.m in Sources */,
 				058B131C180A69C8002BFE55 /* NSData+GIF.m in Sources */,
 				058B1328180A69C8002BFE55 /* SDWebImageManager.m in Sources */,
-				05FDB28016F0B5C0008DAA8A /* UECTheme.m in Sources */,
-				05FDB28816F0B6CC008DAA8A /* UECTheme_iOS6.m in Sources */,
+				052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */,
+				05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1207,15 +1221,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/TestFlightSDK1.2.4\\\"",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlight",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK1.2.4",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "80307281-E560-48DF-AD63-38C4A2CE45FA";
-				USER_HEADER_SEARCH_PATHS = "objc-TimesSquare";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1235,15 +1248,14 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/TestFlightSDK1.2.4\\\"",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlight",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK1.2.4",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3DB4F925-0836-44F0-88C5-423C6980587C";
-				USER_HEADER_SEARCH_PATHS = "objc-TimesSquare";
+				TARGETED_DEVICE_FAMILY = 1;
+				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
