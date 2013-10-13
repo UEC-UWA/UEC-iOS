@@ -1,0 +1,6 @@
+[submodule "AFNetworking"]
+	path = AFNetworking
+	url = git@github.com:AFNetworking/AFNetworking.git
+[submodule "SDWebImage"]
+	path = SDWebImage
+	url = git@github.com:rs/SDWebImage.git

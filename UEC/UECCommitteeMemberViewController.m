@@ -10,7 +10,7 @@
 #import <MessageUI/MessageUI.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 #import "UECCommitteeMemberViewController.h"
 
@@ -220,7 +220,7 @@
         if (self.imagePickerpopover.popoverVisible) {
             [self.imagePickerpopover dismissPopoverAnimated:YES];
         } else {
-            NSDictionary *navAttributes = @{UITextAttributeTextColor:[UIColor whiteColor]};
+            NSDictionary *navAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
             [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
             
             self.imagePickerpopover = [[UIPopoverController alloc] initWithContentViewController:mediaUI];
@@ -240,7 +240,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDictionary *navAttributes = @{UITextAttributeTextColor: [UIColor blackColor], UITextAttributeTextShadowColor : [UIColor clearColor]};
+        NSDictionary *navAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
         [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
     } else {
         [self dismissViewControllerAnimated:YES completion:nil];

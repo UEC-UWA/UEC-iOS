@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <SDWebImage/UIImageView+WebCache.h>
-
 #import "UECCalendarListViewController.h"
 #import "UECEventDetailViewController.h"
+
+#import "UIImageView+WebCache.h"
 
 #import "UECEventCell.h"
 

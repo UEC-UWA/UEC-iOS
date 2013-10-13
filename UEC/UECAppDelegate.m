@@ -14,8 +14,6 @@
 
 @interface UECAppDelegate ()
 
-@property (strong, nonatomic) Reachability *internetReach;
-
 @end
 
 @implementation UECAppDelegate
@@ -24,17 +22,10 @@
 {
     [UECThemeManager customiseAppAppearance];
     
-    // Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the
-    // method "reachabilityChanged" will be called.
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
-                                                 name:kReachabilityChangedNotification
-                                               object:nil];
-    self.internetReach = [Reachability reachabilityForInternetConnection];
-	[self.internetReach startNotifier];
-        
     [TestFlight takeOff:@"06760142-99fc-4b04-b984-727e2fc54aaa"];
-     
+    
+    [self handleReachability];
+    
     // Override point for customization after application launch.
     return YES;
 }
@@ -68,21 +59,18 @@
 
 #pragma mark - Reachability
 
-- (void)reachabilityChanged:(NSNotification *)notification
+- (void)handleReachability
 {
-	Reachability *curReach = [notification object];
-	NSParameterAssert([curReach isKindOfClass:[Reachability class]]);
-    
-    UECReachabilityManager *reachabilityManager = [UECReachabilityManager sharedManager];
-    
-    [reachabilityManager resetAlerts];
-    
-    NetworkStatus networkStatus = [curReach currentReachabilityStatus];
-    if (networkStatus == NotReachable) {
-        [reachabilityManager handleReachabilityAlertOnRefresh:NO];
-    }
-    
-    reachabilityManager.networkStatus = networkStatus;
+    AFNetworkReachabilityManager *reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        UECReachabilityManager *reachabilityManager = [UECReachabilityManager sharedManager];
+        [reachabilityManager resetAlerts];
+        if (status == AFNetworkReachabilityStatusNotReachable) {
+            [reachabilityManager handleReachabilityAlertOnRefresh:NO];
+        }
+        reachabilityManager.networkStatus = status;
+    }];
+    [reachabilityManager startMonitoring];
 }
 
 @end

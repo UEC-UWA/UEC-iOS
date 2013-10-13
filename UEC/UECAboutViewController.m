@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <SDWebImage/UIImageView+WebCache.h>
-
 #import "UECAboutViewController.h"
 
 #import "APSDataManager.h"
 #import "UECReachabilityManager.h"
 #import "UECAlertManager.h"
+
+#import "UIImageView+WebCache.h"
 
 #import "UECPreviewItem.h"
 

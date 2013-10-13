@@ -8,7 +8,6 @@
 
 #import "UECCalendarViewController.h"
 
-#import "UECMonthViewController.h"
 #import "UECEventsListViewController.h"
 #import "UECTicketsViewController.h"
 #import "UECCalendarListViewController.h"
@@ -19,8 +18,7 @@
 
 #import "Event.h"
 
-
-@interface UECCalendarViewController () <UECMonthViewControllerDelegate, UECCalendarListViewController>
+@interface UECCalendarViewController () <UECCalendarListViewController>
 
 @end
 
@@ -30,17 +28,15 @@
 {
     [super viewDidLoad];
     
-    UECMonthViewController *monthsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECMonthViewController"];
-    monthsVC.delegate = self;
     UECEventsListViewController *eventsListVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECEventsListViewController"];
     eventsListVC.delegate = self;
     UECTicketsViewController *ticketsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECTicketsViewController"];
     ticketsVC.delegate = self;
     
     // Add the view controllers to the array
-    self.allViewControllers = @[monthsVC, eventsListVC, ticketsVC];
+    self.allViewControllers = @[eventsListVC, ticketsVC];
     
-    [self setupSegmentControlWithItems:@[@"Month", @"List", @"Tickets"]];
+    [self setupSegmentControlWithItems:@[@"List", @"Tickets"]];
         
     [self refreshDataManually:NO];
 }

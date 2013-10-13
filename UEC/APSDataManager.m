@@ -10,9 +10,7 @@
 
 #import "AFURLConnectionOperation.h"
 #import "AFHTTPRequestOperation.h"
-#import "AFJSONRequestOperation.h"
-
-#import "Reachability.h"
+#import "AFNetworkReachabilityManager.h"
 
 #import "NSManagedObject+Appulse.h"
 #import "APSDataManager+UEC.h"
@@ -63,10 +61,9 @@
     dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
     
     dispatch_async(downloadQueue, ^{
-        Reachability *reachability = [Reachability reachabilityForInternetConnection];
-        NetworkStatus internetStatus = [reachability currentReachabilityStatus];
+        AFNetworkReachabilityStatus internetStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
         
-        if (internetStatus != NotReachable) {
+        if (internetStatus != AFNetworkReachabilityStatusNotReachable) {
             
             NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
             AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -150,9 +147,8 @@
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
         
-        Reachability *reachability = [Reachability reachabilityForInternetConnection];
-        NetworkStatus internetStatus = [reachability currentReachabilityStatus];
-        if (internetStatus == NotReachable) {
+        AFNetworkReachabilityStatus internetStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
+        if (internetStatus == AFNetworkReachabilityStatusNotReachable) {
             // Make sure to wait just enough time to finish the animation of the "Pull to refresh"/
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -170,15 +166,19 @@
         NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
         [path appendString:serverPaths[entityName]];
         
-        NSURLRequest *request = [[NSURLRequest alloc] initWithURL:[[NSURL alloc] initWithString:path]];
+        //build NSURLRequest
+        NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:path]
+                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                      timeoutInterval:60.0];
         
-        AFJSONRequestOperation *operation = nil;
-        operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-            
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
+                                             initWithRequest:request];
+        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
             [threadContext performBlock:^{
                 NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
                 
-                for (NSDictionary *dataObject in JSON) {
+                for (NSDictionary *dataObject in responseObject) {
                     id downloadedObject = [self.class newEntityWithName:entityName
                                                               inContext:threadContext
                                                             idAttribute:@"identifier"
@@ -218,8 +218,7 @@
                     }
                 });
             }];
-            
-        } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             
         }];
         

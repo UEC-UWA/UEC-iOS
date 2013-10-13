@@ -316,9 +316,9 @@
 
 #pragma mark - Reachability
 
-- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(NetworkStatus)networkStatus
+- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(AFNetworkReachabilityStatus)networkStatus
 {
-    if (networkStatus == NotReachable) {
+    if (networkStatus == AFNetworkReachabilityStatusNotReachable) {
         [self stopDownloads:nil];
     }
 }

@@ -8,18 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Reachability.h"
+#import "AFNetworkReachabilityManager.h"
 
 @class UECReachabilityManager;
 @protocol UECReachabilityManagerDelegate <NSObject>
-- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(NetworkStatus)networkStatus;
+- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(AFNetworkReachabilityStatus)networkStatus;
 @end
 
 @interface UECReachabilityManager : NSObject
 
 @property (weak, nonatomic) id <UECReachabilityManagerDelegate> delegate;
 
-@property (nonatomic) NetworkStatus networkStatus;
+@property (nonatomic) AFNetworkReachabilityStatus networkStatus;
 
 + (UECReachabilityManager *)sharedManager;
 + (UECReachabilityManager *)sharedManagerWithDelegate:(id)delegate;

@@ -37,7 +37,7 @@
     return singletonObject;
 }
 
-- (void)setNetworkStatus:(NetworkStatus)networkStatus
+- (void)setNetworkStatus:(AFNetworkReachabilityStatus)networkStatus
 {
     if (_networkStatus != networkStatus) {
         _networkStatus = networkStatus;
