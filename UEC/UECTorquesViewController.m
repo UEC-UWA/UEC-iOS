@@ -176,31 +176,34 @@
 
 - (void)downloadTorque:(id)sender
 {
-    UECTorqueCell *cell = (UECTorqueCell *)[[sender superview] superview];
+    id cell = [[[sender superview] superview] superview];
     
-    Torque *torque = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:cell]];
-    
-    [self.activeDownloads addObject:torque];
-    
-    
-    NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:cell];
-    
-    torque.downloading = @(YES);
-    [[APSDataManager sharedManager] saveContext];
-    
-    [self.tableView reloadData];
-    
-    UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
-    
-    [self downloadTorque:torque inCell:downloadCell completion:^(BOOL success) {
-        if (success) {
-            torque.downloaded = @(YES);
-
-            [self.activeDownloads removeObject:torque];
-            
-            [self.tableView reloadData];
-        }
-    }];
+    if ([cell isKindOfClass:[UECTorqueCell class]]) {
+        UECTorqueCell *torqueCell = (UECTorqueCell *)cell;
+        
+        Torque *torque = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:torqueCell]];
+        
+        [self.activeDownloads addObject:torque];
+        
+        NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:torqueCell];
+        
+        torque.downloading = @(YES);
+        [[APSDataManager sharedManager] saveContext];
+        
+        [self.tableView reloadData];
+        
+        UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
+        
+        [self downloadTorque:torque inCell:downloadCell completion:^(BOOL success) {
+            if (success) {
+                torque.downloaded = @(YES);
+                
+                [self.activeDownloads removeObject:torque];
+                
+                [self.tableView reloadData];
+            }
+        }];
+    }
 }
 
 #pragma mark - Table view data source

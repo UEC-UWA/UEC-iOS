@@ -9,9 +9,12 @@
 #import "UECCalendarListViewController.h"
 #import "UECEventDetailViewController.h"
 
-#import "UIImageView+WebCache.h"
-
 #import "UECEventCell.h"
+
+#import "UECReachabilityManager.h"
+#import "APSDataManager.h"
+#import "NSDate+Formatter.h"
+#import "UIImageView+WebCache.h"
 
 #import "Event.h"
 
@@ -30,7 +33,10 @@ static CGFloat kCellHeight = 55.0;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
     
-    [self.delegate didRequestDataOnManualRefresh:NO completion:nil];
+    self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
+        request.sortDescriptors = @[sortDescriptor];
+    } entityName:@"Event" sectionNameKeyPath:@"startDate" cacheName:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,11 +45,32 @@ static CGFloat kCellHeight = 55.0;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"Event Detail Segue"]) {
+        // Navigation logic may go here. Create and push another view controller.
+        UECEventDetailViewController *detailViewController = (UECEventDetailViewController *)segue.destinationViewController;
+        detailViewController.event = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
+    }
+}
+
 #pragma mark - Refresh
+
+- (void)refreshDataWithCompletion:(void (^)(void))completionBlock
+{
+    [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:YES];
+        }
+        if (completionBlock) {
+            completionBlock();
+        }
+    }];
+}
 
 - (void)handleRefresh:(id)sender
 {
-    [self.delegate didRequestDataOnManualRefresh:YES completion:^{
+    [self refreshDataWithCompletion:^{
         [self.refreshControl endRefreshing];
     }];
 }
@@ -80,19 +107,7 @@ static CGFloat kCellHeight = 55.0;
     
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    switch (self.listType) {
-        case UECEventListTypeEvents:
-            cell.eventDetailLabel.text = event.location;
-            break;
-            
-        case UECEventListTypeTickets:
-            cell.eventDetailLabel.text = [[NSString alloc] initWithFormat:@"%@ - %@", [event.startSale stringNoTimeValue], [event.endSale stringNoTimeValue]];
-            break;
-            
-        default:
-            break;
-    }
-    
+    cell.eventDetailLabel.text = event.location;
     cell.eventLabel.text = event.name;
     
 //    [cell.eventImageView setImageWithURL:nil placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
@@ -111,18 +126,6 @@ static CGFloat kCellHeight = 55.0;
     [cell.categoryImageView setImage:image];
     
     return cell;
-}
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    UECEventDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"UECEventDetailViewController"];
-    detailViewController.event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
-    // Pass the selected object to the new view controller.
-    [self.navigationController pushViewController:detailViewController animated:YES];
 }
 
 @end

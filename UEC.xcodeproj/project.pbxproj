@@ -37,11 +37,12 @@
 		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
 		054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A32A6170301000070D9A9 /* UECTorquesViewController.m */; };
 		054DBD6D1716C8A00026A7AE /* APSDataManager+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054DBD6C1716C8A00026A7AE /* APSDataManager+UEC.m */; };
+		05517266180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */; };
+		05517267180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */; };
 		055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055323F616E2048E00C83C8D /* SystemConfiguration.framework */; };
 		055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F916E20A2900C83C8D /* UECReachabilityManager.m */; };
 		055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910D516C3AD7D00BF14D2 /* ImageIO.framework */; };
 		0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110616C3B44000BF14D2 /* NSDate+Helper.m */; };
-		0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */; };
 		0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */; };
 		0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0559112116C3CF2500BF14D2 /* CoreData.framework */; };
 		0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559112B16C3D4B400BF14D2 /* DummyEvent.plist */; };
@@ -118,7 +119,6 @@
 		05B9424D1717F85E00A100A1 /* Sponsor.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B9424C1717F85E00A100A1 /* Sponsor.m */; };
 		05BC868316D7C02B00FA6C6F /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BC868216D7C02B00FA6C6F /* QuickLook.framework */; };
 		05BCDC7A16E774B000AA0FA2 /* UECNewsArticlesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BCDC7916E774B000AA0FA2 /* UECNewsArticlesViewController.m */; };
-		05BCDC7E16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BCDC7D16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m */; };
 		05BCDC8716E7802100AA0FA2 /* DummyTorque.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC8616E7802100AA0FA2 /* DummyTorque.plist */; };
 		05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C18F451717892600CA2430 /* UECAboutAppViewController.m */; };
 		05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */; };
@@ -130,9 +130,7 @@
 		05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */; };
 		05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */; };
 		05D250B41716D4CD003177ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D250B31716D4CD003177ED /* libz.dylib */; };
-		05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
-		05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
 		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
@@ -194,14 +192,14 @@
 		054A32A6170301000070D9A9 /* UECTorquesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorquesViewController.m; sourceTree = "<group>"; };
 		054DBD6B1716C8A00026A7AE /* APSDataManager+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APSDataManager+UEC.h"; sourceTree = "<group>"; };
 		054DBD6C1716C8A00026A7AE /* APSDataManager+UEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "APSDataManager+UEC.m"; sourceTree = "<group>"; };
+		05517264180AB68A004F94C6 /* UECMediaCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMediaCaptureManager.h; sourceTree = "<group>"; };
+		05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECMediaCaptureManager.m; sourceTree = "<group>"; };
 		055323F616E2048E00C83C8D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		055323F816E20A2900C83C8D /* UECReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECReachabilityManager.h; sourceTree = "<group>"; };
 		055323F916E20A2900C83C8D /* UECReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECReachabilityManager.m; sourceTree = "<group>"; };
 		055910D516C3AD7D00BF14D2 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		0559110516C3B44000BF14D2 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		0559110616C3B44000BF14D2 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
-		0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventsListViewController.h; sourceTree = "<group>"; };
-		0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventsListViewController.m; sourceTree = "<group>"; };
 		0559110C16C3CACB00BF14D2 /* UEC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UEC.xcdatamodel; sourceTree = "<group>"; };
 		0559112116C3CF2500BF14D2 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		0559112B16C3D4B400BF14D2 /* DummyEvent.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyEvent.plist; sourceTree = "<group>"; };
@@ -299,8 +297,6 @@
 		05BC868216D7C02B00FA6C6F /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
 		05BCDC7816E774B000AA0FA2 /* UECNewsArticlesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsArticlesViewController.h; sourceTree = "<group>"; };
 		05BCDC7916E774B000AA0FA2 /* UECNewsArticlesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsArticlesViewController.m; sourceTree = "<group>"; };
-		05BCDC7C16E7765B00AA0FA2 /* UECSegmentChildrenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECSegmentChildrenViewController.h; sourceTree = "<group>"; };
-		05BCDC7D16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECSegmentChildrenViewController.m; sourceTree = "<group>"; };
 		05BCDC8616E7802100AA0FA2 /* DummyTorque.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyTorque.plist; sourceTree = "<group>"; };
 		05C18F441717892600CA2430 /* UECAboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutAppViewController.h; sourceTree = "<group>"; };
 		05C18F451717892600CA2430 /* UECAboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutAppViewController.m; sourceTree = "<group>"; };
@@ -316,13 +312,9 @@
 		05D1C53C16DE1DB300D87BA0 /* UECEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECEventCell.m; sourceTree = "<group>"; };
 		05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		05D250B31716D4CD003177ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarViewController.h; sourceTree = "<group>"; };
-		05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarViewController.m; sourceTree = "<group>"; };
 		05DD22CF16C2B73200CF18F0 /* UECCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeViewController.h; sourceTree = "<group>"; };
 		05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeViewController.m; sourceTree = "<group>"; };
 		05E59FEF16F9F52C0016B8AE /* UEC 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 5.xcdatamodel"; sourceTree = "<group>"; };
-		05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTicketsViewController.h; sourceTree = "<group>"; };
-		05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTicketsViewController.m; sourceTree = "<group>"; };
 		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
 		05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Appulse.m"; sourceTree = "<group>"; };
 		05F9177B16C7648400B1BCE1 /* UECArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECArticleViewController.h; sourceTree = "<group>"; };
@@ -393,24 +385,6 @@
 				0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */,
 			);
 			name = About;
-			sourceTree = "<group>";
-		};
-		051B3D5316C56EF7007BAB12 /* Tickets */ = {
-			isa = PBXGroup;
-			children = (
-				05F2024A16C55E3300A1E981 /* UECTicketsViewController.h */,
-				05F2024B16C55E3300A1E981 /* UECTicketsViewController.m */,
-			);
-			name = Tickets;
-			sourceTree = "<group>";
-		};
-		051B3D5416C56EFD007BAB12 /* Events */ = {
-			isa = PBXGroup;
-			children = (
-				0559110816C3C2A500BF14D2 /* UECEventsListViewController.h */,
-				0559110916C3C2A500BF14D2 /* UECEventsListViewController.m */,
-			);
-			name = Events;
 			sourceTree = "<group>";
 		};
 		0536F76B16DF8943008ECFDA /* Detail */ = {
@@ -734,6 +708,8 @@
 				057F6A9816E4554F00F74752 /* UECAlertManager.m */,
 				052E74A3180AA615008EA4E8 /* UECMailManager.h */,
 				052E74A4180AA615008EA4E8 /* UECMailManager.m */,
+				05517264180AB68A004F94C6 /* UECMediaCaptureManager.h */,
+				05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -779,10 +755,10 @@
 		05DD22CE16C2B71A00CF18F0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				05DD22CB16C2B71600CF18F0 /* UECCalendarViewController.h */,
-				05DD22CC16C2B71600CF18F0 /* UECCalendarViewController.m */,
-				05FB0AE016C7CC3600D91F9C /* List */,
+				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
+				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
 				05D1C53716DE1C2000D87BA0 /* Detail */,
+				05E4D79E16E462C300C5374D /* Cell */,
 			);
 			name = Calendar;
 			sourceTree = "<group>";
@@ -830,24 +806,10 @@
 			children = (
 				0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */,
 				0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */,
-				05BCDC7C16E7765B00AA0FA2 /* UECSegmentChildrenViewController.h */,
-				05BCDC7D16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m */,
 				05F9178716C7780200B1BCE1 /* UECActivity.h */,
 				05F9178816C7780200B1BCE1 /* UECActivity.m */,
 			);
 			name = Subclasses;
-			sourceTree = "<group>";
-		};
-		05FB0AE016C7CC3600D91F9C /* List */ = {
-			isa = PBXGroup;
-			children = (
-				05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */,
-				05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */,
-				05E4D79E16E462C300C5374D /* Cell */,
-				051B3D5416C56EFD007BAB12 /* Events */,
-				051B3D5316C56EF7007BAB12 /* Tickets */,
-			);
-			name = List;
 			sourceTree = "<group>";
 		};
 		05FDB26A16F0B2AB008DAA8A /* Theme */ = {
@@ -914,6 +876,11 @@
 				TargetAttributes = {
 					0542FA9916C2A85A00B327B7 = {
 						DevelopmentTeam = GGB7WW5V29;
+						SystemCapabilities = {
+							com.apple.InterAppAudio = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -996,13 +963,11 @@
 				058B12F9180A68E8002BFE55 /* AFURLSessionManager.m in Sources */,
 				0542FAAA16C2A85A00B327B7 /* main.m in Sources */,
 				0542FAAE16C2A85A00B327B7 /* UECAppDelegate.m in Sources */,
-				05DD22CD16C2B71600CF18F0 /* UECCalendarViewController.m in Sources */,
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
 				058B12F3180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
 				058B1325180A69C8002BFE55 /* SDWebImageDownloaderOperation.m in Sources */,
 				058B132B180A69C8002BFE55 /* UIButton+WebCache.m in Sources */,
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
-				0559110A16C3C2A500BF14D2 /* UECEventsListViewController.m in Sources */,
 				058B131F180A69C8002BFE55 /* SDWebImageCompat.m in Sources */,
 				058B1323180A69C8002BFE55 /* SDWebImageDownloader.m in Sources */,
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
@@ -1010,9 +975,9 @@
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
 				052E74A1180AA384008EA4E8 /* UECNavigationBar.m in Sources */,
 				058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
-				05F2024C16C55E3300A1E981 /* UECTicketsViewController.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
+				05517266180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
 				058B1319180A69C8002BFE55 /* MKAnnotationView+WebCache.m in Sources */,
 				058B12EB180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */,
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
@@ -1044,7 +1009,6 @@
 				052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */,
 				057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */,
 				05BCDC7A16E774B000AA0FA2 /* UECNewsArticlesViewController.m in Sources */,
-				05BCDC7E16E7765B00AA0FA2 /* UECSegmentChildrenViewController.m in Sources */,
 				05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
 				058B132F180A69C8002BFE55 /* UIImage+MultiFormat.m in Sources */,
 				054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */,
@@ -1082,6 +1046,7 @@
 				058B12EE180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
 				058B1324180A69C8002BFE55 /* SDWebImageDownloader.m in Sources */,
 				058B1334180A69C8002BFE55 /* UIImageView+WebCache.m in Sources */,
+				05517267180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
 				058B1320180A69C8002BFE55 /* SDWebImageCompat.m in Sources */,
 				058B12F6180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */,
@@ -1226,7 +1191,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "80307281-E560-48DF-AD63-38C4A2CE45FA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F2EA5B9C-76CD-4664-B77E-5D87A75A96D1";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

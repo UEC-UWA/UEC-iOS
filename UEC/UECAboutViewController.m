@@ -14,14 +14,11 @@
 
 #import "UIImageView+WebCache.h"
 
-#import "UECPreviewItem.h"
-
 #import "Sponsor.h"
 
-@interface UECAboutViewController () <QLPreviewControllerDataSource, NSFetchedResultsControllerDelegate>
+@interface UECAboutViewController () <NSFetchedResultsControllerDelegate>
 
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) UECPreviewItem *aboutPreview;
 
 @property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
 @property (nonatomic) BOOL beganUpdates;
@@ -132,105 +129,28 @@ static NSUInteger kNumSections = 3;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    if (indexPath.section == 0) {
-        UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [activityIndicator startAnimating];
-        
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.accessoryView = activityIndicator;
-        
-        [self downloadAboutUECFile:^(NSURL *localURL) {
-            cell.accessoryView = nil;
+{
+    switch (indexPath.section) {
+        case 0:
+            [self performSegueWithIdentifier:@"About UEC Segue" sender:self];
+            break;
             
-            if (localURL) {
-                self.aboutPreview = [[UECPreviewItem alloc] init];
-                self.aboutPreview.localURL = localURL;
-                self.aboutPreview.documentTitle = @"About the UEC";
-                
-                if ([QLPreviewController canPreviewItem:self.aboutPreview]) {
-                    QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
-                    quickLookC.dataSource = self;
-                    [self.navigationController pushViewController:quickLookC animated:YES];
-                } else {
-                    [[UECAlertManager sharedManager] showPreviewAlertForFileName:@"About the UEC" inController:self];
-                }
-            }
-        }];
-    }
-    
-    if (indexPath.section == 1) {
-        [self performSegueWithIdentifier:@"About App Segue" sender:self];
-    }
-    
-    if (indexPath.section == 2) {
-        Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
-                                                                                               inSection:0]];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sponsor.websitePath]];
+        case 1:
+            [self performSegueWithIdentifier:@"About App Segue" sender:self];
+            break;
+            
+        case 2: {
+            Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
+                                                                                                   inSection:0]];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sponsor.websitePath]];
+            break;
+        }
+            
+        default:
+            break;
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-#pragma mark - Downloading
-
-- (BOOL)needsDownloadingWithLastUpdate:(NSDate *)lastUpdate
-                            atFilePath:(NSString *)filePath
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDate *lastDownload = [userDefaults objectForKey:@"lastDownloadAboutUEC"];
-    
-    // if lastDownload is later than lastUpdate no need to download.
-    if ([lastDownload compare:lastUpdate] == NSOrderedDescending &&
-        [[NSFileManager defaultManager] fileExistsAtPath:filePath])
-        return NO;
-    
-    lastDownload = [NSDate date];
-    [userDefaults setObject:lastDownload forKey:@"lastDownloadAboutUEC"];
-    [userDefaults synchronize];
-    
-    return YES;
-}
-
-- (void)downloadAboutUECFile:(void (^)(NSURL *localURL))completionBlock;
-{
-    NSDictionary *aboutUEC = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"DummyAboutUEC" ofType:@"plist"]];
-    
-    NSString *fileAddress = aboutUEC[@"url"];
-    NSDate *lastUpdate = aboutUEC[@"last_update"];
-#if LOCAL_DATA
-
-#else
-//    NSDictionary *serverConnections = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
-//    NSString *serverAddress = serverConnections[@"AboutUEC"];
-//    
-//    // Handle the JSON response here.
-//    NSDictionary *aboutUEC =
-#endif
-    
-    NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *fileName = [[fileAddress pathComponents] lastObject];
-    NSString *filePath = [documentsPath stringByAppendingPathComponent:fileName];
-    
-    if ([self needsDownloadingWithLastUpdate:lastUpdate atFilePath:filePath]) {
-        [[APSDataManager sharedManager] downloadFileAtURL:[[NSURL alloc] initWithString:fileAddress] intoFilePath:filePath completion:completionBlock];
-    } else {
-        if (completionBlock) {
-            completionBlock([[NSURL alloc] initFileURLWithPath:filePath]);
-        }
-    }
-}
-
-#pragma mark - Quick Look
-
-- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
-{
-    return 1;
-}
-
-- (id<QLPreviewItem>)previewController:(QLPreviewController *)controller previewItemAtIndex:(NSInteger)index;
-{
-    return self.aboutPreview;
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
