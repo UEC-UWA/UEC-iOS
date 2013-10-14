@@ -746,36 +746,74 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="420"/>
                                 <color key="backgroundColor" red="0.92372847576530615" green="0.92372847576530615" blue="0.92372847576530615" alpha="1" colorSpace="calibratedRGB"/>
                                 <attributedString key="attributedText">
-                                    <fragment content="Welcome to the iOS UEC App.">
+                                    <fragment content="Welcome to the iOS UEC App">
                                         <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Bold"/>
+                                            <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">
-
-This is the second testing release of the UEC app. The data which you will see is all live from the server and if you want to change something get Cam to show you (he is pretty rad). Obviously this is not the final version, and quite a few things will change depending on your feedback. 
-
-You can send me some feedback by going to the "About" tab and tapping "About The App". Keep it constructive and keep in mind that the changes which will happen are tweaks and not massive changes.
-
-Changes on my roadmap currently are:
-	- Better design;
-	- Chinese, French localization; (Any other languages you are willing to translate)
-	- Proper iPad support
-
-I will send you releases with new features over the next month or so and then when you guys are happy we will release it :).
-
+                                        <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="18" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cg
 </string>
                                         <attributes>
                                             <font key="NSFont" size="15" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
+                                    <fragment content="This is the iOS 7 alpha release of the UEC app. The data which you will see is all cached. this means that it ">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="is not">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <integer key="NSUnderline" value="1"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content"> pulling from the server (aka the website). We need to get Cam to work on the server, probably after exams are over. It should not be too hard, maybe a day of collaborating and agreeing on the structure of data being sent over.
+
+Obviously this is not the final version, and quite a few things will change depending on your feedback. You can send me some feedback by going to the "About" tab and tapping "About The App". Keep it constructive please.
+
+Changes on my roadmap currently are:
+	- Chinese, French localization; (Any other languages you are willing to translate)
+	- iPad support</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content" base64-UTF8="YES">
+Cgo
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </attributes>
+                                    </fragment>
                                     <fragment content="Love Jad">
                                         <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Thin"/>
+                                            <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
