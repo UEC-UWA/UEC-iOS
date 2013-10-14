@@ -32,6 +32,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.view.tintColor = UEC_YELLOW;
+    
     self.title = self.location;
     
     self.mapView.showsUserLocation = YES;
@@ -102,7 +104,8 @@
 - (void)getLocationFromAddressString:(NSString *)addressStr
                           completion:(void (^)(BOOL success, CLLocationCoordinate2D coordinate, NSString *googleError))completionBlock
 {
-    [self hitGoogleWithURLString:GOOGLE_GEO_ADDRESS success:^(CLLocationCoordinate2D coordinate, NSString *googleError) {
+    [self hitGoogleWithURLString:[NSString stringWithFormat:GOOGLE_GEO_ADDRESS, addressStr]
+                         success:^(CLLocationCoordinate2D coordinate, NSString *googleError) {
         if (completionBlock) {
             completionBlock(YES, coordinate, googleError);
         }

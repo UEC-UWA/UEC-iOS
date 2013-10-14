@@ -6,6 +6,8 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <SDWebImage/UIImageView+WebCache.h>
+
 #import "UECCalendarListViewController.h"
 #import "UECEventDetailViewController.h"
 
@@ -14,7 +16,6 @@
 #import "UECReachabilityManager.h"
 #import "APSDataManager.h"
 #import "NSDate+Formatter.h"
-#import "UIImageView+WebCache.h"
 
 #import "Event.h"
 
@@ -37,6 +38,7 @@ static CGFloat kCellHeight = 55.0;
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
         request.sortDescriptors = @[sortDescriptor];
     } entityName:@"Event" sectionNameKeyPath:@"startDate" cacheName:nil];
+    [self handleRefresh:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -126,6 +128,13 @@ static CGFloat kCellHeight = 55.0;
     [cell.categoryImageView setImage:image];
     
     return cell;
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

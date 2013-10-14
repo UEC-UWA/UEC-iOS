@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "UECCommitteeMemberViewController.h"
 

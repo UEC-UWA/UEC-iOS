@@ -14,7 +14,7 @@
 
 @end
 
-static CGFloat const kDefaultColorLayerOpacity = 0.5;
+static CGFloat const kDefaultColorLayerOpacity = 0.4;
 static CGFloat const kSpaceToCoverStatusBars = 64.0;
 
 @implementation UECNavigationBar

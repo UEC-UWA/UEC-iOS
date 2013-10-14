@@ -139,6 +139,10 @@
                 break;
             }
                 
+            case 3:
+                // TODO facebook link here. Might have to integrate FB SDK...
+                break;
+                
             default:
                 break;
         }

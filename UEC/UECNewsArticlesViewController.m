@@ -203,6 +203,8 @@ static CGFloat kCellHeight = 120.0;
         
         [self.navigationController pushViewController:detailVC animated:YES];
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Content Filtering

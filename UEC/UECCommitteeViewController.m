@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "UIImageView+WebCache.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "UECCommitteeViewController.h"
 #import "UECCommitteeMemberViewController.h"
@@ -131,6 +131,8 @@ static CGFloat kCellHeight = 55.0;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         self.detailVC = (UECCommitteeMemberViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
         self.detailVC.person = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    } else {
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
 }
 
