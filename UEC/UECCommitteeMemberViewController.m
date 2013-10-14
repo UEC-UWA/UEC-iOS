@@ -88,7 +88,17 @@
     [self configureView];
 }
 
-#pragma mark - Table view delegate
+#pragma mark - Table view
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 1) {
+        [self.summaryTextView sizeToFit];
+        return self.summaryTextView.frame.size.height;
+    }
+    
+    return 44.0;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

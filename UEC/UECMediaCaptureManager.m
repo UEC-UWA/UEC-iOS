@@ -113,9 +113,6 @@
         if (self.imagePickerpopover.popoverVisible) {
             [self.imagePickerpopover dismissPopoverAnimated:YES];
         } else {
-            NSDictionary *navAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-            [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
-            
             self.imagePickerpopover = [[UIPopoverController alloc] initWithContentViewController:mediaUI];
             
             
@@ -133,10 +130,7 @@
 // For responding to the user tapping Cancel.
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSDictionary *navAttributes = @{NSForegroundColorAttributeName : [UIColor blackColor]};
-        [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
-    } else {
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.controller dismissViewControllerAnimated:YES completion:nil];
     }
 }

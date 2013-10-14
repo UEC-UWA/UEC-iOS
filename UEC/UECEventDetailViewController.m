@@ -120,6 +120,18 @@
 
 #pragma mark - Table view delegate
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0 && indexPath.section == 0) {
+        return 60.0;
+    } else if (indexPath.section == 1) {
+        [self.eventInfoTextView sizeToFit];
+        return self.eventInfoTextView.frame.size.height;
+    }
+    
+    return 44.0;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
