@@ -34,6 +34,8 @@
     [[UISearchBar appearance] setBarTintColor:UEC_YELLOW];
     
     [[UITabBar appearance] setTintColor:UEC_YELLOW];
+    
+    [[UITextView appearance] setTintColor:UEC_YELLOW];
 }
 
 // New Customization class methods.

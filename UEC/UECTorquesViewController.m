@@ -303,6 +303,8 @@
             [[UECAlertManager sharedManager] showPreviewAlertForFileName:torque.name inController:self];
         }
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Quick Look
