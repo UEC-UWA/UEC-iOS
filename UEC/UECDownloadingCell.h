@@ -12,6 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
 
+@property (weak, nonatomic) IBOutlet UIView *downloadingBar;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel, *progressLabel;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *downloadActivityView;
 

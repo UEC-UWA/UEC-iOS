@@ -211,6 +211,10 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
 {
+    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
     self.fetchedResultsController = [self fetchedResultsControllerForSearching:searchText withScope:scope];
 }
 
@@ -236,8 +240,11 @@ static CGFloat kCellHeight = 120.0;
 
 - (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView
 {
+    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleSingleLine) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    }
+    
     self.fetchedResultsController = [self defaultFetchedResultsController];
 }
-
 
 @end

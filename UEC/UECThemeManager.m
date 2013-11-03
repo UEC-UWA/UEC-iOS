@@ -30,7 +30,7 @@
     [[UINavigationBar appearance] setBarTintColor:UEC_YELLOW];
     NSDictionary *navAttributes = @{NSForegroundColorAttributeName : UEC_BLACK};
     [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
-    
+        
     [[UISearchBar appearance] setBarTintColor:UEC_YELLOW];
     
     [[UITabBar appearance] setTintColor:UEC_YELLOW];

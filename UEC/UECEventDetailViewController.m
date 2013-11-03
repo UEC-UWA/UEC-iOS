@@ -126,7 +126,7 @@
         return 60.0;
     } else if (indexPath.section == 1) {
         [self.eventInfoTextView sizeToFit];
-        return self.eventInfoTextView.frame.size.height;
+        return self.eventInfoTextView.frame.size.height + 3.0;
     }
     
     return 44.0;
@@ -136,31 +136,44 @@
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
-    if (indexPath.section == 0) {        
-        switch (indexPath.row) {
-            case 1: {
-                UIActionSheet *alarmActionSheet = [[UIActionSheet alloc] initWithTitle:@"Set Alarm"
-                                                                              delegate:self
-                                                                     cancelButtonTitle:@"Cancel"
-                                                                destructiveButtonTitle:nil
-                                                                     otherButtonTitles:@"No Alarms", @"30 Minutes Prior", @"3 Hours Prior", @"1 Day Prior", @"3 Days Prior", nil];
-                if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-                    [alarmActionSheet showFromRect:cell.frame inView:self.view animated:YES];
-                else
-                    [alarmActionSheet showFromTabBar:self.tabBarController.tabBar];
-                break;
+    switch (indexPath.section) {
+        case 0: {
+            switch (indexPath.row) {
+                case 1: {
+                    UIActionSheet *alarmActionSheet = [[UIActionSheet alloc] initWithTitle:@"Set Alarm"
+                                                                                  delegate:self
+                                                                         cancelButtonTitle:@"Cancel"
+                                                                    destructiveButtonTitle:nil
+                                                                         otherButtonTitles:@"No Alarms", @"30 Minutes Prior", @"3 Hours Prior", @"1 Day Prior", @"3 Days Prior", nil];
+                    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+                        [alarmActionSheet showFromRect:cell.frame inView:self.view animated:YES];
+                    else
+                        [alarmActionSheet showFromTabBar:self.tabBarController.tabBar];
+                    break;
+                }
+                    
+                default:
+                    break;
             }
-                
-            case 3:
-                // TODO facebook link here. Might have to integrate FB SDK...
-                break;
-                
-            default:
-                break;
+            break;
         }
-        
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+        case 3: {
+            NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"fb://event/%@", self.event.facebookLink]];
+            if (![[UIApplication sharedApplication] canOpenURL:url]) {
+                NSString *facebookString = [[NSString alloc] initWithFormat:@"https://www.facebook.com/events/%@", self.event.facebookLink];
+                url = [[NSURL alloc] initWithString:facebookString];
+            }
+            
+            [[UIApplication sharedApplication] openURL:url];
+            break;
+        }
+            
+        default:
+            break;
     }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Actions

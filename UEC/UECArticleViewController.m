@@ -8,8 +8,6 @@
 
 #import "UECArticleViewController.h"
 
-#import "UECActivity.h"
-
 #import "NewsArticle.h"
 
 @interface UECArticleViewController () <UISplitViewControllerDelegate>
@@ -73,8 +71,7 @@
 {
     NSArray *items = @[self.newsArticle.link];
     
-    UECActivity *activity = [[UECActivity alloc] init];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:@[activity]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     
     activityVC.excludedActivityTypes = @[UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll];
     

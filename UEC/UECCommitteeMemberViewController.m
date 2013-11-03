@@ -94,7 +94,7 @@
 {
     if (indexPath.section == 1) {
         [self.summaryTextView sizeToFit];
-        return self.summaryTextView.frame.size.height;
+        return self.summaryTextView.frame.size.height + 3.0;
     }
     
     return 44.0;

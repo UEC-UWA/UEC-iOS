@@ -18,8 +18,6 @@
 		051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */; };
 		052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
 		052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
-		052E74A1180AA384008EA4E8 /* UECNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A0180AA384008EA4E8 /* UECNavigationBar.m */; };
-		052E74A2180AA384008EA4E8 /* UECNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A0180AA384008EA4E8 /* UECNavigationBar.m */; };
 		052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
 		052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
 		0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9D16C2A85A00B327B7 /* UIKit.framework */; };
@@ -96,7 +94,7 @@
 		05BCDC8716E7802100AA0FA2 /* DummyTorque.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC8616E7802100AA0FA2 /* DummyTorque.plist */; };
 		05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C18F451717892600CA2430 /* UECAboutAppViewController.m */; };
 		05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */; };
-		05D1A576180A5EA300091BAA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05D1A575180A5EA300091BAA /* Images.xcassets */; };
+		05CE92E0181A7EE000BCC58C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05CE92DF181A7EE000BCC58C /* Images.xcassets */; };
 		05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C52D16DE1BE900D87BA0 /* MapKit.framework */; };
 		05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53216DE1BEE00D87BA0 /* EventKit.framework */; };
 		05D1C53616DE1C1D00D87BA0 /* UECEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1C53516DE1C1D00D87BA0 /* UECEventDetailViewController.m */; };
@@ -107,7 +105,6 @@
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
-		05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9178816C7780200B1BCE1 /* UECActivity.m */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
 		05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
 		05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
@@ -140,8 +137,6 @@
 		051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 2.xcdatamodel"; sourceTree = "<group>"; };
 		052E749B180AA059008EA4E8 /* UECThemeResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeResources.h; sourceTree = "<group>"; };
 		052E749C180AA059008EA4E8 /* UECThemeResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeResources.m; sourceTree = "<group>"; };
-		052E749F180AA384008EA4E8 /* UECNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNavigationBar.h; sourceTree = "<group>"; };
-		052E74A0180AA384008EA4E8 /* UECNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNavigationBar.m; sourceTree = "<group>"; };
 		052E74A3180AA615008EA4E8 /* UECMailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMailManager.h; sourceTree = "<group>"; };
 		052E74A4180AA615008EA4E8 /* UECMailManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECMailManager.m; sourceTree = "<group>"; };
 		0542FA9A16C2A85A00B327B7 /* UEC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UEC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,7 +242,7 @@
 		05C18F441717892600CA2430 /* UECAboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutAppViewController.h; sourceTree = "<group>"; };
 		05C18F451717892600CA2430 /* UECAboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutAppViewController.m; sourceTree = "<group>"; };
 		05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyAboutUEC.plist; sourceTree = "<group>"; };
-		05D1A575180A5EA300091BAA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = UEC/Images.xcassets; sourceTree = "<group>"; };
+		05CE92DF181A7EE000BCC58C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05D1C52D16DE1BE900D87BA0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		05D1C53216DE1BEE00D87BA0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
 		05D1C53416DE1C1D00D87BA0 /* UECEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECEventDetailViewController.h; sourceTree = "<group>"; };
@@ -265,8 +260,6 @@
 		05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Appulse.m"; sourceTree = "<group>"; };
 		05F9177B16C7648400B1BCE1 /* UECArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECArticleViewController.h; sourceTree = "<group>"; };
 		05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECArticleViewController.m; sourceTree = "<group>"; };
-		05F9178716C7780200B1BCE1 /* UECActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECActivity.h; sourceTree = "<group>"; };
-		05F9178816C7780200B1BCE1 /* UECActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECActivity.m; sourceTree = "<group>"; };
 		05F9179616C7A49D00B1BCE1 /* UEC 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 3.xcdatamodel"; sourceTree = "<group>"; };
 		05FB0ADD16C7B57800D91F9C /* UECCalendarListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCalendarListViewController.h; sourceTree = "<group>"; };
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
@@ -357,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				0542FAA316C2A85A00B327B7 /* UEC */,
-				05D1A575180A5EA300091BAA /* Images.xcassets */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
 				05B34B49180A90B0008A0182 /* TestFlightSDK1.2.4 */,
 				058B11B4180A68B0002BFE55 /* Submodules */,
@@ -411,6 +403,7 @@
 				0559110216C3B40A00BF14D2 /* Modules */,
 				05FDB26A16F0B2AB008DAA8A /* Theme */,
 				0542FAA416C2A85A00B327B7 /* Supporting Files */,
+				05CE92DF181A7EE000BCC58C /* Images.xcassets */,
 			);
 			path = UEC;
 			sourceTree = "<group>";
@@ -717,8 +710,6 @@
 			children = (
 				0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */,
 				0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */,
-				05F9178716C7780200B1BCE1 /* UECActivity.h */,
-				05F9178816C7780200B1BCE1 /* UECActivity.m */,
 			);
 			name = Subclasses;
 			sourceTree = "<group>";
@@ -730,8 +721,6 @@
 				05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */,
 				052E749B180AA059008EA4E8 /* UECThemeResources.h */,
 				052E749C180AA059008EA4E8 /* UECThemeResources.m */,
-				052E749F180AA384008EA4E8 /* UECNavigationBar.h */,
-				052E74A0180AA384008EA4E8 /* UECNavigationBar.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -823,12 +812,12 @@
 				0542FAA816C2A85A00B327B7 /* InfoPlist.strings in Resources */,
 				0542FAB716C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				0542FABA16C2A85A00B327B7 /* MainStoryboard_iPad.storyboard in Resources */,
-				05D1A576180A5EA300091BAA /* Images.xcassets in Resources */,
 				0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */,
 				0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */,
 				0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */,
 				0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */,
 				0559115716C41A6100BF14D2 /* gentleman.png in Resources */,
+				05CE92E0181A7EE000BCC58C /* Images.xcassets in Resources */,
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */,
 				05B34B51180A90B0008A0182 /* README.md in Resources */,
@@ -880,7 +869,6 @@
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
 				0559112F16C3D4F000BF14D2 /* APSDataManager.m in Sources */,
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
-				052E74A1180AA384008EA4E8 /* UECNavigationBar.m in Sources */,
 				058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
@@ -889,7 +877,6 @@
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
 				058B12F7180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */,
 				05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */,
-				05F9178916C7780200B1BCE1 /* UECActivity.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 				0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */,
 				05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */,
@@ -932,7 +919,6 @@
 				058B12EC180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */,
 				058B12F0180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */,
 				058B12F8180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */,
-				052E74A2180AA384008EA4E8 /* UECNavigationBar.m in Sources */,
 				058B12F4180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
 				058B12F2180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */,
 				058B12EE180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
