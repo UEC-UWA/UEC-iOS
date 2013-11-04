@@ -145,7 +145,7 @@
                                                                          cancelButtonTitle:@"Cancel"
                                                                     destructiveButtonTitle:nil
                                                                          otherButtonTitles:@"No Alarms", @"30 Minutes Prior", @"3 Hours Prior", @"1 Day Prior", @"3 Days Prior", nil];
-                    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+                    if (IPAD)
                         [alarmActionSheet showFromRect:cell.frame inView:self.view animated:YES];
                     else
                         [alarmActionSheet showFromTabBar:self.tabBarController.tabBar];
@@ -191,7 +191,7 @@
         NSLog(@" completed: %i", completed);
     };
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    if (IPAD) {
         if (self.activityPopoverController.popoverVisible) {
             [self.activityPopoverController dismissPopoverAnimated:YES];
         } else {

@@ -15,7 +15,7 @@
 
 #import "Person.h"
 
-@interface UECCommitteeMemberViewController () <UIActionSheetDelegate, UISplitViewControllerDelegate>
+@interface UECCommitteeMemberViewController () <UIActionSheetDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
@@ -29,8 +29,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.splitViewController.delegate = self;
     
     [self configureView];
 }
@@ -142,13 +140,6 @@
         default:
             break;
     }
-}
-
-#pragma mark - Split view
-
-- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
-{
-    return NO;
 }
 
 @end

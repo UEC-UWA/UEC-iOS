@@ -10,9 +10,9 @@
 
 #import "NewsArticle.h"
 
-@interface UECArticleViewController () <UISplitViewControllerDelegate>
+@interface UECArticleViewController ()
 
-@property (strong, nonatomic) UIPopoverController *masterPopoverController, *activityPopoverController;
+@property (strong, nonatomic) UIPopoverController *activityPopoverController;
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 
@@ -24,9 +24,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    self.splitViewController.presentsWithGesture = YES;
-    self.splitViewController.delegate = self;
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
     
@@ -59,10 +56,6 @@
     }
     
     [self configureView];
-
-    if (self.masterPopoverController) {
-        [self.masterPopoverController dismissPopoverAnimated:YES];
-    }
 }
 
 #pragma mark - Actions
@@ -80,38 +73,7 @@
         NSLog(@" completed: %i", completed);
     };
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        if (self.activityPopoverController.popoverVisible) {
-            [self.activityPopoverController dismissPopoverAnimated:YES];
-        } else {
-            self.activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityVC];
-            
-            [self.activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-    } else {
-        [self presentViewController:activityVC animated:YES completion:nil];
-    }
-}
-
-#pragma mark - Split view
-
-- (void)showMaster:(id)sender
-{
-
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
-{
-    barButtonItem.title = @"News";
-    [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
-    self.masterPopoverController = popoverController;
-}
-
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES];
-    self.masterPopoverController = nil;
+    [self presentViewController:activityVC animated:YES completion:nil];
 }
 
 @end

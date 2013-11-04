@@ -109,7 +109,7 @@
     
     mediaUI.delegate = self;
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+    if (IPAD) {
         if (self.imagePickerpopover.popoverVisible) {
             [self.imagePickerpopover dismissPopoverAnimated:YES];
         } else {

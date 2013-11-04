@@ -45,8 +45,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"] animated:YES completion:^{
-            [tableView deselectRowAtIndexPath:indexPath animated:NO];
+        UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
+        
+        if (IPAD) {
+            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
+        }
+        
+        [self presentViewController:versionInfoNC animated:YES completion:^{
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }];
     } else if (indexPath.section == 1) {
         [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {

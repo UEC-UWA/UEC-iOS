@@ -39,12 +39,6 @@ static CGFloat kCellHeight = 55.0;
         }
         
         [self setCustomCommitteeOrder];
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-            [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
-        }
     }];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
@@ -53,8 +47,6 @@ static CGFloat kCellHeight = 55.0;
         NSSortDescriptor *lastNameSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastName" ascending:YES];
         request.sortDescriptors = @[subcommitteeSortDescriptor, orderSortDescriptor, lastNameSortDescriptor];
     } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
-    
-    self.detailVC = (UECCommitteeMemberViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -128,12 +120,7 @@ static CGFloat kCellHeight = 55.0;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        self.detailVC = (UECCommitteeMemberViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-        self.detailVC.person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    } else {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

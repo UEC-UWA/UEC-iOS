@@ -123,7 +123,6 @@
     for (AFHTTPRequestOperation *operation in self.currentDownloads)
         [operation cancel];
     
-#warning do I still need this?
     [self.currentDownloads removeAllObjects];
 }
 

@@ -50,9 +50,7 @@ static CGFloat kCellHeight = 120.0;
         
         self.savedSearchTerm = nil;
     }
-    
-    self.detailNavController = (UINavigationController *)[self.splitViewController.viewControllers lastObject];
-    
+        
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     
@@ -66,7 +64,14 @@ static CGFloat kCellHeight = 120.0;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     if (![defaults boolForKey:@"shownVersionInfo"]) {
-        [self presentViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"] animated:YES completion:nil];
+        
+         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
+        
+        if (IPAD) {
+            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
+        }
+        
+        [self presentViewController:versionInfoNC animated:YES completion:nil];
         
         [defaults setBool:YES forKey:@"shownVersionInfo"];
         [defaults synchronize];
@@ -98,13 +103,6 @@ static CGFloat kCellHeight = 120.0;
     [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
-        }
-        
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-            NSIndexPath *firstIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView selectRowAtIndexPath:firstIndexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
-            if ([self.fetchedResultsController.fetchedObjects count] > 0)
-                [self tableView:self.tableView didSelectRowAtIndexPath:firstIndexPath];
         }
         
         [self.refreshControl endRefreshing];
@@ -179,9 +177,6 @@ static CGFloat kCellHeight = 120.0;
     cell.summaryLabel.text = newsArticle.summary;
     cell.dateLabel.text = [newsArticle.date stringValue];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    
     return cell;
 }
 
@@ -191,18 +186,10 @@ static CGFloat kCellHeight = 120.0;
 {
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        [self.splitViewController setViewControllers:@[self.navigationController, self.detailNavController]];
-        
-        UECArticleViewController *detailVC = (UECArticleViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-        detailVC.newsArticle = newsArticle;
-        
-    } else {
-        UECArticleViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
-        detailVC.newsArticle = newsArticle;
-        
-        [self.navigationController pushViewController:detailVC animated:YES];
-    }
+    UECArticleViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
+    detailVC.newsArticle = newsArticle;
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
