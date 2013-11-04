@@ -67,23 +67,36 @@
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     
-	EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-	event.title = title;
-    event.location = location;
-	event.startDate = startTime;
-	event.endDate = endTime;
-	event.calendar = [eventStore defaultCalendarForNewEvents];
+    [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        if (granted) {
+            EKEvent *event = [EKEvent eventWithEventStore:eventStore];
+            event.title = title;
+            event.location = location;
+            event.startDate = startTime;
+            event.endDate = endTime;
+            event.calendar = [eventStore defaultCalendarForNewEvents];
+            
+            if (alarmDate) {
+                EKAlarm *alarm = [EKAlarm alarmWithAbsoluteDate:alarmDate];
+                [event addAlarm:alarm];
+            }
+            
+            NSError *error;
+            [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
+            
+            if (error)
+                NSLog(@"ERROR: %@", error);
+        } else {
+            UIAlertView *noAccessAlertView = [[UIAlertView alloc] initWithTitle:@"Cannot Create Event"
+                                                                        message:@"No access to the calendar. You can change this setting in the Settings app."
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil];
+            [noAccessAlertView show];
+        }
+    }];
     
-    if (alarmDate) {
-        EKAlarm *alarm = [EKAlarm alarmWithAbsoluteDate:alarmDate];
-        [event addAlarm:alarm];
-    }
-        
-	NSError *error;
-	[eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
-	
-	if (error)
-		NSLog(@"ERROR: %@", error);
+
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
