@@ -48,6 +48,16 @@
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // This is necessary as the table view will not capture the fact that it is in
+    // landscape on viewDidLoad: and the dynamic cell resize will not work.
+    // http://stackoverflow.com/questions/7631094/a-view-controller-is-in-landscape-mode-but-im-getting-the-frame-from-portrait
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:1]] withRowAnimation:UITableViewRowAnimationNone];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"Map Event Segue"]) {
