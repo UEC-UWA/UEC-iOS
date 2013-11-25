@@ -419,17 +419,14 @@
     NSError *childError = nil;
     [context save:&childError];
     
-    UIBackgroundTaskIdentifier task = UIBackgroundTaskInvalid;
-    dispatch_block_t block = ^{
+    UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];;
+    [self.mainContext performBlock:^{
         NSError *parentError = nil;
         if ([self.mainContext hasChanges] && ![self.mainContext save:&parentError]) {
             NSLog(@"Error saving context: %@", parentError);
         }
         [[UIApplication sharedApplication] endBackgroundTask:task];
-    };
-    
-    task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:NULL];
-    [self.mainContext performBlock:block];
+    }];
 }
 
 @end
