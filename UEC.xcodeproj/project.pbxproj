@@ -94,6 +94,7 @@
 		05BCDC8716E7802100AA0FA2 /* DummyTorque.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05BCDC8616E7802100AA0FA2 /* DummyTorque.plist */; };
 		05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05C18F451717892600CA2430 /* UECAboutAppViewController.m */; };
 		05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */; };
+		05CD99F918437FA900A3450E /* UECAboutClubViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05CD99F818437FA900A3450E /* UECAboutClubViewController.m */; };
 		05CE92E0181A7EE000BCC58C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05CE92DF181A7EE000BCC58C /* Images.xcassets */; };
 		05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C52D16DE1BE900D87BA0 /* MapKit.framework */; };
 		05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53216DE1BEE00D87BA0 /* EventKit.framework */; };
@@ -242,6 +243,8 @@
 		05C18F441717892600CA2430 /* UECAboutAppViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutAppViewController.h; sourceTree = "<group>"; };
 		05C18F451717892600CA2430 /* UECAboutAppViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutAppViewController.m; sourceTree = "<group>"; };
 		05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyAboutUEC.plist; sourceTree = "<group>"; };
+		05CD99F718437FA900A3450E /* UECAboutClubViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutClubViewController.h; sourceTree = "<group>"; };
+		05CD99F818437FA900A3450E /* UECAboutClubViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutClubViewController.m; sourceTree = "<group>"; };
 		05CE92DF181A7EE000BCC58C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05D1C52D16DE1BE900D87BA0 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		05D1C53216DE1BEE00D87BA0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
@@ -324,6 +327,8 @@
 				05C18F451717892600CA2430 /* UECAboutAppViewController.m */,
 				0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */,
 				0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */,
+				05CD99F718437FA900A3450E /* UECAboutClubViewController.h */,
+				05CD99F818437FA900A3450E /* UECAboutClubViewController.m */,
 			);
 			name = About;
 			sourceTree = "<group>";
@@ -777,6 +782,9 @@
 					0542FA9916C2A85A00B327B7 = {
 						DevelopmentTeam = GGB7WW5V29;
 						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
 							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
@@ -864,6 +872,7 @@
 				0542FAAA16C2A85A00B327B7 /* main.m in Sources */,
 				0542FAAE16C2A85A00B327B7 /* UECAppDelegate.m in Sources */,
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
+				05CD99F918437FA900A3450E /* UECAboutClubViewController.m in Sources */,
 				058B12F3180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
@@ -1063,8 +1072,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F2EA5B9C-76CD-4664-B77E-5D87A75A96D1";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F2EA5B9C-76CD-4664-B77E-5D87A75A96D1";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0836350C-8A28-4246-88E7-21C0332B6E3C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1077,8 +1086,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS",
@@ -1094,8 +1103,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "66F14C2B-874A-43CB-B6CD-6694FA0AF602";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "66F14C2B-874A-43CB-B6CD-6694FA0AF602";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0836350C-8A28-4246-88E7-21C0332B6E3C";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

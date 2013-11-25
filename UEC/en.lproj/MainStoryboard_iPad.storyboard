@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="RBF-cV-qxK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A2093" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="RBF-cV-qxK">
     <dependencies>
         <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -966,10 +966,10 @@ Cgo
             </objects>
             <point key="canvasLocation" x="-284" y="1800"/>
         </scene>
-        <!--View Controller - About The UEC-->
+        <!--About Club View Controller - About The UEC-->
         <scene sceneID="dZO-bi-QrJ">
             <objects>
-                <viewController id="QB0-2s-TYF" sceneMemberID="viewController">
+                <viewController id="QB0-2s-TYF" customClass="UECAboutClubViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IrV-Yi-JqR"/>
                         <viewControllerLayoutGuide type="bottom" id="upU-kO-mRE"/>
@@ -1166,6 +1166,9 @@ This was of course quite humiliating and the mood changed when a group of former
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About The UEC" id="acL-Tc-88O"/>
+                    <connections>
+                        <outlet property="textView" destination="eZ5-tt-Chd" id="Ckg-fP-fzh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2g-Eh-CS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
