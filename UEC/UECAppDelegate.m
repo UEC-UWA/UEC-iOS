@@ -8,6 +8,8 @@
 
 #import "UECAppDelegate.h"
 
+#import "AFNetworking.h"
+
 #import "UECReachabilityManager.h"
 
 #import "TestFlight.h"
@@ -27,8 +29,42 @@
     
     [self handleReachability];
     
+#if PUSH
+    // Register for push notifications
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge |
+                                                    UIRemoteNotificationTypeAlert |
+                                                    UIRemoteNotificationTypeSound];
+#endif
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    NSDictionary *serverPaths = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ServerConnections" ofType:@"plist"]];
+    NSURL *URL = [NSURL URLWithString:serverPaths[@"PushNotifications"]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithRequest:request
+                                                               fromData:deviceToken
+                                                               progress:nil
+                                                      completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+                                                          if (error) {
+                                                              NSLog(@"Error: %@", error);
+                                                          } else {
+                                                              NSLog(@"Success: %@ %@", response, responseObject);
+                                                          }
+                                                      }];
+    [uploadTask resume];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    NSLog(@"%@", userInfo);
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

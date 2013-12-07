@@ -195,32 +195,38 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="start" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCZ-R0-d9k">
-                                                    <rect key="frame" x="71" y="8" width="230" height="21"/>
+                                                    <rect key="frame" x="518" y="8" width="230" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="230" id="Hx5-nW-cp0"/>
+                                                        <constraint firstAttribute="height" constant="21" id="Rpj-O7-p0K"/>
+                                                        <constraint firstAttribute="width" constant="230" id="h9o-L7-jlP"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="end" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nS-0r-Jwr">
-                                                    <rect key="frame" x="71" y="32" width="230" height="21"/>
+                                                    <rect key="frame" x="518" y="32" width="230" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="GRq-MZ-wjI"/>
+                                                        <constraint firstAttribute="width" constant="230" id="y1z-zS-dCc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VCZ-R0-d9k" firstAttribute="top" secondItem="kKV-pz-yzg" secondAttribute="top" constant="8" id="Ddh-FM-fzB"/>
+                                                <constraint firstAttribute="bottom" secondItem="2nS-0r-Jwr" secondAttribute="bottom" constant="6" id="MGI-oT-1Ub"/>
+                                                <constraint firstAttribute="trailing" secondItem="VCZ-R0-d9k" secondAttribute="trailing" constant="20" id="Xev-bW-vKN"/>
+                                                <constraint firstAttribute="trailing" secondItem="2nS-0r-Jwr" secondAttribute="trailing" constant="20" id="Ysr-jk-vpO"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
-                                            <constraint firstItem="VCZ-R0-d9k" firstAttribute="leading" secondItem="2nS-0r-Jwr" secondAttribute="leading" id="5ye-N6-sm5"/>
                                             <constraint firstItem="ptF-iM-JGT" firstAttribute="leading" secondItem="OwQ-g0-bmu" secondAttribute="leading" constant="20" id="6R9-v2-h02"/>
-                                            <constraint firstItem="VCZ-R0-d9k" firstAttribute="trailing" secondItem="2nS-0r-Jwr" secondAttribute="trailing" id="JM6-Ub-Lle"/>
                                             <constraint firstAttribute="bottom" secondItem="hkU-Es-uMh" secondAttribute="bottom" constant="7" id="XYZ-F1-kmV"/>
                                             <constraint firstItem="ptF-iM-JGT" firstAttribute="top" secondItem="OwQ-g0-bmu" secondAttribute="top" constant="8" id="Xau-oB-FBw"/>
                                             <constraint firstItem="hkU-Es-uMh" firstAttribute="leading" secondItem="OwQ-g0-bmu" secondAttribute="leading" constant="20" id="YzP-Yl-AWG"/>
-                                            <constraint firstItem="VCZ-R0-d9k" firstAttribute="baseline" secondItem="ptF-iM-JGT" secondAttribute="baseline" id="euY-dy-dVJ"/>
-                                            <constraint firstItem="2nS-0r-Jwr" firstAttribute="baseline" secondItem="hkU-Es-uMh" secondAttribute="baseline" id="oNR-Zb-kQt"/>
-                                            <constraint firstItem="VCZ-R0-d9k" firstAttribute="leading" secondItem="ptF-iM-JGT" secondAttribute="trailing" constant="8" symbolic="YES" id="uOn-md-qyg"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eVW-rv-q4v">

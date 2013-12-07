@@ -16,5 +16,4 @@
 - (void)showComposer:(void (^)(MFMailComposeViewController *mailComposer))composerBlock
         inController:(id)controller;
 
-
 @end

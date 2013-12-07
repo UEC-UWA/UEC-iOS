@@ -19,6 +19,8 @@
 		051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */; };
 		051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */; };
 		051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */; };
+		051D65B718531016009D409D /* APSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 051D65B618531016009D409D /* APSDownloadManager.m */; };
+		051D65BA1853116D009D409D /* UECCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 051D65B91853116D009D409D /* UECCoreDataManager.m */; };
 		052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
 		052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
 		052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
@@ -142,6 +144,10 @@
 		051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Formatter.m"; sourceTree = "<group>"; };
 		051B3D5816C581FB007BAB12 /* UECNewsArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UECNewsArticleCell.xib; sourceTree = "<group>"; };
 		051D2D4F16C565E100C042FE /* UEC 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 2.xcdatamodel"; sourceTree = "<group>"; };
+		051D65B518531016009D409D /* APSDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APSDownloadManager.h; sourceTree = "<group>"; };
+		051D65B618531016009D409D /* APSDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APSDownloadManager.m; sourceTree = "<group>"; };
+		051D65B81853116D009D409D /* UECCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCoreDataManager.h; sourceTree = "<group>"; };
+		051D65B91853116D009D409D /* UECCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCoreDataManager.m; sourceTree = "<group>"; };
 		052E749B180AA059008EA4E8 /* UECThemeResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeResources.h; sourceTree = "<group>"; };
 		052E749C180AA059008EA4E8 /* UECThemeResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeResources.m; sourceTree = "<group>"; };
 		052E74A3180AA615008EA4E8 /* UECMailManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECMailManager.h; sourceTree = "<group>"; };
@@ -482,7 +488,7 @@
 		0559110416C3B42700BF14D2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				057F6A6016E32DA000F74752 /* Other */,
+				05CAF88C1853157300B41C38 /* Helpers */,
 				05B76D0D16C4E6B200CECDF6 /* Managers */,
 				05B76D1116C4E6B800CECDF6 /* Categories */,
 				05F9178A16C7780600B1BCE1 /* Subclasses */,
@@ -493,8 +499,12 @@
 		0559110E16C3CAD100BF14D2 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				0559110F16C3CD4200BF14D2 /* NSManagedObjects */,
+				051D65B81853116D009D409D /* UECCoreDataManager.h */,
+				051D65B91853116D009D409D /* UECCoreDataManager.m */,
+				05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */,
+				05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */,
 				0559110B16C3CACB00BF14D2 /* UEC.xcdatamodeld */,
+				0559110F16C3CD4200BF14D2 /* NSManagedObjects */,
 			);
 			name = "Core Data";
 			sourceTree = "<group>";
@@ -551,15 +561,6 @@
 			name = Torques;
 			sourceTree = "<group>";
 		};
-		057F6A6016E32DA000F74752 /* Other */ = {
-			isa = PBXGroup;
-			children = (
-				057F6A6416E32DB700F74752 /* UECPreviewItem.h */,
-				057F6A6516E32DB700F74752 /* UECPreviewItem.m */,
-			);
-			name = Other;
-			sourceTree = "<group>";
-		};
 		057F6A9016E44A3D00F74752 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +612,8 @@
 			children = (
 				0559112D16C3D4EF00BF14D2 /* APSDataManager.h */,
 				0559112E16C3D4EF00BF14D2 /* APSDataManager.m */,
+				051D65B518531016009D409D /* APSDownloadManager.h */,
+				051D65B618531016009D409D /* APSDownloadManager.m */,
 				055323F816E20A2900C83C8D /* UECReachabilityManager.h */,
 				055323F916E20A2900C83C8D /* UECReachabilityManager.m */,
 				057F6A9716E4554F00F74752 /* UECAlertManager.h */,
@@ -626,8 +629,6 @@
 		05B76D1116C4E6B800CECDF6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */,
-				05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */,
 				0559110516C3B44000BF14D2 /* NSDate+Helper.h */,
 				0559110616C3B44000BF14D2 /* NSDate+Helper.m */,
 				051B3D5516C5775F007BAB12 /* NSDate+Formatter.h */,
@@ -638,6 +639,13 @@
 				054DBD6C1716C8A00026A7AE /* APSDataManager+UEC.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		05CAF88C1853157300B41C38 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		05D1C53716DE1C2000D87BA0 /* Detail */ = {
@@ -713,6 +721,8 @@
 		05F9178A16C7780600B1BCE1 /* Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				057F6A6416E32DB700F74752 /* UECPreviewItem.h */,
+				057F6A6516E32DB700F74752 /* UECPreviewItem.m */,
 				0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */,
 				0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */,
 			);
@@ -881,6 +891,7 @@
 				058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
+				051D65B718531016009D409D /* APSDownloadManager.m in Sources */,
 				05517266180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
 				058B12EB180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */,
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
@@ -901,6 +912,7 @@
 				058B12E9180A68E8002BFE55 /* AFHTTPRequestOperation.m in Sources */,
 				058B12ED180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
 				057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */,
+				051D65BA1853116D009D409D /* UECCoreDataManager.m in Sources */,
 				057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */,
 				052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */,
 				057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */,
@@ -1050,8 +1062,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS",
@@ -1059,9 +1071,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
 					"$(inherited)",
-					LOCAL_DATA,
+					"SERVER=1",
+					"PUSH=0",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
@@ -1072,8 +1084,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0836350C-8A28-4246-88E7-21C0332B6E3C";
+				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1086,8 +1098,8 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS",
@@ -1103,8 +1115,8 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0836350C-8A28-4246-88E7-21C0332B6E3C";
+				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;

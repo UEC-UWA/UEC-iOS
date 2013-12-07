@@ -12,22 +12,18 @@
 #import "AFHTTPRequestOperation.h"
 #import "AFNetworkReachabilityManager.h"
 
+#import "UECCoreDataManager.h"
+
 #import "NSManagedObject+Appulse.h"
 #import "APSDataManager+UEC.h"
 
-#define CORE_DATA_XCODE_DATA_MODEL_NAME @"UEC"
 #define MAPPING_DICTIONARIES [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"MappingDictionaries" ofType:@"plist"]]
 
 @interface APSDataManager ()
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) NSManagedObjectContext *mainContext;
-
-@property (strong, nonatomic) NSString *coreDataXcodeDataModelName;
 @property (strong, nonatomic) NSDictionary *mappingDictionaries;
+@property (strong, nonatomic) UECCoreDataManager *coreDataManager;
 
-@property (strong, nonatomic) NSMutableArray *currentDownloads;
 @end
 
 @implementation APSDataManager
@@ -40,90 +36,14 @@
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
         
-        singletonObject.coreDataXcodeDataModelName = CORE_DATA_XCODE_DATA_MODEL_NAME;
         singletonObject.mappingDictionaries = MAPPING_DICTIONARIES;
         
-        singletonObject.currentDownloads = [[NSMutableArray alloc] init];
-        
-        [singletonObject setupCoreData];
+        UECCoreDataManager *coreDataManager = [UECCoreDataManager sharedManager];
+        [coreDataManager setupCoreData];
+        singletonObject.coreDataManager = coreDataManager;
     });
     
     return singletonObject;
-}
-
-#pragma mark - Downloading
-
-- (void)downloadFileAtURL:(NSURL *)url
-             intoFilePath:(NSString *)filePath
-    downloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock
-               completion:(void (^)(NSURL *localURL))completionBlock
-{
-    dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
-    
-    dispatch_async(downloadQueue, ^{
-        AFNetworkReachabilityStatus internetStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
-        
-        if (internetStatus != AFNetworkReachabilityStatusNotReachable) {
-            
-            NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
-            AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-            
-            operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
-            [operation setDownloadProgressBlock:progressBlock];
-            
-            [self.currentDownloads addObject:operation];
-            
-            [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-                [self.currentDownloads removeObject:operation];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (completionBlock) {
-                        completionBlock([NSURL fileURLWithPath:filePath]);
-                    }
-                });
-            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                [self.currentDownloads removeObject:operation];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (completionBlock) {
-                        completionBlock(nil);
-                    }
-                });
-            }];
-                        
-            [operation start];
-            
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Download File" message:@"You are not connected to the Internet. Try downloading the file when you have an active connection." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alertView show];
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    if (completionBlock) {
-                        completionBlock(nil);
-                    }
-                });
-            });
-        }
-    });
-}
-
-- (void)downloadFileAtURL:(NSURL *)url
-             intoFilePath:(NSString *)filePath
-               completion:(void (^)(NSURL *localURL))completionBlock;
-{
-    [self downloadFileAtURL:url
-               intoFilePath:filePath
-      downloadProgressBlock:nil
-                 completion:completionBlock];
-}
-
-- (void)stopCurrentDownloads
-{
-    for (AFHTTPRequestOperation *operation in self.currentDownloads)
-        [operation cancel];
-    
-    [self.currentDownloads removeAllObjects];
 }
 
 #pragma mark - Public Methods
@@ -135,13 +55,13 @@
     NSMutableSet *coreDataObjectsIDs = [[NSMutableSet alloc] init];
     NSMutableSet *downloadedObjectsIDs = [[NSMutableSet alloc] init];
     
-    for (id coreDataObject in [self.class findAllForEntityName:entityName inContext:self.mainContext]) {
+    for (id coreDataObject in [[self class] findAllForEntityName:entityName inContext:self.coreDataManager.mainContext]) {
         [coreDataObjectsIDs addObject:[coreDataObject objectID]];
     }
     
     // Create a new ManagedObjectContext for multi threading core data operations.
     NSManagedObjectContext *threadContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    threadContext.parentContext = self.mainContext;
+    threadContext.parentContext = self.coreDataManager.mainContext;
     
     dispatch_queue_t downloadingQueue = dispatch_queue_create("downloadingQueue", NULL);
     dispatch_async(downloadingQueue, ^{
@@ -165,53 +85,60 @@
         NSMutableString *path = [[NSMutableString alloc] initWithString:serverPaths[@"BasePath"]];
         [path appendString:serverPaths[entityName]];
         
-//        //build NSURLRequest
-//        NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:path]
-//                                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
-//                                                      timeoutInterval:60.0];
-//        
-//        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
-//                                             initWithRequest:request];
-//        operation.responseSerializer = [AFJSONResponseSerializer serializer];
-//        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+#if SERVER
+        //build NSURLRequest
+        NSURLRequest *request = [NSURLRequest requestWithURL:[[NSURL alloc] initWithString:path]
+                                                 cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                             timeoutInterval:60.0];
+        
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
+                                             initWithRequest:request];
+        operation.responseSerializer = [AFJSONResponseSerializer serializer];
+        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+#else
         NSString *plistName = [[NSString alloc] initWithFormat:@"Dummy%@", entityName];
         NSArray *responseObject = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:plistName ofType:@"plist"]];
-        
+#endif
             [threadContext performBlock:^{
                 NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
                 
                 for (NSDictionary *dataObject in responseObject) {
-                    id downloadedObject = [self.class newEntityWithName:entityName
-                                                              inContext:threadContext
-                                                            idAttribute:@"identifier"
-                                                                  value:dataObject[@"id"]
-                                                               onInsert:^(NSManagedObject *entity) {
-                                                                   [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                                                                       if (![key isEqualToString:@"identifier"]) {
-#warning Really need to find out how to turn a JSON date through AFJSONRequestOperation
-                                                                           NSDate *date = [self dateForUECJSONValue:dataObject[obj]];
-                                                                           id value = (date) ? date : dataObject[obj];
-                                                                           [entity setValue:value forKey:key];
-                                                                       }
-                                                                   }];
-                                                               }];
+                    id downloadedObject = [[self class] newEntityWithName:entityName
+                                                                inContext:threadContext
+                                                              idAttribute:@"identifier"
+                                                                    value:dataObject[@"id"]
+                                                                 onInsert:^(NSManagedObject *entity) {
+                                                                     [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                                                                         if (![key isEqualToString:@"identifier"]) {
+#warning fix around here
+                                                                             NSDate *date = [self dateForUECJSONValue:dataObject[obj]];
+                                                                             id value = (date) ? date : dataObject[obj];
+                                                                             
+                                                                             if ([value isKindOfClass:[NSNull class]]) {
+                                                                                 value = nil;
+                                                                             }
+                                                                             
+                                                                             [entity setValue:value forKey:key];
+                                                                         }
+                                                                     }];
+                                                                 }];
                     
                     [downloadedObjectsIDs addObject:[downloadedObject objectID]];
                 }
                 
-                [self saveContext:threadContext];
+                [self.coreDataManager saveContext:threadContext];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (![coreDataObjectsIDs isEqualToSet:downloadedObjectsIDs]) {
                         [coreDataObjectsIDs minusSet:downloadedObjectsIDs];
                         for (id objectID in coreDataObjectsIDs) {
                             NSError *error = nil;
-                            NSManagedObject *object = [self.mainContext existingObjectWithID:objectID error:&error];
-                            [self.mainContext deleteObject:object];
+                            NSManagedObject *object = [self.coreDataManager.mainContext existingObjectWithID:objectID error:&error];
+                            [self.coreDataManager.mainContext deleteObject:object];
                         }
                     }
                     
-                    [self saveContext:self.mainContext];
+                    [self.coreDataManager saveMainContext];
                     
                     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                     
@@ -220,11 +147,13 @@
                     }
                 });
             }];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            
-//        }];
-//        
-//        [operation start];
+#if SERVER
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+        }];
+
+        [operation start];
+#endif
     });
 }
 
@@ -237,12 +166,12 @@
 {
     id value = [fromEntityName valueForKey:attribute];
     
-    NSArray *fromObjects = [self.class findAllByAttribute:attribute value:value inContext:self.mainContext forEntityName:fromEntityName];
-    if (fromObjects.count > 0) {
-        NSArray *toObjects = [self.class findAllByAttribute:@"identifier" value:value inContext:self.mainContext forEntityName:toEntityName];
+    NSArray *fromObjects = [[self class] findAllByAttribute:attribute value:value inContext:self.coreDataManager.mainContext forEntityName:fromEntityName];
+    if ([fromObjects count] > 0) {
+        NSArray *toObjects = [[self class] findAllByAttribute:@"identifier" value:value inContext:self.coreDataManager.mainContext forEntityName:toEntityName];
         
-        if (toObjects.count > 0) {
-            [self.class linRelationshipType:relationshipType fromObjects:fromObjects toObjects:toObjects relationship:relationship inverseRelationship:inverseRelationship value:value];
+        if ([toObjects count] > 0) {
+            [[self class] linRelationshipType:relationshipType fromObjects:fromObjects toObjects:toObjects relationship:relationship inverseRelationship:inverseRelationship value:value];
         }
     }
 }
@@ -251,21 +180,17 @@
                                                          entityName:(NSString *)entityName
                                                  sectionNameKeyPath:(NSString *)sectionNameKeyPath
                                                           cacheName:(NSString *)cacheName
-{    
+{
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:entityName];
     if (fetchRequestBlock)
         fetchRequestBlock(request);
     
     return [[NSFetchedResultsController alloc] initWithFetchRequest:request
-                                               managedObjectContext:self.mainContext
+                                               managedObjectContext:self.coreDataManager.mainContext
                                                  sectionNameKeyPath:sectionNameKeyPath
                                                           cacheName:cacheName];
 }
 
-- (void)saveContext
-{
-    [self saveContext:self.mainContext];
-}
 
 #pragma mark - Private Methods
 
@@ -331,7 +256,7 @@
             }
         }];
     } else {
-        [self.class logErrorForEntityName:entity];
+        [[self class] logErrorForEntityName:entity];
         return nil;
     }
 }
@@ -339,11 +264,11 @@
 + (NSArray *)findAllForEntityName:(NSString *)entityName inContext:(NSManagedObjectContext *)context
 {
     Class managedObject = NSClassFromString(entityName);
-
+    
     if ([managedObject respondsToSelector:@selector(findAllInContext:)]) {
         return [managedObject findAllInContext:context];
     } else {
-        [self.class logErrorForEntityName:entityName];
+        [[self class] logErrorForEntityName:entityName];
         return nil;
     }
 }
@@ -358,7 +283,7 @@
     if ([managedObject respondsToSelector:@selector(findAllByAttribute:value:inContext:)]) {
         return [managedObject findAllByAttribute:attribute value:value inContext:context];
     } else {
-        [self.class logErrorForEntityName:entityName];
+        [[self class] logErrorForEntityName:entityName];
         return nil;
     }
 }
@@ -370,7 +295,7 @@
     if ([managedObject respondsToSelector:@selector(findFirstByAttribute:value:inContext:)]) {
         return [managedObject findFirstByAttribute:attribute value:value inContext:context];
     } else {
-        [self.class logErrorForEntityName:entityName];
+        [[self class] logErrorForEntityName:entityName];
         return nil;
     }
 }
@@ -383,50 +308,8 @@
         return [managedObject countInContext:context];
     }
     
-    [self.class logErrorForEntityName:entityName];
+    [[self class] logErrorForEntityName:entityName];
     return -1;
-}
-
-#pragma mark - Core Data Core
-
-- (void)setupCoreData
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationWillTerminateNotification object:nil];
-    
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:self.coreDataXcodeDataModelName withExtension:@"momd"];
-    self.managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    
-    NSURL *documentDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [documentDirectoryURL URLByAppendingPathComponent:@"coredatatest.sqlite"];
-    NSError *error = nil;
-    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{ NSMigratePersistentStoresAutomaticallyOption : @YES , NSInferMappingModelAutomaticallyOption : @YES } error:&error]) {
-        NSLog(@"Error adding persistent store: %@", error);
-    }
-    
-    self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
-    [self.mainContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
-}
-
-- (void)applicationShouldSaveContext:(NSNotification *)notification
-{
-    [self saveContext:self.mainContext];
-}
-
-- (void)saveContext:(NSManagedObjectContext *)context
-{
-    NSError *childError = nil;
-    [context save:&childError];
-    
-    UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];;
-    [self.mainContext performBlock:^{
-        NSError *parentError = nil;
-        if ([self.mainContext hasChanges] && ![self.mainContext save:&parentError]) {
-            NSLog(@"Error saving context: %@", parentError);
-        }
-        [[UIApplication sharedApplication] endBackgroundTask:task];
-    }];
 }
 
 @end

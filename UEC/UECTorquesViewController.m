@@ -9,8 +9,11 @@
 #import "UECTorquesViewController.h"
 
 #import "APSDataManager.h"
+#import "APSDownloadManager.h"
+
+#import "UECCoreDataManager.h"
 #import "UECReachabilityManager.h"
-#import "UECAlertManager.h"
+#import "UECMailManager.h"
 
 #import "UECPreviewItem.h"
 #import "UECTorqueCell.h"
@@ -18,12 +21,18 @@
 
 #import "Torque.h"
 
-@interface UECTorquesViewController () <QLPreviewControllerDataSource, UECReachabilityManagerDelegate>
+@interface UECTorquesViewController () <QLPreviewControllerDataSource, UECReachabilityManagerDelegate, UIAlertViewDelegate>
+
 @property (strong, nonatomic) UECPreviewItem *previewBend;
 @property (strong, nonatomic) UECReachabilityManager *reachabilityManager;
 
+@property (strong, nonatomic) NSString *invalidTorqueName;
+
 @property (strong, nonatomic) NSMutableArray *activeDownloads;
+
 @end
+
+static NSInteger kPreviewTag = 100;
 
 @implementation UECTorquesViewController
 
@@ -76,13 +85,13 @@
         torque.downloaded = @(NO);
     }
     
-    [[APSDataManager sharedManager] saveContext];
+    [[UECCoreDataManager sharedManager] saveMainContext];
 }
 
 - (void)stopDownloads:(NSNotification *)notification
 {
     [self deleteToriques:self.activeDownloads];
-    [[APSDataManager sharedManager] stopCurrentDownloads];
+    [[APSDownloadManager sharedManager] stopCurrentDownloads];
 }
 
 - (NSString *)formattedSizeForBytes:(long long)bytes
@@ -146,7 +155,7 @@
     
     cell.widthConstraint.constant = 1.0;
     
-    [[APSDataManager sharedManager] downloadFileAtURL:[[NSURL alloc] initWithString:torque.fileAddress]
+    [[APSDownloadManager sharedManager] downloadFileAtURL:[[NSURL alloc] initWithString:torque.fileAddress]
                                          intoFilePath:torquePath
                                 downloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
                                     
@@ -161,7 +170,7 @@
                                     if (localURL) {
                                         torque.localURLString = [localURL path];
                                         
-                                        [[APSDataManager sharedManager] saveContext];
+                                        [[UECCoreDataManager sharedManager] saveMainContext];
                                         
                                         if (completionBlock) {
                                             completionBlock(YES);
@@ -188,7 +197,7 @@
         NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:torqueCell];
         
         torque.downloading = @(YES);
-        [[APSDataManager sharedManager] saveContext];
+        [[UECCoreDataManager sharedManager] saveMainContext];
         
         [self.tableView reloadData];
         
@@ -300,11 +309,39 @@
             
             [self.navigationController pushViewController:quickLookC animated:YES];
         } else {
-            [[UECAlertManager sharedManager] showPreviewAlertForFileName:torque.name inController:self];
+            NSString *message = [[NSString alloc] initWithFormat:@"Cannot open %@. The file is probably corrupt. Please send an email to report this problem", torque.name];
+            UIAlertView *previewAlertView = [[UIAlertView alloc] initWithTitle:@"Preview Error"
+                                                                       message:message
+                                                                      delegate:self
+                                                             cancelButtonTitle:@"Dismiss"
+                                                             otherButtonTitles:@"Email", nil];
+            previewAlertView.tag = kPreviewTag;
+            [previewAlertView show];
+            
+            self.invalidTorqueName = torque.name;
         }
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Alert view delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == kPreviewTag) {
+        if (buttonIndex == 1) {
+            [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
+                NSString *subject = [[NSString alloc] initWithFormat:@"Error reading \"%@\" in the UEC app", self.invalidTorqueName];
+                
+                [mailComposer setToRecipients:@[@"webmaster@uec.org.au"]];
+                [mailComposer setSubject:subject];
+                [mailComposer setMessageBody:@"It may be due to a corrupt file or sending down a wrong file. \n Thanks for checking it out." isHTML:NO];
+            } inController:self];
+            
+            self.invalidTorqueName = nil;
+        }
+    }
 }
 
 #pragma mark - Quick Look

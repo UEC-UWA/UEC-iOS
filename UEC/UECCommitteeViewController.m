@@ -13,6 +13,7 @@
 #import "UECCommitteeMemberCell.h"
 
 #import "APSDataManager.h"
+#import "UECCoreDataManager.h"
 #import "UECReachabilityManager.h"
 
 #import "Person.h"
@@ -32,6 +33,11 @@ static CGFloat kCellHeight = 55.0;
     [super viewDidLoad];
     
     self.title = @"Committee";
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     
     [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
@@ -82,7 +88,7 @@ static CGFloat kCellHeight = 55.0;
         
     }];
     
-    [[APSDataManager sharedManager] saveContext];
+    [[UECCoreDataManager sharedManager] saveMainContext];
 }
 
 #pragma mark - Table view

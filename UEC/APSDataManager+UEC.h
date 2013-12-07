@@ -10,6 +10,8 @@
 
 @interface APSDataManager (UEC)
 
+//- (void)set
+
 - (NSDate *)dateForUECJSONValue:(id)UECJSONValue;
 
 @end
