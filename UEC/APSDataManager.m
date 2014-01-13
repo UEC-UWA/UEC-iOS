@@ -6,11 +6,9 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import "APSDataManager.h"
+#import <AFNetworking/AFNetworking.h>
 
-#import "AFURLConnectionOperation.h"
-#import "AFHTTPRequestOperation.h"
-#import "AFNetworkReachabilityManager.h"
+#import "APSDataManager.h"
 
 #import "UECCoreDataManager.h"
 

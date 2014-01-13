@@ -59,34 +59,13 @@
 		057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6B16E3347D00F74752 /* UECTorqueCell.m */; };
 		057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */; };
 		057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A9816E4554F00F74752 /* UECAlertManager.m */; };
-		058B12E9180A68E8002BFE55 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12D7180A68E8002BFE55 /* AFHTTPRequestOperation.m */; };
-		058B12EA180A68E8002BFE55 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12D7180A68E8002BFE55 /* AFHTTPRequestOperation.m */; };
-		058B12EB180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12D9180A68E8002BFE55 /* AFHTTPRequestOperationManager.m */; };
-		058B12EC180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12D9180A68E8002BFE55 /* AFHTTPRequestOperationManager.m */; };
-		058B12ED180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12DB180A68E8002BFE55 /* AFHTTPSessionManager.m */; };
-		058B12EE180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12DB180A68E8002BFE55 /* AFHTTPSessionManager.m */; };
-		058B12EF180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12DE180A68E8002BFE55 /* AFNetworkReachabilityManager.m */; };
-		058B12F0180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12DE180A68E8002BFE55 /* AFNetworkReachabilityManager.m */; };
-		058B12F1180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E0180A68E8002BFE55 /* AFSecurityPolicy.m */; };
-		058B12F2180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E0180A68E8002BFE55 /* AFSecurityPolicy.m */; };
-		058B12F3180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E2180A68E8002BFE55 /* AFURLConnectionOperation.m */; };
-		058B12F4180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E2180A68E8002BFE55 /* AFURLConnectionOperation.m */; };
-		058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E4180A68E8002BFE55 /* AFURLRequestSerialization.m */; };
-		058B12F6180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E4180A68E8002BFE55 /* AFURLRequestSerialization.m */; };
-		058B12F7180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E6180A68E8002BFE55 /* AFURLResponseSerialization.m */; };
-		058B12F8180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E6180A68E8002BFE55 /* AFURLResponseSerialization.m */; };
-		058B12F9180A68E8002BFE55 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E8180A68E8002BFE55 /* AFURLSessionManager.m */; };
-		058B12FA180A68E8002BFE55 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 058B12E8180A68E8002BFE55 /* AFURLSessionManager.m */; };
 		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
 		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
 		05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05ABF04616D4BDF70090BC4C /* UECCommitteeMemberCell.m */; };
 		05B34B54180A90E1008A0182 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B34B53180A90E1008A0182 /* Security.framework */; };
-		05B395E1180BA7EC00037F1E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B395E0180BA7EC00037F1E /* SDWebImage.framework */; };
-		05B395E2180BA7EC00037F1E /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B395E0180BA7EC00037F1E /* SDWebImage.framework */; };
 		05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B5C3E916CF3B73009A75F6 /* UECCommitteeMemberViewController.m */; };
 		05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */; };
-		05B9423E1717F85D00A100A1 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B9423D1717F85D00A100A1 /* Event.m */; };
 		05B942441717F85E00A100A1 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B942431717F85E00A100A1 /* Person.m */; };
 		05B942471717F85E00A100A1 /* NewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B942461717F85E00A100A1 /* NewsArticle.m */; };
 		05B9424A1717F85E00A100A1 /* Torque.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B942491717F85E00A100A1 /* Torque.m */; };
@@ -106,11 +85,13 @@
 		05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D1C53F16DE3A3700D87BA0 /* CoreLocation.framework */; };
 		05D250B41716D4CD003177ED /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D250B31716D4CD003177ED /* libz.dylib */; };
 		05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */; };
+		05E0C208185D892C007EDC17 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E0C207185D892C007EDC17 /* Event.m */; };
 		05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */; };
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
 		05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
 		05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
+		C01C5F871FD748BB8E736214 /* libPods-UEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B895870AC04353A7F10580 /* libPods-UEC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,25 +181,6 @@
 		057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDownloadingCell.m; sourceTree = "<group>"; };
 		057F6A9716E4554F00F74752 /* UECAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAlertManager.h; sourceTree = "<group>"; };
 		057F6A9816E4554F00F74752 /* UECAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAlertManager.m; sourceTree = "<group>"; };
-		058B12D6180A68E8002BFE55 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		058B12D7180A68E8002BFE55 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		058B12D8180A68E8002BFE55 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		058B12D9180A68E8002BFE55 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		058B12DA180A68E8002BFE55 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		058B12DB180A68E8002BFE55 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		058B12DC180A68E8002BFE55 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		058B12DD180A68E8002BFE55 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		058B12DE180A68E8002BFE55 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		058B12DF180A68E8002BFE55 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		058B12E0180A68E8002BFE55 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		058B12E1180A68E8002BFE55 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		058B12E2180A68E8002BFE55 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		058B12E3180A68E8002BFE55 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		058B12E4180A68E8002BFE55 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		058B12E5180A68E8002BFE55 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		058B12E6180A68E8002BFE55 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		058B12E7180A68E8002BFE55 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		058B12E8180A68E8002BFE55 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
 		0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECVersionInfoViewController.h; sourceTree = "<group>"; };
 		0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECVersionInfoViewController.m; sourceTree = "<group>"; };
 		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -227,13 +189,10 @@
 		05ABF04516D4BDF70090BC4C /* UECCommitteeMemberCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberCell.h; sourceTree = "<group>"; };
 		05ABF04616D4BDF70090BC4C /* UECCommitteeMemberCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeMemberCell.m; sourceTree = "<group>"; };
 		05B34B53180A90E1008A0182 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		05B395E0180BA7EC00037F1E /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		05B5C3E816CF3B73009A75F6 /* UECCommitteeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeMemberViewController.h; sourceTree = "<group>"; };
 		05B5C3E916CF3B73009A75F6 /* UECCommitteeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeMemberViewController.m; sourceTree = "<group>"; };
 		05B76D3A16C4FAA400CECDF6 /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
 		05B76D3B16C4FAA400CECDF6 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
-		05B9423C1717F85D00A100A1 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
-		05B9423D1717F85D00A100A1 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		05B942421717F85E00A100A1 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		05B942431717F85E00A100A1 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		05B942451717F85E00A100A1 /* NewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsArticle.h; sourceTree = "<group>"; };
@@ -264,6 +223,8 @@
 		05D250B31716D4CD003177ED /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		05DD22CF16C2B73200CF18F0 /* UECCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECCommitteeViewController.h; sourceTree = "<group>"; };
 		05DD22D016C2B73200CF18F0 /* UECCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCommitteeViewController.m; sourceTree = "<group>"; };
+		05E0C206185D892C007EDC17 /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		05E0C207185D892C007EDC17 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		05E59FEF16F9F52C0016B8AE /* UEC 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "UEC 5.xcdatamodel"; sourceTree = "<group>"; };
 		05F9177316C74A2700B1BCE1 /* NSManagedObject+Appulse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Appulse.h"; sourceTree = "<group>"; };
 		05F9177416C74A2700B1BCE1 /* NSManagedObject+Appulse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Appulse.m"; sourceTree = "<group>"; };
@@ -274,6 +235,8 @@
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
 		05FDB27D16F0B5C0008DAA8A /* UECThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeManager.h; sourceTree = "<group>"; };
 		05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeManager.m; sourceTree = "<group>"; };
+		20B895870AC04353A7F10580 /* libPods-UEC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UEC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEC.xcconfig"; path = "Pods/Pods-UEC.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,7 +247,6 @@
 				05B34B54180A90E1008A0182 /* Security.framework in Frameworks */,
 				05D250B41716D4CD003177ED /* libz.dylib in Frameworks */,
 				055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */,
-				05B395E1180BA7EC00037F1E /* SDWebImage.framework in Frameworks */,
 				05D1C54016DE3A3700D87BA0 /* CoreLocation.framework in Frameworks */,
 				05D1C53316DE1BEE00D87BA0 /* EventKit.framework in Frameworks */,
 				05D1C52E16DE1BE900D87BA0 /* MapKit.framework in Frameworks */,
@@ -298,6 +260,7 @@
 				0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */,
 				0542FAA016C2A85A00B327B7 /* Foundation.framework in Frameworks */,
 				0542FAA216C2A85A00B327B7 /* CoreGraphics.framework in Frameworks */,
+				C01C5F871FD748BB8E736214 /* libPods-UEC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,7 +268,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05B395E2180BA7EC00037F1E /* SDWebImage.framework in Frameworks */,
 				0542FAD016C2A85A00B327B7 /* SenTestingKit.framework in Frameworks */,
 				0542FAD116C2A85A00B327B7 /* UIKit.framework in Frameworks */,
 				0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */,
@@ -376,9 +338,9 @@
 				0542FAA316C2A85A00B327B7 /* UEC */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
 				05153DBE1825FF7400FCA41B /* TestFlightSDK2.0.2 */,
-				058B11B4180A68B0002BFE55 /* Submodules */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
+				602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -394,7 +356,6 @@
 		0542FA9C16C2A85A00B327B7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				05B395E0180BA7EC00037F1E /* SDWebImage.framework */,
 				05B34B53180A90E1008A0182 /* Security.framework */,
 				05D250B31716D4CD003177ED /* libz.dylib */,
 				055323F616E2048E00C83C8D /* SystemConfiguration.framework */,
@@ -411,6 +372,7 @@
 				0542FA9F16C2A85A00B327B7 /* Foundation.framework */,
 				0542FAA116C2A85A00B327B7 /* CoreGraphics.framework */,
 				0542FACF16C2A85A00B327B7 /* SenTestingKit.framework */,
+				20B895870AC04353A7F10580 /* libPods-UEC.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -512,6 +474,8 @@
 		0559110F16C3CD4200BF14D2 /* NSManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				05E0C206185D892C007EDC17 /* Event.h */,
+				05E0C207185D892C007EDC17 /* Event.m */,
 				05B9424B1717F85E00A100A1 /* Sponsor.h */,
 				05B9424C1717F85E00A100A1 /* Sponsor.m */,
 				05B942481717F85E00A100A1 /* Torque.h */,
@@ -520,8 +484,6 @@
 				05B942461717F85E00A100A1 /* NewsArticle.m */,
 				05B942421717F85E00A100A1 /* Person.h */,
 				05B942431717F85E00A100A1 /* Person.m */,
-				05B9423C1717F85D00A100A1 /* Event.h */,
-				05B9423D1717F85D00A100A1 /* Event.m */,
 			);
 			name = NSManagedObjects;
 			sourceTree = "<group>";
@@ -570,41 +532,6 @@
 				057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */,
 			);
 			name = Cells;
-			sourceTree = "<group>";
-		};
-		058B11B4180A68B0002BFE55 /* Submodules */ = {
-			isa = PBXGroup;
-			children = (
-				058B12D5180A68E8002BFE55 /* AFNetworking */,
-			);
-			name = Submodules;
-			sourceTree = "<group>";
-		};
-		058B12D5180A68E8002BFE55 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				058B12D6180A68E8002BFE55 /* AFHTTPRequestOperation.h */,
-				058B12D7180A68E8002BFE55 /* AFHTTPRequestOperation.m */,
-				058B12D8180A68E8002BFE55 /* AFHTTPRequestOperationManager.h */,
-				058B12D9180A68E8002BFE55 /* AFHTTPRequestOperationManager.m */,
-				058B12DA180A68E8002BFE55 /* AFHTTPSessionManager.h */,
-				058B12DB180A68E8002BFE55 /* AFHTTPSessionManager.m */,
-				058B12DC180A68E8002BFE55 /* AFNetworking.h */,
-				058B12DD180A68E8002BFE55 /* AFNetworkReachabilityManager.h */,
-				058B12DE180A68E8002BFE55 /* AFNetworkReachabilityManager.m */,
-				058B12DF180A68E8002BFE55 /* AFSecurityPolicy.h */,
-				058B12E0180A68E8002BFE55 /* AFSecurityPolicy.m */,
-				058B12E1180A68E8002BFE55 /* AFURLConnectionOperation.h */,
-				058B12E2180A68E8002BFE55 /* AFURLConnectionOperation.m */,
-				058B12E3180A68E8002BFE55 /* AFURLRequestSerialization.h */,
-				058B12E4180A68E8002BFE55 /* AFURLRequestSerialization.m */,
-				058B12E5180A68E8002BFE55 /* AFURLResponseSerialization.h */,
-				058B12E6180A68E8002BFE55 /* AFURLResponseSerialization.m */,
-				058B12E7180A68E8002BFE55 /* AFURLSessionManager.h */,
-				058B12E8180A68E8002BFE55 /* AFURLSessionManager.m */,
-			);
-			name = AFNetworking;
-			path = AFNetworking/AFNetworking;
 			sourceTree = "<group>";
 		};
 		05B76D0D16C4E6B200CECDF6 /* Managers */ = {
@@ -747,9 +674,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0542FAE016C2A85A00B327B7 /* Build configuration list for PBXNativeTarget "UEC" */;
 			buildPhases = (
+				CB33F01E4CC94E8A919B1A86 /* Check Pods Manifest.lock */,
 				0542FA9616C2A85A00B327B7 /* Sources */,
 				0542FA9716C2A85A00B327B7 /* Frameworks */,
 				0542FA9816C2A85A00B327B7 /* Resources */,
+				42346F9470184D35AD17D7C0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -871,6 +800,36 @@
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
 		};
+		42346F9470184D35AD17D7C0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-UEC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB33F01E4CC94E8A919B1A86 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -878,39 +837,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058B12F9180A68E8002BFE55 /* AFURLSessionManager.m in Sources */,
 				0542FAAA16C2A85A00B327B7 /* main.m in Sources */,
 				0542FAAE16C2A85A00B327B7 /* UECAppDelegate.m in Sources */,
 				05DD22D116C2B73200CF18F0 /* UECCommitteeViewController.m in Sources */,
 				05CD99F918437FA900A3450E /* UECAboutClubViewController.m in Sources */,
-				058B12F3180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
 				0559110716C3B44000BF14D2 /* NSDate+Helper.m in Sources */,
 				0559110D16C3CACB00BF14D2 /* UEC.xcdatamodeld in Sources */,
 				0559112F16C3D4F000BF14D2 /* APSDataManager.m in Sources */,
 				05B76D3C16C4FAA400CECDF6 /* UIImage+Resize.m in Sources */,
-				058B12F5180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */,
 				051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */,
 				051D65B718531016009D409D /* APSDownloadManager.m in Sources */,
 				05517266180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
-				058B12EB180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */,
 				05F9177516C74A2700B1BCE1 /* NSManagedObject+Appulse.m in Sources */,
-				058B12F7180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */,
 				05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 				0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */,
 				05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */,
-				058B12F1180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */,
 				05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */,
-				058B12EF180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */,
 				050A78A716D50DB10055B742 /* UECAboutViewController.m in Sources */,
 				05D1C53616DE1C1D00D87BA0 /* UECEventDetailViewController.m in Sources */,
 				05D1C53A16DE1C3700D87BA0 /* UECMapViewController.m in Sources */,
 				05D1C53D16DE1DB300D87BA0 /* UECEventCell.m in Sources */,
 				055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */,
 				057F6A6616E32DB700F74752 /* UECPreviewItem.m in Sources */,
-				058B12E9180A68E8002BFE55 /* AFHTTPRequestOperation.m in Sources */,
-				058B12ED180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
+				05E0C208185D892C007EDC17 /* Event.m in Sources */,
 				057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */,
 				051D65BA1853116D009D409D /* UECCoreDataManager.m in Sources */,
 				057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */,
@@ -923,7 +874,6 @@
 				05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */,
 				0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */,
 				052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */,
-				05B9423E1717F85D00A100A1 /* Event.m in Sources */,
 				05B942441717F85E00A100A1 /* Person.m in Sources */,
 				05B942471717F85E00A100A1 /* NewsArticle.m in Sources */,
 				05B9424A1717F85E00A100A1 /* Torque.m in Sources */,
@@ -935,18 +885,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				058B12EA180A68E8002BFE55 /* AFHTTPRequestOperation.m in Sources */,
 				0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */,
-				058B12EC180A68E8002BFE55 /* AFHTTPRequestOperationManager.m in Sources */,
-				058B12F0180A68E8002BFE55 /* AFNetworkReachabilityManager.m in Sources */,
-				058B12F8180A68E8002BFE55 /* AFURLResponseSerialization.m in Sources */,
-				058B12F4180A68E8002BFE55 /* AFURLConnectionOperation.m in Sources */,
-				058B12F2180A68E8002BFE55 /* AFSecurityPolicy.m in Sources */,
-				058B12EE180A68E8002BFE55 /* AFHTTPSessionManager.m in Sources */,
 				05517267180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
-				058B12F6180A68E8002BFE55 /* AFURLRequestSerialization.m in Sources */,
 				052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */,
-				058B12FA180A68E8002BFE55 /* AFURLSessionManager.m in Sources */,
 				052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */,
 				05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
 			);
@@ -1058,6 +999,7 @@
 		};
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1082,7 +1024,7 @@
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
@@ -1094,6 +1036,7 @@
 		};
 		0542FAE216C2A85A00B327B7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1113,7 +1056,7 @@
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
