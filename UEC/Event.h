@@ -2,7 +2,7 @@
 //  Event.h
 //  UEC
 //
-//  Created by Jad Osseiran on 12/04/13.
+//  Created by Jad Osseiran on 15/12/2013.
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
@@ -14,18 +14,13 @@
 
 @property (nonatomic, retain) NSString * address;
 @property (nonatomic, retain) NSDate * endDate;
-@property (nonatomic, retain) NSDate * endSale;
 @property (nonatomic, retain) NSString * eventDescription;
-@property (nonatomic, retain) NSNumber * extendedSale;
 @property (nonatomic, retain) NSString * facebookLink;
 @property (nonatomic, retain) NSString * identifier;
 @property (nonatomic, retain) NSString * imagePath;
 @property (nonatomic, retain) NSString * location;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDate * startDate;
-@property (nonatomic, retain) NSDate * startSale;
-@property (nonatomic, retain) NSNumber * ticketsLeft;
-@property (nonatomic, retain) NSNumber * totalTickets;
 @property (nonatomic, retain) NSString * type;
 
 @end
