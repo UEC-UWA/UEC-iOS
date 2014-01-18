@@ -1024,7 +1024,7 @@
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
@@ -1056,7 +1056,7 @@
 					"$(inherited)",
 					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
 				);
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4FEEDA6C-C307-4B74-BEE5-F8A1FDCFC8B9";

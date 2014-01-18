@@ -12,7 +12,7 @@
 
 #pragma mark - Helper Methods
 
-+ (NSDateFormatter *)formatterWithStyle:(void (^)(NSDateFormatter *formatter))formatterBlock
++ (NSDateFormatter *)formatter:(void (^)(NSDateFormatter *formatter))formatterBlock
 {
     __DISPATCH_ONCE__ NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     if (formatterBlock) {
@@ -25,7 +25,7 @@
 
 - (NSString *)stringValue
 {    
-    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+    return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     }] stringFromDate:self];
@@ -33,7 +33,7 @@
 
 - (NSString *)stringNoTimeValue
 {
-    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+    return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
     }] stringFromDate:self];
@@ -41,7 +41,7 @@
 
 - (NSString *)stringNoDateValue
 {
-    return [[self.class formatterWithStyle:^(NSDateFormatter *formatter) {
+    return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterNoStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     }] stringFromDate:self];

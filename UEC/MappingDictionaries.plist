@@ -46,20 +46,12 @@
 		<string>type</string>
 		<key>identifier</key>
 		<string>id</string>
-		<key>startSale</key>
-		<string>start_sale</string>
-		<key>endSale</key>
-		<string>end_sale</string>
-		<key>ticketsLeft</key>
-		<string>tickets_left</string>
-		<key>totalTickets</key>
-		<string>total_tickets</string>
-		<key>extendedSale</key>
-		<string>extended_sale</string>
 		<key>address</key>
 		<string>address</string>
 		<key>facebookLink</key>
 		<string>facebook_link</string>
+		<key>photoPath</key>
+		<string>photo_path</string>
 	</dict>
 	<key>Person</key>
 	<dict>

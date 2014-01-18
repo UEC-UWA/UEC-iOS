@@ -7,6 +7,7 @@
 //
 
 #import <EventKit/EventKit.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 #import "UECEventDetailViewController.h"
 #import "UECMapViewController.h"
@@ -44,6 +45,12 @@
         self.endDateLabel.text = [self.event.endDate stringNoDateValue];
     else
         self.endDateLabel.text = [self.event.endDate stringValue];
+    
+    [self.eventImageView setImageWithURL:[[NSURL alloc] initWithString:self.event.photoPath]
+                        placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                   
+                               }];
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
 }

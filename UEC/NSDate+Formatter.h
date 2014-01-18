@@ -10,6 +10,8 @@
 
 @interface NSDate (Formatter)
 
++ (NSDateFormatter *)formatter:(void (^)(NSDateFormatter *formatter))formatterBlock;
+
 - (NSString *)stringValue;
 - (NSString *)stringNoTimeValue;
 - (NSString *)stringNoDateValue;

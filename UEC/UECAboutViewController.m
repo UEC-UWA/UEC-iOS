@@ -142,7 +142,10 @@ static NSUInteger kNumSections = 3;
         case 2: {
             Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
                                                                                                    inSection:0]];
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:sponsor.websitePath]];
+            NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://%@", sponsor.websitePath]];
+            if ([[UIApplication sharedApplication] canOpenURL:url]) {
+                [[UIApplication sharedApplication] openURL:url];
+            }
             break;
         }
             

@@ -36,6 +36,8 @@
     [[UITabBar appearance] setTintColor:UEC_YELLOW];
     
     [[UITextView appearance] setTintColor:UEC_YELLOW];
+    
+    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
 }
 
 // New Customization class methods.
