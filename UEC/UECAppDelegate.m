@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
+#import <TestFlightSDK/TestFlight.h>
+
 #import "UECAppDelegate.h"
 
 #import "AFNetworking.h"
 
 #import "UECReachabilityManager.h"
-
-#import "TestFlight.h"
 
 @interface UECAppDelegate ()
 

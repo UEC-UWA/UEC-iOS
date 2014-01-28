@@ -12,9 +12,6 @@
 		050A78A416D4F3720055B742 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 050A78A316D4F3710055B742 /* MobileCoreServices.framework */; };
 		050A78A716D50DB10055B742 /* UECAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 050A78A616D50DB00055B742 /* UECAboutViewController.m */; };
 		050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 050A78AB16D50F070055B742 /* DummySponsor.plist */; };
-		05153DC51825FF7400FCA41B /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05153DBF1825FF7400FCA41B /* libTestFlight.a */; };
-		05153DC61825FF7400FCA41B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 05153DC01825FF7400FCA41B /* README.md */; };
-		05153DC71825FF7400FCA41B /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 05153DC11825FF7400FCA41B /* release_notes.md */; };
 		051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */ = {isa = PBXBuildFile; fileRef = 051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */; };
 		051B3D5116C56C08007BAB12 /* UECNewsArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */; };
 		051B3D5716C5775F007BAB12 /* NSDate+Formatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 051B3D5616C5775F007BAB12 /* NSDate+Formatter.m */; };
@@ -114,12 +111,6 @@
 		050A78A516D50DB00055B742 /* UECAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAboutViewController.h; sourceTree = "<group>"; };
 		050A78A616D50DB00055B742 /* UECAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAboutViewController.m; sourceTree = "<group>"; };
 		050A78AB16D50F070055B742 /* DummySponsor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummySponsor.plist; sourceTree = "<group>"; };
-		05153DBF1825FF7400FCA41B /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
-		05153DC01825FF7400FCA41B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
-		05153DC11825FF7400FCA41B /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
-		05153DC21825FF7400FCA41B /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
-		05153DC31825FF7400FCA41B /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
-		05153DC41825FF7400FCA41B /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
 		051B3D4D16C5695A007BAB12 /* DummyNewsArticle.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyNewsArticle.plist; sourceTree = "<group>"; };
 		051B3D4F16C56C08007BAB12 /* UECNewsArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsArticleCell.h; sourceTree = "<group>"; };
 		051B3D5016C56C08007BAB12 /* UECNewsArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsArticleCell.m; sourceTree = "<group>"; };
@@ -260,7 +251,6 @@
 				050A78A416D4F3720055B742 /* MobileCoreServices.framework in Frameworks */,
 				050A78A216D4EFF90055B742 /* MessageUI.framework in Frameworks */,
 				050A789E16D4E8A50055B742 /* QuartzCore.framework in Frameworks */,
-				05153DC51825FF7400FCA41B /* libTestFlight.a in Frameworks */,
 				0559112216C3CF2500BF14D2 /* CoreData.framework in Frameworks */,
 				055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */,
 				0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */,
@@ -307,19 +297,6 @@
 			name = About;
 			sourceTree = "<group>";
 		};
-		05153DBE1825FF7400FCA41B /* TestFlightSDK2.0.2 */ = {
-			isa = PBXGroup;
-			children = (
-				05153DBF1825FF7400FCA41B /* libTestFlight.a */,
-				05153DC01825FF7400FCA41B /* README.md */,
-				05153DC11825FF7400FCA41B /* release_notes.md */,
-				05153DC21825FF7400FCA41B /* TestFlight+AsyncLogging.h */,
-				05153DC31825FF7400FCA41B /* TestFlight+ManualSessions.h */,
-				05153DC41825FF7400FCA41B /* TestFlight.h */,
-			);
-			path = TestFlightSDK2.0.2;
-			sourceTree = "<group>";
-		};
 		0536F76B16DF8943008ECFDA /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,7 +320,6 @@
 			children = (
 				0542FAA316C2A85A00B327B7 /* UEC */,
 				0542FAD516C2A85A00B327B7 /* UECTests */,
-				05153DBE1825FF7400FCA41B /* TestFlightSDK2.0.2 */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
 				602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */,
@@ -765,7 +741,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05153DC71825FF7400FCA41B /* release_notes.md in Resources */,
 				0542FAA816C2A85A00B327B7 /* InfoPlist.strings in Resources */,
 				0542FAB716C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard in Resources */,
 				0542FABA16C2A85A00B327B7 /* MainStoryboard_iPad.storyboard in Resources */,
@@ -777,7 +752,6 @@
 				05CE92E0181A7EE000BCC58C /* Images.xcassets in Resources */,
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell.xib in Resources */,
-				05153DC61825FF7400FCA41B /* README.md in Resources */,
 				050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */,
 				05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */,
 				057F6A5916E31BCF00F74752 /* DummyBend.plist in Resources */,
@@ -1018,10 +992,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jad Osseiran (SCC6WVZ543)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1032,10 +1003,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "EE84514A-C30D-4244-BA78-905DF06A9D9F";
@@ -1055,19 +1023,13 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK2.0.2",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "368B3FDC-A15E-4BF7-973D-A3666B03F24B";

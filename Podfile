@@ -4,6 +4,7 @@ target "UEC" do
 
 pod 'AFNetworking'
 pod 'SDWebImage'
+pod 'TestFlightSDK'
 
 end
 
