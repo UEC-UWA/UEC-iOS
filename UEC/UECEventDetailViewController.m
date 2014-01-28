@@ -49,7 +49,9 @@
     [self.eventImageView setImageWithURL:[[NSURL alloc] initWithString:self.event.photoPath]
                         placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   
+                                   if (error) {
+                                       [error handle];
+                                   }
                                }];
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
@@ -101,8 +103,9 @@
             NSError *error;
             [eventStore saveEvent:event span:EKSpanThisEvent commit:YES error:&error];
             
-            if (error)
-                NSLog(@"ERROR: %@", error);
+            if (error) {
+                [error handle];
+            }
         } else {
             UIAlertView *noAccessAlertView = [[UIAlertView alloc] initWithTitle:@"Cannot Create Event"
                                                                         message:@"No access to the calendar. You can change this setting in the Settings app."

@@ -53,6 +53,10 @@
 		  didFinishWithResult:(MFMailComposeResult)result
 						error:(NSError *)error
 {
+    if (error) {
+        [error handle];
+    }
+    
 	[self.controller becomeFirstResponder];
     [self.controller dismissViewControllerAnimated:YES completion:nil];
 }

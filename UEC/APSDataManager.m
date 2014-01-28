@@ -66,7 +66,7 @@
         
         AFNetworkReachabilityStatus internetStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
         if (internetStatus == AFNetworkReachabilityStatusNotReachable) {
-            // Make sure to wait just enough time to finish the animation of the "Pull to refresh"/
+            // Make sure to wait just enough time to finish the animation of the "Pull to refresh"
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.3 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                 
@@ -101,25 +101,20 @@
                 NSDictionary *entityMappingDict = self.mappingDictionaries[entityName];
                 
                 for (NSDictionary *dataObject in responseObject) {
-                    id downloadedObject = [[self class] newEntityWithName:entityName
-                                                                inContext:threadContext
-                                                              idAttribute:@"identifier"
-                                                                    value:dataObject[@"id"]
-                                                                 onInsert:^(NSManagedObject *entity) {
-                                                                     [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-                                                                         if (![key isEqualToString:@"identifier"]) {
-#warning fix around here
-                                                                             NSDate *date = [self dateForUECJSONValue:dataObject[obj]];
-                                                                             id value = (date) ? date : dataObject[obj];
-                                                                             
-                                                                             if ([value isKindOfClass:[NSNull class]]) {
-                                                                                 value = nil;
-                                                                             }
-                                                                             
-                                                                             [entity setValue:value forKey:key];
-                                                                         }
-                                                                     }];
-                                                                 }];
+                    id downloadedObject = [[self class] newEntityWithName:entityName inContext:threadContext idAttribute:@"identifier" value:dataObject[@"id"] onInsert:^(NSManagedObject *entity) {
+                        [entityMappingDict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+                            if (![key isEqualToString:@"identifier"]) {
+                                
+                                NSDate *date = [self dateForUECJSONValue:dataObject[obj]];
+                                id value = (date) ? date : dataObject[obj];
+                                if ([value isKindOfClass:[NSNull class]]) {
+                                    value = nil;
+                                }
+                                
+                                [entity setValue:value forKey:key];
+                            }
+                        }];
+                    }];
                     
                     [downloadedObjectsIDs addObject:[downloadedObject objectID]];
                 }
@@ -132,7 +127,12 @@
                         for (id objectID in coreDataObjectsIDs) {
                             NSError *error = nil;
                             NSManagedObject *object = [self.coreDataManager.mainContext existingObjectWithID:objectID error:&error];
-                            [self.coreDataManager.mainContext deleteObject:object];
+                            
+                            if (!error) {
+                                [self.coreDataManager.mainContext deleteObject:object];
+                            } else {
+                                [error handle];
+                            }
                         }
                     }
                     
@@ -148,6 +148,15 @@
 #if SERVER
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+                        
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error) {
+                    [error handle];
+                }                
+                if (completionBlock) {
+                    completionBlock(YES);
+                }
+            });
         }];
 
         [operation start];

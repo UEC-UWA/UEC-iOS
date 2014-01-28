@@ -48,8 +48,4 @@
 // It is not necessary (in fact, not desirable) to set this during row deletion or insertion
 //  (but definitely for row moves).
 @property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
-
-// Set to YES to get some debugging output in the console.
-@property BOOL debug;
-
 @end

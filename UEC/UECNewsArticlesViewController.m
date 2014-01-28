@@ -40,7 +40,7 @@ static CGFloat kCellHeight = 120.0;
     
     // Add refresh control programmatically (not in NIB)
     self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector(refreshInvoked:) forControlEvents:UIControlEventValueChanged];
     
     // Restore search settings if they were saved in didReceiveMemoryWarning.
     if (self.savedSearchTerm) {
@@ -54,7 +54,7 @@ static CGFloat kCellHeight = 120.0;
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     
-    [self refreshInvoked:nil forState:UIControlStateNormal];
+    [self refreshInvoked:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -96,7 +96,7 @@ static CGFloat kCellHeight = 120.0;
 
 #pragma mark - Data Management
 
-- (void)refreshInvoked:(id)sender forState:(UIControlState)state
+- (void)refreshInvoked:(id)sender
 {
     BOOL manualRefresh = (sender != nil);
     
@@ -144,8 +144,9 @@ static CGFloat kCellHeight = 120.0;
     
     NSError *error = nil;
     if (![fetchResultsController performFetch:&error]) {
-        // Handle error here.
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        if (error) {
+            [error handle];
+        }
     }
     
     return fetchResultsController;

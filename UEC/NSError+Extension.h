@@ -10,6 +10,6 @@
 
 @interface NSError (Extension)
 
-- (void)show;
+- (void)handle;
 
 @end

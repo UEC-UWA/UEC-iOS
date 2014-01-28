@@ -49,6 +49,9 @@ static NSUInteger kNumSections = 3;
     
     NSError *error = nil;
     [self.fetchedResultsController performFetch:&error];
+    if (error) {
+        [error handle];
+    }
 }
 
 - (void)didReceiveMemoryWarning

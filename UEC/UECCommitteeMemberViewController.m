@@ -71,7 +71,7 @@
     
     self.emailCell.detailTextLabel.text = self.person.email;
     
-    if ([self.person.subcommittee isEqualToString:@"Thebse"]) {
+    if ([self.person.subcommittee isEqualToString:@"THEBSE"]) {
         UIBarButtonItem *phantomBarbuttonItem = [[UIBarButtonItem alloc] initWithTitle:@"Phantom" style:UIBarButtonItemStyleDone target:self action:@selector(phantom:)];
         
         self.navigationItem.rightBarButtonItem = phantomBarbuttonItem;
@@ -82,7 +82,9 @@
     [self.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:self.person.photoPath]
                           placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                     
+                                     if (error) {
+                                         [error handle];
+                                     }
                                  }];
     
     self.pictureImageView.layer.cornerRadius = 5;

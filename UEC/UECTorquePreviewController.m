@@ -29,6 +29,11 @@
 	// Do any additional setup after loading the view.
 }
 
+- (BOOL)hidesBottomBarWhenPushed
+{
+    return YES;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

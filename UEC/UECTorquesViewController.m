@@ -8,6 +8,8 @@
 
 #import "UECTorquesViewController.h"
 
+#import "UECTorquePreviewController.h"
+
 #import "APSDataManager.h"
 #import "APSDownloadManager.h"
 
@@ -78,7 +80,9 @@ static NSInteger kPreviewTag = 100;
         
         NSError *error = nil;
         if (![[NSFileManager defaultManager] removeItemAtPath:torque.localURLString error:&error]) {
-            NSLog(@"Error removing: %@", torque.localURLString);
+            if (error) {
+                [error handle];
+            }
         }
         
         torque.localURLString = nil;
@@ -146,7 +150,9 @@ static NSInteger kPreviewTag = 100;
                     withIntermediateDirectories:NO
                                      attributes:nil
                                           error:&error]) {
-            NSLog(@"Error creating Torques directory");
+            if (error) {
+                [error handle];
+            }
         }
     }
     
@@ -303,10 +309,9 @@ static NSInteger kPreviewTag = 100;
         self.previewBend.localURL = [[NSURL alloc] initFileURLWithPath:torque.localURLString];
         self.previewBend.documentTitle = torque.name;
         
-        if ([QLPreviewController canPreviewItem:self.previewBend]) {
-            QLPreviewController *quickLookC = [[QLPreviewController alloc] init];
+        if ([UECTorquePreviewController canPreviewItem:self.previewBend]) {
+            UECTorquePreviewController *quickLookC = [[UECTorquePreviewController alloc] init];
             quickLookC.dataSource = self;
-            
             [self.navigationController pushViewController:quickLookC animated:YES];
         } else {
             NSString *message = [[NSString alloc] initWithFormat:@"Cannot open %@. The file is probably corrupt. Please send an email to report this problem", torque.name];

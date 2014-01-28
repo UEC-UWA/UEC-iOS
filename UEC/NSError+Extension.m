@@ -10,8 +10,9 @@
 
 @implementation NSError (Extension)
 
-- (void)show
+- (void)handle
 {
+#if DEBUG
     NSString *title = [[NSString alloc] initWithFormat:@"Error %li", (long)[self code]];
     NSString *message = [[NSString alloc] initWithFormat:@"%@ %@ %@", [self localizedDescription], [self localizedFailureReason], [self localizedRecoverySuggestion]];
     
@@ -21,6 +22,9 @@
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
     [errorAV show];
+#else
+    NSLog(@"[%@ %@] %@ (%@) -> %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [self localizedDescription], [self localizedFailureReason], [self localizedRecoverySuggestion]);
+#endif
 }
 
 @end

@@ -64,6 +64,10 @@
                 [self.currentDownloads removeObject:operation];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    if (error) {
+                        [error handle];
+                    }
+                    
                     if (completionBlock) {
                         completionBlock(nil);
                     }

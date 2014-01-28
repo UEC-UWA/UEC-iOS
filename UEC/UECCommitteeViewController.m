@@ -114,7 +114,9 @@ static CGFloat kCellHeight = 55.0;
     [cell.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
                           placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                     
+                                     if (error) {
+                                         [error handle];
+                                     }
                                  }];
 
     cell.firstNameLabel.text = person.firstName;

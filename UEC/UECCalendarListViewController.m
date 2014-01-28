@@ -58,21 +58,14 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Refresh
 
-- (void)refreshDataWithCompletion:(void (^)(void))completionBlock
-{
-    [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
-        if (!internetReachable) {
-            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:YES];
-        }
-        if (completionBlock) {
-            completionBlock();
-        }
-    }];
-}
-
 - (void)handleRefresh:(id)sender
 {
-    [self refreshDataWithCompletion:^{
+    BOOL manualRefresh = (sender != nil);
+
+    [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
+        if (!internetReachable) {
+            [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
+        }
         [self.refreshControl endRefreshing];
     }];
 }
@@ -114,7 +107,9 @@ static CGFloat kCellHeight = 55.0;
     [cell.eventImageView setImageWithURL:[[NSURL alloc] initWithString:event.photoPath]
                         placeholderImage:[UIImage imageNamed:@"gentleman.png"]
                                completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-        
+                                   if (error) {
+                                       [error handle];
+                                   }
                                }];
     
 //    [cell.eventImageView setImageWithURL:nil placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {

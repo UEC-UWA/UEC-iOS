@@ -54,9 +54,7 @@
                                                                progress:nil
                                                       completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
                                                           if (error) {
-                                                              NSLog(@"Error: %@", error);
-                                                          } else {
-                                                              NSLog(@"Success: %@ %@", response, responseObject);
+                                                              [error handle];
                                                           }
                                                       }];
     [uploadTask resume];

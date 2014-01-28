@@ -114,7 +114,9 @@
             completionBlock(NO, CLLocationCoordinate2DMake(0.0, 0.0), nil);
         }
         
-        NSLog(@"Error: %@", error);
+        if (error) {
+            [error handle];
+        }
     }];
 }
 

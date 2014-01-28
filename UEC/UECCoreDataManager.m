@@ -37,7 +37,9 @@
     NSError *error = nil;
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
     if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{ NSMigratePersistentStoresAutomaticallyOption : @YES , NSInferMappingModelAutomaticallyOption : @YES } error:&error]) {
-        NSLog(@"Error adding persistent store: %@", error);
+        if (error) {
+            [error handle];
+        }
     }
     
     self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
@@ -58,12 +60,17 @@
 {
     NSError *childError = nil;
     [context save:&childError];
+    if (childError) {
+        [childError handle];
+    }
     
     UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];;
     [self.mainContext performBlock:^{
         NSError *parentError = nil;
         if ([self.mainContext hasChanges] && ![self.mainContext save:&parentError]) {
-            NSLog(@"Error saving context: %@", parentError);
+            if (parentError) {
+                [parentError handle];
+            }
         }
         [[UIApplication sharedApplication] endBackgroundTask:task];
     }];

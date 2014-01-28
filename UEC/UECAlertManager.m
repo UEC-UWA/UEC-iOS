@@ -85,6 +85,10 @@ static NSInteger kPreviewTag = 100;
 		  didFinishWithResult:(MFMailComposeResult)result
 						error:(NSError *)error
 {
+    if (error) {
+        [error handle];
+    }
+    
 	[self.viewController becomeFirstResponder];
     [self.viewController dismissViewControllerAnimated:YES completion:^{
         
