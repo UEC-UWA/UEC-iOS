@@ -5,7 +5,7 @@
 	<key>AboutUEC</key>
 	<string>http://aboutUECJSON</string>
 	<key>BasePath</key>
-	<string>http://www.appulse.com.au/uec/app_scripts.php?script=</string>
+	<string>http://mattbrightman.com/uec/app_scripts.php?script=</string>
 	<key>PushNotifications</key>
 	<string></string>
 	<key>Person</key>

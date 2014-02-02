@@ -40,6 +40,7 @@
     return YES;
 }
 
+#if PUSH
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -64,6 +65,7 @@
 {
     NSLog(@"%@", userInfo);
 }
+#endif
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

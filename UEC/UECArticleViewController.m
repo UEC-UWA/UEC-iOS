@@ -27,35 +27,14 @@
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
     
-    [self configureView];
+    self.title = self.newsArticle.title;
+    [self.webView loadHTMLString:self.newsArticle.content baseURL:nil];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - View
-
-- (void)configureView
-{
-    if (self.newsArticle) {
-        self.title = self.newsArticle.title;
-        [self.webView loadHTMLString:self.newsArticle.content baseURL:nil];
-    }
-}
-
-#pragma mark - Setters
-
-- (void)setNewsArticle:(NewsArticle *)newsArticle
-{
-    if (_newsArticle != newsArticle) {
-        _newsArticle = newsArticle;
-        self.newsArticle = newsArticle;
-    }
-    
-    [self configureView];
 }
 
 #pragma mark - Actions
