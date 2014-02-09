@@ -79,13 +79,15 @@
         self.navigationItem.rightBarButtonItem = nil;
     }
     
-    [self.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:self.person.photoPath]
-                          placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                     if (error) {
-                                         [error handle];
-                                     }
-                                 }];
+    if (self.person.photoPath) {
+        [self.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:self.person.photoPath]
+                              placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                         if (error) {
+                                             [error handle];
+                                         }
+                                     }];
+    }
     
     self.pictureImageView.layer.cornerRadius = 5;
     self.pictureImageView.layer.masksToBounds = YES;

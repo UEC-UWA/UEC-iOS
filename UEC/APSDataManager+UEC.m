@@ -17,6 +17,14 @@
     if (![UECJSONValue isKindOfClass:[NSString class]]) {
         return nil;
     }
+    
+    if ([UECJSONValue rangeOfString:@"date-"].location != NSNotFound) {
+        __DISPATCH_ONCE__ NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        
+        NSNumber *numSecondsSince1970 = [formatter numberFromString:[UECJSONValue stringByReplacingOccurrencesOfString:@"date-" withString:@""]];
+        
+        return [[NSDate alloc] initWithTimeIntervalSince1970:[numSecondsSince1970 doubleValue]];
+    }
 
     NSDateFormatter *dateFormatter = [NSDate formatter:^(NSDateFormatter *formatter) {
         [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

@@ -46,13 +46,15 @@
     else
         self.endDateLabel.text = [self.event.endDate stringValue];
     
-    [self.eventImageView setImageWithURL:[[NSURL alloc] initWithString:self.event.photoPath]
-                        placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   if (error) {
-                                       [error handle];
-                                   }
-                               }];
+    if (self.event.photoPath) {
+        [self.eventImageView setImageWithURL:[[NSURL alloc] initWithString:self.event.photoPath]
+                            placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                       if (error) {
+                                           [error handle];
+                                       }
+                                   }];
+    }
     
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(share:)]];
 }

@@ -17,6 +17,11 @@ PODS:
   - AFNetworking/Serialization (2.1.0)
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
+  - NJKWebViewProgress (0.2):
+    - NJKWebViewProgress/Core
+    - NJKWebViewProgress/ProgressView
+  - NJKWebViewProgress/Core (0.2)
+  - NJKWebViewProgress/ProgressView (0.2)
   - SDWebImage (3.5.2):
     - SDWebImage/Core
   - SDWebImage/Core (3.5.2)
@@ -24,11 +29,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - NJKWebViewProgress
   - SDWebImage
   - TestFlightSDK
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
+  NJKWebViewProgress: fd46c9489d799d97f3b09210886bf83884f6c725
   SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   TestFlightSDK: 4249c2f70e621bcfbdebf019073169c8fe36be13
 

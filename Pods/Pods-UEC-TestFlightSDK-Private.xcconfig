@@ -1,6 +1,6 @@
 #include "Pods-UEC-TestFlightSDK.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/TestFlightSDK" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/TestFlightSDK"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/TestFlightSDK" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/NJKWebViewProgress" "${PODS_ROOT}/Headers/SDWebImage" "${PODS_ROOT}/Headers/TestFlightSDK"
 LIBRARY_SEARCH_PATHS = ${PODS_UEC_TESTFLIGHTSDK_LIBRARY_SEARCH_PATHS}
 OTHER_LDFLAGS = -ObjC ${PODS_UEC_TESTFLIGHTSDK_OTHER_LDFLAGS}
 PODS_ROOT = ${SRCROOT}

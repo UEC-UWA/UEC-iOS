@@ -104,17 +104,16 @@ static CGFloat kCellHeight = 55.0;
     
     cell.eventDetailLabel.text = event.location;
     cell.eventLabel.text = event.name;
-    [cell.eventImageView setImageWithURL:[[NSURL alloc] initWithString:event.photoPath]
-                        placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                               completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                   if (error) {
-                                       [error handle];
-                                   }
-                               }];
     
-//    [cell.eventImageView setImageWithURL:nil placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-//        
-//    }];
+    if (event.photoPath) {
+        [cell.eventImageView setImageWithURL:[[NSURL alloc] initWithString:event.photoPath]
+                            placeholderImage:[UIImage imageNamed:@"gentleman.png"]
+                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                       if (error) {
+                                           [error handle];
+                                       }
+                                   }];
+    }
     
     UIImage *image = nil;
     if ([event.type isEqualToString:@"Social"]) {

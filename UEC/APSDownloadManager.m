@@ -31,7 +31,6 @@
 }
 
 #pragma mark - Downloading
-
 - (void)downloadFileAtURL:(NSURL *)url
              intoFilePath:(NSString *)filePath
     downloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock
@@ -48,6 +47,7 @@
             AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
             
             operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+
             [operation setDownloadProgressBlock:progressBlock];
             
             [self.currentDownloads addObject:operation];

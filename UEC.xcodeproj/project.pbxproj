@@ -56,7 +56,6 @@
 		057F6A6616E32DB700F74752 /* UECPreviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6516E32DB700F74752 /* UECPreviewItem.m */; };
 		057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6B16E3347D00F74752 /* UECTorqueCell.m */; };
 		057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */; };
-		057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A9816E4554F00F74752 /* UECAlertManager.m */; };
 		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
 		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
@@ -174,8 +173,6 @@
 		057F6A6B16E3347D00F74752 /* UECTorqueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorqueCell.m; sourceTree = "<group>"; };
 		057F6A8A16E4449900F74752 /* UECDownloadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECDownloadingCell.h; sourceTree = "<group>"; };
 		057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDownloadingCell.m; sourceTree = "<group>"; };
-		057F6A9716E4554F00F74752 /* UECAlertManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECAlertManager.h; sourceTree = "<group>"; };
-		057F6A9816E4554F00F74752 /* UECAlertManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECAlertManager.m; sourceTree = "<group>"; };
 		0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECVersionInfoViewController.h; sourceTree = "<group>"; };
 		0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECVersionInfoViewController.m; sourceTree = "<group>"; };
 		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -527,8 +524,6 @@
 				051D65B618531016009D409D /* APSDownloadManager.m */,
 				055323F816E20A2900C83C8D /* UECReachabilityManager.h */,
 				055323F916E20A2900C83C8D /* UECReachabilityManager.m */,
-				057F6A9716E4554F00F74752 /* UECAlertManager.h */,
-				057F6A9816E4554F00F74752 /* UECAlertManager.m */,
 				052E74A3180AA615008EA4E8 /* UECMailManager.h */,
 				052E74A4180AA615008EA4E8 /* UECMailManager.m */,
 				05517264180AB68A004F94C6 /* UECMediaCaptureManager.h */,
@@ -851,7 +846,6 @@
 				051D65BA1853116D009D409D /* UECCoreDataManager.m in Sources */,
 				057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */,
 				052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */,
-				057F6A9916E4555000F74752 /* UECAlertManager.m in Sources */,
 				05BCDC7A16E774B000AA0FA2 /* UECNewsArticlesViewController.m in Sources */,
 				05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
 				054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */,
@@ -1006,9 +1000,9 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E0AE0639-9144-4A86-868F-322302948430";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E0AE0639-9144-4A86-868F-322302948430";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "F4EAFF36-61D3-418A-913E-75C56B496AF4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4EAFF36-61D3-418A-913E-75C56B496AF4";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1038,9 +1032,9 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E0AE0639-9144-4A86-868F-322302948430";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E0AE0639-9144-4A86-868F-322302948430";
-				TARGETED_DEVICE_FAMILY = 1;
+				PROVISIONING_PROFILE = "F4EAFF36-61D3-418A-913E-75C56B496AF4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F4EAFF36-61D3-418A-913E-75C56B496AF4";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

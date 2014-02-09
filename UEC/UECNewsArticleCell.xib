@@ -13,61 +13,50 @@
                 <rect key="frame" x="0.0" y="0.0" width="287" height="119"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6">
-                        <rect key="frame" x="11" y="8" width="278" height="22"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                        <rect key="frame" x="15" y="8" width="36" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Summary" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="278" translatesAutoresizingMaskIntoConstraints="NO" id="5">
-                        <rect key="frame" x="11" y="50" width="278" height="64"/>
+                        <rect key="frame" x="15" y="50" width="278" height="64"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="64" id="134"/>
+                            <constraint firstAttribute="height" constant="64" id="fG5-sC-GBM"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4">
-                        <rect key="frame" x="11" y="28" width="71" height="21"/>
+                        <rect key="frame" x="15" y="30" width="59" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="136"/>
-                            <constraint firstAttribute="width" constant="71" id="211"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Date" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                        <rect key="frame" x="90" y="28" width="199" height="21"/>
+                        <rect key="frame" x="251" y="30" width="31" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="6" firstAttribute="leading" secondItem="z1I-A3-mAn" secondAttribute="leading" constant="15" id="0M9-S4-xlm"/>
+                    <constraint firstItem="5" firstAttribute="top" secondItem="3" secondAttribute="bottom" constant="3" id="6D1-Km-azi"/>
+                    <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" constant="-6" id="bH6-cb-bTm"/>
+                    <constraint firstItem="6" firstAttribute="top" secondItem="z1I-A3-mAn" secondAttribute="top" constant="8" id="bWZ-X5-h46"/>
+                    <constraint firstItem="3" firstAttribute="baseline" secondItem="4" secondAttribute="baseline" id="nLp-Tt-cSD"/>
+                    <constraint firstItem="6" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="nTd-uZ-Nrd"/>
+                    <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" constant="5" id="ntX-QK-7h1"/>
+                    <constraint firstItem="5" firstAttribute="leading" secondItem="4" secondAttribute="leading" id="tVj-SS-rha"/>
+                    <constraint firstAttribute="bottom" secondItem="5" secondAttribute="bottom" constant="5" id="xOg-qU-z1T"/>
+                </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstItem="4" firstAttribute="top" secondItem="2" secondAttribute="top" constant="28" id="3Kl-Zm-ZbH"/>
-                <constraint firstItem="4" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="11" id="4Ab-Y5-CcH"/>
-                <constraint firstItem="3" firstAttribute="baseline" secondItem="4" secondAttribute="baseline" id="7a2-2R-LgF"/>
-                <constraint firstItem="4" firstAttribute="top" secondItem="3" secondAttribute="top" id="C7V-ml-X8d"/>
-                <constraint firstItem="5" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="11" id="F8w-Pv-hQZ"/>
-                <constraint firstItem="3" firstAttribute="leading" secondItem="4" secondAttribute="trailing" constant="8" symbolic="YES" id="GLo-Jm-mi4"/>
-                <constraint firstItem="4" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="HT6-ax-A22"/>
-                <constraint firstItem="6" firstAttribute="top" secondItem="2" secondAttribute="top" constant="8" id="Pm0-cy-aK4"/>
-                <constraint firstItem="6" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="11" id="fYF-HG-TKc"/>
-                <constraint firstItem="4" firstAttribute="leading" secondItem="6" secondAttribute="leading" id="fwf-AL-IYI"/>
-                <constraint firstItem="5" firstAttribute="top" secondItem="2" secondAttribute="top" constant="50" id="iE6-BD-H6r"/>
-                <constraint firstItem="3" firstAttribute="trailing" secondItem="5" secondAttribute="trailing" id="mJy-5o-jBY"/>
-                <constraint firstAttribute="trailing" secondItem="5" secondAttribute="trailing" constant="31" id="mn0-nU-REd"/>
-                <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" constant="31" id="v4M-n2-87a"/>
-                <constraint firstItem="3" firstAttribute="trailing" secondItem="6" secondAttribute="trailing" id="xjM-xB-VGV"/>
-                <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="31" id="ybV-Ph-GZi"/>
-            </constraints>
             <connections>
                 <outlet property="categoryLabel" destination="4" id="23"/>
                 <outlet property="dateLabel" destination="3" id="25"/>

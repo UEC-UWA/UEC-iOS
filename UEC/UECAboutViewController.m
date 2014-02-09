@@ -12,7 +12,6 @@
 
 #import "APSDataManager.h"
 #import "UECReachabilityManager.h"
-#import "UECAlertManager.h"
 
 #import "Sponsor.h"
 
