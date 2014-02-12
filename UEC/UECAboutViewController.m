@@ -13,7 +13,7 @@
 #import "APSDataManager.h"
 #import "UECReachabilityManager.h"
 
-#import "Sponsor.h"
+#import "Sponsor+UEC.h"
 
 @interface UECAboutViewController () <NSFetchedResultsControllerDelegate>
 
@@ -85,7 +85,7 @@ static NSUInteger kNumSections = 3;
             break;
             
         case 2:
-            return [self.fetchedResultsController.fetchedObjects count];
+            return [self.fetchedResultsController.fetchedObjects count] + 1;
             break;
             
         default:
@@ -112,12 +112,16 @@ static NSUInteger kNumSections = 3;
             break;
             
         case 2: {
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            
-            Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
-                                                                                                  inSection:0]];
-            cell.textLabel.text = sponsor.name;
-            
+            if (indexPath.row == 0) {
+                cell.textLabel.text = @"Appulse";
+            } else {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                
+                Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:(indexPath.row - 1)
+                                                                                                       inSection:0]];
+                cell.textLabel.text = sponsor.name;
+            }
+
             break;
         }
             
@@ -142,9 +146,17 @@ static NSUInteger kNumSections = 3;
             break;
             
         case 2: {
-            Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row
-                                                                                                   inSection:0]];
-            NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"http://%@", sponsor.websitePath]];
+            NSURL *url = nil;
+            
+            if (indexPath.row == 0) {
+                url = [[NSURL alloc] initWithString:@"http://www.appulse.com.au"];
+            } else {
+                Sponsor *sponsor = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:(indexPath.row - 1)
+                                                                                                       inSection:0]];
+                
+                url = [sponsor safariLinkURL];
+            }
+            
             if ([[UIApplication sharedApplication] canOpenURL:url]) {
                 [[UIApplication sharedApplication] openURL:url];
             }

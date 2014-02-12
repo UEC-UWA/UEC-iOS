@@ -12,7 +12,7 @@
 #import "UECEventDetailViewController.h"
 #import "UECMapViewController.h"
 
-#import "Event.h"
+#import "Event+UEC.h"
 #import "NSDate+Helper.h"
 #import "NSDate+Formatter.h"
 
@@ -80,21 +80,20 @@
 
 #pragma mark - Calendar
 
-- (void)saveEventWithTitle:(NSString *)title
-                  location:(NSString *)location
-                 startTime:(NSDate *)startTime
-                   endTime:(NSDate *)endTime
+- (void)saveEventWithEvent:(Event *)uecEvent
                      alarm:(NSDate *)alarmDate
 {
     EKEventStore *eventStore = [[EKEventStore alloc] init];
     
     [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+        
         if (granted) {
             EKEvent *event = [EKEvent eventWithEventStore:eventStore];
-            event.title = title;
-            event.location = location;
-            event.startDate = startTime;
-            event.endDate = endTime;
+            event.title = uecEvent.name;
+            event.location = uecEvent.address;
+            event.notes = uecEvent.location;
+            event.startDate = uecEvent.startDate;
+            event.endDate = uecEvent.endDate;
             event.calendar = [eventStore defaultCalendarForNewEvents];
             
             if (alarmDate) {
@@ -146,10 +145,7 @@
             break;
     }
     
-    [self saveEventWithTitle:self.event.name
-                    location:self.event.address
-                   startTime:self.event.startDate
-                     endTime:self.event.endDate
+    [self saveEventWithEvent:self.event
                        alarm:alarmDate];
 }
 
@@ -194,10 +190,9 @@
         }
             
         case 3: {
-            NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"fb://event/%@", self.event.facebookLink]];
+            NSURL *url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"fb://profile/%@", [self.event facebookEventID]]];
             if (![[UIApplication sharedApplication] canOpenURL:url]) {
-                NSString *facebookString = [[NSString alloc] initWithFormat:@"https://www.facebook.com/events/%@", self.event.facebookLink];
-                url = [[NSURL alloc] initWithString:facebookString];
+                url = [[NSURL alloc] initWithString:self.event.facebookLink];
             }
             
             [[UIApplication sharedApplication] openURL:url];

@@ -4,7 +4,7 @@
 <dict>
 	<key>AboutUEC</key>
 	<string>http://aboutUECJSON</string>
-	<key>BasePath1</key>
+	<key>BasePath2</key>
 	<string>http://mattbrightman.com/uec/app_scripts.php?script=</string>
 	<key>BasePath</key>
 	<string>http://uec.org.au/app_scripts/?script=</string>

@@ -61,21 +61,21 @@ static CGFloat kCellHeight = 120.0;
 {
     [super viewDidAppear:animated];
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    if (![defaults boolForKey:@"shownVersionInfo"]) {
-        
-         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
-        
-        if (IPAD) {
-            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
-        }
-        
-        [self presentViewController:versionInfoNC animated:YES completion:nil];
-        
-        [defaults setBool:YES forKey:@"shownVersionInfo"];
-        [defaults synchronize];
-    }
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    if (![defaults boolForKey:@"shownVersionInfo"]) {
+//        
+//         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
+//        
+//        if (IPAD) {
+//            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
+//        }
+//        
+//        [self presentViewController:versionInfoNC animated:YES completion:nil];
+//        
+//        [defaults setBool:YES forKey:@"shownVersionInfo"];
+//        [defaults synchronize];
+//    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -176,7 +176,7 @@ static CGFloat kCellHeight = 120.0;
     cell.titleLabel.text = newsArticle.title;
     cell.categoryLabel.text = newsArticle.category;
     cell.summaryLabel.text = newsArticle.summary;
-    cell.dateLabel.text = [newsArticle.date stringValue];
+    cell.dateLabel.text = [newsArticle.date stringShortValue];
     
     return cell;
 }

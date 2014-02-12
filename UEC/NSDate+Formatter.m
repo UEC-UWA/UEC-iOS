@@ -31,6 +31,14 @@
     }] stringFromDate:self];
 }
 
+- (NSString *)stringShortValue
+{
+    return [[self.class formatter:^(NSDateFormatter *formatter) {
+        formatter.dateStyle = kCFDateFormatterMediumStyle;
+        formatter.timeStyle = NSDateFormatterShortStyle;
+    }] stringFromDate:self];
+}
+
 - (NSString *)stringNoTimeValue
 {
     return [[self.class formatter:^(NSDateFormatter *formatter) {

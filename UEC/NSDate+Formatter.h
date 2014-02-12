@@ -13,6 +13,7 @@
 + (NSDateFormatter *)formatter:(void (^)(NSDateFormatter *formatter))formatterBlock;
 
 - (NSString *)stringValue;
+- (NSString *)stringShortValue;
 - (NSString *)stringNoTimeValue;
 - (NSString *)stringNoDateValue;
 
