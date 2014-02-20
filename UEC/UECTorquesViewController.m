@@ -56,13 +56,14 @@ static NSInteger kPreviewTag = 100;
     }];
     
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
-        NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
-        request.sortDescriptors = @[sortDescriptor];
+        NSSortDescriptor *downloadedSD = [[NSSortDescriptor alloc] initWithKey:@"downloaded" ascending:NO];
+        NSSortDescriptor *dateSD = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+        request.sortDescriptors = @[downloadedSD, dateSD];
     } entityName:@"Torque" sectionNameKeyPath:@"downloaded" cacheName:nil];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Torque Downloaded Cell"];
-        
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self handleEditButtonItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -205,19 +206,36 @@ static NSInteger kPreviewTag = 100;
         torque.downloading = @(YES);
         [[UECCoreDataManager sharedManager] saveMainContext];
         
-        [self.tableView reloadData];
-        
         UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
         
         [self downloadTorque:torque inCell:downloadCell completion:^(BOOL success) {
             if (success) {
                 torque.downloaded = @(YES);
+                [[UECCoreDataManager sharedManager] saveMainContext];
                 
                 [self.activeDownloads removeObject:torque];
-                
-                [self.tableView reloadData];
             }
         }];
+    }
+}
+
+#pragma mark - Logic
+
+- (void)handleEditButtonItem
+{
+    BOOL hasTorqueOnDevice = NO;
+    for (Torque *torque in self.fetchedResultsController.fetchedObjects) {
+        if ([torque.downloaded boolValue]) {
+            hasTorqueOnDevice = YES;
+            break;
+        }
+    }
+    
+    if (hasTorqueOnDevice) {
+        [self.navigationItem setRightBarButtonItem:[self editButtonItem] animated:(self.navigationItem.rightBarButtonItem == nil)];
+    } else {
+        [self.navigationItem setRightBarButtonItem:nil animated:(self.navigationItem.rightBarButtonItem != nil)];
+        [self setEditing:NO];
     }
 }
 
@@ -293,8 +311,6 @@ static NSInteger kPreviewTag = 100;
         Torque *torque = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         [self deleteToriques:@[torque]];
-        
-        [tableView reloadData];
     }
 }
 
@@ -368,6 +384,15 @@ static NSInteger kPreviewTag = 100;
     if (networkStatus == AFNetworkReachabilityStatusNotReachable) {
         [self stopDownloads:nil];
     }
+}
+
+#pragma mark - Fetched Results 
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [super controllerDidChangeContent:controller];
+    
+    [self handleEditButtonItem];
 }
 
 @end

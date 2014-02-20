@@ -753,65 +753,11 @@ Cg
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="This is the iOS 7 alpha release of the UEC app. The data which you will see is all cached. this means that it ">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="is not">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <integer key="NSUnderline" value="1"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </attributes>
-                                    </fragment>
                                     <fragment>
-                                        <string key="content"> pulling from the server (aka the website). We need to get Cam to work on the server, probably after exams are over. It should not be too hard, maybe a day of collaborating and agreeing on the structure of data being sent over.
-
-Obviously this is not the final version, and quite a few things will change depending on your feedback. You can send me some feedback by going to the "About" tab and tapping "About The App". Keep it constructive please.
-
-Changes on my roadmap currently are:
-	- Chinese, French localization; (Any other languages you are willing to translate)
-	- </string>
+                                        <string key="content">This app was designed to help you connect with the UEC during your time at UWA. Feel free to send us some comments in the feedback section and we hope you enjoy using it!</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="iPad support">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <integer key="NSStrikethrough" value="1"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content=" done bitches">
-                                        <attributes>
-                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment>
-                                        <string key="content" base64-UTF8="YES">
-Cgo
-</string>
-                                        <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </attributes>
-                                    </fragment>
-                                    <fragment content="Love Jad">
-                                        <attributes>
-                                            <font key="NSFont" size="15" name="HelveticaNeue-Italic"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                            <color key="NSUnderlineColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
@@ -1200,8 +1146,8 @@ This was of course quite humiliating and the mood changed when a group of former
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8m-zR-aWE">
-                                            <rect key="frame" x="10" y="2" width="36" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <rect key="frame" x="15" y="11" width="34" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -1215,26 +1161,17 @@ This was of course quite humiliating and the mood changed when a group of former
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lqh-kS-lTc">
-                                            <rect key="frame" x="10" y="25" width="50" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <constraints>
                                     <constraint firstItem="JOU-NC-vwZ" firstAttribute="centerY" secondItem="Rt9-VH-YWT" secondAttribute="centerY" id="1Wr-TZ-kMO"/>
-                                    <constraint firstItem="lqh-kS-lTc" firstAttribute="leading" secondItem="q8m-zR-aWE" secondAttribute="leading" id="BWr-YE-4BK"/>
-                                    <constraint firstItem="q8m-zR-aWE" firstAttribute="leading" secondItem="Rt9-VH-YWT" secondAttribute="leading" constant="10" id="Hls-tv-g2i"/>
-                                    <constraint firstAttribute="bottom" secondItem="q8m-zR-aWE" secondAttribute="bottom" constant="20" id="aHx-9w-q17"/>
+                                    <constraint firstItem="q8m-zR-aWE" firstAttribute="leading" secondItem="Rt9-VH-YWT" secondAttribute="leading" constant="15" id="Hls-tv-g2i"/>
+                                    <constraint firstAttribute="bottom" secondItem="q8m-zR-aWE" secondAttribute="bottom" constant="11" id="aHx-9w-q17"/>
                                     <constraint firstAttribute="trailing" secondItem="JOU-NC-vwZ" secondAttribute="trailing" constant="16" id="hoG-xp-EZk"/>
-                                    <constraint firstAttribute="bottom" secondItem="lqh-kS-lTc" secondAttribute="bottom" constant="2" id="sAz-d0-c9V"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="downloadButton" destination="JOU-NC-vwZ" id="Yqj-it-CNp"/>
                                     <outlet property="nameLabel" destination="q8m-zR-aWE" id="rDE-pX-sOr"/>
-                                    <outlet property="sizeLabel" destination="lqh-kS-lTc" id="9P3-kO-7Sd"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Torque Download Cell" id="hvb-ib-LxT" customClass="UECDownloadingCell">
@@ -1251,8 +1188,8 @@ This was of course quite humiliating and the mood changed when a group of former
                                             </constraints>
                                         </view>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXi-hy-jvj">
-                                            <rect key="frame" x="10" y="2" width="36" height="22"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <rect key="frame" x="15" y="2" width="34" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
@@ -1260,7 +1197,7 @@ This was of course quite humiliating and the mood changed when a group of former
                                             <rect key="frame" x="288" y="12" width="20" height="20"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuU-zD-ApT">
-                                            <rect key="frame" x="10" y="25" width="50" height="17"/>
+                                            <rect key="frame" x="15" y="25" width="50" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1275,7 +1212,7 @@ This was of course quite humiliating and the mood changed when a group of former
                                     <constraint firstItem="KuU-zD-ApT" firstAttribute="leading" secondItem="LXi-hy-jvj" secondAttribute="leading" id="Bcn-XT-siq"/>
                                     <constraint firstItem="5YX-VZ-eje" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" id="PkP-IB-JCR"/>
                                     <constraint firstAttribute="trailing" secondItem="6WP-iK-IgZ" secondAttribute="trailing" constant="12" id="r5C-kC-bN5"/>
-                                    <constraint firstItem="LXi-hy-jvj" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" constant="10" id="ssi-Lu-CR4"/>
+                                    <constraint firstItem="LXi-hy-jvj" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" constant="15" id="ssi-Lu-CR4"/>
                                     <constraint firstItem="5YX-VZ-eje" firstAttribute="bottom" secondItem="hvb-ib-LxT" secondAttribute="bottom" id="zSt-kP-bDQ"/>
                                 </constraints>
                                 <connections>
@@ -1295,9 +1232,9 @@ This was of course quite humiliating and the mood changed when a group of former
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hyj-A4-bJg">
                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>

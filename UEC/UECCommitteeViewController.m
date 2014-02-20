@@ -33,11 +33,6 @@ static CGFloat kCellHeight = 55.0;
     [super viewDidLoad];
     
     self.title = @"Committee";
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
     
     [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
