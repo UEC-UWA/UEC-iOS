@@ -12,8 +12,7 @@
 
 #pragma mark - Helper Methods
 
-+ (NSDateFormatter *)formatter:(void (^)(NSDateFormatter *formatter))formatterBlock
-{
++ (NSDateFormatter *)formatter:(void (^)(NSDateFormatter *formatter))formatterBlock {
     __DISPATCH_ONCE__ NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     if (formatterBlock) {
         formatterBlock(dateFormatter);
@@ -23,32 +22,28 @@
 
 #pragma mark - Public Methods
 
-- (NSString *)stringValue
-{    
+- (NSString *)stringValue {
     return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     }] stringFromDate:self];
 }
 
-- (NSString *)stringShortValue
-{
+- (NSString *)stringShortValue {
     return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = kCFDateFormatterMediumStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;
     }] stringFromDate:self];
 }
 
-- (NSString *)stringNoTimeValue
-{
+- (NSString *)stringNoTimeValue {
     return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterLongStyle;
         formatter.timeStyle = NSDateFormatterNoStyle;
     }] stringFromDate:self];
 }
 
-- (NSString *)stringNoDateValue
-{
+- (NSString *)stringNoDateValue {
     return [[self.class formatter:^(NSDateFormatter *formatter) {
         formatter.dateStyle = NSDateFormatterNoStyle;
         formatter.timeStyle = NSDateFormatterShortStyle;

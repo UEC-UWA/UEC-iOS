@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
-#import <Foundation/Foundation.h>
+@import CoreData;
+@import Foundation;
 
 @interface UECCoreDataManager : NSObject
 

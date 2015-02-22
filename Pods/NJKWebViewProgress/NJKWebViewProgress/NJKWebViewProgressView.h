@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Satoshi Asano. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 @interface NJKWebViewProgressView : UIView
 @property (nonatomic) float progress;

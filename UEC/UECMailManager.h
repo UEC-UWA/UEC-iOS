@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <MessageUI/MessageUI.h>
+@import Foundation;
+@import MessageUI;
 
 @interface UECMailManager : NSObject
 

@@ -16,10 +16,9 @@
 
 @end
 
-@implementation UECAboutAppViewController 
+@implementation UECAboutAppViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -27,30 +26,27 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.title = @"About The App";
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
-        
+
         if (IPAD) {
             versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
         }
-        
+
         [self presentViewController:versionInfoNC animated:YES completion:^{
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }];

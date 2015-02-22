@@ -19,26 +19,17 @@
 		051D65B718531016009D409D /* APSDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 051D65B618531016009D409D /* APSDownloadManager.m */; };
 		051D65BA1853116D009D409D /* UECCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 051D65B91853116D009D409D /* UECCoreDataManager.m */; };
 		052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
-		052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E749C180AA059008EA4E8 /* UECThemeResources.m */; };
 		052E74A5180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
-		052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 052E74A4180AA615008EA4E8 /* UECMailManager.m */; };
 		0542FA9E16C2A85A00B327B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9D16C2A85A00B327B7 /* UIKit.framework */; };
 		0542FAA016C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
 		0542FAA216C2A85A00B327B7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FAA116C2A85A00B327B7 /* CoreGraphics.framework */; };
 		0542FAA816C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAA616C2A85A00B327B7 /* InfoPlist.strings */; };
 		0542FAAA16C2A85A00B327B7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FAA916C2A85A00B327B7 /* main.m */; };
 		0542FAAE16C2A85A00B327B7 /* UECAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FAAD16C2A85A00B327B7 /* UECAppDelegate.m */; };
-		0542FAB716C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAB516C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard */; };
-		0542FABA16C2A85A00B327B7 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAB816C2A85A00B327B7 /* MainStoryboard_iPad.storyboard */; };
-		0542FAD016C2A85A00B327B7 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FACF16C2A85A00B327B7 /* SenTestingKit.framework */; };
-		0542FAD116C2A85A00B327B7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9D16C2A85A00B327B7 /* UIKit.framework */; };
-		0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0542FA9F16C2A85A00B327B7 /* Foundation.framework */; };
-		0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAD816C2A85A00B327B7 /* InfoPlist.strings */; };
-		0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0542FADC16C2A85A00B327B7 /* UECTests.m */; };
+		0542FAB716C2A85A00B327B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0542FAB516C2A85A00B327B7 /* Main.storyboard */; };
 		054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 054A32A6170301000070D9A9 /* UECTorquesViewController.m */; };
 		054DBD6D1716C8A00026A7AE /* APSDataManager+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 054DBD6C1716C8A00026A7AE /* APSDataManager+UEC.m */; };
 		05517266180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */; };
-		05517267180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05517265180AB68A004F94C6 /* UECMediaCaptureManager.m */; };
 		055323F716E2048E00C83C8D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055323F616E2048E00C83C8D /* SystemConfiguration.framework */; };
 		055323FA16E20A2900C83C8D /* UECReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 055323F916E20A2900C83C8D /* UECReachabilityManager.m */; };
 		055910D616C3AD7D00BF14D2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055910D516C3AD7D00BF14D2 /* ImageIO.framework */; };
@@ -51,6 +42,7 @@
 		0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */; };
 		0559115016C3F91400BF14D2 /* ServerConnections.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0559114F16C3F91400BF14D2 /* ServerConnections.plist */; };
 		0559115716C41A6100BF14D2 /* gentleman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0559115616C41A6100BF14D2 /* gentleman.png */; };
+		056CA06E1A9A5E200096833F /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056CA06D1A9A5E200096833F /* UECTests.m */; };
 		056D2BFB1897BD6900C5910A /* UECTorquePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D2BFA1897BD6900C5910A /* UECTorquePreviewController.m */; };
 		057F6A5916E31BCF00F74752 /* DummyBend.plist in Resources */ = {isa = PBXBuildFile; fileRef = 057F6A5816E31BCF00F74752 /* DummyBend.plist */; };
 		057F6A6616E32DB700F74752 /* UECPreviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6516E32DB700F74752 /* UECPreviewItem.m */; };
@@ -91,12 +83,11 @@
 		05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F9177C16C7648400B1BCE1 /* UECArticleViewController.m */; };
 		05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */; };
 		05FDB27F16F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
-		05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */; };
 		C01C5F871FD748BB8E736214 /* libPods-UEC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B895870AC04353A7F10580 /* libPods-UEC.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0542FAD316C2A85A00B327B7 /* PBXContainerItemProxy */ = {
+		056CA06F1A9A5E200096833F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0542FA9216C2A85A00B327B7 /* Project object */;
 			proxyType = 1;
@@ -138,14 +129,6 @@
 		0542FAAB16C2A85A00B327B7 /* UEC-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UEC-Prefix.pch"; sourceTree = "<group>"; };
 		0542FAAC16C2A85A00B327B7 /* UECAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UECAppDelegate.h; sourceTree = "<group>"; };
 		0542FAAD16C2A85A00B327B7 /* UECAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECAppDelegate.m; sourceTree = "<group>"; };
-		0542FAB616C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
-		0542FAB916C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		0542FACE16C2A85A00B327B7 /* UECTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UECTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0542FACF16C2A85A00B327B7 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		0542FAD716C2A85A00B327B7 /* UECTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UECTests-Info.plist"; sourceTree = "<group>"; };
-		0542FAD916C2A85A00B327B7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0542FADB16C2A85A00B327B7 /* UECTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UECTests.h; sourceTree = "<group>"; };
-		0542FADC16C2A85A00B327B7 /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
 		054A32A5170301000070D9A9 /* UECTorquesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTorquesViewController.h; sourceTree = "<group>"; };
 		054A32A6170301000070D9A9 /* UECTorquesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorquesViewController.m; sourceTree = "<group>"; };
 		054DBD6B1716C8A00026A7AE /* APSDataManager+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "APSDataManager+UEC.h"; sourceTree = "<group>"; };
@@ -167,6 +150,10 @@
 		0559113B16C3EDA900BF14D2 /* MappingDictionaries.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MappingDictionaries.plist; sourceTree = "<group>"; };
 		0559114F16C3F91400BF14D2 /* ServerConnections.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ServerConnections.plist; sourceTree = "<group>"; };
 		0559115616C41A6100BF14D2 /* gentleman.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gentleman.png; sourceTree = "<group>"; };
+		056CA0691A9A5E200096833F /* UECTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UECTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		056CA06C1A9A5E200096833F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		056CA06D1A9A5E200096833F /* UECTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UECTests.m; sourceTree = "<group>"; };
+		056CA0741A9A60000096833F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		056D2BF91897BD6900C5910A /* UECTorquePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTorquePreviewController.h; sourceTree = "<group>"; };
 		056D2BFA1897BD6900C5910A /* UECTorquePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorquePreviewController.m; sourceTree = "<group>"; };
 		057F6A5816E31BCF00F74752 /* DummyBend.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyBend.plist; sourceTree = "<group>"; };
@@ -237,8 +224,9 @@
 		05FB0ADE16C7B57800D91F9C /* UECCalendarListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECCalendarListViewController.m; sourceTree = "<group>"; };
 		05FDB27D16F0B5C0008DAA8A /* UECThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECThemeManager.h; sourceTree = "<group>"; };
 		05FDB27E16F0B5C0008DAA8A /* UECThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECThemeManager.m; sourceTree = "<group>"; };
+		0C05CB28F9B89B22C5439E62 /* Pods-UEC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEC.release.xcconfig"; path = "Pods/Target Support Files/Pods-UEC/Pods-UEC.release.xcconfig"; sourceTree = "<group>"; };
 		20B895870AC04353A7F10580 /* libPods-UEC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UEC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEC.xcconfig"; path = "Pods/Pods-UEC.xcconfig"; sourceTree = "<group>"; };
+		A911D05F247B8C8F7CB0985C /* Pods-UEC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UEC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UEC/Pods-UEC.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,13 +253,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0542FACA16C2A85A00B327B7 /* Frameworks */ = {
+		056CA0661A9A5E200096833F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0542FAD016C2A85A00B327B7 /* SenTestingKit.framework in Frameworks */,
-				0542FAD116C2A85A00B327B7 /* UIKit.framework in Frameworks */,
-				0542FAD216C2A85A00B327B7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,10 +309,10 @@
 			isa = PBXGroup;
 			children = (
 				0542FAA316C2A85A00B327B7 /* UEC */,
-				0542FAD516C2A85A00B327B7 /* UECTests */,
+				056CA06A1A9A5E200096833F /* UECTests */,
 				0542FA9C16C2A85A00B327B7 /* Frameworks */,
 				0542FA9B16C2A85A00B327B7 /* Products */,
-				602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */,
+				A934E11C0A8240ABAAE52735 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				0542FA9A16C2A85A00B327B7 /* UEC.app */,
-				0542FACE16C2A85A00B327B7 /* UECTests.octest */,
+				056CA0691A9A5E200096833F /* UECTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,7 +343,6 @@
 				0542FA9D16C2A85A00B327B7 /* UIKit.framework */,
 				0542FA9F16C2A85A00B327B7 /* Foundation.framework */,
 				0542FAA116C2A85A00B327B7 /* CoreGraphics.framework */,
-				0542FACF16C2A85A00B327B7 /* SenTestingKit.framework */,
 				20B895870AC04353A7F10580 /* libPods-UEC.a */,
 			);
 			name = Frameworks;
@@ -393,25 +377,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		0542FAD516C2A85A00B327B7 /* UECTests */ = {
-			isa = PBXGroup;
-			children = (
-				0542FADB16C2A85A00B327B7 /* UECTests.h */,
-				0542FADC16C2A85A00B327B7 /* UECTests.m */,
-				0542FAD616C2A85A00B327B7 /* Supporting Files */,
-			);
-			path = UECTests;
-			sourceTree = "<group>";
-		};
-		0542FAD616C2A85A00B327B7 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0542FAD716C2A85A00B327B7 /* UECTests-Info.plist */,
-				0542FAD816C2A85A00B327B7 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		0559110216C3B40A00BF14D2 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,8 +392,7 @@
 		0559110316C3B41100BF14D2 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
-				0542FAB516C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard */,
-				0542FAB816C2A85A00B327B7 /* MainStoryboard_iPad.storyboard */,
+				0542FAB516C2A85A00B327B7 /* Main.storyboard */,
 				051B3D5816C581FB007BAB12 /* UECNewsArticleCell~iphone.xib */,
 				05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */,
 			);
@@ -500,6 +464,23 @@
 				0559115616C41A6100BF14D2 /* gentleman.png */,
 			);
 			name = "Temp Dummy";
+			sourceTree = "<group>";
+		};
+		056CA06A1A9A5E200096833F /* UECTests */ = {
+			isa = PBXGroup;
+			children = (
+				056CA06D1A9A5E200096833F /* UECTests.m */,
+				056CA06B1A9A5E200096833F /* Supporting Files */,
+			);
+			path = UECTests;
+			sourceTree = "<group>";
+		};
+		056CA06B1A9A5E200096833F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				056CA06C1A9A5E200096833F /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		057F6A5616E2E90100F74752 /* Torques */ = {
@@ -669,6 +650,15 @@
 			name = Theme;
 			sourceTree = "<group>";
 		};
+		A934E11C0A8240ABAAE52735 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A911D05F247B8C8F7CB0985C /* Pods-UEC.debug.xcconfig */,
+				0C05CB28F9B89B22C5439E62 /* Pods-UEC.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -691,24 +681,23 @@
 			productReference = 0542FA9A16C2A85A00B327B7 /* UEC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		0542FACD16C2A85A00B327B7 /* UECTests */ = {
+		056CA0681A9A5E200096833F /* UECTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0542FAE316C2A85A00B327B7 /* Build configuration list for PBXNativeTarget "UECTests" */;
+			buildConfigurationList = 056CA0711A9A5E200096833F /* Build configuration list for PBXNativeTarget "UECTests" */;
 			buildPhases = (
-				0542FAC916C2A85A00B327B7 /* Sources */,
-				0542FACA16C2A85A00B327B7 /* Frameworks */,
-				0542FACB16C2A85A00B327B7 /* Resources */,
-				0542FACC16C2A85A00B327B7 /* ShellScript */,
+				056CA0651A9A5E200096833F /* Sources */,
+				056CA0661A9A5E200096833F /* Frameworks */,
+				056CA0671A9A5E200096833F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				0542FAD416C2A85A00B327B7 /* PBXTargetDependency */,
+				056CA0701A9A5E200096833F /* PBXTargetDependency */,
 			);
 			name = UECTests;
 			productName = UECTests;
-			productReference = 0542FACE16C2A85A00B327B7 /* UECTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = 056CA0691A9A5E200096833F /* UECTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -731,6 +720,10 @@
 							};
 						};
 					};
+					056CA0681A9A5E200096833F = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 0542FA9916C2A85A00B327B7;
+					};
 				};
 			};
 			buildConfigurationList = 0542FA9516C2A85A00B327B7 /* Build configuration list for PBXProject "UEC" */;
@@ -740,6 +733,7 @@
 			knownRegions = (
 				en,
 				fr,
+				Base,
 			);
 			mainGroup = 0542FA9116C2A85A00B327B7;
 			productRefGroup = 0542FA9B16C2A85A00B327B7 /* Products */;
@@ -747,7 +741,7 @@
 			projectRoot = "";
 			targets = (
 				0542FA9916C2A85A00B327B7 /* UEC */,
-				0542FACD16C2A85A00B327B7 /* UECTests */,
+				056CA0681A9A5E200096833F /* UECTests */,
 			);
 		};
 /* End PBXProject section */
@@ -758,8 +752,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0542FAA816C2A85A00B327B7 /* InfoPlist.strings in Resources */,
-				0542FAB716C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard in Resources */,
-				0542FABA16C2A85A00B327B7 /* MainStoryboard_iPad.storyboard in Resources */,
+				0542FAB716C2A85A00B327B7 /* Main.storyboard in Resources */,
 				0559112C16C3D4B400BF14D2 /* DummyEvent.plist in Resources */,
 				0559113116C3E6D200BF14D2 /* DummyPerson.plist in Resources */,
 				0559113C16C3EDA900BF14D2 /* MappingDictionaries.plist in Resources */,
@@ -777,30 +770,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0542FACB16C2A85A00B327B7 /* Resources */ = {
+		056CA0671A9A5E200096833F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0542FADA16C2A85A00B327B7 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0542FACC16C2A85A00B327B7 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
 		42346F9470184D35AD17D7C0 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -813,7 +792,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-UEC-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UEC/Pods-UEC-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB33F01E4CC94E8A919B1A86 /* Check Pods Manifest.lock */ = {
@@ -885,25 +864,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		0542FAC916C2A85A00B327B7 /* Sources */ = {
+		056CA0651A9A5E200096833F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0542FADD16C2A85A00B327B7 /* UECTests.m in Sources */,
-				05517267180AB68A004F94C6 /* UECMediaCaptureManager.m in Sources */,
-				052E749E180AA059008EA4E8 /* UECThemeResources.m in Sources */,
-				052E74A6180AA615008EA4E8 /* UECMailManager.m in Sources */,
-				05FDB28016F0B5C0008DAA8A /* UECThemeManager.m in Sources */,
+				056CA06E1A9A5E200096833F /* UECTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0542FAD416C2A85A00B327B7 /* PBXTargetDependency */ = {
+		056CA0701A9A5E200096833F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0542FA9916C2A85A00B327B7 /* UEC */;
-			targetProxy = 0542FAD316C2A85A00B327B7 /* PBXContainerItemProxy */;
+			targetProxy = 056CA06F1A9A5E200096833F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -916,28 +891,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		0542FAB516C2A85A00B327B7 /* MainStoryboard_iPhone.storyboard */ = {
+		0542FAB516C2A85A00B327B7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				0542FAB616C2A85A00B327B7 /* en */,
+				056CA0741A9A60000096833F /* Base */,
 			);
-			name = MainStoryboard_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		0542FAB816C2A85A00B327B7 /* MainStoryboard_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0542FAB916C2A85A00B327B7 /* en */,
-			);
-			name = MainStoryboard_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		0542FAD816C2A85A00B327B7 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0542FAD916C2A85A00B327B7 /* en */,
-			);
-			name = InfoPlist.strings;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -968,7 +927,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -993,7 +952,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1003,11 +962,12 @@
 		};
 		0542FAE116C2A85A00B327B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */;
+			baseConfigurationReference = A911D05F247B8C8F7CB0985C /* Pods-UEC.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1020,9 +980,12 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
@@ -1034,11 +997,12 @@
 		};
 		0542FAE216C2A85A00B327B7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 602854E1D0B74299B3E8FCFE /* Pods-UEC.xcconfig */;
+			baseConfigurationReference = 0C05CB28F9B89B22C5439E62 /* Pods-UEC.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -1052,9 +1016,12 @@
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
 				INFOPLIST_FILE = "UEC/UEC-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
@@ -1064,49 +1031,64 @@
 			};
 			name = Release;
 		};
-		0542FAE416C2A85A00B327B7 /* Debug */ = {
+		056CA0721A9A5E200096833F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UEC.app/UEC";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
-					"/Users/Jad/Development/Appulse/UEC-iOS",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
-				INFOPLIST_FILE = "UECTests/UECTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlight",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK1.2.4",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = UECTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UEC.app/UEC";
 			};
 			name = Debug;
 		};
-		0542FAE516C2A85A00B327B7 /* Release */ = {
+		056CA0731A9A5E200096833F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UEC.app/UEC";
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
-					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
-					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
-					"/Users/Jad/Development/Appulse/UEC-iOS",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
-				INFOPLIST_FILE = "UECTests/UECTests-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlight",
-					"/Users/Jad/Development/Appulse/UEC-iOS/TestFlightSDK1.2.4",
 				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = UECTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UEC.app/UEC";
 			};
 			name = Release;
 		};
@@ -1131,14 +1113,13 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0542FAE316C2A85A00B327B7 /* Build configuration list for PBXNativeTarget "UECTests" */ = {
+		056CA0711A9A5E200096833F /* Build configuration list for PBXNativeTarget "UECTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0542FAE416C2A85A00B327B7 /* Debug */,
-				0542FAE516C2A85A00B327B7 /* Release */,
+				056CA0721A9A5E200096833F /* Debug */,
+				056CA0731A9A5E200096833F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

@@ -10,14 +10,13 @@
 
 @implementation Sponsor (UEC)
 
-- (NSURL *)safariLinkURL
-{
+- (NSURL *)safariLinkURL {
     NSString *path = self.websitePath;
-    
+
     if ([self.websitePath rangeOfString:@"http" options:NSCaseInsensitiveSearch].location == NSNotFound) {
         path = [[NSString alloc] initWithFormat:@"http://%@", self.websitePath];
     }
-    
+
     return [[NSURL alloc] initWithString:path];
 }
 

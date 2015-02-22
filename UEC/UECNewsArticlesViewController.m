@@ -32,74 +32,69 @@ static CGFloat kCellHeight = 120.0;
 
 @implementation UECNewsArticlesViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"News";
-    
+
     // Add refresh control programmatically (not in NIB)
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:) forControlEvents:UIControlEventValueChanged];
-    
+
     // Restore search settings if they were saved in didReceiveMemoryWarning.
     if (self.savedSearchTerm) {
         [self.searchDisplayController setActive:self.searchWasActive];
         [self.searchDisplayController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
         [self.searchDisplayController.searchBar setText:self.savedSearchTerm];
-        
+
         self.savedSearchTerm = nil;
     }
-        
+
     [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
-    
+
     [self refreshInvoked:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    if (![defaults boolForKey:@"shownVersionInfo"]) {
-//        
-//         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
-//        
-//        if (IPAD) {
-//            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
-//        }
-//        
-//        [self presentViewController:versionInfoNC animated:YES completion:nil];
-//        
-//        [defaults setBool:YES forKey:@"shownVersionInfo"];
-//        [defaults synchronize];
-//    }
+
+    //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    //
+    //    if (![defaults boolForKey:@"shownVersionInfo"]) {
+    //
+    //         UINavigationController *versionInfoNC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECVersionInfoNavController"];
+    //
+    //        if (IPAD) {
+    //            versionInfoNC.modalPresentationStyle = UIModalPresentationFormSheet;
+    //        }
+    //
+    //        [self presentViewController:versionInfoNC animated:YES completion:nil];
+    //
+    //        [defaults setBool:YES forKey:@"shownVersionInfo"];
+    //        [defaults synchronize];
+    //    }
 }
 
-- (void)viewDidDisappear:(BOOL)animated
-{
+- (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
+
     // save the state of the search UI so that it can be restored if the view is re-created
     self.searchWasActive = [self.searchDisplayController isActive];
     self.savedSearchTerm = [self.searchDisplayController.searchBar text];
     self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Data Management
 
-- (void)refreshInvoked:(id)sender
-{
+- (void)refreshInvoked:(id)sender {
     BOOL manualRefresh = (sender != nil);
-    
+
     [[APSDataManager sharedManager] cacheEntityName:@"NewsArticle" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:manualRefresh];
@@ -107,19 +102,17 @@ static CGFloat kCellHeight = 120.0;
         
         [self.refreshControl endRefreshing];
     }];
-    
+
     self.fetchedResultsController = [self defaultFetchedResultsController];
 }
 
 #pragma mark - NSFetchedResultsController
 
-- (NSFetchedResultsController *)defaultFetchedResultsController
-{
+- (NSFetchedResultsController *)defaultFetchedResultsController {
     return [self fetchedResultsControllerForSearching:nil withScope:nil];
 }
 
-- (NSFetchedResultsController *)fetchedResultsControllerForSearching:(NSString *)searchString withScope:(NSString *)scope
-{
+- (NSFetchedResultsController *)fetchedResultsControllerForSearching:(NSString *)searchString withScope:(NSString *)scope {
     NSFetchedResultsController *fetchResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO];
         NSPredicate *filterPredicate = nil;
@@ -139,99 +132,91 @@ static CGFloat kCellHeight = 120.0;
         
         [request setPredicate:filterPredicate];
         [request setSortDescriptors:@[sortDescriptor]];
-        
+
     } entityName:@"NewsArticle" sectionNameKeyPath:nil cacheName:nil];
-    
+
     NSError *error = nil;
     if (![fetchResultsController performFetch:&error]) {
-        if (error) {
+        if (error != nil) {
             [error handle];
         }
     }
-    
+
     return fetchResultsController;
 }
 
 #pragma mark - Table view data source
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kCellHeight;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"News Cell";
-    
+
     UECNewsArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     // Configure the cell...
     cell.titleLabel.text = newsArticle.title;
     cell.categoryLabel.text = newsArticle.category;
     cell.summaryLabel.text = newsArticle.summary;
     cell.dateLabel.text = [newsArticle.date stringShortValue];
-    
+
     return cell;
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsArticle *newsArticle = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     UECArticleViewController *detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UECArticleViewController"];
     detailVC.newsArticle = newsArticle;
-    
+
     [self.navigationController pushViewController:detailVC animated:YES];
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Content Filtering
 
-- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
-{
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString *)scope {
     if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleNone) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
-    
+
     self.fetchedResultsController = [self fetchedResultsControllerForSearching:searchText withScope:scope];
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     [self filterContentForSearchText:searchString scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
-    
+                                                      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
+
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
     [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
-     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-    
+                                                                                       [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+
     // Return YES to cause the search result table view to be reloaded.
     return YES;
 }
 
-- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView
-{
+- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {
     if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleSingleLine) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     }
-    
+
     self.fetchedResultsController = [self defaultFetchedResultsController];
 }
 

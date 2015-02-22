@@ -12,31 +12,29 @@
 
 @implementation UECThemeManager
 
-+ (id<UECTheme>)sharedTheme
-{
++ (id<UECTheme>)sharedTheme {
     static __DISPATCH_ONCE__ id singletonObject = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Create and return the theme: (This line should change in the future to change the theme)
         singletonObject = [[UECThemeResources alloc] init];
     });
-    
+
     return singletonObject;
 }
 
-+ (void)customiseAppAppearance
-{    
++ (void)customiseAppAppearance {
     [[UINavigationBar appearance] setBarTintColor:UEC_YELLOW];
     NSDictionary *navAttributes = @{NSForegroundColorAttributeName : UEC_BLACK};
     [[UINavigationBar appearance] setTitleTextAttributes:navAttributes];
-        
+
     [[UISearchBar appearance] setBarTintColor:UEC_YELLOW];
-    
+
     [[UITabBar appearance] setTintColor:UEC_YELLOW];
-    
+
     [[UITextView appearance] setTintColor:UEC_YELLOW];
-    
+
     [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
 }
 

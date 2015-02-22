@@ -8,7 +8,6 @@
 
 #import "Event.h"
 
-
 @implementation Event
 
 @dynamic address;

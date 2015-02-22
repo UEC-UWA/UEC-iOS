@@ -6,9 +6,8 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-
-#import <MobileCoreServices/MobileCoreServices.h>
+@import Foundation;
+@import MobileCoreServices;
 
 @interface UECMediaCaptureManager : NSObject
 

@@ -16,32 +16,30 @@
 
 @implementation UECMailManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static __DISPATCH_ONCE__ id singletonObject = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
     });
-    
+
     return singletonObject;
 }
 
 - (void)showComposer:(void (^)(MFMailComposeViewController *mailComposer))composerBlock
-        inController:(id)controller
-{
+        inController:(id)controller {
     self.controller = controller;
-    
+
     // Create a mail modal view.
     MFMailComposeViewController *mailComposer = [[MFMailComposeViewController alloc] init];
     mailComposer.mailComposeDelegate = self;
     mailComposer.view.tintColor = UEC_BLACK;
-    
+
     if (composerBlock) {
         composerBlock(mailComposer);
     }
-    
+
     // Present the modal view.
     [controller presentViewController:mailComposer animated:YES completion:nil];
 }
@@ -50,14 +48,13 @@
  Delegate method alerting when the email has finished.
  */
 - (void)mailComposeController:(MFMailComposeViewController *)controller
-		  didFinishWithResult:(MFMailComposeResult)result
-						error:(NSError *)error
-{
-    if (error) {
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error {
+    if (error != nil) {
         [error handle];
     }
-    
-	[self.controller becomeFirstResponder];
+
+    [self.controller becomeFirstResponder];
     [self.controller dismissViewControllerAnimated:YES completion:nil];
 }
 

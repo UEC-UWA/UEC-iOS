@@ -1,6 +1,6 @@
 // UIActivityIndicatorView+AFNetworking.h
 //
-// Copyright (c) 2013 AFNetworking (http://afnetworking.com)
+// Copyright (c) 2013-2015 AFNetworking (http://afnetworking.com)
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -26,8 +26,7 @@
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
-#import <UIKit/UIKit.h>
-
+@import UIKit;
 
 @class AFURLConnectionOperation;
 
@@ -45,7 +44,7 @@
 
  @param task The task. If `nil`, automatic updating from any previously specified operation will be disabled.
  */
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000) || (defined(__MAC_OS_X_VERSION_MIN_REQUIRED) && __MAC_OS_X_VERSION_MIN_REQUIRED >= 1090)
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
 - (void)setAnimatingWithStateOfTask:(NSURLSessionTask *)task;
 #endif
 
@@ -55,7 +54,7 @@
 
 /**
  Binds the animating state to the execution state of the specified operation.
- 
+
  @param operation The operation. If `nil`, automatic updating from any previously specified operation will be disabled.
  */
 - (void)setAnimatingWithStateOfOperation:(AFURLConnectionOperation *)operation;

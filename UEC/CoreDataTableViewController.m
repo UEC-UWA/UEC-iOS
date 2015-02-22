@@ -15,20 +15,18 @@
 
 #pragma mark - Fetching
 
-- (void)performFetch
-{
+- (void)performFetch {
     if (self.fetchedResultsController) {
         NSError *error;
         [self.fetchedResultsController performFetch:&error];
-        if (error) {
+        if (error != nil) {
             [error handle];
         }
     }
     [self.tableView reloadData];
 }
 
-- (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc
-{
+- (void)setFetchedResultsController:(NSFetchedResultsController *)newfrc {
     NSFetchedResultsController *oldfrc = _fetchedResultsController;
     if (newfrc != oldfrc) {
         _fetchedResultsController = newfrc;
@@ -37,7 +35,7 @@
             self.title = newfrc.fetchRequest.entity.name;
         }
         if (newfrc) {
-            [self performFetch]; 
+            [self performFetch];
         } else {
             [self.tableView reloadData];
         }
@@ -46,35 +44,29 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [[self.fetchedResultsController sections] count];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[self.fetchedResultsController sections][section] numberOfObjects];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	return [[self.fetchedResultsController sections][section] name];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [[self.fetchedResultsController sections][section] name];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-	return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {
+    return [self.fetchedResultsController sectionForSectionIndexTitle:title atIndex:index];
 }
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return [self.fetchedResultsController sectionIndexTitles];
 }
 
 #pragma mark - NSFetchedResultsControllerDelegate
 
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
         [self.tableView beginUpdates];
         self.beganUpdates = YES;
@@ -82,64 +74,61 @@
 }
 
 - (void)controller:(NSFetchedResultsController *)controller
-  didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo
-		   atIndex:(NSUInteger)sectionIndex
-	 forChangeType:(NSFetchedResultsChangeType)type
-{
+    didChangeSection:(id<NSFetchedResultsSectionInfo>)sectionInfo
+             atIndex:(NSUInteger)sectionIndex
+       forChangeType:(NSFetchedResultsChangeType)type {
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
-        switch(type) {
+        switch (type) {
             case NSFetchedResultsChangeInsert:
                 [self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeDelete:
                 [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
                 break;
+            default:
+                break;
         }
     }
 }
-
 
 - (void)controller:(NSFetchedResultsController *)controller
-   didChangeObject:(id)anObject
-	   atIndexPath:(NSIndexPath *)indexPath
-	 forChangeType:(NSFetchedResultsChangeType)type
-	  newIndexPath:(NSIndexPath *)newIndexPath
-{		
+    didChangeObject:(id)anObject
+        atIndexPath:(NSIndexPath *)indexPath
+      forChangeType:(NSFetchedResultsChangeType)type
+       newIndexPath:(NSIndexPath *)newIndexPath {
     if (!self.suspendAutomaticTrackingOfChangesInManagedObjectContext) {
-        switch(type) {
+        switch (type) {
             case NSFetchedResultsChangeInsert:
-                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeDelete:
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeUpdate:
-                [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
                 break;
-                
+
             case NSFetchedResultsChangeMove:
-                [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-                [self.tableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationFade];
+                [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationFade];
                 break;
         }
     }
 }
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    if (self.beganUpdates) [self.tableView endUpdates];
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    if (self.beganUpdates)
+        [self.tableView endUpdates];
 }
 
-- (void)endSuspensionOfUpdatesDueToContextChanges
-{
+- (void)endSuspensionOfUpdatesDueToContextChanges {
     _suspendAutomaticTrackingOfChangesInManagedObjectContext = NO;
 }
 
-- (void)setSuspendAutomaticTrackingOfChangesInManagedObjectContext:(BOOL)suspend
-{
+- (void)setSuspendAutomaticTrackingOfChangesInManagedObjectContext:(BOOL)suspend {
     if (suspend) {
         _suspendAutomaticTrackingOfChangesInManagedObjectContext = YES;
     } else {
@@ -148,4 +137,3 @@
 }
 
 @end
-

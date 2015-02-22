@@ -6,24 +6,25 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <CoreData/CoreData.h>
+@import CoreData;
 
 @interface NSManagedObject (Appulse)
 
 + (id)newEntity:(NSString *)entity
-        inContext:(NSManagedObjectContext *)context
-      idAttribute:(NSString *)attribute
-            value:(id)value onInsert:(void (^)(NSManagedObject *))insertBlock;
+      inContext:(NSManagedObjectContext *)context
+    idAttribute:(NSString *)attribute
+          value:(id)value
+       onInsert:(void (^)(NSManagedObject *))insertBlock;
 
 + (NSArray *)findAllInContext:(NSManagedObjectContext *)context;
 
 + (NSArray *)findAllByAttribute:(NSString *)attribute
-                     value:(id)value
-                 inContext:(NSManagedObjectContext *)context;
+                          value:(id)value
+                      inContext:(NSManagedObjectContext *)context;
 
 + (id)findFirstByAttribute:(NSString *)attribute
-                       value:(id)value
-                   inContext:(NSManagedObjectContext *)context;
+                     value:(id)value
+                 inContext:(NSManagedObjectContext *)context;
 
 + (NSArray *)fetchRequest:(void (^)(NSFetchRequest *fs))fetchRequestBlock
                 inContext:(NSManagedObjectContext *)context;

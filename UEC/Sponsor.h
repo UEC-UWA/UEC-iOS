@@ -6,15 +6,14 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-
+@import Foundation;
+@import CoreData;
 
 @interface Sponsor : NSManagedObject
 
-@property (nonatomic, retain) NSString * identifier;
-@property (nonatomic, retain) NSString * logoPath;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * websitePath;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) NSString *logoPath;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *websitePath;
 
 @end

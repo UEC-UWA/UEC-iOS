@@ -13,21 +13,19 @@
 @synthesize previewItemTitle = _previewItemTitle;
 @synthesize previewItemURL = _previewItemURL;
 
-- (NSString *)previewItemTitle
-{
+- (NSString *)previewItemTitle {
     if (!_previewItemTitle) {
         _previewItemTitle = self.documentTitle;
     }
-    
+
     return _previewItemTitle;
 }
 
-- (NSURL *)previewItemURL
-{
+- (NSURL *)previewItemURL {
     if (!_previewItemURL) {
         _previewItemURL = self.localURL;
     }
-    
+
     return _previewItemURL;
 }
 

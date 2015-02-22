@@ -10,14 +10,13 @@
 
 @implementation Event (UEC)
 
-- (NSString *)facebookEventID
-{
+- (NSString *)facebookEventID {
     NSRange range = [self.facebookLink rangeOfString:@"https://www.facebook.com/events/" options:NSCaseInsensitiveSearch];
-    
+
     NSCharacterSet *nonDecimalDigitsCharacterSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSString *idString = [self.facebookLink stringByReplacingCharactersInRange:range withString:@""];
     idString = [idString stringByTrimmingCharactersInSet:nonDecimalDigitsCharacterSet];
-    
+
     return idString;
 }
 

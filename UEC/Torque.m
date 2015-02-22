@@ -8,7 +8,6 @@
 
 #import "Torque.h"
 
-
 @implementation Torque
 
 @dynamic date;

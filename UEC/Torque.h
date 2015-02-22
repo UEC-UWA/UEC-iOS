@@ -6,19 +6,18 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
-
+@import Foundation;
+@import CoreData;
 
 @interface Torque : NSManagedObject
 
-@property (nonatomic, retain) NSDate * date;
-@property (nonatomic, retain) NSNumber * downloaded;
-@property (nonatomic, retain) NSNumber * downloading;
-@property (nonatomic, retain) NSString * fileAddress;
-@property (nonatomic, retain) NSString * identifier;
-@property (nonatomic, retain) NSString * localURLString;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * size;
+@property (nonatomic, retain) NSDate *date;
+@property (nonatomic, retain) NSNumber *downloaded;
+@property (nonatomic, retain) NSNumber *downloading;
+@property (nonatomic, retain) NSString *fileAddress;
+@property (nonatomic, retain) NSString *identifier;
+@property (nonatomic, retain) NSString *localURLString;
+@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSNumber *size;
 
 @end

@@ -12,17 +12,16 @@
 
 @implementation APSDataManager (UEC)
 
-- (NSDate *)dateForUECJSONValue:(id)UECJSONValue
-{
+- (NSDate *)dateForUECJSONValue:(id)UECJSONValue {
     if (![UECJSONValue isKindOfClass:[NSString class]]) {
         return nil;
     }
-    
+
     if ([UECJSONValue rangeOfString:@"date-"].location != NSNotFound) {
         __DISPATCH_ONCE__ NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        
+
         NSNumber *numSecondsSince1970 = [formatter numberFromString:[UECJSONValue stringByReplacingOccurrencesOfString:@"date-" withString:@""]];
-        
+
         return [[NSDate alloc] initWithTimeIntervalSince1970:[numSecondsSince1970 doubleValue]];
     }
 
@@ -33,7 +32,7 @@
     if (date) {
         return date;
     }
-    
+
     return nil;
 }
 

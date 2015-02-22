@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 
 #import "AFNetworkReachabilityManager.h"
 
@@ -17,7 +17,7 @@
 
 @interface UECReachabilityManager : NSObject
 
-@property (weak, nonatomic) id <UECReachabilityManagerDelegate> delegate;
+@property (weak, nonatomic) id<UECReachabilityManagerDelegate> delegate;
 
 @property (nonatomic) AFNetworkReachabilityStatus networkStatus;
 

@@ -8,7 +8,6 @@
 
 #import "NewsArticle.h"
 
-
 @implementation NewsArticle
 
 @dynamic category;

@@ -22,23 +22,21 @@
 
 @implementation UECMediaCaptureManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static __DISPATCH_ONCE__ id singletonObject = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
     });
-    
+
     return singletonObject;
 }
 
-- (void)launchCameraInController:(id)controller
-{
+- (void)launchCameraInController:(id)controller {
     self.pickedFromPicker = NO;
     self.controller = controller;
-    
+
     if (![self startCameraController]) {
         UIAlertView *noCameraAlertView = [[UIAlertView alloc] initWithTitle:@"No Camera"
                                                                     message:@"Your device does not appear to have a camera."
@@ -49,8 +47,7 @@
     }
 }
 
-- (void)launchCameraRollPickerInController:(id)controller
-{
+- (void)launchCameraRollPickerInController:(id)controller {
     self.controller = controller;
     self.pickedFromPicker = YES;
 
@@ -66,90 +63,85 @@
 
 #pragma mark - Camera
 
-- (BOOL)startCameraController
-{
+- (BOOL)startCameraController {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
         return NO;
-    
+
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     cameraUI.sourceType = UIImagePickerControllerSourceTypeCamera;
-    
+
     // Displays a control that allows the user to choose picture or
     // movie capture, if both are available:
     cameraUI.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
-    
+
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
     cameraUI.allowsEditing = NO;
-    
+
     cameraUI.delegate = self;
-    
+
     [self.controller presentViewController:cameraUI animated:YES completion:nil];
-    
+
     return YES;
 }
 
 #pragma mark - Camera roll picker
 
-- (BOOL)startMediaBrowser
-{
+- (BOOL)startMediaBrowser {
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum])
         return NO;
-    
+
     UIImagePickerController *mediaUI = [[UIImagePickerController alloc] init];
     mediaUI.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
-    
+
     // Displays saved pictures and movies, if both are available, from the
     // Camera Roll album.
     mediaUI.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    
+
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
     mediaUI.allowsEditing = NO;
-    
+
     mediaUI.delegate = self;
-    
+
     if (IPAD) {
         if (self.imagePickerpopover.popoverVisible) {
             [self.imagePickerpopover dismissPopoverAnimated:YES];
         } else {
             self.imagePickerpopover = [[UIPopoverController alloc] initWithContentViewController:mediaUI];
-            
-            
+
             [self.imagePickerpopover presentPopoverFromBarButtonItem:[[self.controller navigationItem] rightBarButtonItem] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else {
         [self.controller presentViewController:mediaUI animated:YES completion:nil];
     }
-    
+
     return YES;
 }
 
 #pragma mark - Image picker delegate
 
 // For responding to the user tapping Cancel.
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
         [self.controller dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
 // For responding to the user accepting a newly-captured picture or movie
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSString *mediaType = [info objectForKey: UIImagePickerControllerMediaType];
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     UIImage *image = nil;
-    
+
     // Handle a still image capture
-    if (CFStringCompare ((CFStringRef) mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
+    if (CFStringCompare((CFStringRef)mediaType, kUTTypeImage, 0) == kCFCompareEqualTo) {
         image = (UIImage *)info[UIImagePickerControllerOriginalImage];
-        
+
         // Save the new image (original or edited) to the Camera Roll
         if (!self.pickedFromPicker)
-            UIImageWriteToSavedPhotosAlbum(image, nil, nil , nil);
+            UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
-    
+
     [self.controller dismissViewControllerAnimated:YES completion:^{
         [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
             [mailComposer setToRecipients:@[@"thebse@uec.org.au"]];

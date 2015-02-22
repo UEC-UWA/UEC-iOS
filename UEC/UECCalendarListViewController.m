@@ -27,13 +27,12 @@ static CGFloat kCellHeight = 55.0;
 
 @implementation UECCalendarListViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(handleRefresh:) forControlEvents:UIControlEventValueChanged];
-    
+
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"startDate" ascending:YES];
         request.sortDescriptors = @[sortDescriptor];
@@ -41,14 +40,12 @@ static CGFloat kCellHeight = 55.0;
     [self handleRefresh:nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Event Detail Segue"]) {
         // Navigation logic may go here. Create and push another view controller.
         UECEventDetailViewController *detailViewController = (UECEventDetailViewController *)segue.destinationViewController;
@@ -58,8 +55,7 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Refresh
 
-- (void)handleRefresh:(id)sender
-{
+- (void)handleRefresh:(id)sender {
     BOOL manualRefresh = (sender != nil);
 
     [[APSDataManager sharedManager] cacheEntityName:@"Event" completion:^(BOOL internetReachable) {
@@ -72,49 +68,45 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Table view data source
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kCellHeight;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *rawDateStr = [[[self.fetchedResultsController sections] objectAtIndex:section] name];
     //convert default date string to NSDate...
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss ZZ"];
     NSDate *date = [formatter dateFromString:rawDateStr];
-    
+
     //convert NSDate to format we want...
     return [date stringValue];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Event Cell";
-    
+
     UECEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+
     Event *event = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     cell.eventDetailLabel.text = event.location;
     cell.eventLabel.text = event.name;
-    
+
     if (event.photoPath) {
-        [cell.eventImageView setImageWithURL:[[NSURL alloc] initWithString:event.photoPath]
-                            placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                       if (error) {
-                                           [error handle];
-                                       }
-                                   }];
+        NSURL *imageURL = [[NSURL alloc] initWithString:event.photoPath];
+        UIImage *placeholderImage = [UIImage imageNamed:@"gentleman.png"];
+        [cell.eventImageView sd_setImageWithURL:imageURL placeholderImage:placeholderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (error != nil) {
+                [error handle];
+            }
+        }];
     }
-    
+
     UIImage *image = nil;
     if ([event.type isEqualToString:@"Social"]) {
         image = [[UECThemeManager sharedTheme] socialEventImage];
@@ -123,16 +115,15 @@ static CGFloat kCellHeight = 55.0;
     } else {
         image = [[UECThemeManager sharedTheme] otherEventImage];
     }
-    
+
     [cell.categoryImageView setImage:image];
-    
+
     return cell;
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

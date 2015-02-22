@@ -10,8 +10,7 @@
 
 @implementation UIImage (Resize)
 
-- (UIImage *)scaledToSize:(CGSize)newSize
-{
+- (UIImage *)scaledToSize:(CGSize)newSize {
     //UIGraphicsBeginImageContext(newSize);
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
     [self drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];

@@ -6,11 +6,11 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-#import <MapKit/MapKit.h>
+@import MapKit;
+
+#import <AFNetworking/AFHTTPRequestOperation.h>
 
 #import "UECMapViewController.h"
-
-#import "AFHTTPRequestOperation.h"
 
 #define SPAN_LATITUDE 0.040872
 #define SPAN_LONGITUDE 0.037863
@@ -27,42 +27,39 @@
 
 @implementation UECMapViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    
+    // Do any additional setup after loading the view.
+
     self.view.tintColor = UEC_YELLOW;
-    
+
     self.title = self.location;
-    
+
     self.mapView.showsUserLocation = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+
     [self gotToAddress:self.address];
 }
 
 #pragma mark - Map view
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
-{
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     // if it's the user location, just return nil.
     if ([annotation isKindOfClass:[MKUserLocation class]])
         return nil;
-    
-    MKPinAnnotationView *pin = (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Event Pin"];
-    
+
+    MKPinAnnotationView *pin = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:@"Event Pin"];
+
     if (!pin) {
         pin = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"Event Pin"];
-        
+
         pin.animatesDrop = YES;
         pin.pinColor = MKPinAnnotationColorRed;
     }
-    
+
     return pin;
 }
 
@@ -70,17 +67,16 @@
 
 - (void)hitGoogleWithURLString:(NSString *)urlString
                        success:(void (^)(CLLocationCoordinate2D coordinate, NSString *googleError))success
-                       failure:(void (^)(NSError *error))failure
-{
-	//build request URL
-	NSURL *requestURL = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                       failure:(void (^)(NSError *error))failure {
+    //build request URL
+    NSURL *requestURL = [NSURL URLWithString:[urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     //build NSURLRequest
     NSURLRequest *geocodingRequest = [NSURLRequest requestWithURL:requestURL
                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                   timeoutInterval:60.0];
-    
+
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc]
-                                         initWithRequest:geocodingRequest];
+        initWithRequest:geocodingRequest];
     operation.responseSerializer = [AFJSONResponseSerializer serializer];
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSArray *results = responseObject[@"results"];
@@ -100,42 +96,39 @@
     [operation start];
 }
 
-
 - (void)getLocationFromAddressString:(NSString *)addressStr
-                          completion:(void (^)(BOOL success, CLLocationCoordinate2D coordinate, NSString *googleError))completionBlock
-{
+                          completion:(void (^)(BOOL success, CLLocationCoordinate2D coordinate, NSString *googleError))completionBlock {
     [self hitGoogleWithURLString:[NSString stringWithFormat:GOOGLE_GEO_ADDRESS, addressStr]
-                         success:^(CLLocationCoordinate2D coordinate, NSString *googleError) {
+        success:^(CLLocationCoordinate2D coordinate, NSString *googleError) {
         if (completionBlock) {
             completionBlock(YES, coordinate, googleError);
         }
-    } failure:^(NSError *error) {
+        }
+        failure:^(NSError *error) {
         if (completionBlock) {
             completionBlock(NO, CLLocationCoordinate2DMake(0.0, 0.0), nil);
         }
         
-        if (error) {
+        if (error != nil) {
             [error handle];
         }
-    }];
+        }];
 }
 
 #pragma mark - Map Regions
 
 - (void)goToLocation:(CLLocation *)location
          spanningLat:(CLLocationDegrees)latSpan
-             andLong:(CLLocationDegrees)longSapn
-{
+             andLong:(CLLocationDegrees)longSapn {
     MKCoordinateRegion newRegion;
     newRegion.center = location.coordinate;
     newRegion.span.latitudeDelta = latSpan;
     newRegion.span.longitudeDelta = longSapn;
-    
+
     [self.mapView setRegion:newRegion animated:YES];
 }
 
-- (void)gotToAddress:(NSString *)address
-{
+- (void)gotToAddress:(NSString *)address {
     [self getLocationFromAddressString:address completion:^(BOOL success, CLLocationCoordinate2D coordinate, NSString *googleError) {
             if (success) {
                 CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude

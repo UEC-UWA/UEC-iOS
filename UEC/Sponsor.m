@@ -8,7 +8,6 @@
 
 #import "Sponsor.h"
 
-
 @implementation Sponsor
 
 @dynamic identifier;

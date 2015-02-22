@@ -38,102 +38,96 @@ static NSInteger kPreviewTag = 100;
 
 @implementation UECTorquesViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopDownloads:) name:UIApplicationDidEnterBackgroundNotification object:nil];
-    
+
     self.title = @"Torques";
-    
+
     self.activeDownloads = [[NSMutableArray alloc] init];
     self.reachabilityManager = [UECReachabilityManager sharedManagerWithDelegate:self];
-    
+
     [[APSDataManager sharedManager] cacheEntityName:@"Torque" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [self.reachabilityManager handleReachabilityAlertOnRefresh:NO];
         }
     }];
-    
+
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *downloadedSD = [[NSSortDescriptor alloc] initWithKey:@"downloaded" ascending:NO];
         NSSortDescriptor *dateSD = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
         request.sortDescriptors = @[downloadedSD, dateSD];
     } entityName:@"Torque" sectionNameKeyPath:@"downloaded" cacheName:nil];
-    
+
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Torque Downloaded Cell"];
-    
+
     [self handleEditButtonItem];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Downloading
 
-- (void)deleteToriques:(NSArray *)torques
-{
+- (void)deleteToriques:(NSArray *)torques {
     for (Torque *torque in torques) {
         torque.downloading = @(NO);
-        
+
         NSError *error = nil;
         if (![[NSFileManager defaultManager] removeItemAtPath:torque.localURLString error:&error]) {
-            if (error) {
+            if (error != nil) {
                 [error handle];
             }
         }
-        
+
         torque.localURLString = nil;
         torque.downloaded = @(NO);
     }
-    
+
     [[UECCoreDataManager sharedManager] saveMainContext];
 }
 
-- (void)stopDownloads:(NSNotification *)notification
-{
+- (void)stopDownloads:(NSNotification *)notification {
     [self deleteToriques:self.activeDownloads];
     [[APSDownloadManager sharedManager] stopCurrentDownloads];
 }
 
-- (NSString *)formattedSizeForBytes:(long long)bytes
-{
+- (NSString *)formattedSizeForBytes:(long long)bytes {
     if (bytes == 0)
         return @"Unknown Size";
-    
+
     CGFloat kiloBytes = bytes / 1000.0;
     if (kiloBytes < 1.0)
         return [[NSString alloc] initWithFormat:@"%lld Bytes", bytes];
-    
+
     CGFloat megaBytes = kiloBytes / 1000.0;
     if (megaBytes < 1.0)
         return [[NSString alloc] initWithFormat:@"%.2f KB", kiloBytes];
-    
+
     CGFloat gigaBytes = megaBytes / 1000.0;
     if (gigaBytes < 1.0)
         return [[NSString alloc] initWithFormat:@"%.2f MB", megaBytes];
-    
+
     CGFloat teraBytes = gigaBytes / 1000.0;
     if (teraBytes < 1.0)
         return [[NSString alloc] initWithFormat:@"%.2f GB", gigaBytes];
-    
+
     return @"Unknown Size";
 }
 
 - (void)updateProgressOnCell:(UECDownloadingCell *)cell
                    bytesRead:(NSUInteger)bytesRead
               totalBytesRead:(long long)totalBytesRead
-    totalBytesExpectedToRead:(long long)totalBytesExpectedToRead
-{
+    totalBytesExpectedToRead:(long long)totalBytesExpectedToRead {
     CGFloat increment = (cell.frame.size.width * bytesRead) / totalBytesExpectedToRead;
-    
+
     cell.progressLabel.text = [[NSString alloc] initWithFormat:@"%@ of %@",
-                               [self formattedSizeForBytes:totalBytesRead],
-                               [self formattedSizeForBytes:totalBytesExpectedToRead]];
-    
+                                                               [self formattedSizeForBytes:totalBytesRead],
+                                                               [self formattedSizeForBytes:totalBytesExpectedToRead]];
+
     cell.widthConstraint.constant += increment;
 }
 
@@ -143,7 +137,7 @@ static NSInteger kPreviewTag = 100;
 {
     NSString *documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *torquesPath = [documentsPath stringByAppendingPathComponent:@"Torques"];
-    
+
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:torquesPath]) {
         NSError *error = nil;
@@ -151,27 +145,28 @@ static NSInteger kPreviewTag = 100;
                     withIntermediateDirectories:NO
                                      attributes:nil
                                           error:&error]) {
-            if (error) {
+            if (error != nil) {
                 [error handle];
             }
         }
     }
-    
+
     NSString *fileName = [[torque.fileAddress pathComponents] lastObject];
     NSString *torquePath = [torquesPath stringByAppendingPathComponent:fileName];
-    
+
     cell.widthConstraint.constant = 1.0;
-    
+
     [[APSDownloadManager sharedManager] downloadFileAtURL:[[NSURL alloc] initWithString:torque.fileAddress]
-                                         intoFilePath:torquePath
-                                downloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+        intoFilePath:torquePath
+        downloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
                                     
                                     [self updateProgressOnCell:cell
                                                      bytesRead:bytesRead
                                                 totalBytesRead:totalBytesRead
                                       totalBytesExpectedToRead:totalBytesExpectedToRead];
-                                    
-                                } completion:^(NSURL *localURL) {
+
+        }
+        completion:^(NSURL *localURL) {
                                     torque.downloading = @(NO);
                                     
                                     if (localURL) {
@@ -187,27 +182,26 @@ static NSInteger kPreviewTag = 100;
                                             completionBlock(NO);
                                         }
                                     }
-                                }];
+        }];
 }
 
-- (void)downloadTorque:(id)sender
-{
+- (void)downloadTorque:(id)sender {
     id cell = [[[sender superview] superview] superview];
-    
+
     if ([cell isKindOfClass:[UECTorqueCell class]]) {
         UECTorqueCell *torqueCell = (UECTorqueCell *)cell;
-        
+
         Torque *torque = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForCell:torqueCell]];
-        
+
         [self.activeDownloads addObject:torque];
-        
+
         NSIndexPath *cellIndexPath = [self.tableView indexPathForCell:torqueCell];
-        
+
         torque.downloading = @(YES);
         [[UECCoreDataManager sharedManager] saveMainContext];
-        
+
         UECDownloadingCell *downloadCell = (UECDownloadingCell *)[self.tableView cellForRowAtIndexPath:cellIndexPath];
-        
+
         [self downloadTorque:torque inCell:downloadCell completion:^(BOOL success) {
             if (success) {
                 torque.downloaded = @(YES);
@@ -221,8 +215,7 @@ static NSInteger kPreviewTag = 100;
 
 #pragma mark - Logic
 
-- (void)handleEditButtonItem
-{
+- (void)handleEditButtonItem {
     BOOL hasTorqueOnDevice = NO;
     for (Torque *torque in self.fetchedResultsController.fetchedObjects) {
         if ([torque.downloaded boolValue]) {
@@ -230,7 +223,7 @@ static NSInteger kPreviewTag = 100;
             break;
         }
     }
-    
+
     if (hasTorqueOnDevice) {
         [self.navigationItem setRightBarButtonItem:[self editButtonItem] animated:(self.navigationItem.rightBarButtonItem == nil)];
     } else {
@@ -241,90 +234,84 @@ static NSInteger kPreviewTag = 100;
 
 #pragma mark - Table view data source
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return nil;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     Torque *torque = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
 
     return ([torque.downloaded boolValue]) ? @"On Device" : @"Download";
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Torque *torque = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     static NSString *CellIdentifier = nil;
-    
+
     if ([torque.downloading boolValue]) {
         CellIdentifier = @"Torque Download Cell";
-        
+
         UECDownloadingCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
+
         cell.nameLabel.text = torque.name;
         cell.progressLabel.text = @"Staring Download...";
-        
+
         [cell.downloadActivityView startAnimating];
-        
+
         return cell;
-    } 
-    
+    }
+
     if ([torque.downloaded boolValue]) {
         CellIdentifier = @"Torque Downloaded Cell";
-        
+
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
+
         cell.textLabel.text = torque.name;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
+
         return cell;
     } else {
         CellIdentifier = @"Torque Cell";
-        
+
         UECTorqueCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-        
+
         cell.nameLabel.text = torque.name;
         cell.sizeLabel.text = [self formattedSizeForBytes:[torque.size longLongValue]];
-        
+
         [cell.downloadButton addTarget:self action:@selector(downloadTorque:) forControlEvents:UIControlEventTouchUpInside];
-        
+
         return cell;
     }
 }
 
 // Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     Torque *torque = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     return ([torque.downloaded boolValue] && torque.localURLString && ![torque.downloading boolValue]);
 }
 
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         Torque *torque = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        
-        [self deleteToriques:@[torque]];
+
+        [self deleteToriques:@[ torque ]];
     }
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     Torque *torque = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     if ([torque.downloaded boolValue] && torque.localURLString) {
         self.previewBend = [[UECPreviewItem alloc] init];
         self.previewBend.localURL = [[NSURL alloc] initFileURLWithPath:torque.localURLString];
         self.previewBend.documentTitle = torque.name;
-        
+
         if ([UECTorquePreviewController canPreviewItem:self.previewBend]) {
             UECTorquePreviewController *quickLookC = [[UECTorquePreviewController alloc] init];
             quickLookC.dataSource = self;
@@ -338,18 +325,17 @@ static NSInteger kPreviewTag = 100;
                                                              otherButtonTitles:@"Email", nil];
             previewAlertView.tag = kPreviewTag;
             [previewAlertView show];
-            
+
             self.invalidTorqueName = torque.name;
         }
     }
-    
+
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Alert view delegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (alertView.tag == kPreviewTag) {
         if (buttonIndex == 1) {
             [[UECMailManager sharedManager] showComposer:^(MFMailComposeViewController *mailComposer) {
@@ -359,7 +345,7 @@ static NSInteger kPreviewTag = 100;
                 [mailComposer setSubject:subject];
                 [mailComposer setMessageBody:@"It may be due to a corrupt file or sending down a wrong file. \n Thanks for checking it out." isHTML:NO];
             } inController:self];
-            
+
             self.invalidTorqueName = nil;
         }
     }
@@ -367,8 +353,7 @@ static NSInteger kPreviewTag = 100;
 
 #pragma mark - Quick Look
 
-- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller
-{
+- (NSInteger)numberOfPreviewItemsInPreviewController:(QLPreviewController *)controller {
     return 1;
 }
 
@@ -379,19 +364,17 @@ static NSInteger kPreviewTag = 100;
 
 #pragma mark - Reachability
 
-- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(AFNetworkReachabilityStatus)networkStatus
-{
+- (void)reachability:(UECReachabilityManager *)reachabilityManager networkStatusHasChanged:(AFNetworkReachabilityStatus)networkStatus {
     if (networkStatus == AFNetworkReachabilityStatusNotReachable) {
         [self stopDownloads:nil];
     }
 }
 
-#pragma mark - Fetched Results 
+#pragma mark - Fetched Results
 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [super controllerDidChangeContent:controller];
-    
+
     [self handleEditButtonItem];
 }
 

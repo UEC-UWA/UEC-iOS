@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Appulse. All rights reserved.
 //
 
-#import <QuickLook/QuickLook.h>
+@import QuickLook;
 
 @interface UECTorquePreviewController : QLPreviewController
 

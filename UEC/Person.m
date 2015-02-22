@@ -8,7 +8,6 @@
 
 #import "Person.h"
 
-
 @implementation Person
 
 @dynamic email;

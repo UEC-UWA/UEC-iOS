@@ -10,18 +10,15 @@
 
 @implementation UECThemeResources
 
-- (UIImage *)socialEventImage
-{
+- (UIImage *)socialEventImage {
     return [UIImage imageNamed:@"redsolocup.png"];
 }
 
-- (UIImage *)educationEventImage
-{
+- (UIImage *)educationEventImage {
     return [UIImage imageNamed:@"gradhat.png"];
 }
 
-- (UIImage *)otherEventImage
-{
+- (UIImage *)otherEventImage {
     return [UIImage imageNamed:@"hardhat.png"];
 }
 

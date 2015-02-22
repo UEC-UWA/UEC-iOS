@@ -10,61 +10,59 @@
 
 @implementation UECCoreDataManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static __DISPATCH_ONCE__ id singletonObject = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
     });
-    
+
     return singletonObject;
 }
 
 #pragma mark - Core Data Core
 
-- (void)setupCoreData
-{
+- (void)setupCoreData {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationDidEnterBackgroundNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationShouldSaveContext:) name:UIApplicationWillTerminateNotification object:nil];
-    
+
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"UEC" withExtension:@"momd"];
     self.managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    
+
     NSURL *documentDirectoryURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
     NSURL *storeURL = [documentDirectoryURL URLByAppendingPathComponent:@"coredatatest.sqlite"];
     NSError *error = nil;
     self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
-    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{ NSMigratePersistentStoresAutomaticallyOption : @YES , NSInferMappingModelAutomaticallyOption : @YES } error:&error]) {
-        if (error) {
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:@{ NSMigratePersistentStoresAutomaticallyOption : @YES,
+                                                                                                                                 NSInferMappingModelAutomaticallyOption : @YES }
+                                                               error:&error]) {
+        if (error != nil) {
             [error handle];
         }
     }
-    
+
     self.mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
     [self.mainContext setPersistentStoreCoordinator:self.persistentStoreCoordinator];
 }
 
-- (void)applicationShouldSaveContext:(NSNotification *)notification
-{
+- (void)applicationShouldSaveContext:(NSNotification *)notification {
     [self saveContext:self.mainContext];
 }
 
-- (void)saveMainContext
-{
+- (void)saveMainContext {
     [self saveContext:self.mainContext];
 }
 
-- (void)saveContext:(NSManagedObjectContext *)context
-{
+- (void)saveContext:(NSManagedObjectContext *)context {
     NSError *childError = nil;
     [context save:&childError];
     if (childError) {
         [childError handle];
     }
-    
-    UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];;
+
+    UIBackgroundTaskIdentifier task = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+    ;
     [self.mainContext performBlock:^{
         NSError *parentError = nil;
         if ([self.mainContext hasChanges] && ![self.mainContext save:&parentError]) {

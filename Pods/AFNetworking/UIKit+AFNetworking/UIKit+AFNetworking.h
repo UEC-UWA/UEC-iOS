@@ -20,7 +20,7 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 #ifndef _UIKIT_AFNETWORKING_
     #define _UIKIT_AFNETWORKING_
@@ -33,5 +33,6 @@
     #import "UIImageView+AFNetworking.h"
     #import "UIKit+AFNetworking.h"
     #import "UIProgressView+AFNetworking.h"
+    #import "UIRefreshControl+AFNetworking.h"
     #import "UIWebView+AFNetworking.h"
 #endif /* _UIKIT_AFNETWORKING_ */

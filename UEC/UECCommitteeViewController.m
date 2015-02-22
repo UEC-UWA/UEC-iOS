@@ -28,12 +28,11 @@ static CGFloat kCellHeight = 55.0;
 
 @implementation UECCommitteeViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.title = @"Committee";
-    
+
     [[APSDataManager sharedManager] cacheEntityName:@"Person" completion:^(BOOL internetReachable) {
         if (!internetReachable) {
             [[UECReachabilityManager sharedManager] handleReachabilityAlertOnRefresh:NO];
@@ -41,7 +40,7 @@ static CGFloat kCellHeight = 55.0;
         
         [self setCustomCommitteeOrder];
     }];
-    
+
     self.fetchedResultsController = [[APSDataManager sharedManager] fetchedResultsControllerWithRequest:^(NSFetchRequest *request) {
         NSSortDescriptor *subcommitteeSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"subcommittee" ascending:YES];
         NSSortDescriptor *orderSortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:YES];
@@ -50,8 +49,7 @@ static CGFloat kCellHeight = 55.0;
     } entityName:@"Person" sectionNameKeyPath:@"subcommittee" cacheName:nil];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{    
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Person Detail Segue"]) {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
 
@@ -62,12 +60,11 @@ static CGFloat kCellHeight = 55.0;
 
 #pragma mark - Data Source Organising
 
-- (void)setCustomCommitteeOrder
-{
+- (void)setCustomCommitteeOrder {
     NSMutableArray *seenSubcommittees = [[NSMutableArray alloc] init];
-    
+
     NSArray *fetchedObjects = [self.fetchedResultsController fetchedObjects];
-    
+
     [fetchedObjects enumerateObjectsUsingBlock:^(Person *person, NSUInteger idx, BOOL *stop) {
         if (![seenSubcommittees containsObject:person.subcommittee])
             [seenSubcommittees addObject:person.subcommittee];
@@ -80,51 +77,47 @@ static CGFloat kCellHeight = 55.0;
         if ([person.position isEqualToString:@"President"]) {
             person.order = @(-1);
         }
-        
+
     }];
-    
+
     [[UECCoreDataManager sharedManager] saveMainContext];
 }
 
 #pragma mark - Table view
 
-- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
-{
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView {
     return nil;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kCellHeight;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Committee Cell";
     UECCommitteeMemberCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...    
+
+    // Configure the cell...
     Person *person = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    
+
     if (person.photoPath) {
-        [cell.pictureImageView setImageWithURL:[[NSURL alloc] initWithString:person.photoPath]
-                              placeholderImage:[UIImage imageNamed:@"gentleman.png"]
-                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                         if (error) {
-                                             [error handle];
-                                         }
-                                     }];
+        NSURL *imageURL = [[NSURL alloc] initWithString:person.photoPath];
+        UIImage *placeHolderImage = [UIImage imageNamed:@"gentleman.png"];
+        [cell.pictureImageView sd_setImageWithURL:imageURL placeholderImage:placeHolderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if (error != nil) {
+                [error handle];
+            }
+        }];
     }
 
     cell.firstNameLabel.text = person.firstName;
     cell.lastNameLabel.text = person.lastName;
     cell.positionLabel.text = person.position;
-    
+
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

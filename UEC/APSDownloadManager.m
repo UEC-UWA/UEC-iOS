@@ -16,17 +16,16 @@
 
 @implementation APSDownloadManager
 
-+ (instancetype)sharedManager
-{
++ (instancetype)sharedManager {
     static __DISPATCH_ONCE__ APSDownloadManager *singletonObject = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         singletonObject = [[self alloc] init];
         
         singletonObject.currentDownloads = [[NSMutableArray alloc] init];
     });
-    
+
     return singletonObject;
 }
 
@@ -34,10 +33,9 @@
 - (void)downloadFileAtURL:(NSURL *)url
              intoFilePath:(NSString *)filePath
     downloadProgressBlock:(void (^)(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead))progressBlock
-               completion:(void (^)(NSURL *localURL))completionBlock
-{
+               completion:(void (^)(NSURL *localURL))completionBlock {
     dispatch_queue_t downloadQueue = dispatch_queue_create("downloadQueue", NULL);
-    
+
     dispatch_async(downloadQueue, ^{
         AFNetworkReachabilityStatus internetStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
         
@@ -64,7 +62,7 @@
                 [self.currentDownloads removeObject:operation];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    if (error) {
+                    if (error != nil) {
                         [error handle];
                     }
                     
@@ -96,16 +94,15 @@
                completion:(void (^)(NSURL *localURL))completionBlock;
 {
     [self downloadFileAtURL:url
-               intoFilePath:filePath
-      downloadProgressBlock:nil
-                 completion:completionBlock];
+                 intoFilePath:filePath
+        downloadProgressBlock:nil
+                   completion:completionBlock];
 }
 
-- (void)stopCurrentDownloads
-{
+- (void)stopCurrentDownloads {
     for (AFHTTPRequestOperation *operation in self.currentDownloads)
         [operation cancel];
-    
+
     [self.currentDownloads removeAllObjects];
 }
 
