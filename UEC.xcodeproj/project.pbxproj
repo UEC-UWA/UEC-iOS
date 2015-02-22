@@ -51,6 +51,7 @@
 		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
 		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
+		05A7E3201A9A683B00FE784D /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A7E31F1A9A683B00FE784D /* Launch Screen.xib */; };
 		05A939F418AB35280047F4CD /* UECNewsArticleCell~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */; };
 		05A939F718AB499C0047F4CD /* Sponsor+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A939F618AB499C0047F4CD /* Sponsor+UEC.m */; };
 		05A939FB18AB5F710047F4CD /* Event+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A939FA18AB5F710047F4CD /* Event+UEC.m */; };
@@ -168,6 +169,7 @@
 		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		05A7E31F1A9A683B00FE784D /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "UECNewsArticleCell~ipad.xib"; sourceTree = "<group>"; };
 		05A939F518AB499C0047F4CD /* Sponsor+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sponsor+UEC.h"; sourceTree = "<group>"; };
 		05A939F618AB499C0047F4CD /* Sponsor+UEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Sponsor+UEC.m"; sourceTree = "<group>"; };
@@ -395,6 +397,7 @@
 				0542FAB516C2A85A00B327B7 /* Main.storyboard */,
 				051B3D5816C581FB007BAB12 /* UECNewsArticleCell~iphone.xib */,
 				05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */,
+				05A7E31F1A9A683B00FE784D /* Launch Screen.xib */,
 			);
 			name = "User Interface";
 			sourceTree = "<group>";
@@ -710,7 +713,7 @@
 				ORGANIZATIONNAME = Appulse;
 				TargetAttributes = {
 					0542FA9916C2A85A00B327B7 = {
-						DevelopmentTeam = GGB7WW5V29;
+						DevelopmentTeam = DL393NZ5X7;
 						SystemCapabilities = {
 							com.apple.DataProtection = {
 								enabled = 1;
@@ -722,6 +725,7 @@
 					};
 					056CA0681A9A5E200096833F = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = DL393NZ5X7;
 						TestTargetID = 0542FA9916C2A85A00B327B7;
 					};
 				};
@@ -760,6 +764,7 @@
 				0559115716C41A6100BF14D2 /* gentleman.png in Resources */,
 				05A939F418AB35280047F4CD /* UECNewsArticleCell~ipad.xib in Resources */,
 				05CE92E0181A7EE000BCC58C /* Images.xcassets in Resources */,
+				05A7E3201A9A683B00FE784D /* Launch Screen.xib in Resources */,
 				051B3D4E16C5695A007BAB12 /* DummyNewsArticle.plist in Resources */,
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell~iphone.xib in Resources */,
 				050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */,
@@ -966,16 +971,15 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"SERVER=1",
+					"SERVER=0",
 					"PUSH=0",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";
@@ -987,8 +991,8 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
+				PROVISIONING_PROFILE = "cf719625-c871-4e7f-9e46-387cb479a342";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cf719625-c871-4e7f-9e46-387cb479a342";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1001,10 +1005,9 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jad Osseiran (GGB7WW5V29)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
@@ -1023,8 +1026,8 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2C6375A1-A059-47C5-9A3B-CE89BFE0921A";
+				PROVISIONING_PROFILE = "cf719625-c871-4e7f-9e46-387cb479a342";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "cf719625-c871-4e7f-9e46-387cb479a342";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
@@ -1120,6 +1123,7 @@
 				056CA0731A9A5E200096833F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

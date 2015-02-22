@@ -3,6 +3,7 @@
     <dependencies>
         <deployment version="2048" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -25,7 +26,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1216.875" y="273.59154929577466"/>
+            <point key="canvasLocation" x="712" y="273"/>
         </scene>
         <!--News Articles View Controller-->
         <scene sceneID="bf3-nD-XgU">
@@ -107,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lrg-y5-hk1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1800" y="-658.09859154929575"/>
+            <point key="canvasLocation" x="1704" y="-659"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="3NG-Ao-JZH">
@@ -177,43 +178,40 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AV-dl-Ei1">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Start" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9AV-dl-Ei1">
                                                     <rect key="frame" x="15" y="8" width="38" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" text="End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-nP-2wk">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="End" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLU-nP-2wk">
                                                     <rect key="frame" x="15" y="32" width="31" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" misplaced="YES" text="start" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89f-hq-OT6">
-                                                    <rect key="frame" x="270" y="8" width="35" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="start" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89f-hq-OT6">
+                                                    <rect key="frame" x="550" y="8" width="34.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" ambiguous="YES" misplaced="YES" text="end" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwE-f8-vKt">
-                                                    <rect key="frame" x="276" y="32" width="29" height="21"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="end" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwE-f8-vKt">
+                                                    <rect key="frame" x="556" y="32.5" width="29" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.21960784310000001" green="0.3294117647" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FLU-nP-2wk" firstAttribute="top" secondItem="9AV-dl-Ei1" secondAttribute="bottom" constant="3" id="9CX-us-H6u"/>
-                                                <constraint firstItem="FLU-nP-2wk" firstAttribute="top" secondItem="9AV-dl-Ei1" secondAttribute="bottom" constant="3" id="EsB-SB-5qz"/>
-                                                <constraint firstItem="FLU-nP-2wk" firstAttribute="leading" secondItem="o05-id-8lC" secondAttribute="leading" constant="15" id="FUp-tW-goZ"/>
-                                                <constraint firstItem="89f-hq-OT6" firstAttribute="top" secondItem="o05-id-8lC" secondAttribute="top" constant="8" id="HPp-CL-j7U"/>
-                                                <constraint firstItem="9AV-dl-Ei1" firstAttribute="leading" secondItem="o05-id-8lC" secondAttribute="leading" constant="15" id="HSH-H6-kx5"/>
-                                                <constraint firstAttribute="trailing" secondItem="89f-hq-OT6" secondAttribute="trailing" constant="15" id="HZd-xS-7N9"/>
-                                                <constraint firstAttribute="bottom" secondItem="xwE-f8-vKt" secondAttribute="bottom" constant="6" id="KDS-fn-MlC"/>
-                                                <constraint firstItem="9AV-dl-Ei1" firstAttribute="top" secondItem="o05-id-8lC" secondAttribute="top" constant="8" id="hss-vb-o1W"/>
-                                                <constraint firstAttribute="trailing" secondItem="xwE-f8-vKt" secondAttribute="trailing" constant="15" id="p5w-Gv-6mX"/>
-                                                <constraint firstAttribute="bottom" secondItem="FLU-nP-2wk" secondAttribute="bottom" constant="6" id="rBk-qA-nTL"/>
-                                                <constraint firstItem="xwE-f8-vKt" firstAttribute="top" secondItem="89f-hq-OT6" secondAttribute="bottom" constant="3" id="yK9-pm-Oc7"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xwE-f8-vKt" secondAttribute="trailing" constant="7" id="0vs-tH-AbV"/>
+                                                <constraint firstItem="9AV-dl-Ei1" firstAttribute="top" secondItem="o05-id-8lC" secondAttribute="topMargin" id="4na-ur-y8G"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="89f-hq-OT6" secondAttribute="trailing" constant="7.5" id="Dlr-zQ-PWE"/>
+                                                <constraint firstItem="FLU-nP-2wk" firstAttribute="leading" secondItem="o05-id-8lC" secondAttribute="leadingMargin" constant="7" id="Gzf-oe-CO0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="FLU-nP-2wk" secondAttribute="bottom" constant="-1" id="HYa-Ck-Nbm"/>
+                                                <constraint firstItem="9AV-dl-Ei1" firstAttribute="leading" secondItem="o05-id-8lC" secondAttribute="leadingMargin" constant="7" id="IhX-5n-eTS"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="xwE-f8-vKt" secondAttribute="bottom" constant="-1" id="YS2-2y-9QO"/>
+                                                <constraint firstItem="89f-hq-OT6" firstAttribute="top" secondItem="o05-id-8lC" secondAttribute="topMargin" id="d0H-mn-n7N"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -343,7 +341,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wi6-Cz-YTJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5448.75" y="-860.91549295774644"/>
+            <point key="canvasLocation" x="4488" y="-405"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="hOb-zO-3MZ">
@@ -379,7 +377,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="muk-ej-hq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6386.25" y="-860.91549295774644"/>
+            <point key="canvasLocation" x="5426" y="-405"/>
         </scene>
         <!--Committee-->
         <scene sceneID="W05-Gn-K8w">
@@ -454,7 +452,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p6Q-4Z-P6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4966.875" y="273.59154929577466"/>
+            <point key="canvasLocation" x="4006" y="729"/>
         </scene>
         <!--Committee Member View Controller-->
         <scene sceneID="fsg-ao-wpc">
@@ -586,7 +584,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GF-GX-cvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5887.5" y="273.59154929577466"/>
+            <point key="canvasLocation" x="4927" y="729"/>
         </scene>
         <!--Calendar-->
         <scene sceneID="TVD-QF-vLZ">
@@ -605,7 +603,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IXw-0E-rag" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3586.875" y="-860.91549295774644"/>
+            <point key="canvasLocation" x="2626" y="-405"/>
         </scene>
         <!--Events-->
         <scene sceneID="SOV-Ud-wMX">
@@ -681,7 +679,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdd-Eq-lcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4481.25" y="-860.91549295774644"/>
+            <point key="canvasLocation" x="3521" y="-405"/>
         </scene>
         <!--Committee-->
         <scene sceneID="4aQ-Wy-hID">
@@ -700,7 +698,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rvP-VX-tZ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3980.625" y="273.59154929577466"/>
+            <point key="canvasLocation" x="3020" y="729"/>
         </scene>
         <!--UEC App-->
         <scene sceneID="UL3-Gq-Igq">
@@ -1126,7 +1124,7 @@ This was of course quite humiliating and the mood changed when a group of former
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tD2-uS-dKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843.125" y="1043.6619718309857"/>
+            <point key="canvasLocation" x="1091" y="1043"/>
         </scene>
         <!--Torques View Controller-->
         <scene sceneID="A0i-MB-KqB">
@@ -1205,13 +1203,13 @@ This was of course quite humiliating and the mood changed when a group of former
                                 <constraints>
                                     <constraint firstItem="5YX-VZ-eje" firstAttribute="top" secondItem="hvb-ib-LxT" secondAttribute="top" id="0Q1-XH-NSc"/>
                                     <constraint firstAttribute="bottom" secondItem="KuU-zD-ApT" secondAttribute="bottom" constant="2" id="5My-WY-gcX"/>
-                                    <constraint firstItem="6WP-iK-IgZ" firstAttribute="centerY" secondItem="5YX-VZ-eje" secondAttribute="centerY" id="6oq-xW-bI3"/>
+                                    <constraint firstItem="6WP-iK-IgZ" firstAttribute="centerY" secondItem="5YX-VZ-eje" secondAttribute="centerY" constant="22" id="6oq-xW-bI3"/>
                                     <constraint firstAttribute="bottom" secondItem="LXi-hy-jvj" secondAttribute="bottom" constant="20" id="9Yp-3H-AR1"/>
                                     <constraint firstItem="KuU-zD-ApT" firstAttribute="leading" secondItem="LXi-hy-jvj" secondAttribute="leading" id="Bcn-XT-siq"/>
                                     <constraint firstItem="5YX-VZ-eje" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" id="PkP-IB-JCR"/>
                                     <constraint firstAttribute="trailing" secondItem="6WP-iK-IgZ" secondAttribute="trailing" constant="12" id="r5C-kC-bN5"/>
                                     <constraint firstItem="LXi-hy-jvj" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" constant="15" id="ssi-Lu-CR4"/>
-                                    <constraint firstItem="5YX-VZ-eje" firstAttribute="bottom" secondItem="hvb-ib-LxT" secondAttribute="bottom" id="zSt-kP-bDQ"/>
+                                    <constraint firstItem="5YX-VZ-eje" firstAttribute="bottom" secondItem="hvb-ib-LxT" secondAttribute="bottom" constant="-44" id="zSt-kP-bDQ"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="downloadActivityView" destination="6WP-iK-IgZ" id="YnC-nO-Ap0"/>
@@ -1247,7 +1245,7 @@ This was of course quite humiliating and the mood changed when a group of former
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfi-0q-JrT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2656.875" y="1043.6619718309857"/>
+            <point key="canvasLocation" x="1904" y="1043"/>
         </scene>
         <!--News-->
         <scene sceneID="05Q-m0-00p">

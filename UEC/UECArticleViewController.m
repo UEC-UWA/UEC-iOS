@@ -83,8 +83,7 @@
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
 
     activityVC.excludedActivityTypes = @[ UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
-
-    activityVC.completionHandler = ^(NSString *activityType, BOOL completed) {
+    activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         NSLog(@" activityType: %@", activityType);
         NSLog(@" completed: %i", completed);
     };

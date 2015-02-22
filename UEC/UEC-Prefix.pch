@@ -16,5 +16,4 @@
     #import "NSError+Extension.h"
 
     #define IPAD [[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad
-
 #endif

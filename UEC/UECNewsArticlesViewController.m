@@ -17,9 +17,10 @@
 
 #import "NewsArticle.h"
 
-@interface UECNewsArticlesViewController () <UISearchDisplayDelegate, UISearchBarDelegate>
+@interface UECNewsArticlesViewController () <UISearchResultsUpdating, UISearchControllerDelegate>
 
 // Searching
+@property (nonatomic, strong) UISearchController *searchController;
 @property (copy, nonatomic) NSString *savedSearchTerm;
 @property (nonatomic) NSInteger savedScopeButtonIndex;
 @property (nonatomic) BOOL searchWasActive;
@@ -41,17 +42,24 @@ static CGFloat kCellHeight = 120.0;
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:) forControlEvents:UIControlEventValueChanged];
 
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:[[UITableViewController alloc] init]];
+    self.searchController.delegate = self;
+    self.searchController.searchResultsUpdater = self;
+    [self.searchController.searchBar sizeToFit];
+
     // Restore search settings if they were saved in didReceiveMemoryWarning.
     if (self.savedSearchTerm) {
-        [self.searchDisplayController setActive:self.searchWasActive];
-        [self.searchDisplayController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
-        [self.searchDisplayController.searchBar setText:self.savedSearchTerm];
+        [self.searchController setActive:self.searchWasActive];
+        [self.searchController.searchBar setSelectedScopeButtonIndex:self.savedScopeButtonIndex];
+        [self.searchController.searchBar setText:self.savedSearchTerm];
 
         self.savedSearchTerm = nil;
     }
 
-    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
+//    [self.searchDisplayController.searchResultsTableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"UECNewsArticleCell" bundle:nil] forCellReuseIdentifier:@"News Cell"];
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeInteractive;
 
     [self refreshInvoked:nil];
 }
@@ -80,9 +88,9 @@ static CGFloat kCellHeight = 120.0;
     [super viewDidDisappear:animated];
 
     // save the state of the search UI so that it can be restored if the view is re-created
-    self.searchWasActive = [self.searchDisplayController isActive];
-    self.savedSearchTerm = [self.searchDisplayController.searchBar text];
-    self.savedScopeButtonIndex = [self.searchDisplayController.searchBar selectedScopeButtonIndex];
+    self.searchWasActive = self.searchController.active;
+    self.savedSearchTerm = self.searchController.searchBar.text;
+    self.savedScopeButtonIndex = self.searchController.searchBar.selectedScopeButtonIndex;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,28 +204,20 @@ static CGFloat kCellHeight = 120.0;
 
 #pragma mark - UISearchDisplayController Delegate Methods
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    [self filterContentForSearchText:searchString scope:
-                                                      [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:self.searchDisplayController.searchBar.selectedScopeButtonIndex]];
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    UISearchBar *searchBar = self.searchController.searchBar;
+    NSInteger scopeIndex = searchBar.selectedScopeButtonIndex;
+    NSString *scope = searchBar.scopeButtonTitles[scopeIndex];
 
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
+    [self filterContentForSearchText:searchBar.text scope:scope];
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:
-                                                                                       [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
-
-    // Return YES to cause the search result table view to be reloaded.
-    return YES;
-}
-
-- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {
-    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleSingleLine) {
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    }
-
-    self.fetchedResultsController = [self defaultFetchedResultsController];
-}
+//- (void)searchDisplayController:(UISearchDisplayController *)controller didHideSearchResultsTableView:(UITableView *)tableView {
+//    if (self.tableView.separatorStyle != UITableViewCellSeparatorStyleSingleLine) {
+//        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//    }
+//
+//    self.fetchedResultsController = [self defaultFetchedResultsController];
+//}
 
 @end
