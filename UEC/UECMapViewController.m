@@ -21,7 +21,7 @@
 
 @interface UECMapViewController () <MKMapViewDelegate>
 
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, weak) IBOutlet MKMapView *mapView;
 
 @end
 

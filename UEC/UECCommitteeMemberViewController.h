@@ -12,6 +12,6 @@
 
 @interface UECCommitteeMemberViewController : UITableViewController
 
-@property (strong, nonatomic) Person *person;
+@property (nonatomic, strong) Person *person;
 
 @end

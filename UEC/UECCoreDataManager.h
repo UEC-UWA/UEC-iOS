@@ -11,10 +11,10 @@
 
 @interface UECCoreDataManager : NSObject
 
-@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
-@property (strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (nonatomic, strong) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, strong) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) NSManagedObjectContext *mainContext;
+@property (nonatomic, strong) NSManagedObjectContext *mainContext;
 
 + (instancetype)sharedManager;
 

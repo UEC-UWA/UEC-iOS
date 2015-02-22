@@ -15,7 +15,7 @@
 
 @interface UECAboutViewController () <NSFetchedResultsControllerDelegate>
 
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @property (nonatomic) BOOL suspendAutomaticTrackingOfChangesInManagedObjectContext;
 @property (nonatomic) BOOL beganUpdates;

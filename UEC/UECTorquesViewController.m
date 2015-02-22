@@ -25,12 +25,12 @@
 
 @interface UECTorquesViewController () <QLPreviewControllerDataSource, UECReachabilityManagerDelegate, UIAlertViewDelegate>
 
-@property (strong, nonatomic) UECPreviewItem *previewBend;
-@property (strong, nonatomic) UECReachabilityManager *reachabilityManager;
+@property (nonatomic, strong) UECPreviewItem *previewBend;
+@property (nonatomic, strong) UECReachabilityManager *reachabilityManager;
 
-@property (strong, nonatomic) NSString *invalidTorqueName;
+@property (nonatomic, strong) NSString *invalidTorqueName;
 
-@property (strong, nonatomic) NSMutableArray *activeDownloads;
+@property (nonatomic, strong) NSMutableArray *activeDownloads;
 
 @end
 

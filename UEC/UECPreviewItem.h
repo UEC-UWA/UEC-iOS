@@ -11,7 +11,7 @@
 
 @interface UECPreviewItem : NSObject <QLPreviewItem>
 
-@property (strong, nonatomic) NSString *documentTitle;
-@property (strong, nonatomic) NSURL *localURL;
+@property (nonatomic, strong) NSString *documentTitle;
+@property (nonatomic, strong) NSURL *localURL;
 
 @end

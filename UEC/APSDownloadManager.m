@@ -10,7 +10,7 @@
 
 @interface APSDownloadManager ()
 
-@property (strong, nonatomic) NSMutableArray *currentDownloads;
+@property (nonatomic, strong) NSMutableArray *currentDownloads;
 
 @end
 

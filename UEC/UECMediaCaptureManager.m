@@ -12,9 +12,9 @@
 
 @interface UECMediaCaptureManager () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) id controller;
+@property (nonatomic, strong) id controller;
 
-@property (strong, nonatomic) UIPopoverController *imagePickerpopover;
+@property (nonatomic, strong) UIPopoverController *imagePickerpopover;
 
 @property (nonatomic) BOOL pickedFromPicker;
 

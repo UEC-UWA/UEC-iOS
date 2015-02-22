@@ -11,7 +11,7 @@
 
 @interface APSDownloadManager : NSObject
 
-@property (strong, nonatomic, readonly) NSMutableArray *currentDownloads;
+@property (nonatomic, strong, readonly) NSMutableArray *currentDownloads;
 
 + (instancetype)sharedManager;
 

@@ -10,7 +10,7 @@
 
 @interface UECMailManager () <MFMailComposeViewControllerDelegate>
 
-@property (strong, nonatomic) id controller;
+@property (nonatomic, strong) id controller;
 
 @end
 

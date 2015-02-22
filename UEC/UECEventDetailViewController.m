@@ -19,12 +19,12 @@
 
 @interface UECEventDetailViewController () <UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel, *locationLabel, *addressLabel;
-@property (weak, nonatomic) IBOutlet UILabel *startDateLabel, *endDateLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
-@property (weak, nonatomic) IBOutlet UITextView *eventInfoTextView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel, *locationLabel, *addressLabel;
+@property (nonatomic, weak) IBOutlet UILabel *startDateLabel, *endDateLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *eventImageView;
+@property (nonatomic, weak) IBOutlet UITextView *eventInfoTextView;
 
-@property (strong, nonatomic) UIPopoverController *activityPopoverController;
+@property (nonatomic, strong) UIPopoverController *activityPopoverController;
 
 @end
 
@@ -70,9 +70,9 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"Map Event Segue"]) {
-        UECMapViewController *mapVC = [segue destinationViewController];
-        mapVC.address = self.event.address;
-        mapVC.location = self.event.location;
+        UECMapViewController *mapViewController = [segue destinationViewController];
+        mapViewController.address = self.event.address;
+        mapViewController.location = self.event.location;
     }
 }
 
@@ -203,11 +203,11 @@
 - (void)share:(id)sender {
     NSString *eventInfo = [[NSString alloc] initWithFormat:@"%@ \n Starts on: %@ \n Finishes on: %@ \n Facebook Link: %@", self.event.name, [self.event.startDate stringValue], [self.event.endDate stringValue], self.event.facebookLink];
 
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:@[ eventInfo ] applicationActivities:nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ eventInfo ] applicationActivities:nil];
 
-    activityVC.excludedActivityTypes = @[ UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
+    activityViewController.excludedActivityTypes = @[ UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
 
-    activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+    activityViewController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         NSLog(@" activityType: %@", activityType);
         NSLog(@" completed: %i", completed);
     };
@@ -216,12 +216,12 @@
         if (self.activityPopoverController.popoverVisible) {
             [self.activityPopoverController dismissPopoverAnimated:YES];
         } else {
-            self.activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityVC];
+            self.activityPopoverController = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
 
             [self.activityPopoverController presentPopoverFromBarButtonItem:self.navigationItem.rightBarButtonItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
         }
     } else {
-        [self presentViewController:activityVC animated:YES completion:nil];
+        [self presentViewController:activityViewController animated:YES completion:nil];
     }
 }
 

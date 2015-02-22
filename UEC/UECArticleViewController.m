@@ -15,14 +15,14 @@
 
 @interface UECArticleViewController () <UIWebViewDelegate, UIAlertViewDelegate, NJKWebViewProgressDelegate>
 
-@property (strong, nonatomic) UIPopoverController *activityPopoverController;
+@property (nonatomic, strong) UIPopoverController *activityPopoverController;
 
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 
-@property (strong, nonatomic) NJKWebViewProgress *progressProxy;
-@property (strong, nonatomic) NJKWebViewProgressView *progressView;
+@property (nonatomic, strong) NJKWebViewProgress *progressProxy;
+@property (nonatomic, strong) NJKWebViewProgressView *progressView;
 
-@property (strong, nonatomic) NSURL *clikcedURL;
+@property (nonatomic, strong) NSURL *clikcedURL;
 
 @end
 
@@ -80,15 +80,15 @@
 - (void)share:(id)sender {
     NSArray *items = @[ self.newsArticle.link ];
 
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
 
-    activityVC.excludedActivityTypes = @[ UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
-    activityVC.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+    activityViewController.excludedActivityTypes = @[ UIActivityTypePostToWeibo, UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeCopyToPasteboard, UIActivityTypeSaveToCameraRoll ];
+    activityViewController.completionWithItemsHandler = ^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         NSLog(@" activityType: %@", activityType);
         NSLog(@" completed: %i", completed);
     };
 
-    [self presentViewController:activityVC animated:YES completion:nil];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 #pragma mark - Link Alert

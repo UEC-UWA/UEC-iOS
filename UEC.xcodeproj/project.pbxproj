@@ -48,10 +48,12 @@
 		057F6A6616E32DB700F74752 /* UECPreviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6516E32DB700F74752 /* UECPreviewItem.m */; };
 		057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6B16E3347D00F74752 /* UECTorqueCell.m */; };
 		057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */; };
+		058841521A9A738100B321D9 /* UECNewsArticleSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 058841511A9A738100B321D9 /* UECNewsArticleSearchViewController.m */; };
 		0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */; };
 		0592D846171799F900DB83C8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0592D845171799F900DB83C8 /* Localizable.strings */; };
 		0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */; };
 		05A7E3201A9A683B00FE784D /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A7E31F1A9A683B00FE784D /* Launch Screen.xib */; };
+		05A7E3261A9A6EC500FE784D /* UECNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A7E3251A9A6EC500FE784D /* UECNewsViewController.m */; };
 		05A939F418AB35280047F4CD /* UECNewsArticleCell~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */; };
 		05A939F718AB499C0047F4CD /* Sponsor+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A939F618AB499C0047F4CD /* Sponsor+UEC.m */; };
 		05A939FB18AB5F710047F4CD /* Event+UEC.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A939FA18AB5F710047F4CD /* Event+UEC.m */; };
@@ -164,12 +166,16 @@
 		057F6A6B16E3347D00F74752 /* UECTorqueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorqueCell.m; sourceTree = "<group>"; };
 		057F6A8A16E4449900F74752 /* UECDownloadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECDownloadingCell.h; sourceTree = "<group>"; };
 		057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECDownloadingCell.m; sourceTree = "<group>"; };
+		058841501A9A738100B321D9 /* UECNewsArticleSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsArticleSearchViewController.h; sourceTree = "<group>"; };
+		058841511A9A738100B321D9 /* UECNewsArticleSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsArticleSearchViewController.m; sourceTree = "<group>"; };
 		0592D83C17178FB400DB83C8 /* UECVersionInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECVersionInfoViewController.h; sourceTree = "<group>"; };
 		0592D83D17178FB400DB83C8 /* UECVersionInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECVersionInfoViewController.m; sourceTree = "<group>"; };
 		0592D845171799F900DB83C8 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0593169316CD2AF2006B0845 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
 		0593169416CD2AF2006B0845 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		05A7E31F1A9A683B00FE784D /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
+		05A7E3241A9A6EC500FE784D /* UECNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECNewsViewController.h; sourceTree = "<group>"; };
+		05A7E3251A9A6EC500FE784D /* UECNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECNewsViewController.m; sourceTree = "<group>"; };
 		05A939F318AB35280047F4CD /* UECNewsArticleCell~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "UECNewsArticleCell~ipad.xib"; sourceTree = "<group>"; };
 		05A939F518AB499C0047F4CD /* Sponsor+UEC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Sponsor+UEC.h"; sourceTree = "<group>"; };
 		05A939F618AB499C0047F4CD /* Sponsor+UEC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Sponsor+UEC.m"; sourceTree = "<group>"; };
@@ -574,8 +580,12 @@
 		05DD22CA16C2B6F400CF18F0 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				05A7E3241A9A6EC500FE784D /* UECNewsViewController.h */,
+				05A7E3251A9A6EC500FE784D /* UECNewsViewController.m */,
 				05BCDC7816E774B000AA0FA2 /* UECNewsArticlesViewController.h */,
 				05BCDC7916E774B000AA0FA2 /* UECNewsArticlesViewController.m */,
+				058841501A9A738100B321D9 /* UECNewsArticleSearchViewController.h */,
+				058841511A9A738100B321D9 /* UECNewsArticleSearchViewController.m */,
 				05E4D79F16E462CE00C5374D /* Cell */,
 				0536F76B16DF8943008ECFDA /* Detail */,
 			);
@@ -839,6 +849,7 @@
 				05F9177D16C7648400B1BCE1 /* UECArticleViewController.m in Sources */,
 				05FB0ADF16C7B57800D91F9C /* UECCalendarListViewController.m in Sources */,
 				0593169516CD2AF2006B0845 /* CoreDataTableViewController.m in Sources */,
+				05A7E3261A9A6EC500FE784D /* UECNewsViewController.m in Sources */,
 				05B5C3EA16CF3B73009A75F6 /* UECCommitteeMemberViewController.m in Sources */,
 				05ABF04716D4BDF70090BC4C /* UECCommitteeMemberCell.m in Sources */,
 				050A78A716D50DB10055B742 /* UECAboutViewController.m in Sources */,
@@ -859,6 +870,7 @@
 				054A32A7170301000070D9A9 /* UECTorquesViewController.m in Sources */,
 				054DBD6D1716C8A00026A7AE /* APSDataManager+UEC.m in Sources */,
 				05C18F461717892600CA2430 /* UECAboutAppViewController.m in Sources */,
+				058841521A9A738100B321D9 /* UECNewsArticleSearchViewController.m in Sources */,
 				05DAAF361890FA2500812C9E /* NSError+Extension.m in Sources */,
 				0592D83E17178FB500DB83C8 /* UECVersionInfoViewController.m in Sources */,
 				052E749D180AA059008EA4E8 /* UECThemeResources.m in Sources */,

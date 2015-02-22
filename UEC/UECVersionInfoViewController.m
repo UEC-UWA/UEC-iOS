@@ -10,7 +10,7 @@
 
 @interface UECVersionInfoViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *buildLabel;
+@property (nonatomic, weak) IBOutlet UILabel *buildLabel;
 
 @end
 

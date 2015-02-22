@@ -6,10 +6,10 @@
 //  Copyright (c) 2013 Appulse. All rights reserved.
 //
 
-@import UIKit;
+#import "UECNewsViewController.h"
 
-#import "CoreDataTableViewController.h"
+@interface UECNewsArticlesViewController : UECNewsViewController
 
-@interface UECNewsArticlesViewController : CoreDataTableViewController
+- (void)pushArticle:(NewsArticle *)newsArticle;
 
 @end

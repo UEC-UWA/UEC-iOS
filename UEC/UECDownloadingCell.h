@@ -10,10 +10,10 @@
 
 @interface UECDownloadingCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *widthConstraint;
+@property (nonatomic, weak) IBOutlet NSLayoutConstraint *widthConstraint;
 
-@property (weak, nonatomic) IBOutlet UIView *downloadingBar;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel, *progressLabel;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *downloadActivityView;
+@property (nonatomic, weak) IBOutlet UIView *downloadingBar;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel, *progressLabel;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *downloadActivityView;
 
 @end

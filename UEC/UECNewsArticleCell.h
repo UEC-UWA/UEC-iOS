@@ -10,6 +10,6 @@
 
 @interface UECNewsArticleCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel, *categoryLabel, *summaryLabel, *dateLabel;
+@property (nonatomic, weak) IBOutlet UILabel *titleLabel, *categoryLabel, *summaryLabel, *dateLabel;
 
 @end

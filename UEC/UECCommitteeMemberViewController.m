@@ -17,10 +17,10 @@
 
 @interface UECCommitteeMemberViewController () <UIActionSheetDelegate>
 
-@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
-@property (weak, nonatomic) IBOutlet UITableViewCell *emailCell;
-@property (weak, nonatomic) IBOutlet UITextView *summaryTextView;
+@property (nonatomic, weak) IBOutlet UIImageView *pictureImageView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel, *positionLabel, *subcommitteeLabel;
+@property (nonatomic, weak) IBOutlet UITableViewCell *emailCell;
+@property (nonatomic, weak) IBOutlet UITextView *summaryTextView;
 
 @end
 

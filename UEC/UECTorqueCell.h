@@ -10,7 +10,7 @@
 
 @interface UECTorqueCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel, *sizeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel, *sizeLabel;
+@property (nonatomic, weak) IBOutlet UIButton *downloadButton;
 
 @end

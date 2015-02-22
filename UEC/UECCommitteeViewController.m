@@ -20,7 +20,7 @@
 
 @interface UECCommitteeViewController ()
 
-@property (strong, nonatomic) UECCommitteeMemberViewController *detailVC;
+@property (nonatomic, strong) UECCommitteeMemberViewController *detailViewController;
 
 @end
 
@@ -53,8 +53,8 @@ static CGFloat kCellHeight = 55.0;
     if ([segue.identifier isEqualToString:@"Person Detail Segue"]) {
         NSIndexPath *selectedIndexPath = [self.tableView indexPathForCell:sender];
 
-        self.detailVC = [segue destinationViewController];
-        self.detailVC.person = [self.fetchedResultsController objectAtIndexPath:selectedIndexPath];
+        self.detailViewController = [segue destinationViewController];
+        self.detailViewController.person = [self.fetchedResultsController objectAtIndexPath:selectedIndexPath];
     }
 }
 

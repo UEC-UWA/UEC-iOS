@@ -10,7 +10,7 @@
 
 @interface UECEventCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *eventLabel, *eventDetailLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *eventImageView, *categoryImageView;
+@property (nonatomic, weak) IBOutlet UILabel *eventLabel, *eventDetailLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *eventImageView, *categoryImageView;
 
 @end

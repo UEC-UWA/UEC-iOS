@@ -10,6 +10,6 @@
 
 @interface UECMapViewController : UIViewController
 
-@property (strong, nonatomic) NSString *address, *location, *eventTitle;
+@property (nonatomic, strong) NSString *address, *location, *eventTitle;
 
 @end

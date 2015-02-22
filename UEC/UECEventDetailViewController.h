@@ -12,6 +12,6 @@
 
 @interface UECEventDetailViewController : UITableViewController
 
-@property (strong, nonatomic) Event *event;
+@property (nonatomic, strong) Event *event;
 
 @end

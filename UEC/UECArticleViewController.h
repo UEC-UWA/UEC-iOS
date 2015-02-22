@@ -12,6 +12,6 @@
 
 @interface UECArticleViewController : UIViewController
 
-@property (strong, nonatomic) NewsArticle *newsArticle;
+@property (nonatomic, strong) NewsArticle *newsArticle;
 
 @end

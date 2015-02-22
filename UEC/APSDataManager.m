@@ -19,8 +19,8 @@
 
 @interface APSDataManager ()
 
-@property (strong, nonatomic) NSDictionary *mappingDictionaries;
-@property (strong, nonatomic) UECCoreDataManager *coreDataManager;
+@property (nonatomic, strong) NSDictionary *mappingDictionaries;
+@property (nonatomic, strong) UECCoreDataManager *coreDataManager;
 
 @end
 

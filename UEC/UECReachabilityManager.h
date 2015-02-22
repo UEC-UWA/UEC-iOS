@@ -17,7 +17,7 @@
 
 @interface UECReachabilityManager : NSObject
 
-@property (weak, nonatomic) id<UECReachabilityManagerDelegate> delegate;
+@property (nonatomic, weak) id<UECReachabilityManagerDelegate> delegate;
 
 @property (nonatomic) AFNetworkReachabilityStatus networkStatus;
 
