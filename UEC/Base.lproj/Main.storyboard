@@ -1171,45 +1171,46 @@ This was of course quite humiliating and the mood changed when a group of former
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5YX-VZ-eje">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPC-iY-fiD">
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" id="jiy-Gq-jO0"/>
+                                                <constraint firstAttribute="width" id="mQg-2O-23W"/>
                                             </constraints>
                                         </view>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6WP-iK-IgZ">
+                                            <rect key="frame" x="568" y="12" width="20" height="20"/>
+                                        </activityIndicatorView>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LXi-hy-jvj">
-                                            <rect key="frame" x="15" y="2" width="34" height="21.5"/>
+                                            <rect key="frame" x="15" y="2" width="34" height="22"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="6WP-iK-IgZ">
-                                            <rect key="frame" x="568" y="12" width="20" height="20"/>
-                                        </activityIndicatorView>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuU-zD-ApT">
-                                            <rect key="frame" x="15" y="25" width="49.5" height="17"/>
+                                            <rect key="frame" x="15" y="25" width="50" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ZPC-iY-fiD" firstAttribute="top" secondItem="2dL-y6-l9q" secondAttribute="top" id="A7c-22-0sS"/>
+                                        <constraint firstItem="LXi-hy-jvj" firstAttribute="top" secondItem="2dL-y6-l9q" secondAttribute="top" constant="2" id="D0o-b8-zzD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="6WP-iK-IgZ" secondAttribute="trailing" constant="4" id="Gga-va-HUU"/>
+                                        <constraint firstItem="6WP-iK-IgZ" firstAttribute="top" secondItem="2dL-y6-l9q" secondAttribute="topMargin" constant="4" id="Mop-EX-jDl"/>
+                                        <constraint firstItem="KuU-zD-ApT" firstAttribute="leading" secondItem="2dL-y6-l9q" secondAttribute="leading" constant="15" id="QOg-Zm-L39"/>
+                                        <constraint firstAttribute="bottom" secondItem="KuU-zD-ApT" secondAttribute="bottom" constant="2" id="VJw-pO-q1f"/>
+                                        <constraint firstAttribute="bottom" secondItem="ZPC-iY-fiD" secondAttribute="bottom" id="fdX-12-2Ph"/>
+                                        <constraint firstItem="ZPC-iY-fiD" firstAttribute="leading" secondItem="2dL-y6-l9q" secondAttribute="leading" id="ivx-mX-Z5u"/>
+                                        <constraint firstItem="LXi-hy-jvj" firstAttribute="leading" secondItem="2dL-y6-l9q" secondAttribute="leading" constant="15" id="xzM-k2-iop"/>
+                                    </constraints>
                                 </tableViewCellContentView>
-                                <constraints>
-                                    <constraint firstItem="5YX-VZ-eje" firstAttribute="top" secondItem="hvb-ib-LxT" secondAttribute="top" id="0Q1-XH-NSc"/>
-                                    <constraint firstAttribute="bottom" secondItem="KuU-zD-ApT" secondAttribute="bottom" constant="2" id="5My-WY-gcX"/>
-                                    <constraint firstItem="6WP-iK-IgZ" firstAttribute="centerY" secondItem="5YX-VZ-eje" secondAttribute="centerY" constant="22" id="6oq-xW-bI3"/>
-                                    <constraint firstAttribute="bottom" secondItem="LXi-hy-jvj" secondAttribute="bottom" constant="20" id="9Yp-3H-AR1"/>
-                                    <constraint firstItem="KuU-zD-ApT" firstAttribute="leading" secondItem="LXi-hy-jvj" secondAttribute="leading" id="Bcn-XT-siq"/>
-                                    <constraint firstItem="5YX-VZ-eje" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" id="PkP-IB-JCR"/>
-                                    <constraint firstAttribute="trailing" secondItem="6WP-iK-IgZ" secondAttribute="trailing" constant="12" id="r5C-kC-bN5"/>
-                                    <constraint firstItem="LXi-hy-jvj" firstAttribute="leading" secondItem="hvb-ib-LxT" secondAttribute="leading" constant="15" id="ssi-Lu-CR4"/>
-                                    <constraint firstItem="5YX-VZ-eje" firstAttribute="bottom" secondItem="hvb-ib-LxT" secondAttribute="bottom" constant="-44" id="zSt-kP-bDQ"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="downloadActivityView" destination="6WP-iK-IgZ" id="YnC-nO-Ap0"/>
-                                    <outlet property="downloadingBar" destination="5YX-VZ-eje" id="6mT-sc-b8o"/>
+                                    <outlet property="downloadingBar" destination="ZPC-iY-fiD" id="VYD-2E-w8q"/>
                                     <outlet property="nameLabel" destination="LXi-hy-jvj" id="OE5-kB-1EL"/>
                                     <outlet property="progressLabel" destination="KuU-zD-ApT" id="Jm0-4Y-BfF"/>
-                                    <outlet property="widthConstraint" destination="jiy-Gq-jO0" id="hxu-If-Utz"/>
+                                    <outlet property="widthConstraint" destination="mQg-2O-23W" id="7hh-xw-7q8"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Torque Downloaded Cell" textLabel="hyj-A4-bJg" style="IBUITableViewCellStyleDefault" id="eIb-gT-dN4">

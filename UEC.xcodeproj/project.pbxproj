@@ -44,7 +44,6 @@
 		0559115716C41A6100BF14D2 /* gentleman.png in Resources */ = {isa = PBXBuildFile; fileRef = 0559115616C41A6100BF14D2 /* gentleman.png */; };
 		056CA06E1A9A5E200096833F /* UECTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 056CA06D1A9A5E200096833F /* UECTests.m */; };
 		056D2BFB1897BD6900C5910A /* UECTorquePreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 056D2BFA1897BD6900C5910A /* UECTorquePreviewController.m */; };
-		057F6A5916E31BCF00F74752 /* DummyBend.plist in Resources */ = {isa = PBXBuildFile; fileRef = 057F6A5816E31BCF00F74752 /* DummyBend.plist */; };
 		057F6A6616E32DB700F74752 /* UECPreviewItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6516E32DB700F74752 /* UECPreviewItem.m */; };
 		057F6A6C16E3347D00F74752 /* UECTorqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A6B16E3347D00F74752 /* UECTorqueCell.m */; };
 		057F6A8C16E4449A00F74752 /* UECDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 057F6A8B16E4449A00F74752 /* UECDownloadingCell.m */; };
@@ -159,7 +158,6 @@
 		056CA0741A9A60000096833F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		056D2BF91897BD6900C5910A /* UECTorquePreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTorquePreviewController.h; sourceTree = "<group>"; };
 		056D2BFA1897BD6900C5910A /* UECTorquePreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECTorquePreviewController.m; sourceTree = "<group>"; };
-		057F6A5816E31BCF00F74752 /* DummyBend.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DummyBend.plist; sourceTree = "<group>"; };
 		057F6A6416E32DB700F74752 /* UECPreviewItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECPreviewItem.h; sourceTree = "<group>"; };
 		057F6A6516E32DB700F74752 /* UECPreviewItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UECPreviewItem.m; sourceTree = "<group>"; };
 		057F6A6A16E3347D00F74752 /* UECTorqueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UECTorqueCell.h; sourceTree = "<group>"; };
@@ -469,7 +467,6 @@
 				0559113016C3E6D200BF14D2 /* DummyPerson.plist */,
 				050A78AB16D50F070055B742 /* DummySponsor.plist */,
 				05CB950916D9EF90004EFAFB /* DummyAboutUEC.plist */,
-				057F6A5816E31BCF00F74752 /* DummyBend.plist */,
 				0559115616C41A6100BF14D2 /* gentleman.png */,
 			);
 			name = "Temp Dummy";
@@ -779,7 +776,6 @@
 				051B3D5916C581FB007BAB12 /* UECNewsArticleCell~iphone.xib in Resources */,
 				050A78AC16D50F070055B742 /* DummySponsor.plist in Resources */,
 				05CB950A16D9EF90004EFAFB /* DummyAboutUEC.plist in Resources */,
-				057F6A5916E31BCF00F74752 /* DummyBend.plist in Resources */,
 				05BCDC8716E7802100AA0FA2 /* DummyTorque.plist in Resources */,
 				0592D846171799F900DB83C8 /* Localizable.strings in Resources */,
 			);

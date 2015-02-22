@@ -60,6 +60,7 @@ static NSInteger kPreviewTag = 100;
         request.sortDescriptors = @[downloadedSD, dateSD];
     } entityName:@"Torque" sectionNameKeyPath:@"downloaded" cacheName:nil];
 
+    self.tableView.rowHeight = 44.0;
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Torque Downloaded Cell"];
 
     [self handleEditButtonItem];
@@ -186,7 +187,7 @@ static NSInteger kPreviewTag = 100;
 }
 
 - (void)downloadTorque:(id)sender {
-    id cell = [[[sender superview] superview] superview];
+    id cell = [[sender superview] superview];
 
     if ([cell isKindOfClass:[UECTorqueCell class]]) {
         UECTorqueCell *torqueCell = (UECTorqueCell *)cell;
