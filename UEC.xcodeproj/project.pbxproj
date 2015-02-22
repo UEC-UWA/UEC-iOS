@@ -987,7 +987,7 @@
 				GCC_PREFIX_HEADER = "UEC/UEC-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
-					"SERVER=0",
+					"SERVER=1",
 					"PUSH=0",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS_NOT_USED_IN_PRECOMPS = "";

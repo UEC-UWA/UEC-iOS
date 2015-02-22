@@ -11,19 +11,7 @@
 @implementation NSError (Extension)
 
 - (void)handle {
-#if DEBUG
-    NSString *title = [[NSString alloc] initWithFormat:@"Error %li", (long)[self code]];
-    NSString *message = [[NSString alloc] initWithFormat:@"%@ %@ %@", [self localizedDescription], [self localizedFailureReason], [self localizedRecoverySuggestion]];
-
-    UIAlertView *errorAV = [[UIAlertView alloc] initWithTitle:title
-                                                      message:message
-                                                     delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [errorAV show];
-#else
-    NSLog(@"[%@ %@] %@ (%@) -> %@", NSStringFromClass([self class]), NSStringFromSelector(_cmd), [self localizedDescription], [self localizedFailureReason], [self localizedRecoverySuggestion]);
-#endif
+    NSLog(@"%@", self);
 }
 
 @end

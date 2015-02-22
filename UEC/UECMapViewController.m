@@ -34,8 +34,6 @@
     self.view.tintColor = UEC_YELLOW;
 
     self.title = self.location;
-
-    self.mapView.showsUserLocation = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
