@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>id</key>
+		<string>1</string>
+		<key>name</key>
+		<string>BHP</string>
+		<key>website_path</key>
+		<string>http://www.bhpbilliton.com/home/Pages/default.aspx</string>
+		<key>logo_path</key>
+		<string>http://www.jagsreport.com/logos/bhp-billiton-logo.jpg</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>2</string>
+		<key>name</key>
+		<string>Rio Tinto</string>
+		<key>website_path</key>
+		<string>http://www.riotinto.com</string>
+		<key>logo_path</key>
+		<string>http://asklogo.com/images/R/rio%20tinto%2064%20logo.jpg</string>
+	</dict>
+	<dict>
+		<key>id</key>
+		<string>3</string>
+		<key>name</key>
+		<string>CLOUGH</string>
+		<key>website_path</key>
+		<string>http://www.clough.com.au</string>
+		<key>logo_path</key>
+		<string>http://www.first10.com.au/files/L0LWEOPC0A/logo36.jpg</string>
+	</dict>
+</array>
+</plist>

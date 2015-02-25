@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AboutUEC</key>
+	<string>http://aboutUECJSON</string>
+	<key>BasePath2</key>
+	<string>http://mattbrightman.com/uec/app_scripts.php?script=</string>
+	<key>BasePath</key>
+	<string>http://uec.org.au/app_scripts/?script=</string>
+	<key>PushNotifications</key>
+	<string></string>
+	<key>Person</key>
+	<string>person</string>
+	<key>NewsArticle</key>
+	<string>newsarticle</string>
+	<key>Event</key>
+	<string>event</string>
+	<key>Sponsor</key>
+	<string>sponsor</string>
+	<key>Torque</key>
+	<string>torque</string>
+	<key>Bend</key>
+	<string>bend</string>
+</dict>
+</plist>
