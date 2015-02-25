@@ -26,7 +26,7 @@
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @protocol AFURLResponseSerialization, AFImageCache;
 

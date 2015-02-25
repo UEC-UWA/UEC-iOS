@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 Dailymotion. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 @interface UIImage (MultiFormat)
 

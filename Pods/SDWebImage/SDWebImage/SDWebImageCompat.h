@@ -27,7 +27,7 @@
 #endif
 #else
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 
 #endif
 
